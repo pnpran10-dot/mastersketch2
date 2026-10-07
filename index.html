@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MasterSketch Studio</title>
+<title>MasterSketch Studio</title><link rel="manifest" href="manifest.webmanifest">
 <meta name="description" content="A free drawing, painting and animation studio for Android, iPad, Windows, Mac and the web. Works offline.">
 <meta name="theme-color" content="#0b0d12">
 <meta property="og:title" content="MasterSketch Studio">
@@ -149,16 +149,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <nav class="top"><div class="wrap">
  <a class="brand" href="#"><img src="icon-192.png" alt="">MasterSketch</a>
  <div class="links"><a href="#features"><span lang="en">Features</span><span lang="th">ฟีเจอร์</span></a><a href="#download"><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a><a href="#faq"><span lang="en">FAQ</span><span lang="th">คำถามที่พบบ่อย</span></a></div>
- <div class="lang" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="th">ไทย</button></div>
+ <a class="btn install navinstall" href="#" data-install><span lang="en">Install</span><span lang="th">ติดตั้ง</span></a><div class="lang" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="th">ไทย</button></div>
 </div></nav>
 
 <header class="hero"><div class="wrap grid2">
  <div>
-  <span class="eyebrow"><b>●</b> <span lang="en">Free · works offline · version 3.4</span><span lang="th">ฟรี · ใช้งานออฟไลน์ได้ · เวอร์ชัน 3.4</span></span>
+  <span class="eyebrow"><b>●</b> <span lang="en">Free · works offline · version 3.5 · new 3D Studio</span><span lang="th">ฟรี · ใช้งานออฟไลน์ได้ · เวอร์ชัน 3.5 · ใหม่! สตูดิโอ 3D</span></span>
   <h1><span lang="en">Draw anything,<br><span class="stroke">on any device.</span></span><span lang="th">วาดได้ทุกอย่าง<br><span class="stroke">บนทุกอุปกรณ์</span></span></h1>
-  <p class="lead"><span lang="en">MasterSketch Studio is a full drawing, painting and animation app — layers, 27 tools, pen pressure, line art from photos and GIF animation. Install it on your phone, tablet or computer in a minute.</span><span lang="th">MasterSketch Studio คือแอปวาดภาพ ระบายสี และทำแอนิเมชันแบบครบชุด มีเลเยอร์ เครื่องมือ 27 แบบ รองรับแรงกดปากกา เปลี่ยนรูปถ่ายเป็นลายเส้น และทำ GIF ได้ ติดตั้งบนมือถือ แท็บเล็ต หรือคอมพิวเตอร์ได้ในหนึ่งนาที</span></p>
+  <p class="lead"><span lang="en">MasterSketch Studio is a full drawing, painting and animation app — layers, 27 tools, pen pressure, line art from photos, GIF animation and a full 3D Studio. Install it on your phone, tablet or computer in a minute.</span><span lang="th">MasterSketch Studio คือแอปวาดภาพ ระบายสี และทำแอนิเมชันแบบครบชุด มีเลเยอร์ เครื่องมือ 27 แบบ รองรับแรงกดปากกา เปลี่ยนรูปถ่ายเป็นลายเส้น ทำ GIF และมีสตูดิโอ 3D เต็มรูปแบบ ติดตั้งบนมือถือ แท็บเล็ต หรือคอมพิวเตอร์ได้ในหนึ่งนาที</span></p>
   <div class="cta">
-   <a class="btn pri" id="mainBtn" href="#download"><svg><use href="#i-down"/></svg><span id="mainLabel"><span lang="en">Download for your device</span><span lang="th">ดาวน์โหลดสำหรับอุปกรณ์ของคุณ</span></span></a>
+   <a class="btn install" href="#" data-install><svg><use href="#i-down"/></svg><span lang="en">Install app</span><span lang="th">ติดตั้งแอป</span></a>
+   <a class="btn" id="mainBtn" href="#download"><svg><use href="#i-down"/></svg><span id="mainLabel"><span lang="en">Download for your device</span><span lang="th">ดาวน์โหลดสำหรับอุปกรณ์ของคุณ</span></span></a>
    <a class="btn" href="app.html" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><span lang="en">Use it in your browser</span><span lang="th">ใช้งานผ่านเบราว์เซอร์</span></a>
   </div>
   <p class="hint" id="detectHint"></p>
@@ -183,9 +184,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <div class="stat"><b>88</b><span lang="en">commands</span><span lang="th">คำสั่ง</span></div>
   <div class="stat"><b>20</b><span lang="en">filters &amp; effects</span><span lang="th">ฟิลเตอร์และเอฟเฟกต์</span></div>
   <div class="stat"><b>50+</b><span lang="en">fonts</span><span lang="th">ฟอนต์</span></div>
+  <div class="stat"><b>21</b><span lang="en">3D models</span><span lang="th">โมเดล 3D</span></div>
   <div class="stat"><b>5</b><span lang="en">languages</span><span lang="th">ภาษา</span></div>
  </div>
  <div class="feats">
+  <div class="feat big"><img src="shot-3d.jpg" width="800" height="450" alt="The 3D Studio with a posed mannequin and a red mug, model library on the left and colour settings on the right"><div><div class="ic">🧊</div><h3><span lang="en">New: 3D Studio</span><span lang="th">ใหม่! สตูดิโอ 3D</span></h3><p><span lang="en">21 ready-made models, including a poseable mannequin with 9 poses, or import your own .glb, .obj and .stl files. Colour them, paint right on them, pick metal, glass or cartoon looks, light the scene, then place the picture on your drawing or export a spinning GIF.</span><span lang="th">โมเดลสำเร็จรูป 21 แบบ รวมหุ่นจำลองที่จัดท่าได้ 9 ท่า หรือนำเข้าไฟล์ .glb, .obj และ .stl ของคุณเอง เปลี่ยนสี ระบายสีลงบนโมเดล เลือกพื้นผิวโลหะ แก้ว หรือการ์ตูน จัดแสง แล้ววางภาพลงบนภาพวาดหรือส่งออกเป็น GIF หมุนรอบ</span></p></div></div>
   <div class="feat big"><img src="shot-brushes.jpg" width="800" height="450" alt="The brush library with live previews of every brush"><div><div class="ic">🖌️</div><h3><span lang="en">13 brushes with live previews</span><span lang="th">แปรง 13 แบบพร้อมตัวอย่างสด</span></h3><p><span lang="en">Pen, pencil, soft airbrush, calligraphy, marker, chalk, spray, neon glow, watercolor, sketchy and more. Save your favourite settings as presets.</span><span lang="th">ปากกา ดินสอ แปรงนุ่ม คอลลิกราฟี มาร์กเกอร์ ชอล์ก สเปรย์ นีออน สีน้ำ ลายเส้นสเก็ตช์ และอีกมาก บันทึกการตั้งค่าที่ชอบเป็นพรีเซ็ตได้</span></p></div></div>
   <div class="feat"><div class="ic">🖼️</div><h3><span lang="en">Photo to line art</span><span lang="th">รูปถ่ายเป็นลายเส้น</span></h3><p><span lang="en">Turn any picture into a clean colouring page or a pencil sketch — only the outlines stay.</span><span lang="th">เปลี่ยนรูปภาพเป็นภาพระบายสีหรือภาพร่างดินสอ เหลือเฉพาะเส้นโครงร่าง</span></p></div>
   <div class="feat"><div class="ic">🎞️</div><h3><span lang="en">Animation &amp; GIFs</span><span lang="th">แอนิเมชันและ GIF</span></h3><p><span lang="en">Each layer is a frame, with onion skin and playback. Export to GIF or video.</span><span lang="th">แต่ละเลเยอร์คือเฟรม มีโอเนียนสกินและเล่นดูได้ ส่งออกเป็น GIF หรือวิดีโอ</span></p></div>
@@ -210,7 +213,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <div class="card" data-os="ios"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
    <div class="os"><svg><use href="#i-ipad"/></svg><div><h3>iPad &amp; iPhone</h3><div class="meta"><span lang="en">Installs from Safari · works offline</span><span lang="th">ติดตั้งผ่าน Safari · ใช้ออฟไลน์ได้</span></div></div></div>
    <ol><li><span lang="en">Open the app in Safari.</span><span lang="th">เปิดแอปใน Safari</span></li><li><span lang="en">Tap the Share button.</span><span lang="th">แตะปุ่มแชร์</span></li><li><span lang="en">Choose "Add to Home Screen" and open it from the new icon.</span><span lang="th">เลือก "เพิ่มไปยังหน้าจอโฮม" แล้วเปิดจากไอคอนใหม่</span></li></ol>
-   <a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></div>
+   <a class="btn install" href="#" data-install><svg><use href="#i-down"/></svg><span lang="en">Install on iPad / iPhone</span><span lang="th">ติดตั้งบน iPad / iPhone</span></a><a class="btn" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></div>
   <div class="card" data-os="windows"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
    <div class="os"><svg><use href="#i-win"/></svg><div><h3>Windows</h3><div class="meta"><span lang="en">Windows 10 &amp; 11 · 10.9 MB · no install</span><span lang="th">Windows 10 และ 11 · 10.9 MB · ไม่ต้องติดตั้ง</span></div></div></div>
    <ol><li><span lang="en">Download and double-click the file.</span><span lang="th">ดาวน์โหลดแล้วดับเบิลคลิกไฟล์</span></li><li><span lang="en">If SmartScreen appears: More info → Run anyway.</span><span lang="th">ถ้ามี SmartScreen ขึ้น: ข้อมูลเพิ่มเติม → เรียกใช้ต่อไป</span></li><li><span lang="en">Pin it to the taskbar if you like.</span><span lang="th">ปักหมุดไว้ที่ทาสก์บาร์ได้ตามต้องการ</span></li></ol>
@@ -220,7 +223,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
    <ol><li><span lang="en">Download, unzip and drag the app to Applications.</span><span lang="th">ดาวน์โหลด แตกไฟล์ แล้วลากแอปไปที่ Applications</span></li><li><span lang="en">First time: right-click the app → Open → Open.</span><span lang="th">ครั้งแรก: คลิกขวาที่แอป → เปิด → เปิด</span></li><li><span lang="en">Opens in its own window (best with Chrome or Edge installed).</span><span lang="th">เปิดในหน้าต่างของตัวเอง (ดีที่สุดเมื่อมี Chrome หรือ Edge)</span></li></ol>
    <a class="btn pri" href="MasterSketch-Studio-3.4-mac.zip" download><svg><use href="#i-down"/></svg><span lang="en">Download for Mac</span><span lang="th">ดาวน์โหลดสำหรับ Mac</span></a></div>
  </div>
- <p class="alt"><span lang="en">No install at all? <a href="app.html">Use it in your browser</a> — on Chrome or Edge you can also click "Install app" in the address bar. Or download the <a href="MasterSketch-Studio-3.4-Web.html" download>single-file version</a>.</span><span lang="th">ไม่อยากติดตั้ง? <a href="app.html">ใช้งานผ่านเบราว์เซอร์</a> หรือใน Chrome และ Edge กด "ติดตั้งแอป" ในแถบที่อยู่ได้ หรือดาวน์โหลด<a href="MasterSketch-Studio-3.4-Web.html" download>เวอร์ชันไฟล์เดียว</a></span></p>
+ <p class="alt"><span lang="en">No install at all? <a href="app.html">Use it in your browser</a> — on Chrome or Edge you can also click "Install app" in the address bar. Or download the <a href="MasterSketch-Studio-3.5-Web.html" download>single-file version</a>.</span><span lang="th">ไม่อยากติดตั้ง? <a href="app.html">ใช้งานผ่านเบราว์เซอร์</a> หรือใน Chrome และ Edge กด "ติดตั้งแอป" ในแถบที่อยู่ได้ หรือดาวน์โหลด<a href="MasterSketch-Studio-3.5-Web.html" download>เวอร์ชันไฟล์เดียว</a></span></p>
 </div></section>
 
 <section id="faq"><div class="wrap">
@@ -238,10 +241,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 <div class="final wrap">
  <h2><span lang="en">Ready to draw?</span><span lang="th">พร้อมวาดหรือยัง?</span></h2>
- <div class="cta"><a class="btn pri" href="#download"><svg><use href="#i-down"/></svg><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a><a class="btn" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open in browser</span><span lang="th">เปิดในเบราว์เซอร์</span></a></div>
+ <div class="cta"><a class="btn install" href="#" data-install><svg><use href="#i-down"/></svg><span lang="en">Install app</span><span lang="th">ติดตั้งแอป</span></a><a class="btn pri" href="#download"><svg><use href="#i-down"/></svg><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a><a class="btn" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open in browser</span><span lang="th">เปิดในเบราว์เซอร์</span></a></div>
 </div>
 
-<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.4</span><span lang="en">Made for artists of every age.</span><span lang="th">สร้างมาเพื่อศิลปินทุกวัย</span></div></footer>
+<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.5</span><span lang="en">Made for artists of every age.</span><span lang="th">สร้างมาเพื่อศิลปินทุกวัย</span></div></footer>
 
 <script>
 (()=>{
@@ -258,10 +261,88 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
  if(card){card.classList.add('you');const link=card.querySelector('a.btn');const main=document.getElementById('mainBtn');main.href=link.getAttribute('href');if(link.hasAttribute('download'))main.setAttribute('download','');
   const names={android:['Download for Android','ดาวน์โหลดสำหรับ Android'],ios:['Install on iPad / iPhone','ติดตั้งบน iPad / iPhone'],windows:['Download for Windows','ดาวน์โหลดสำหรับ Windows'],mac:['Download for Mac','ดาวน์โหลดสำหรับ Mac']}[os];
   document.getElementById('mainLabel').innerHTML=`<span lang="en">${names[0]}</span><span lang="th">${names[1]}</span>`;
-  if(os==='ios'){main.removeAttribute('download');main.href='app.html'}
+  if(os==='ios'){main.removeAttribute('download');main.href='app.html';main.style.display='none'}
   const hint={android:['Free · 337 KB · Android 7 or newer','ฟรี · 337 KB · Android 7 ขึ้นไป'],ios:['Opens in Safari — then Share → Add to Home Screen','เปิดใน Safari แล้วแชร์ → เพิ่มไปยังหน้าจอโฮม'],windows:['Free · 10.9 MB · Windows 10 & 11','ฟรี · 10.9 MB · Windows 10 และ 11'],mac:['Free · 505 KB · macOS 10.13 or newer','ฟรี · 505 KB · macOS 10.13 ขึ้นไป']}[os];
   document.getElementById('detectHint').innerHTML=`<span lang="en">${hint[0]}</span><span lang="th">${hint[1]}</span>`}
 })();
 </script>
+<div id="instM" class="im" hidden>
+ <div class="im-card" role="dialog" aria-modal="true" aria-labelledby="imT">
+  <button class="im-x" id="imX" aria-label="Close">✕</button>
+  <img src="icon-192.png" alt="" class="im-ic">
+  <h3 id="imT"><span lang="en">Install MasterSketch</span><span lang="th">ติดตั้ง MasterSketch</span></h3>
+  <div class="im-steps" data-for="ios">
+   <ol>
+    <li><span class="im-n">1</span><span><span lang="en">Tap the <b>Share</b> button</span><span lang="th">แตะปุ่ม <b>แชร์</b></span> <svg class="im-share" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M7.5 7.5L12 3l4.5 4.5M6 11H5a1 1 0 00-1 1v8a1 1 0 001 1h14a1 1 0 001-1v-8a1 1 0 00-1-1h-1"/></svg><br><small><span lang="en">at the top or bottom of Safari</span><span lang="th">ที่ด้านบนหรือด้านล่างของ Safari</span></small></span></li>
+    <li><span class="im-n">2</span><span><span lang="en">Scroll down and tap <b>Add to Home Screen</b></span><span lang="th">เลื่อนลงแล้วแตะ <b>เพิ่มไปยังหน้าจอโฮม</b></span> <span class="im-plus">＋</span></span></li>
+    <li><span class="im-n">3</span><span><span lang="en">Tap <b>Add</b>. MasterSketch appears on your Home Screen and opens full screen, even offline.</span><span lang="th">แตะ <b>เพิ่ม</b> ไอคอน MasterSketch จะอยู่บนหน้าจอโฮม เปิดได้เต็มจอแม้ไม่มีอินเทอร์เน็ต</span></span></li>
+   </ol>
+   <p class="im-note" id="imIosOther" hidden><span lang="en">Tip: this works best in <b>Safari</b>. Open this page in Safari if you don't see "Add to Home Screen".</span><span lang="th">เคล็ดลับ: ใช้ได้ดีที่สุดใน <b>Safari</b> หากไม่เห็น "เพิ่มไปยังหน้าจอโฮม" ให้เปิดหน้านี้ใน Safari</span></p>
+  </div>
+  <div class="im-steps" data-for="android">
+   <ol>
+    <li><span class="im-n">1</span><span><span lang="en">Tap the <b>⋮</b> menu at the top right of Chrome</span><span lang="th">แตะเมนู <b>⋮</b> มุมขวาบนของ Chrome</span></span></li>
+    <li><span class="im-n">2</span><span><span lang="en">Tap <b>Install app</b> (or <b>Add to Home screen</b>)</span><span lang="th">แตะ <b>ติดตั้งแอป</b> (หรือ <b>เพิ่มลงในหน้าจอหลัก</b>)</span></span></li>
+    <li><span class="im-n">3</span><span><span lang="en">Tap <b>Install</b>. Open MasterSketch from your home screen.</span><span lang="th">แตะ <b>ติดตั้ง</b> แล้วเปิด MasterSketch จากหน้าจอหลัก</span></span></li>
+   </ol>
+   <p class="im-note"><span lang="en">Prefer a classic app file? Use <b>Download for Android</b> (APK) instead.</span><span lang="th">อยากได้ไฟล์แอปแบบเดิม? ใช้ <b>ดาวน์โหลดสำหรับ Android</b> (APK) แทนได้</span></p>
+  </div>
+  <div class="im-steps" data-for="desktop">
+   <ol>
+    <li><span class="im-n">1</span><span><span lang="en">In <b>Chrome</b> or <b>Edge</b>, click the install icon <b>⊕</b> at the right end of the address bar</span><span lang="th">ใน <b>Chrome</b> หรือ <b>Edge</b> คลิกไอคอนติดตั้ง <b>⊕</b> ที่ท้ายแถบที่อยู่</span></span></li>
+    <li><span class="im-n">2</span><span><span lang="en">Or open the menu <b>⋮</b> → <b>Cast, save and share</b> → <b>Install page as app</b></span><span lang="th">หรือเปิดเมนู <b>⋮</b> → <b>แคสต์ บันทึก และแชร์</b> → <b>ติดตั้งหน้านี้เป็นแอป</b></span></span></li>
+    <li><span class="im-n">3</span><span><span lang="en">Click <b>Install</b>. MasterSketch opens in its own window.</span><span lang="th">คลิก <b>ติดตั้ง</b> MasterSketch จะเปิดในหน้าต่างของตัวเอง</span></span></li>
+   </ol>
+   <p class="im-note"><span lang="en">Using Firefox or Safari on a computer? Download the Windows or Mac app below instead.</span><span lang="th">ใช้ Firefox หรือ Safari บนคอมพิวเตอร์? ดาวน์โหลดแอป Windows หรือ Mac ด้านล่างแทน</span></p>
+  </div>
+  <a class="btn im-alt" href="app.html"><span lang="en">Or just open it in the browser</span><span lang="th">หรือเปิดใช้งานในเบราว์เซอร์</span></a>
+ </div>
+</div>
+<div id="instToast" class="it" hidden></div>
+<style>
+.im{position:fixed;inset:0;z-index:100;background:rgba(5,6,10,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+.im[hidden]{display:none}
+@media (min-width:640px){.im{align-items:center}}
+.im-card{position:relative;width:min(460px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 22px 20px;box-shadow:0 30px 80px #000c;text-align:center;animation:imUp .22s ease-out}
+@keyframes imUp{from{transform:translateY(24px);opacity:0}}
+.im-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--panel2);color:var(--mute);font-size:15px;cursor:pointer}
+.im-ic{width:64px;height:64px;border-radius:16px;margin:0 auto 10px;box-shadow:0 8px 24px #7c8cff55}
+.im-card h3{font-size:22px;margin-bottom:14px}
+.im-steps ol{list-style:none;display:flex;flex-direction:column;gap:12px;text-align:left}
+.im-steps li{display:flex;gap:12px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px}
+.im-steps small{color:var(--mute)}
+.im-n{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--orchid));color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center}
+.im-share{width:20px;height:20px;vertical-align:-4px;color:#4c9aff}
+.im-plus{display:inline-grid;place-items:center;width:20px;height:20px;border:1.5px solid currentColor;border-radius:5px;font-size:12px;vertical-align:-3px}
+.im-note{color:var(--mute);font-size:13.5px;margin-top:12px}
+.im-alt{margin-top:14px;width:100%;justify-content:center}
+.it{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:110;background:var(--panel2);border:1px solid var(--violet);color:var(--text);padding:12px 18px;border-radius:14px;box-shadow:0 12px 30px #000a;font-size:14.5px;max-width:calc(100% - 32px)}
+.it[hidden]{display:none}
+.btn.install{background:linear-gradient(135deg,#5fe3b4,#3fb6ff);color:#04131c;border:0;box-shadow:0 10px 30px #3fb6ff40}
+.btn.install:hover{box-shadow:0 14px 38px #3fb6ff66}
+.navinstall{padding:8px 14px;border-radius:999px;font-size:13.5px;margin-left:8px}
+@media (max-width:600px){.navinstall{display:none}}
+</style>
+<script>
+(()=>{
+ const $=s=>document.querySelector(s),th=()=>document.documentElement.dataset.lang==='th';
+ const ua=navigator.userAgent,iOS=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),android=/Android/i.test(ua);
+ const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+ const btns=[...document.querySelectorAll('[data-install]')];
+ let deferred=null;
+ const toast=(en,thx)=>{const t=$('#instToast');t.textContent=th()?thx:en;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(()=>t.hidden=true,4500)};
+ if(standalone)btns.forEach(b=>b.hidden=true);
+ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
+ addEventListener('appinstalled',()=>{deferred=null;btns.forEach(b=>b.hidden=true);$('#instM').hidden=true;toast('Installed! Open MasterSketch from your home screen or app list.','ติดตั้งแล้ว! เปิด MasterSketch จากหน้าจอหลักหรือรายการแอป')});
+ const guide=()=>{const kind=iOS?'ios':android?'android':'desktop';document.querySelectorAll('.im-steps').forEach(s=>s.hidden=s.dataset.for!==kind);
+  $('#imIosOther').hidden=!(iOS&&/CriOS|FxiOS|EdgiOS/.test(ua));$('#instM').hidden=false;$('#imX').focus()};
+ btns.forEach(b=>b.addEventListener('click',async e=>{e.preventDefault();
+  if(deferred){const d=deferred;deferred=null;d.prompt();try{const r=await d.userChoice;if(r.outcome!=='accepted')toast('Install cancelled. You can try again any time.','ยกเลิกการติดตั้งแล้ว ลองใหม่ได้ทุกเมื่อ')}catch(_){}}else guide()}));
+ $('#imX').onclick=()=>$('#instM').hidden=true;$('#instM').addEventListener('click',e=>{if(e.target.id==='instM')$('#instM').hidden=true});
+ addEventListener('keydown',e=>{if(e.key==='Escape')$('#instM').hidden=true});
+ if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+})();
+</script>
+
 </body>
 </html>
