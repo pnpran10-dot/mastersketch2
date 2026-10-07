@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MasterSketch Studio</title>
+<meta name="description" content="A free drawing, painting and animation studio for Android, iPad, Windows, Mac and the web. Works offline.">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:title" content="MasterSketch Studio">
+<meta property="og:description" content="Free drawing, painting and animation app for every device.">
+<meta property="og:image" content="shot-desktop.jpg">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one long page — hero with the live product, features, per-device downloads, FAQ. */
+:root{
+ --ink:#0b0d12;--panel:#13161d;--panel2:#1a1e27;--line:#262b37;--text:#e8eaf0;--mute:#9aa2b5;
+ --violet:#7c8cff;--orchid:#c084fc;--mint:#5fe3b4;--sun:#ffd23f;
+ --display:"Bricolage Grotesque","Noto Sans Thai",system-ui,sans-serif;
+ --body:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Thai",sans-serif;
+ color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font:16px/1.6 var(--body);overflow-x:hidden}
+html[data-lang=en] [lang=th],html[data-lang=th] [lang=en]{display:none!important}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;letter-spacing:-.02em}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:20;background:rgba(11,13,18,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #ffffff10}
+nav.top .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px}
+.brand img{width:34px;height:34px;border-radius:10px}
+.links{display:flex;gap:22px;margin-left:auto;color:var(--mute);font-size:14.5px}
+.links a:hover{color:var(--text)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;color:var(--mute);font:600 12.5px var(--body);padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--violet);color:#fff}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:600;font-size:15.5px;border:1px solid var(--line);background:var(--panel2);transition:transform .15s,border-color .15s,box-shadow .15s;cursor:pointer;color:var(--text)}
+.btn:hover{transform:translateY(-2px);border-color:var(--violet)}
+.btn.pri{background:linear-gradient(135deg,var(--violet),var(--orchid));border:0;color:#fff;box-shadow:0 10px 30px #7c8cff40}
+.btn.pri:hover{box-shadow:0 14px 38px #7c8cff66}
+.btn small{display:block;font-weight:500;font-size:12px;opacity:.8}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* hero */
+.hero{position:relative;padding:72px 0 40px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-20% -10% auto;height:620px;background:radial-gradient(520px 320px at 22% 30%,#7c8cff38,transparent 70%),radial-gradient(460px 320px at 80% 10%,#c084fc30,transparent 70%);pointer-events:none}
+.hero .grid2{position:relative;display:grid;grid-template-columns:1.02fr 1.25fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff14;color:var(--mute);font-size:13px;font-weight:500}
+.eyebrow b{color:var(--mint)}
+.hero h1{font-size:clamp(40px,6vw,72px);font-weight:800;margin:18px 0 18px}
+.hero h1 .stroke{background:linear-gradient(100deg,var(--violet),var(--orchid) 60%,#ff8fd6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--mute);font-size:18.5px;max-width:520px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 14px}
+.hint{color:var(--mute);font-size:13px}
+.shot{position:relative}
+.shot .frame{border-radius:18px;overflow:hidden;border:1px solid #ffffff1c;box-shadow:0 40px 90px #000c,0 0 0 8px #ffffff06;transform:perspective(1600px) rotateY(-7deg) rotateX(3deg);transition:transform .5s}
+.shot:hover .frame{transform:perspective(1600px) rotateY(-2deg) rotateX(1deg)}
+.shot .phone{position:absolute;right:-14px;bottom:-34px;width:21%;border-radius:22px;overflow:hidden;border:5px solid #20242e;box-shadow:0 26px 60px #000d}
+.squiggle{position:absolute;left:-36px;top:-30px;width:120px;opacity:.9}
+
+/* platforms strip */
+.plats{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;padding:28px 0 8px;color:var(--mute);font-size:14px}
+.plats span{display:flex;align-items:center;gap:8px}.plats svg{width:18px;height:18px;opacity:.8}
+
+/* sections */
+section{padding:90px 0}
+.kicker{color:var(--violet);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+section h2{font-size:clamp(30px,4.2vw,48px);font-weight:800;margin:10px 0 14px;max-width:760px}
+section .sub{color:var(--mute);max-width:640px;font-size:17px}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.feat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.feat .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:#7c8cff1f}
+.feat h3{font-size:20px;font-weight:700}
+.feat p{color:var(--mute);font-size:15px}
+.feat.big{grid-column:span 2;flex-direction:row;align-items:center;gap:26px;padding:20px}
+.feat.big img{width:52%;border-radius:12px;border:1px solid var(--line)}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.stat{padding:12px 18px;border-radius:14px;background:var(--panel);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--display);font-size:26px;display:block;line-height:1.1}
+.stat span{color:var(--mute);font-size:13px}
+
+/* downloads */
+#download{background:linear-gradient(180deg,transparent,#11141b 18%,#11141b 82%,transparent)}
+.dl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px;position:relative;min-width:0}
+.card.you{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 18px 50px #7c8cff26}
+.card .you-tag{position:absolute;top:-11px;left:20px;background:var(--violet);color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;display:none}
+.card.you .you-tag{display:block}
+.card .os{display:flex;align-items:center;gap:12px}
+.card .os svg{width:34px;height:34px}
+.card h3{font-size:21px}
+.card .meta{color:var(--mute);font-size:13px}
+.card ol{padding-left:18px;color:var(--mute);font-size:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .btn{justify-content:center}
+.alt{margin-top:22px;color:var(--mute);font-size:14.5px;text-align:center}
+.alt a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;margin-top:36px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--violet);font-size:20px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{color:var(--mute);margin-top:10px;font-size:15px}
+
+/* final cta + footer */
+.final{text-align:center;padding:90px 0 70px}
+.final h2{margin-inline:auto}
+.final .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--mute);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+@media (max-width:980px){
+ .hero .grid2{grid-template-columns:1fr}.shot{margin-top:10px}.shot .frame{transform:none}
+ .feats{grid-template-columns:1fr 1fr}.feat.big{grid-column:span 2;flex-direction:column}.feat.big img{width:100%}
+ .dl{grid-template-columns:1fr 1fr}.faq{grid-template-columns:1fr}.links{display:none}.lang{margin-left:auto}
+}
+@media (max-width:600px){
+ .wrap{width:calc(100% - 32px)}.hero{padding-top:42px}.feats,.dl{grid-template-columns:1fr}.feat.big{grid-column:auto}
+ .shot .phone{width:17%;right:-4px;bottom:-22px}.squiggle{display:none}.btn{width:100%;justify-content:center}section{padding:64px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.shot .frame{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-android" viewBox="0 0 24 24"><path fill="#3ddc84" d="M17.6 9.5l1.7-3a.4.4 0 00-.7-.4l-1.8 3.1a10.6 10.6 0 00-9.6 0L5.4 6.1a.4.4 0 00-.7.4l1.7 3A9.8 9.8 0 001.5 17h21a9.8 9.8 0 00-4.9-7.5zM7 14.2a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2z"/></symbol>
+ <symbol id="i-win" viewBox="0 0 24 24"><path fill="#4cc2ff" d="M2 4.5l8.2-1.1v7.9H2zm9.2-1.3L22 1.7v9.6H11.2zM2 12.3h8.2v7.9L2 19.1zm9.2 0H22V22l-10.8-1.5z"/></symbol>
+ <symbol id="i-apple" viewBox="0 0 24 24"><path fill="#e8eaf0" d="M16.4 12.7c0-2.5 2-3.6 2.1-3.7a4.6 4.6 0 00-3.6-2c-1.5-.2-3 .9-3.7.9s-2-.9-3.2-.8a4.8 4.8 0 00-4 2.4c-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4s1.7-.8 3.1-.8 1.9.8 3.2.7 2.1-1.2 2.9-2.4a10 10 0 001.3-2.7 4.2 4.2 0 01-2.3-3.8zM14 5.3a4.3 4.3 0 001-3.1 4.4 4.4 0 00-2.9 1.5 4 4 0 00-1 3 3.6 3.6 0 002.9-1.4z"/></symbol>
+ <symbol id="i-ipad" viewBox="0 0 24 24"><rect x="4" y="1.8" width="16" height="20.4" rx="2.6" fill="none" stroke="#c084fc" stroke-width="1.8"/><circle cx="12" cy="19" r=".9" fill="#c084fc"/></symbol>
+ <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="#7c8cff" stroke-width="1.8"/><path fill="none" stroke="#7c8cff" stroke-width="1.6" d="M2.8 12h18.4M12 2.8c2.8 3 2.8 15.4 0 18.4M12 2.8c-2.8 3-2.8 15.4 0 18.4"/></symbol>
+ <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-5-5l5 5 5-5M5 20h14"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 001.5.9l10.4-6.5a1 1 0 000-1.8L9.5 4.6A1 1 0 008 5.5z"/></symbol>
+</svg>
+
+<nav class="top"><div class="wrap">
+ <a class="brand" href="#"><img src="icon-192.png" alt="">MasterSketch</a>
+ <div class="links"><a href="#features"><span lang="en">Features</span><span lang="th">ฟีเจอร์</span></a><a href="#download"><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a><a href="#faq"><span lang="en">FAQ</span><span lang="th">คำถามที่พบบ่อย</span></a></div>
+ <div class="lang" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="th">ไทย</button></div>
+</div></nav>
+
+<header class="hero"><div class="wrap grid2">
+ <div>
+  <span class="eyebrow"><b>●</b> <span lang="en">Free · works offline · version 3.4</span><span lang="th">ฟรี · ใช้งานออฟไลน์ได้ · เวอร์ชัน 3.4</span></span>
+  <h1><span lang="en">Draw anything,<br><span class="stroke">on any device.</span></span><span lang="th">วาดได้ทุกอย่าง<br><span class="stroke">บนทุกอุปกรณ์</span></span></h1>
+  <p class="lead"><span lang="en">MasterSketch Studio is a full drawing, painting and animation app — layers, 27 tools, pen pressure, line art from photos and GIF animation. Install it on your phone, tablet or computer in a minute.</span><span lang="th">MasterSketch Studio คือแอปวาดภาพ ระบายสี และทำแอนิเมชันแบบครบชุด มีเลเยอร์ เครื่องมือ 27 แบบ รองรับแรงกดปากกา เปลี่ยนรูปถ่ายเป็นลายเส้น และทำ GIF ได้ ติดตั้งบนมือถือ แท็บเล็ต หรือคอมพิวเตอร์ได้ในหนึ่งนาที</span></p>
+  <div class="cta">
+   <a class="btn pri" id="mainBtn" href="#download"><svg><use href="#i-down"/></svg><span id="mainLabel"><span lang="en">Download for your device</span><span lang="th">ดาวน์โหลดสำหรับอุปกรณ์ของคุณ</span></span></a>
+   <a class="btn" href="app.html" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><span lang="en">Use it in your browser</span><span lang="th">ใช้งานผ่านเบราว์เซอร์</span></a>
+  </div>
+  <p class="hint" id="detectHint"></p>
+ </div>
+ <div class="shot">
+  <svg class="squiggle" viewBox="0 0 52 52" aria-hidden="true"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/><defs><linearGradient id="g"><stop stop-color="#7c8cff"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs></svg>
+  <div class="frame"><img src="shot-desktop.jpg" width="800" height="450" alt="MasterSketch Studio on a computer: a coloured drawing of a house with layers and tools around it"></div>
+  <img class="phone" src="shot-phone.jpg" width="375" height="812" alt="MasterSketch Studio on a phone">
+ </div>
+</div>
+<div class="wrap plats">
+ <span><svg><use href="#i-android"/></svg>Android</span><span><svg><use href="#i-ipad"/></svg>iPad &amp; iPhone</span><span><svg><use href="#i-win"/></svg>Windows</span><span><svg><use href="#i-apple"/></svg>Mac</span><span><svg><use href="#i-globe"/></svg><span lang="en">Any web browser</span><span lang="th">ทุกเบราว์เซอร์</span></span>
+</div>
+</header>
+
+<section id="features"><div class="wrap">
+ <div class="kicker"><span lang="en">Features</span><span lang="th">ฟีเจอร์</span></div>
+ <h2><span lang="en">Everything you need to sketch, paint and animate</span><span lang="th">ครบทุกอย่างสำหรับสเก็ตช์ ระบายสี และทำแอนิเมชัน</span></h2>
+ <p class="sub"><span lang="en">Made for fingers, Apple Pencil, styluses and mice. Your art stays on your device — nothing is uploaded.</span><span lang="th">ใช้ได้ทั้งนิ้ว Apple Pencil ปากกาสไตลัส และเมาส์ ภาพของคุณเก็บไว้ในเครื่องเท่านั้น ไม่มีการอัปโหลด</span></p>
+ <div class="stats">
+  <div class="stat"><b>27</b><span lang="en">tools</span><span lang="th">เครื่องมือ</span></div>
+  <div class="stat"><b>88</b><span lang="en">commands</span><span lang="th">คำสั่ง</span></div>
+  <div class="stat"><b>20</b><span lang="en">filters &amp; effects</span><span lang="th">ฟิลเตอร์และเอฟเฟกต์</span></div>
+  <div class="stat"><b>50+</b><span lang="en">fonts</span><span lang="th">ฟอนต์</span></div>
+  <div class="stat"><b>5</b><span lang="en">languages</span><span lang="th">ภาษา</span></div>
+ </div>
+ <div class="feats">
+  <div class="feat big"><img src="shot-brushes.jpg" width="800" height="450" alt="The brush library with live previews of every brush"><div><div class="ic">🖌️</div><h3><span lang="en">13 brushes with live previews</span><span lang="th">แปรง 13 แบบพร้อมตัวอย่างสด</span></h3><p><span lang="en">Pen, pencil, soft airbrush, calligraphy, marker, chalk, spray, neon glow, watercolor, sketchy and more. Save your favourite settings as presets.</span><span lang="th">ปากกา ดินสอ แปรงนุ่ม คอลลิกราฟี มาร์กเกอร์ ชอล์ก สเปรย์ นีออน สีน้ำ ลายเส้นสเก็ตช์ และอีกมาก บันทึกการตั้งค่าที่ชอบเป็นพรีเซ็ตได้</span></p></div></div>
+  <div class="feat"><div class="ic">🖼️</div><h3><span lang="en">Photo to line art</span><span lang="th">รูปถ่ายเป็นลายเส้น</span></h3><p><span lang="en">Turn any picture into a clean colouring page or a pencil sketch — only the outlines stay.</span><span lang="th">เปลี่ยนรูปภาพเป็นภาพระบายสีหรือภาพร่างดินสอ เหลือเฉพาะเส้นโครงร่าง</span></p></div>
+  <div class="feat"><div class="ic">🎞️</div><h3><span lang="en">Animation &amp; GIFs</span><span lang="th">แอนิเมชันและ GIF</span></h3><p><span lang="en">Each layer is a frame, with onion skin and playback. Export to GIF or video.</span><span lang="th">แต่ละเลเยอร์คือเฟรม มีโอเนียนสกินและเล่นดูได้ ส่งออกเป็น GIF หรือวิดีโอ</span></p></div>
+  <div class="feat"><div class="ic">📚</div><h3><span lang="en">Layers that behave</span><span lang="th">ระบบเลเยอร์เต็มรูปแบบ</span></h3><p><span lang="en">16 blend modes, opacity, locks, drag to reorder, merge and flatten.</span><span lang="th">โหมดผสม 16 แบบ ปรับความทึบ ล็อก ลากเพื่อจัดลำดับ รวมเลเยอร์</span></p></div>
+  <div class="feat"><div class="ic">🔤</div><h3><span lang="en">Text with 50+ fonts</span><span lang="th">ข้อความกับฟอนต์กว่า 50 แบบ</span></h3><p><span lang="en">Thai fonts like Kanit and Sarabun, import your own font files, outline, shadow and alignment.</span><span lang="th">มีฟอนต์ไทยอย่าง Kanit และ Sarabun นำเข้าฟอนต์ของคุณเองได้ พร้อมเส้นขอบ เงา และการจัดตำแหน่ง</span></p></div>
+  <div class="feat"><div class="ic">🪞</div><h3><span lang="en">Symmetry &amp; guides</span><span lang="th">สมมาตรและเส้นช่วย</span></h3><p><span lang="en">Mirror, 4-way, radial and mandala drawing, plus perspective and rule-of-thirds guides.</span><span lang="th">วาดแบบสะท้อน 4 ทาง รัศมี และมันดาลา พร้อมเส้นช่วยทัศนียภาพและกฎสามส่วน</span></p></div>
+  <div class="feat"><div class="ic">✍️</div><h3><span lang="en">Pen pressure &amp; palm rejection</span><span lang="th">แรงกดปากกาและกันฝ่ามือ</span></h3><p><span lang="en">Works with Apple Pencil and stylus pens. Pinch to zoom, twist to rotate, two-finger tap to undo.</span><span lang="th">รองรับ Apple Pencil และปากกาสไตลัส บีบเพื่อซูม หมุนด้วยสองนิ้ว แตะสองนิ้วเพื่อเลิกทำ</span></p></div>
+  <div class="feat"><div class="ic">😀</div><h3><span lang="en">Stickers &amp; shapes</span><span lang="th">สติกเกอร์และรูปทรง</span></h3><p><span lang="en">125 emoji stickers plus lines, arrows, stars, hearts and speech bubbles.</span><span lang="th">สติกเกอร์อีโมจิ 125 แบบ พร้อมเส้น ลูกศร ดาว หัวใจ และกรอบคำพูด</span></p></div>
+  <div class="feat"><div class="ic">🌐</div><h3><span lang="en">Yours, your way</span><span lang="th">ปรับได้ตามใจ</span></h3><p><span lang="en">6 themes, 5 languages (including ไทย), movable panels, custom shortcuts. Works offline.</span><span lang="th">6 ธีม 5 ภาษา (รวมภาษาไทย) ย้ายแผงได้ ตั้งคีย์ลัดเองได้ และใช้งานออฟไลน์ได้</span></p></div>
+ </div>
+</div></section>
+
+<section id="download"><div class="wrap">
+ <div class="kicker"><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></div>
+ <h2><span lang="en">Install it on your device</span><span lang="th">ติดตั้งบนอุปกรณ์ของคุณ</span></h2>
+ <p class="sub"><span lang="en">Free, no account needed. Pick your device — the one you're using now is highlighted.</span><span lang="th">ฟรี ไม่ต้องสมัครสมาชิก เลือกอุปกรณ์ของคุณ อุปกรณ์ที่คุณใช้อยู่จะถูกไฮไลต์ไว้</span></p>
+ <div class="dl">
+  <div class="card" data-os="android"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
+   <div class="os"><svg><use href="#i-android"/></svg><div><h3>Android</h3><div class="meta"><span lang="en">Phones &amp; tablets · Android 7+ · 337 KB</span><span lang="th">มือถือและแท็บเล็ต · Android 7+ · 337 KB</span></div></div></div>
+   <ol><li><span lang="en">Tap Download.</span><span lang="th">แตะดาวน์โหลด</span></li><li><span lang="en">Open the file. Allow "Install unknown apps" for your browser once.</span><span lang="th">เปิดไฟล์ แล้วอนุญาต "ติดตั้งแอปที่ไม่รู้จัก" สำหรับเบราว์เซอร์หนึ่งครั้ง</span></li><li><span lang="en">Tap Install, then Open.</span><span lang="th">แตะติดตั้ง แล้วแตะเปิด</span></li></ol>
+   <a class="btn pri" href="MasterSketch-Studio-3.4.apk" download><svg><use href="#i-down"/></svg><span lang="en">Download APK</span><span lang="th">ดาวน์โหลด APK</span></a></div>
+  <div class="card" data-os="ios"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
+   <div class="os"><svg><use href="#i-ipad"/></svg><div><h3>iPad &amp; iPhone</h3><div class="meta"><span lang="en">Installs from Safari · works offline</span><span lang="th">ติดตั้งผ่าน Safari · ใช้ออฟไลน์ได้</span></div></div></div>
+   <ol><li><span lang="en">Open the app in Safari.</span><span lang="th">เปิดแอปใน Safari</span></li><li><span lang="en">Tap the Share button.</span><span lang="th">แตะปุ่มแชร์</span></li><li><span lang="en">Choose "Add to Home Screen" and open it from the new icon.</span><span lang="th">เลือก "เพิ่มไปยังหน้าจอโฮม" แล้วเปิดจากไอคอนใหม่</span></li></ol>
+   <a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></div>
+  <div class="card" data-os="windows"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
+   <div class="os"><svg><use href="#i-win"/></svg><div><h3>Windows</h3><div class="meta"><span lang="en">Windows 10 &amp; 11 · 10.9 MB · no install</span><span lang="th">Windows 10 และ 11 · 10.9 MB · ไม่ต้องติดตั้ง</span></div></div></div>
+   <ol><li><span lang="en">Download and double-click the file.</span><span lang="th">ดาวน์โหลดแล้วดับเบิลคลิกไฟล์</span></li><li><span lang="en">If SmartScreen appears: More info → Run anyway.</span><span lang="th">ถ้ามี SmartScreen ขึ้น: ข้อมูลเพิ่มเติม → เรียกใช้ต่อไป</span></li><li><span lang="en">Pin it to the taskbar if you like.</span><span lang="th">ปักหมุดไว้ที่ทาสก์บาร์ได้ตามต้องการ</span></li></ol>
+   <a class="btn pri" href="MasterSketch-Studio-3.4-Windows.exe" download><svg><use href="#i-down"/></svg><span lang="en">Download for Windows</span><span lang="th">ดาวน์โหลดสำหรับ Windows</span></a></div>
+  <div class="card" data-os="mac"><span class="you-tag"><span lang="en">Your device</span><span lang="th">อุปกรณ์ของคุณ</span></span>
+   <div class="os"><svg><use href="#i-apple"/></svg><div><h3>Mac</h3><div class="meta"><span lang="en">macOS 10.13+ · 505 KB</span><span lang="th">macOS 10.13+ · 505 KB</span></div></div></div>
+   <ol><li><span lang="en">Download, unzip and drag the app to Applications.</span><span lang="th">ดาวน์โหลด แตกไฟล์ แล้วลากแอปไปที่ Applications</span></li><li><span lang="en">First time: right-click the app → Open → Open.</span><span lang="th">ครั้งแรก: คลิกขวาที่แอป → เปิด → เปิด</span></li><li><span lang="en">Opens in its own window (best with Chrome or Edge installed).</span><span lang="th">เปิดในหน้าต่างของตัวเอง (ดีที่สุดเมื่อมี Chrome หรือ Edge)</span></li></ol>
+   <a class="btn pri" href="MasterSketch-Studio-3.4-mac.zip" download><svg><use href="#i-down"/></svg><span lang="en">Download for Mac</span><span lang="th">ดาวน์โหลดสำหรับ Mac</span></a></div>
+ </div>
+ <p class="alt"><span lang="en">No install at all? <a href="app.html">Use it in your browser</a> — on Chrome or Edge you can also click "Install app" in the address bar. Or download the <a href="MasterSketch-Studio-3.4-Web.html" download>single-file version</a>.</span><span lang="th">ไม่อยากติดตั้ง? <a href="app.html">ใช้งานผ่านเบราว์เซอร์</a> หรือใน Chrome และ Edge กด "ติดตั้งแอป" ในแถบที่อยู่ได้ หรือดาวน์โหลด<a href="MasterSketch-Studio-3.4-Web.html" download>เวอร์ชันไฟล์เดียว</a></span></p>
+</div></section>
+
+<section id="faq"><div class="wrap">
+ <div class="kicker">FAQ</div>
+ <h2><span lang="en">Questions people ask</span><span lang="th">คำถามที่พบบ่อย</span></h2>
+ <div class="faq">
+  <details><summary><span lang="en">Is it really free?</span><span lang="th">ฟรีจริงไหม?</span></summary><p><span lang="en">Yes. No account, no ads, no subscription.</span><span lang="th">ฟรีจริง ไม่ต้องสมัครสมาชิก ไม่มีโฆษณา ไม่มีค่ารายเดือน</span></p></details>
+  <details><summary><span lang="en">Where are my drawings saved?</span><span lang="th">ภาพวาดของฉันถูกบันทึกไว้ที่ไหน?</span></summary><p><span lang="en">On your own device, inside the app. Nothing is uploaded. Use Projects → Download project file to keep a backup or move work to another device.</span><span lang="th">บันทึกไว้ในเครื่องของคุณภายในแอป ไม่มีการอัปโหลด ใช้ โปรเจกต์ → ดาวน์โหลดไฟล์โปรเจกต์ เพื่อสำรองหรือย้ายไปเครื่องอื่น</span></p></details>
+  <details><summary><span lang="en">Why does Windows or Mac show a warning?</span><span lang="th">ทำไม Windows หรือ Mac ถึงขึ้นคำเตือน?</span></summary><p><span lang="en">The app isn't signed with a paid developer certificate, so the system asks once. Choose "Run anyway" on Windows, or right-click → Open on Mac.</span><span lang="th">แอปยังไม่ได้เซ็นด้วยใบรับรองนักพัฒนาแบบเสียเงิน ระบบจึงถามหนึ่งครั้ง บน Windows เลือก "เรียกใช้ต่อไป" บน Mac คลิกขวา → เปิด</span></p></details>
+  <details><summary><span lang="en">Why isn't it in the App Store?</span><span lang="th">ทำไมไม่มีใน App Store?</span></summary><p><span lang="en">On iPad and iPhone it installs straight from Safari with "Add to Home Screen". It runs full screen, works offline and supports Apple Pencil pressure.</span><span lang="th">บน iPad และ iPhone ติดตั้งได้จาก Safari ด้วย "เพิ่มไปยังหน้าจอโฮม" ทำงานเต็มจอ ใช้ออฟไลน์ได้ และรองรับแรงกด Apple Pencil</span></p></details>
+  <details><summary><span lang="en">Does it work without internet?</span><span lang="th">ใช้งานโดยไม่มีอินเทอร์เน็ตได้ไหม?</span></summary><p><span lang="en">Yes. Only the online fonts need internet the first time you use them.</span><span lang="th">ได้ มีเพียงฟอนต์ออนไลน์ที่ต้องใช้อินเทอร์เน็ตในครั้งแรกที่ใช้</span></p></details>
+  <details><summary><span lang="en">Can I use a drawing tablet or stylus?</span><span lang="th">ใช้เมาส์ปากกาหรือสไตลัสได้ไหม?</span></summary><p><span lang="en">Yes — pen pressure works with Apple Pencil, Samsung S Pen, Wacom and other pens. Palm rejection ignores your hand while you draw.</span><span lang="th">ได้ รองรับแรงกดของ Apple Pencil, Samsung S Pen, Wacom และปากกาอื่น ๆ ระบบกันฝ่ามือจะไม่สนใจมือขณะวาด</span></p></details>
+ </div>
+</div></section>
+
+<div class="final wrap">
+ <h2><span lang="en">Ready to draw?</span><span lang="th">พร้อมวาดหรือยัง?</span></h2>
+ <div class="cta"><a class="btn pri" href="#download"><svg><use href="#i-down"/></svg><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a><a class="btn" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open in browser</span><span lang="th">เปิดในเบราว์เซอร์</span></a></div>
+</div>
+
+<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.4</span><span lang="en">Made for artists of every age.</span><span lang="th">สร้างมาเพื่อศิลปินทุกวัย</span></div></footer>
+
+<script>
+(()=>{
+ const root=document.documentElement;
+ const setLang=l=>{root.dataset.lang=l;root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));try{localStorage.setItem('ms_site_lang',l)}catch(e){}};
+ let saved=null;try{saved=localStorage.getItem('ms_site_lang')}catch(e){}
+ setLang(saved||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));
+ document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+
+ // detect the visitor's device and point the main button at the right download
+ const ua=navigator.userAgent,touchMac=/Macintosh/.test(ua)&&navigator.maxTouchPoints>1;
+ const os=/Android/i.test(ua)?'android':(/iPhone|iPad|iPod/.test(ua)||touchMac)?'ios':/Windows/.test(ua)?'windows':/Macintosh|Mac OS X/.test(ua)?'mac':null;
+ const card=os&&document.querySelector(`.card[data-os="${os}"]`);
+ if(card){card.classList.add('you');const link=card.querySelector('a.btn');const main=document.getElementById('mainBtn');main.href=link.getAttribute('href');if(link.hasAttribute('download'))main.setAttribute('download','');
+  const names={android:['Download for Android','ดาวน์โหลดสำหรับ Android'],ios:['Install on iPad / iPhone','ติดตั้งบน iPad / iPhone'],windows:['Download for Windows','ดาวน์โหลดสำหรับ Windows'],mac:['Download for Mac','ดาวน์โหลดสำหรับ Mac']}[os];
+  document.getElementById('mainLabel').innerHTML=`<span lang="en">${names[0]}</span><span lang="th">${names[1]}</span>`;
+  if(os==='ios'){main.removeAttribute('download');main.href='app.html'}
+  const hint={android:['Free · 337 KB · Android 7 or newer','ฟรี · 337 KB · Android 7 ขึ้นไป'],ios:['Opens in Safari — then Share → Add to Home Screen','เปิดใน Safari แล้วแชร์ → เพิ่มไปยังหน้าจอโฮม'],windows:['Free · 10.9 MB · Windows 10 & 11','ฟรี · 10.9 MB · Windows 10 และ 11'],mac:['Free · 505 KB · macOS 10.13 or newer','ฟรี · 505 KB · macOS 10.13 ขึ้นไป']}[os];
+  document.getElementById('detectHint').innerHTML=`<span lang="en">${hint[0]}</span><span lang="th">${hint[1]}</span>`}
+})();
+</script>
+</body>
+</html>
