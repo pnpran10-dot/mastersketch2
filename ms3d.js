@@ -1127,6 +1127,11 @@ const r4=v=>Math.round(v*1e4)/1e4;
 function meshesOf(o){const a=[];o.traverse(m=>{if(m.isMesh&&!m.userData.outline)a.push(m)});return a}
 function shapeHeart(){const s=new T.Shape();s.moveTo(0,-.55);s.bezierCurveTo(-.95,.05,-.55,.75,0,.35);s.bezierCurveTo(.55,.75,.95,.05,0,-.55);return s}
 function shapeStar(){const s=new T.Shape();for(let i=0;i<10;i++){const r=i%2?.27:.62,a=Math.PI/2+i*Math.PI/5;i?s.lineTo(Math.cos(a)*r,Math.sin(a)*r):s.moveTo(Math.cos(a)*r,Math.sin(a)*r)}s.closePath();return s}
+function cleanPts(a,max){const o=[];if(!Array.isArray(a))return o;for(let i=0;i+1<a.length&&o.length<max*2;i+=2)o.push(Math.round(num(a[i],0,-1,1)*1000)/1000,Math.round(num(a[i+1],0,-1,1)*1000)/1000);return o}
+function ownShape(x){const p=cleanPts(x&&x.pts,240);if(p.length<6)return null;const s=new T.Shape();s.moveTo(p[0]*.6,p[1]*.6);for(let i=2;i<p.length;i+=2)s.lineTo(p[i]*.6,p[i+1]*.6);s.closePath();return s}
+function spinGeo(x){const p=cleanPts(x&&x.pts,240),v=[];for(let i=0;i<p.length;i+=2)v.push(new T.Vector2(Math.abs(p[i])*.6,p[i+1]*.6));if(v.length<2)return null;if(v[0].x>.01)v.unshift(new T.Vector2(0,v[0].y));if(v[v.length-1].x>.01)v.push(new T.Vector2(0,v[v.length-1].y));return new T.LatheGeometry(v,48)}
+function archShape(){const s=new T.Shape();s.moveTo(-.6,-.5);s.lineTo(-.6,.1);s.absarc(0,.1,.6,Math.PI,0,true);s.lineTo(.6,-.5);s.lineTo(.3,-.5);s.lineTo(.3,.1);s.absarc(0,.1,.3,0,Math.PI,false);s.lineTo(-.3,-.5);s.closePath();return s}
+function roundRect(w,h,r){const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s}
 const extr=(s,o)=>{const g=new T.ExtrudeGeometry(s,Object.assign({depth:.3,bevelEnabled:true,bevelThickness:.05,bevelSize:.04,bevelSegments:4,curveSegments:24},o));g.center();return g};
 
 /* ---------- the poseable mannequin ---------- */
@@ -1189,6 +1194,13 @@ const B={
  dome:()=>mesh(new T.SphereGeometry(.6,48,24,0,TAU,0,Math.PI/2),'#90caf9',{side:T.DoubleSide}),
  wedge:()=>{const s=new T.Shape();s.moveTo(-.5,-.5);s.lineTo(.5,-.5);s.lineTo(-.5,.5);s.closePath();return mesh(extr(s,{depth:1,bevelEnabled:false}),'#a1887f')},
  tube:()=>mesh(new T.LatheGeometry([new T.Vector2(.38,-.6),new T.Vector2(.5,-.6),new T.Vector2(.5,.6),new T.Vector2(.38,.6),new T.Vector2(.38,-.6)],48),'#78909c'),
+ hex:()=>mesh(new T.CylinderGeometry(.6,.6,1,6),'#26a69a',{flatShading:true}),
+ prism:()=>mesh(new T.CylinderGeometry(.65,.65,1,3),'#ec407a',{flatShading:true}),
+ arch:()=>mesh(extr(archShape(),{depth:.4}),'#bcaaa4'),
+ roundbox:()=>mesh(extr(roundRect(.8,.8,.18),{depth:.8,bevelThickness:.1,bevelSize:.1,bevelSegments:6}),'#9fa8da'),
+ bowl:()=>mesh(new T.SphereGeometry(.6,48,24,0,TAU,Math.PI/2,Math.PI/2),'#ffcc80',{side:T.DoubleSide}),
+ draw:x=>{const s=ownShape(x);return mesh(s?extr(s,{depth:num(x&&x.d,.4,.05,3),bevelThickness:.04,bevelSize:.03,bevelSegments:3,curveSegments:8}):new T.BoxGeometry(1,1,.4),'#4dd0e1')},
+ spin:x=>{const g=spinGeo(x);return mesh(g||new T.CylinderGeometry(.5,.5,1,32),'#ffb74d',{side:T.DoubleSide})},
  plane:()=>{const m=mesh(new T.PlaneGeometry(2,2),'#b0bec5',{side:T.DoubleSide});m.rotation.x=-Math.PI/2;return grp([m])},
  text:x=>{x=x||{};const m=mesh(textGeometry(x.tx,x.f,x.d),'#ffca28',{roughness:.35});return m},
  house:()=>grp([at(mesh(new T.BoxGeometry(1.6,1,1.4),'#efdcbc'),0,.5,0),(()=>{const r=mesh(new T.ConeGeometry(1.25,.8,4),'#b5523b');r.position.y=1.4;r.rotation.y=Math.PI/4;return r})(),at(mesh(new T.BoxGeometry(.35,.6,.05),'#6b3e26'),0,.3,.71),at(mesh(new T.BoxGeometry(.3,.3,.05),'#a8d8ff',{roughness:.1}),-.5,.62,.71),at(mesh(new T.BoxGeometry(.3,.3,.05),'#a8d8ff',{roughness:.1}),.5,.62,.71)]),
@@ -1200,7 +1212,7 @@ const B={
  mug:()=>{const h=mesh(new T.TorusGeometry(.18,.045,12,32,Math.PI),'#ffffff');h.rotation.z=-Math.PI/2;h.position.set(.36,.38,0);return grp([at(mesh(new T.CylinderGeometry(.33,.3,.7,40,1,true),'#ffffff',{side:T.DoubleSide}),0,.35,0),at(mesh(new T.CircleGeometry(.3,40),'#ffffff'),0,.01,0),h])},
  rocket:()=>{const f=[];for(let i=0;i<3;i++){const m=mesh(new T.BoxGeometry(.04,.35,.3),'#ef5350');const a=i*Math.PI*2/3;m.position.set(Math.cos(a)*.3,.25,Math.sin(a)*.3);m.rotation.y=-a;f.push(m)}return grp([at(mesh(new T.CylinderGeometry(.25,.25,1.1,32),'#eceff1',{roughness:.3,metalness:.3}),0,.75,0),at(mesh(new T.ConeGeometry(.25,.5,32),'#ef5350'),0,1.55,0),at(mesh(new T.SphereGeometry(.1,16,12),'#4fc3f7',{roughness:.1}),0,.95,.23),...f])}};
 /* library order and icons for the app */
-const LIB=[['mannequin','fa-person','Mannequin'],['cube','fa-cube','Cube'],['sphere','fa-circle','Sphere'],['cylinder','fa-database','Cylinder'],['cone','fa-ice-cream','Cone'],['pyramid','fa-play','Pyramid'],['dome','fa-cloud','Dome'],['wedge','fa-caret-up','Wedge'],['tube','fa-ring','Tube'],['torus','fa-life-ring','Donut'],['ring','fa-circle-notch','Ring'],['knot','fa-infinity','Knot'],['capsule','fa-capsules','Capsule'],['gem','fa-gem','Gem'],['heart','fa-heart','Heart'],['star','fa-star','Star'],['plane','fa-square','Plane'],
+const LIB=[['mannequin','fa-person','Mannequin'],['cube','fa-cube','Cube'],['sphere','fa-circle','Sphere'],['cylinder','fa-database','Cylinder'],['cone','fa-ice-cream','Cone'],['pyramid','fa-play','Pyramid'],['dome','fa-cloud','Dome'],['wedge','fa-caret-up','Wedge'],['tube','fa-ring','Tube'],['torus','fa-life-ring','Donut'],['ring','fa-circle-notch','Ring'],['knot','fa-infinity','Knot'],['capsule','fa-capsules','Capsule'],['gem','fa-gem','Gem'],['heart','fa-heart','Heart'],['star','fa-star','Star'],['hex','fa-dice-d6','Hexagon'],['prism','fa-play','Prism'],['arch','fa-archway','Arch'],['roundbox','fa-square','Soft box'],['bowl','fa-bowl-food','Bowl'],['plane','fa-square-full','Plane'],
  ['house','fa-house','House'],['tree','fa-tree','Tree'],['car','fa-car','Car'],['chair','fa-chair','Chair'],['table','fa-table','Table'],['snowman','fa-snowman','Snowman'],['mug','fa-mug-hot','Mug'],['rocket','fa-rocket','Rocket']];
 
 /* ---------- outlines & materials ---------- */
@@ -1213,9 +1225,12 @@ function setMat(m,s){if(!Array.isArray(s))return;const c=col(s[0]),r=num(s[1],.5
 
 /* ---------- motions: things that move ---------- */
 const MOTIONS=[['none','fa-ban','None'],['spin','fa-rotate','Spin'],['bounce','fa-basketball','Bounce'],['float','fa-cloud','Float'],['swing','fa-wind','Swing'],['wobble','fa-water','Wobble'],['pulse','fa-heart-pulse','Pulse'],['orbit','fa-globe','Orbit'],['hop','fa-frog','Hop'],
- ['walk','fa-person-walking','Walk'],['run','fa-person-running','Run'],['wave','fa-hand','Wave'],['dance','fa-music','Dance'],['jacks','fa-child','Jumping jacks']];
+ ['walk','fa-person-walking','Walk'],['run','fa-person-running','Run'],['wave','fa-hand','Wave'],['dance','fa-music','Dance'],['jacks','fa-child','Jumping jacks'],['custom','fa-wand-magic-sparkles','My motion']];
 const HUMAN=['walk','run','wave','dance','jacks'];
+/* own motions: poses [dx,dy,dz, rx,ry,rz (degrees), sx,sy,sz] played one after another, then back to the first */
+function cleanKeys(k){if(!Array.isArray(k))return null;const o=k.slice(0,12).map(p=>{p=Array.isArray(p)?p:[];return[0,1,2].map(i=>r4(num(p[i],0,-20,20))).concat([3,4,5].map(i=>Math.round(num(p[i],0,-1080,1080)*10)/10),[6,7,8].map(i=>r4(num(p[i],1,.05,20))))});return o.length>=2?o:null}
 function cleanMotion(m){if(!m||typeof m!=='object')return null;const t=MOTIONS.find(x=>x[0]===m.t);if(!t||m.t==='none')return null;const sp=num(m.sp,1,-6,6);
+ if(m.t==='custom'){const k=cleanKeys(m.k);if(!k)return null;return{t:'custom',k,d:num(m.d,2,.3,30),pp:m.pp?1:0,ez:m.ez===0?0:1,ax:'y',sp:Math.abs(sp)<.05?(sp<0?-.05:.05):sp,am:num(m.am,1,.05,4),ph:num(m.ph,0,0,1)}}
  return{t:m.t,ax:['x','y','z'].includes(m.ax)?m.ax:'y',sp:Math.abs(sp)<.05?(sp<0?-.05:.05):sp,am:num(m.am,1,.05,4),ph:num(m.ph,0,0,1)}}
 function motion(o,m,t,keep){const sp=m.sp||1,am=m.am||1,ax=m.ax||'y',ph=t*sp+(m.ph||0)*TAU;
  switch(m.t){
@@ -1227,6 +1242,9 @@ function motion(o,m,t,keep){const sp=m.sp||1,am=m.am||1,ax=m.ax||'y',ph=t*sp+(m.
   case'pulse':keep(o);o.scale.multiplyScalar(1+Math.sin(ph*4)*.08*am);break;
   case'orbit':keep(o);o.position.x+=Math.cos(ph*1.2)*am;o.position.z+=Math.sin(ph*1.2)*am;break;
   case'hop':{keep(o);const k=(ph*1.3)%1;o.position.y+=Math.sin(k*Math.PI)*.5*am;break}
+  case'custom':{const K=m.k;if(!Array.isArray(K)||K.length<2)break;keep(o);const n=K.length,segs=m.pp?(n-1)*2:n,seq=i=>m.pp?(i<n?i:2*(n-1)-i):i%n;
+   const u=(((t*sp)/(m.d||2)+(m.ph||0))%1+1)%1,f=u*segs,i=Math.min(segs-1,Math.floor(f)),a=K[seq(i)],b=K[seq(i+1)];let w=f-i;if(m.ez!==0)w=w*w*(3-2*w);const L=j=>a[j]+(b[j]-a[j])*w;
+   o.position.x+=L(0)*am;o.position.y+=L(1)*am;o.position.z+=L(2)*am;o.rotation.x+=L(3)*D2R*am;o.rotation.y+=L(4)*D2R*am;o.rotation.z+=L(5)*D2R*am;o.scale.x*=1+(L(6)-1)*am;o.scale.y*=1+(L(7)-1)*am;o.scale.z*=1+(L(8)-1)*am;break}
   default:if(HUMAN.includes(m.t))human(o,m.t,ph,am,keep)}}
 function human(fig,type,ph,am,keep){const J=n=>{const j=fig.getObjectByName(n);if(j)keep(j);return j},R=(n,x,y,z)=>{const j=J(n);if(j){j.rotation.x+=x*D2R*am;j.rotation.y+=y*D2R*am;j.rotation.z+=z*D2R*am}},P=dy=>{const p=J('pelvis');if(p)p.position.y+=dy*am};
  const s=Math.sin(ph*4),c=Math.cos(ph*4);
@@ -1242,11 +1260,12 @@ function partOf(n,why,d){const u=n.userData||{};if(d>6){why.add('deep');return n
  if(u.src==='group'){const parts=[];n.children.forEach(c=>{if(c.userData&&c.userData.outline)return;if(c.userData&&c.userData.src){const p=partOf(c,why,d+1);if(p)parts.push(p)}else if(c.isObject3D&&!c.isLight)why.add('imported')});const s={s:'group',parts};common(n,s);return s}
  if(!u.src||!B[u.src]){why.add(u.src==='picture'?'picture':'imported');return null}
  const s={s:u.src};common(n,s);const ms=meshesOf(n);if(ms.some(m=>m.material&&m.material.map))why.add('paint');const mm=ms.map(matSpec);if(mm.length&&mm.every(x=>JSON.stringify(x)===JSON.stringify(mm[0])))s.m=[mm[0]];else s.m=mm;
- if(u.x)s.x=cleanX(u.x);if(u.kind==='mannequin'){const j={};JOINTS.forEach(nm=>{const o=n.getObjectByName(nm);if(o&&(o.rotation.x||o.rotation.y||o.rotation.z))j[nm]=[deg(o.rotation.x),deg(o.rotation.y),deg(o.rotation.z)]});if(Object.keys(j).length)s.j=j;const pv=n.getObjectByName('pelvis');if(pv&&Math.abs(pv.position.y-1)>1e-3)s.jp=r4(pv.position.y)}
+ if(u.x)s.x=cleanX(u.x,u.src);if(u.kind==='mannequin'){const j={};JOINTS.forEach(nm=>{const o=n.getObjectByName(nm);if(o&&(o.rotation.x||o.rotation.y||o.rotation.z))j[nm]=[deg(o.rotation.x),deg(o.rotation.y),deg(o.rotation.z)]});if(Object.keys(j).length)s.j=j;const pv=n.getObjectByName('pelvis');if(pv&&Math.abs(pv.position.y-1)>1e-3)s.jp=r4(pv.position.y)}
  return s}
 function common(n,s){s.p=n.position.toArray().map(r4);if(n.rotation.x||n.rotation.y||n.rotation.z)s.r=[deg(n.rotation.x),deg(n.rotation.y),deg(n.rotation.z)];if(n.scale.x!==1||n.scale.y!==1||n.scale.z!==1)s.k=n.scale.toArray().map(r4);
  if(n.userData.outlined)s.ol=1;const mo=cleanMotion(n.userData.motion);if(mo)s.mo=mo;if(n.name&&n.userData.src==='group')s.n=String(n.name).slice(0,60)}
-function cleanX(x){return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
+const XS=['text','draw','spin'];
+function cleanX(x,s){x=x||{};if(s==='draw'||s==='spin')return{pts:cleanPts(x.pts,240),d:num(x.d,.4,.05,3)};return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
 /* returns {spec, why:Set of reasons something could not be included} */
 function specOf(obj,name){const why=new Set();let parts;
  if(obj.userData.src==='group')parts=partOf(obj,why,0).parts;else{const p=partOf(obj,why,0);parts=p?[p]:[];if(p){delete p.p;p.p=[0,0,0]}}
@@ -1255,7 +1274,7 @@ function specOf(obj,name){const why=new Set();let parts;
 let count=0;
 function build(s,d){d=d||0;if(!s||typeof s!=='object'||d>6||count>400)return null;count++;let o;
  if(s.s==='group'||(d===0&&Array.isArray(s.parts))){o=new T.Group();(Array.isArray(s.parts)?s.parts:[]).slice(0,300).forEach(p=>{const c=build(p,d+1);if(c)o.add(c)});o.userData.src='group';o.userData.kind='custom';o.name=String(s.n||'Model').slice(0,60)}
- else{const b=B[s.s];if(!b)return null;const x=s.s==='text'?cleanX(s.x||{}):undefined;o=b(x);o.userData.src=s.s;if(x)o.userData.x=x;
+ else{const b=B[s.s];if(!b)return null;const x=XS.includes(s.s)?cleanX(s.x||{},s.s):undefined;o=b(x);o.userData.src=s.s;if(x)o.userData.x=x;
   if(Array.isArray(s.m)&&s.m.length){const ms=meshesOf(o);ms.forEach((m,i)=>setMat(m,s.m.length===1?s.m[0]:s.m[i]))}
   if(s.j&&o.userData.kind==='mannequin')for(const[nm,r]of Object.entries(s.j)){if(!JOINTS.includes(nm)||!Array.isArray(r))continue;const jt=o.getObjectByName(nm);if(jt)jt.rotation.set(num(r[0],0,-360,360)*D2R,num(r[1],0,-360,360)*D2R,num(r[2],0,-360,360)*D2R)}
   if(s.jp!=null&&o.userData.kind==='mannequin'){const pv=o.getObjectByName('pelvis');if(pv)pv.position.y=num(s.jp,1,0,2)}}
@@ -1285,6 +1304,21 @@ async function community(force){const key='msw_comm_v1';try{const c=JSON.parse(l
  try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items}))}catch(e){}return items}
 function publishUrl(name,author,desc,code){const title='[Model] '+String(name||'Model').slice(0,60),body=`**Model:** ${String(name||'Model').slice(0,60)}\n**By:** ${String(author||'anonymous').slice(0,40)}\n\n${String(desc||'').slice(0,500)}\n\n\`\`\`ms3d\n${code}\n\`\`\`\n\n_Made with MasterSketch Studio · see every model at ${SITE}workshop.html_`;
  return'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)}
+
+/* ---------- uses: how often each Workshop model is used (counted on a free public counter, no personal data) ---------- */
+const CNT='https://abacus.jasoncameron.dev',NS='mastersketch2';
+const ukey=id=>'use-'+String(id).replace(/[^A-Za-z0-9_-]/g,'').slice(0,50);
+function useCache(){try{return JSON.parse(localStorage.getItem('msw_uses_v1')||'{}')||{}}catch(e){return{}}}
+function setUse(id,v){const c=useCache();c[id]=[v,Date.now()];try{localStorage.setItem('msw_uses_v1',JSON.stringify(c))}catch(e){}}
+/* one use per model per device every 6 hours, so the board can't be pushed up by clicking again and again */
+function useHit(id){if(!id||/^m\d/.test(id))return;try{const k='msw_hit_'+ukey(id),now=Date.now();if(now-(+localStorage.getItem(k)||0)<216e5)return;localStorage.setItem(k,String(now))}catch(e){}
+ fetch(CNT+'/hit/'+NS+'/'+ukey(id)).then(r=>r.ok?r.json():null).then(j=>{if(j&&typeof j.value==='number')setUse(id,j.value)}).catch(()=>{})}
+async function uses(ids,force){const c=useCache(),out={},need=[];ids.forEach(id=>{const e=c[id];if(e&&!force&&Date.now()-e[1]<6e5)out[id]=e[0];else need.push(id)});
+ let i=0,ok=0;const lane=async()=>{while(i<need.length&&i<27){const id=need[i++];try{const r=await fetch(CNT+'/get/'+NS+'/'+ukey(id));if(r.status===404){out[id]=0;setUse(id,0);ok++}else if(r.ok){const j=await r.json();out[id]=+j.value||0;setUse(id,out[id]);ok++}else if(c[id])out[id]=c[id][0]}catch(e){if(c[id])out[id]=c[id][0]}}};
+ await Promise.all([lane(),lane(),lane()]);need.forEach(id=>{if(out[id]==null&&c[id])out[id]=c[id][0]});if(need.length&&!ok&&!Object.keys(out).length)throw Error('offline');return out}
+async function leaderboard(force){let comm=[];try{comm=await community(force)}catch(e){}
+ const items=FEATURED.map(f=>({id:f.id,n:f.n,a:f.a,d:f.d,spec:f.spec,kind:'featured'})).concat(comm.map(c=>Object.assign({},c,{kind:'comm'})));
+ const u=await uses(items.map(x=>x.id),force);items.forEach(x=>x.uses=u[x.id]||0);return items.sort((a,b)=>b.uses-a.uses||(a.kind==='comm'?-1:1)-(b.kind==='comm'?-1:1))}
 
 /* ---------- thumbnails (separate small renderer) ---------- */
 let TR=null;
@@ -1344,5 +1378,5 @@ F('solar','Solar system','Planets orbit a glowing sun.',[P('sphere',[0,1.2,0],{k
  G([0,1.2,0],[P('sphere',[0,0,0],{k:.3,m:[M('#d7ccc8',.6)]}),P('ring',[0,0,0],{r:[70,0,0],k:.85,m:[M('#bcaaa4',.6)]})],{mo:{t:'orbit',ax:'y',sp:.32,am:2.8}}),
  ...[1.1,1.6,2.1,2.8].map(r=>P('ring',[0,1.2,0],{r:[90,0,0],k:r*2,m:[M('#ffffff',.5,0,.25,8)]}))]);
 
-window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry};
+window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS};
 })();

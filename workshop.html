@@ -72,6 +72,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
 .vx{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(8,9,15,.6);color:#fff;font-size:16px;z-index:2}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--panel2);border:1px solid var(--violet);padding:12px 18px;border-radius:14px;box-shadow:0 12px 30px #000a;font-size:14.5px;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
+.rank{display:flex;flex-direction:column;gap:10px}
+.rr{display:grid;grid-template-columns:44px 120px 1fr auto auto;align-items:center;gap:16px;padding:10px 16px 10px 12px;border-radius:20px;background:var(--panel);border:1px solid var(--line);transition:border-color .15s}
+.rr:hover{border-color:var(--line2)}
+.rr .no{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px;background:var(--panel2);color:var(--text)}
+.rr.r1 .no{background:linear-gradient(135deg,#ffe082,#ffb300);color:#3d2a00}.rr.r2 .no{background:linear-gradient(135deg,#eceff1,#b0bec5);color:#263238}.rr.r3 .no{background:linear-gradient(135deg,#ffccbc,#d7864f);color:#3e1d00}
+.rr.r1{border-color:#ffb30066;background:linear-gradient(90deg,#ffb30014,var(--panel) 40%)}
+.rr .th{width:120px;height:90px;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 35%,#ffffff12,transparent 70%),linear-gradient(180deg,#232a3a,#151924);display:grid;place-items:center;border:0;padding:0;cursor:pointer}
+.rr .th img{width:100%;height:100%;object-fit:contain}.rr .th .sp{width:22px;height:22px;border-radius:50%;border:3px solid #ffffff22;border-top-color:var(--violet);animation:spin 1s linear infinite}
+.rr .nm{min-width:0;display:flex;flex-direction:column;gap:2px}.rr .nm b{font-size:16.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rr .nm small{color:var(--mute);font-size:13px}
+.rr .uses{text-align:right;font-variant-numeric:tabular-nums}.rr .uses b{display:block;font-family:var(--display);font-size:26px;line-height:1}.rr .uses small{color:var(--mute);font-size:12px}
+.rnote{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:var(--mute);font-size:14px;margin-bottom:4px}.rnote span{flex:1;min-width:220px}
+@media(max-width:700px){.rr{grid-template-columns:34px 80px 1fr auto;gap:10px;padding:8px 10px}.rr .no{width:32px;height:32px;font-size:14px}.rr .th{width:80px;height:60px}.rr .op{display:none}.rr .uses b{font-size:20px}}
 @media(max-width:820px){.vc{grid-template-columns:1fr;max-height:96vh;overflow:auto}.vview{min-height:320px;height:46vh}.how{grid-template-columns:1fr;padding:24px}}
 @media(max-width:560px){.wrap{width:calc(100% - 28px)}.grid{grid-template-columns:1fr 1fr;gap:10px}.mc .acts{flex-direction:column}.navapp{display:none}}
 </style>
@@ -91,7 +103,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
 </div></header>
 <main class="wrap">
  <div class="bar">
-  <div class="tabs" role="tablist"><button data-t="all" class="on"><span lang="en">All</span><span lang="th">ทั้งหมด</span></button><button data-t="featured"><span lang="en">Featured</span><span lang="th">แนะนำ</span></button><button data-t="community"><span lang="en">Community</span><span lang="th">ชุมชน</span></button></div>
+  <div class="tabs" role="tablist"><button data-t="all" class="on"><span lang="en">All</span><span lang="th">ทั้งหมด</span></button><button data-t="top"><span lang="en">🏆 Top models</span><span lang="th">🏆 ยอดนิยม</span></button><button data-t="featured"><span lang="en">Featured</span><span lang="th">แนะนำ</span></button><button data-t="community"><span lang="en">Community</span><span lang="th">ชุมชน</span></button></div>
   <label class="search"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="Search models…" aria-label="Search models"></label>
  </div>
  <div class="grid" id="grid"></div>
@@ -99,14 +111,15 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
   <div><h2><span lang="en">Publish your model</span><span lang="th">เผยแพร่โมเดลของคุณ</span></h2>
    <p><span lang="en">Everything here was built in MasterSketch's 3D Studio from simple shapes. Yours can be here too.</span><span lang="th">ทุกอย่างในหน้านี้สร้างในสตูดิโอ 3D ของ MasterSketch จากรูปทรงง่าย ๆ ของคุณก็มาอยู่ที่นี่ได้</span></p></div>
   <ol>
-   <li><span><span lang="en"><b>Build</b> it in the 3D Studio and group the parts into one model.</span><span lang="th"><b>สร้าง</b>ในสตูดิโอ 3D แล้วรวมชิ้นส่วนเป็นโมเดลเดียว</span></span></li>
-   <li><span><span lang="en">Press <b>Share / publish</b>, then <b>Publish</b>.</span><span lang="th">กด <b>แชร์ / เผยแพร่</b> แล้วกด <b>เผยแพร่</b></span></span></li>
+   <li><span><span lang="en"><b>Shape:</b> add shapes in the 3D Studio – or draw your own – and stretch them into place.</span><span lang="th"><b>รูปทรง:</b> เพิ่มรูปทรงในสตูดิโอ 3D หรือวาดเอง แล้วยืดให้เข้าที่</span></span></li>
+   <li><span><span lang="en"><b>Color</b> each part with a tap, then give parts a <b>Motion</b> – or create your own from poses.</span><span lang="th"><b>ระบายสี</b>แต่ละชิ้นด้วยการแตะ แล้วใส่<b>การเคลื่อนไหว</b> หรือสร้างท่าเองจากหลาย ๆ ท่า</span></span></li>
+   <li><span><span lang="en">In <b>Share</b>, join the parts into one model and press <b>Share / publish</b>, then <b>Publish</b>.</span><span lang="th">ในขั้น<b>แชร์</b> รวมชิ้นส่วนเป็นโมเดลเดียว กด <b>แชร์ / เผยแพร่</b> แล้วกด <b>เผยแพร่</b></span></span></li>
    <li><span><span lang="en">GitHub opens with your model filled in. Sign in (free) and press <b>Submit new issue</b>.</span><span lang="th">GitHub จะเปิดพร้อมข้อมูลโมเดล ลงชื่อเข้าใช้ (ฟรี) แล้วกด <b>Submit new issue</b></span></span></li>
-   <li><span><span lang="en">Your model shows up here and in everyone's <b>Community</b> tab.</span><span lang="th">โมเดลของคุณจะแสดงที่นี่และในแท็บ <b>ชุมชน</b> ของทุกคน</span></span></li>
+   <li><span><span lang="en">Your model shows up here and in everyone's <b>Community</b> tab. The more people use it, the higher it climbs on the <b>Top models</b> board.</span><span lang="th">โมเดลของคุณจะแสดงที่นี่และในแท็บ <b>ชุมชน</b> ของทุกคน ยิ่งมีคนใช้มาก ก็ยิ่งขึ้นอันดับสูงใน<b>ยอดนิยม</b></span></span></li>
   </ol>
  </section>
 </main>
-<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.6</span><span><a href="index.html"><span lang="en">Home</span><span lang="th">หน้าแรก</span></a> · <a href="app.html"><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></span></div></footer>
+<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.7</span><span><a href="index.html"><span lang="en">Home</span><span lang="th">หน้าแรก</span></a> · <a href="app.html"><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></span></div></footer>
 
 <div class="vm" id="vm" hidden><div class="vc" role="dialog" aria-modal="true" aria-labelledby="vT">
  <div class="vview" id="vview"><button class="vx" id="vx" aria-label="Close">✕</button><span class="vhint"><span lang="en">Drag to spin · pinch or scroll to zoom</span><span lang="th">ลากเพื่อหมุน · บีบหรือเลื่อนเพื่อซูม</span></span></div>
@@ -130,19 +143,32 @@ const grid=$('#grid');
 if(!window.MSW){grid.innerHTML='<div class="empty"><b>3D is not available</b>This browser does not support WebGL. Open the app on another device.</div>';return}
 let tab='all',comm=null,commErr=false;const thumbs=new Map();let q=Promise.resolve();
 const featured=MSW.FEATURED.map(f=>({...f,kind:'featured'}));
+const THN={windmill:'กังหันลม',helicopter:'เฮลิคอปเตอร์',robot:'หุ่นยนต์',ufo:'ยูเอฟโอ',ferris:'ชิงช้าสวรรค์',castle:'ปราสาท',fish:'ปลาทอง',dog:'ลูกหมา',flower:'กระถางดอกไม้',train:'รถไฟไอน้ำ',rocketship:'จรวดทะยาน',dancer:'ปาร์ตี้เต้นรำ',solar:'ระบบสุริยะ'};
+const nm=it=>th()&&it.kind==='featured'&&THN[it.id]?THN[it.id]:it.n;
+const used=it=>{if(it&&(it.kind==='featured'||it.kind==='comm'))MSW.useHit(it.id)};
+let top=null,topErr=false,topForce=false;
 async function specOf(it){if(it.spec)return it.spec;it.spec=await MSW.decode(it.code);return it.spec}
 async function codeOf(it){if(it.code)return it.code;it.code=await MSW.encode(it.spec);return it.code}
 function thumb(it){const k=it.kind+it.id;if(thumbs.has(k))return Promise.resolve(thumbs.get(k));q=q.then(async()=>{if(thumbs.has(k))return;let u='';try{const o=MSW.buildModel(await specOf(it));u=o?MSW.thumb(o,360,270):''}catch(e){}thumbs.set(k,u);await new Promise(r=>setTimeout(r,8))});return q.then(()=>thumbs.get(k))}
 function card(it){const d=document.createElement('article');d.className='mc';d.innerHTML='<button class="th" aria-label="View"><span class="sp"></span><span class="play"></span></button><div class="info"><b></b><small></small><span class="d"></span><div class="acts"><a class="btn sm pri op"></a><button class="btn sm cp"></button></div></div>';
- d.querySelector('b').textContent=it.n;d.querySelector('small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');d.querySelector('.d').textContent=it.d||'';d.querySelector('.play').textContent=th()?'▶ ดู 3D':'▶ View 3D';
- const op=d.querySelector('.op');op.textContent=th()?'เปิดในแอป':'Open in app';op.href='app.html';codeOf(it).then(c=>op.href='app.html#model='+c).catch(()=>{});
- d.querySelector('.cp').textContent=th()?'คัดลอกลิงก์':'Copy link';d.querySelector('.cp').onclick=async()=>copy(location.href.replace(/workshop\.html.*$/,'')+'app.html#model='+await codeOf(it),'Share link copied','คัดลอกลิงก์แชร์แล้ว');
+ d.querySelector('b').textContent=nm(it);d.querySelector('small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');d.querySelector('.d').textContent=it.d||'';d.querySelector('.play').textContent=th()?'▶ ดู 3D':'▶ View 3D';
+ const op=d.querySelector('.op');op.textContent=th()?'เปิดในแอป':'Open in app';op.href='app.html';op.onclick=()=>used(it);codeOf(it).then(c=>op.href='app.html#model='+c).catch(()=>{});
+ d.querySelector('.cp').textContent=th()?'คัดลอกลิงก์':'Copy link';d.querySelector('.cp').onclick=async()=>{used(it);copy(location.href.replace(/workshop\.html.*$/,'')+'app.html#model='+await codeOf(it),'Share link copied','คัดลอกลิงก์แชร์แล้ว')};
  d.querySelector('.th').onclick=()=>view(it);
  thumb(it).then(u=>{const th0=d.querySelector('.th'),sp=th0.querySelector('.sp');if(sp)sp.remove();if(u){const im=new Image();im.src=u;im.alt=it.n;th0.prepend(im)}});return d}
-async function render(){grid.innerHTML='';const qq=($('#q').value||'').trim().toLowerCase();let list=[];
+function rankRow(it){const d=document.createElement('article');d.className='rr'+(it.rank<4?' r'+it.rank:'');d.innerHTML='<span class="no"></span><button class="th" aria-label="View"><span class="sp"></span></button><div class="nm"><b></b><small></small></div><div class="uses"><b></b><small></small></div><a class="btn sm pri op"></a>';
+ d.querySelector('.no').textContent=it.rank;d.querySelector('.nm b').textContent=nm(it);d.querySelector('.nm small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+' · '+(it.kind==='featured'?(th()?'แนะนำ':'Featured'):(th()?'ชุมชน':'Community'));
+ d.querySelector('.uses b').textContent=(it.uses||0).toLocaleString();d.querySelector('.uses small').textContent=th()?'ครั้งที่ใช้':(it.uses===1?'use':'uses');
+ const op=d.querySelector('.op');op.textContent=th()?'เปิดในแอป':'Open in app';op.href='app.html';op.onclick=()=>used(it);codeOf(it).then(c=>op.href='app.html#model='+c).catch(()=>{});
+ d.querySelector('.th').onclick=()=>view(it);thumb(it).then(u=>{const t0=d.querySelector('.th'),sp=t0.querySelector('.sp');if(sp)sp.remove();if(u){const im=new Image();im.src=u;im.alt=it.n;t0.prepend(im)}});return d}
+async function renderTop(qq){if(!top&&!topErr){grid.innerHTML='<div class="empty"><b>…</b></div>';try{top=await MSW.leaderboard(topForce);top.forEach((x,i)=>x.rank=i+1)}catch(e){topErr=true}topForce=false;if(tab!=='top')return}
+ grid.innerHTML='';grid.className='rank';const note=document.createElement('div');note.className='rnote';note.innerHTML='<span></span><button class="btn sm"></button>';note.firstChild.textContent=th()?'โมเดลที่ถูกใช้มากที่สุด โมเดลได้ 1 แต้มทุกครั้งที่มีคนเปิดในแอปหรือเพิ่มลงในฉาก':'The most used models. A model gets a point each time someone opens it in the app or adds it to their scene.';note.lastChild.textContent=th()?'รีเฟรช':'Refresh';note.lastChild.onclick=()=>{top=null;topErr=false;topForce=true;render()};grid.appendChild(note);
+ if(topErr){const e=document.createElement('div');e.className='empty';e.innerHTML=th()?'<b>โหลดอันดับไม่ได้</b>ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง':'<b>Could not load the leaderboard</b>Check your internet connection and try again.';grid.appendChild(e);return}
+ let list=top.map(x=>({...x,kind:x.kind}));if(qq)list=list.filter(it=>(it.n+' '+nm(it)+' '+(it.a||'')).toLowerCase().includes(qq));list.forEach(it=>grid.appendChild(rankRow(it)))}
+async function render(){grid.innerHTML='';grid.className='grid';const qq=($('#q').value||'').trim().toLowerCase();let list=[];if(tab==='top')return renderTop(qq);
  if(tab!=='featured'){if(!comm&&!commErr){grid.innerHTML='<div class="empty"><b>…</b></div>';try{comm=(await MSW.community()).map(c=>({...c,kind:'comm'}))}catch(e){commErr=true}grid.innerHTML=''}}
  if(tab!=='community')list=list.concat(featured);if(tab!=='featured'&&comm)list=list.concat(comm);
- if(qq)list=list.filter(it=>(it.n+' '+(it.a||'')+' '+(it.d||'')).toLowerCase().includes(qq));
+ if(qq)list=list.filter(it=>(it.n+' '+nm(it)+' '+(it.a||'')+' '+(it.d||'')).toLowerCase().includes(qq));
  if(!list.length){const e=document.createElement('div');e.className='empty';if(tab==='community'&&commErr)e.innerHTML=th()?'<b>เชื่อมต่อชุมชนไม่ได้</b>ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง':'<b>Could not reach the Community</b>Check your internet connection and try again.';else if(tab==='community')e.innerHTML=th()?'<b>ยังไม่มีโมเดลจากชุมชน</b>มาเป็นคนแรกที่เผยแพร่กัน – ดูวิธีด้านล่าง':'<b>No community models yet</b>Be the first to publish one – see how below.';else e.innerHTML=th()?'<b>ไม่พบผลลัพธ์</b>':'<b>No results</b>';grid.appendChild(e);return}
  list.forEach(it=>grid.appendChild(card(it)))}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));render()});
@@ -160,12 +186,13 @@ function loop(){const v=V;v.raf=requestAnimationFrame(loop);v.t+=1/60;if(v.obj)v
 async function view(it){const v=viewer();let spec;try{spec=await specOf(it)}catch(e){return toast('This model could not be loaded','โหลดโมเดลนี้ไม่ได้')}if(v.obj)v.sc.remove(v.obj);const o=MSW.buildModel(spec);if(!o)return;
  const b=new THREE.Box3().setFromObject(o);o.position.y-=b.min.y;o.position.x-=(b.min.x+b.max.x)/2;o.position.z-=(b.min.z+b.max.z)/2;v.sc.add(o);v.obj=o;v.t=0;
  const b2=new THREE.Box3().setFromObject(o),c=b2.getCenter(new THREE.Vector3()),rad=Math.max(.6,b2.getSize(new THREE.Vector3()).length()/2);v.ctl.target.copy(c);v.cam.position.copy(c).add(new THREE.Vector3(.8,.45,1).normalize().multiplyScalar(rad/Math.sin(v.cam.fov*Math.PI/360)*1.05));v.ctl.autoRotate=true;v.ctl.update();
- $('#vT').textContent=it.n;$('#vBy').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');$('#vD').textContent=it.d||'';const code=await codeOf(it);$('#vOpen').href='app.html#model='+code;
- $('#vLink').onclick=()=>copy(location.href.replace(/workshop\.html.*$/,'')+'app.html#model='+code,'Share link copied','คัดลอกลิงก์แชร์แล้ว');$('#vCode').onclick=()=>copy(code,'Model code copied','คัดลอกรหัสโมเดลแล้ว');
+ $('#vT').textContent=nm(it);$('#vBy').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');$('#vD').textContent=it.d||'';const code=await codeOf(it);$('#vOpen').href='app.html#model='+code;$('#vOpen').onclick=()=>used(it);
+ $('#vLink').onclick=()=>{used(it);copy(location.href.replace(/workshop\.html.*$/,'')+'app.html#model='+code,'Share link copied','คัดลอกลิงก์แชร์แล้ว')};$('#vCode').onclick=()=>{used(it);copy(code,'Model code copied','คัดลอกรหัสโมเดลแล้ว')};
  $('#vGh').hidden=!it.url;if(it.url)$('#vGh').href=it.url;$('#vm').hidden=false;cancelAnimationFrame(v.raf);loop();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
 const close=()=>{$('#vm').hidden=true;if(V)cancelAnimationFrame(V.raf);history.replaceState(null,'',location.pathname)};
 $('#vx').onclick=close;$('#vm').addEventListener('click',e=>{if(e.target.id==='vm')close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-render();const h=location.hash.slice(1);if(h){const f=featured.find(x=>x.id===h);if(f)setTimeout(()=>view(f),300)}
+if(location.hash==='#top'){tab='top';document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t==='top'))}
+render();const h=location.hash.slice(1);if(h&&h!=='top'){const f=featured.find(x=>x.id===h);if(f)setTimeout(()=>view(f),300)}
 })();
 </script>
 </body>
