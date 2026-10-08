@@ -78,6 +78,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
 @media(max-width:860px){.vc{grid-template-columns:1fr}.vside{border-left:0;border-top:1px solid var(--line)}.how{grid-template-columns:1fr;padding:24px}}
 @media(max-width:560px){.wrap{width:calc(100% - 28px)}.grid{grid-template-columns:1fr}.navl{display:none}}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&display=swap" rel="stylesheet"><style id="v6theme">
+:root{--ink:#0a0816;--panel:#120f22;--panel2:#19152d;--line:#c4b5fd1f;--line2:#c4b5fd33;--text:#f4f1ff;--mute:#aaa3c7;--violet:#8b5cf6;--orchid:#ec4899;--display:"Outfit","Noto Sans Thai",system-ui,sans-serif}
+body{background:radial-gradient(900px 600px at 8% -10%,#8b5cf640,transparent 60%),radial-gradient(800px 560px at 100% 10%,#ec489930,transparent 60%),radial-gradient(900px 700px at 50% 120%,#22d3ee1c,transparent 60%),var(--ink)!important}
+nav.top{background:#0a0816c4!important}
+.btn.pri,.tabs button.on,.seg button.on{background:linear-gradient(135deg,#8b5cf6,#ec4899)!important;border-color:transparent!important;color:#fff!important}
+.mc{border-radius:22px!important}
+.vfy{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:2px 9px;border-radius:99px;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;font:700 11px system-ui,sans-serif;vertical-align:middle;box-shadow:0 3px 10px #3b82f655}
+</style>
 </head>
 <body>
 <nav class="top"><div class="wrap">
@@ -147,7 +155,7 @@ async function modOf(it){if(it.mod)return it.mod;it.mod=await MSM.decode(it.code
 async function codeOf(it){if(it.code)return it.code;it.code=await MSM.encode(it.mod);return it.code}
 const base=()=>location.href.replace(/mods\.html.*$/,'');
 function card(it){const d=document.createElement('article');d.className='mc';d.innerHTML='<button class="pv" aria-label="Try"></button><div class="info"><div class="nm"><b></b><span class="rk" hidden></span></div><small></small><span class="d"></span><span class="tags"></span><div class="acts"><button class="btn sm try"></button><a class="btn sm pri op"></a></div></div>';
- d.querySelector('b').textContent=nm(it);d.querySelector('small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.uses!=null?' · '+it.uses+(th()?' ครั้งที่ติดตั้ง':it.uses===1?' install':' installs'):'');d.querySelector('.d').textContent=ds(it);
+ if(it.stars>0){const v=document.createElement('span');v.className='vfy';v.textContent=th()?'✓ ยืนยันแล้ว':'✓ Verified';v.title=th()?'ตรวจและยืนยันโดยทีม MasterSketch':'Checked and verified by the MasterSketch team';d.querySelector('b').after(v)}d.querySelector('b').textContent=nm(it);d.querySelector('small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.uses!=null?' · '+it.uses+(th()?' ครั้งที่ติดตั้ง':it.uses===1?' install':' installs'):'');d.querySelector('.d').textContent=ds(it);
  if(it.rank){const r=d.querySelector('.rk');r.hidden=false;r.textContent='#'+it.rank;if(it.rank<4)r.classList.add('r'+it.rank)}
  d.querySelector('.try').textContent=th()?'ลองแปรง':'Try it';const op=d.querySelector('.op');op.textContent=th()?'ติดตั้งในแอป':'Install in app';op.href='app.html';op.onclick=()=>used(it);
  d.querySelector('.try').onclick=d.querySelector('.pv').onclick=()=>view(it);
