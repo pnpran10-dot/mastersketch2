@@ -78,13 +78,24 @@ async function decode(code){const m=String(code||'').replace(/\s+/g,'').match(/M
  if(m[1]==='1'){if(!window.DecompressionStream)throw Error('unsupported');u=new Uint8Array(await new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer())}
  if(u.length>400000)throw Error('big');return cleanMod(JSON.parse(new TextDecoder().decode(u)))}
 const findCode=s=>{const m=String(s||'').replace(/\s+/g,'').match(/MSMOD[01]:[A-Za-z0-9_\-]+/);return m?m[0]:null};
+/* ---------- admin: ratings, staff picks and settings live on the GitHub issues ----------
+   Only people who can manage the repository can add labels, so ratings can't be faked. */
+const TRUST=['OWNER','MEMBER','COLLABORATOR'];
+const lbs=i=>(i.labels||[]).map(l=>typeof l==='string'?l:l&&l.name||'');
+const starsOf=i=>{const m=lbs(i).map(n=>/^rating[:\-]\s*([1-5])$/i.exec(n)).find(Boolean);return m?+m[1]:0};
+const pickOf=i=>lbs(i).some(n=>/^staff[\s\-]?pick$/i.test(n));
+function cfgOf(list){const c=(list||[]).find(i=>/^\s*\[config\]/i.test(i.title||'')&&i.state!=='closed'&&TRUST.includes(i.author_association));let o={};
+ if(c){const m=String(c.body||'').match(/```json\s*([\s\S]*?)```/);try{o=JSON.parse(m?m[1]:'{}')||{}}catch(e){}}
+ return{blocked:(Array.isArray(o.blocked)?o.blocked:[]).map(s=>String(s).toLowerCase().slice(0,40)).slice(0,500),lb:o.lb==='all'?'all':'rated'}}
+let CFG={blocked:[],lb:'rated'};
+const okItem=(i,c)=>!(i.user&&c.blocked.includes(String(i.user.login).toLowerCase()))&&!lbs(i).includes('hidden');
 /* community mods: GitHub issues titled "[Mod] name" with a ```msmod code block */
-async function community(force){const key='msm_comm_v1';try{const c=JSON.parse(localStorage.getItem(key)||'null');if(!force&&c&&Date.now()-c.at<6e5)return c.items}catch(e){}
+async function community(force){const key='msm_comm_v2';try{const c=JSON.parse(localStorage.getItem(key)||'null');if(!force&&c&&Date.now()-c.at<6e5){if(c.cfg)CFG=c.cfg;return c.items}}catch(e){}
  const r=await fetch('https://api.github.com/repos/'+REPO+'/issues?state=open&per_page=100&sort=created&direction=desc',{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw Error('http '+r.status);
- const items=(await r.json()).filter(i=>!i.pull_request&&/^\s*\[mod\]/i.test(i.title||'')).map(i=>{const body=String(i.body||''),code=findCode(body);if(!code)return null;
+ const raw=await r.json();CFG=cfgOf(raw);const items=raw.filter(i=>!i.pull_request&&/^\s*\[mod\]/i.test(i.title||'')&&okItem(i,CFG)).map(i=>{const body=String(i.body||''),code=findCode(body);if(!code)return null;
   const by=(body.match(/\*\*By:\*\*\s*([^\n]{1,40})/)||[])[1],desc=(body.split(/```/)[0].replace(/\*\*(Mod|By):\*\*[^\n]*\n?/g,'').trim()).slice(0,300);
-  return{id:'mod-gh'+i.number,n:str(String(i.title).replace(/^\s*\[mod\]\s*/i,''),60)||'Mod',a:str(by,40)||i.user&&i.user.login||'?',date:(i.created_at||'').slice(0,10),url:i.html_url,code,d:desc,kind:'comm'}}).filter(Boolean);
- try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items}))}catch(e){}return items}
+  return{id:'mod-gh'+i.number,n:str(String(i.title).replace(/^\s*\[mod\]\s*/i,''),60)||'Mod',a:str(by,40)||i.user&&i.user.login||'?',date:(i.created_at||'').slice(0,10),url:i.html_url,code,d:desc,kind:'comm',stars:starsOf(i),pick:pickOf(i),num:i.number}}).filter(Boolean);
+ try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items,cfg:CFG}))}catch(e){}return items}
 function publishUrl(name,author,desc,code){const title='[Mod] '+String(name||'Mod').slice(0,60),body=`**Mod:** ${String(name||'Mod').slice(0,60)}\n**By:** ${String(author||'anonymous').slice(0,40)}\n\n${String(desc||'').slice(0,500)}\n\n\`\`\`msmod\n${code}\n\`\`\`\n\n_Made with MasterSketch Studio · see every mod at ${SITE}mods.html_`;
  return'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)}
 
@@ -124,5 +135,5 @@ const FEATURED=[
   models:[{v:1,n:'Mini UFO',parts:[{s:'sphere',p:[0,1,0],k:[1.6,.35,1.6],m:[['#b0bec5',.25,.9,1,0]]},{s:'dome',p:[0,1.1,0],k:.75,m:[['#80deea',.05,0,.55,8]]},{s:'group',p:[0,.98,0],parts:[0,1,2,3,4,5].map(i=>({s:'sphere',p:[Math.cos(i*Math.PI/3)*.9,0,Math.sin(i*Math.PI/3)*.9],k:.12,m:[[i%2?'#ffeb3b':'#ff4081',.3,0,1,2]]})),mo:{t:'spin',ax:'y',sp:1.5,am:1}}],mo:{t:'float',ax:'y',sp:.8,am:1}}]}}];
 FEATURED.forEach(f=>{f.mod=cleanMod(f.mod);f.kind='featured'});
 
-window.MSM={REPO,SITE,TIPS,ICONS,COLM,BLEND,BDEF,FEATURED,cleanBrush,cleanMod,cleanPalette,parts,tipCanvas,tipFromCanvas,tipToCanvas,dab,spacing,reach,strokeAlong,preview,encode,decode,findCode,community,publishUrl,hsl2hex,mix};
+window.MSM={REPO,SITE,TIPS,ICONS,COLM,BLEND,BDEF,FEATURED,cleanBrush,cleanMod,cleanPalette,parts,tipCanvas,tipFromCanvas,tipToCanvas,dab,spacing,reach,strokeAlong,preview,encode,decode,findCode,community,publishUrl,hsl2hex,mix,cfg:()=>CFG};
 })();

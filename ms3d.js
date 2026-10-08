@@ -1210,10 +1210,24 @@ const B={
  table:()=>{const c='#8d6e63',l=[];for(const x of[.7,-.7])for(const z of[.42,-.42])l.push(at(mesh(new T.BoxGeometry(.08,.72,.08),c),x,.36,z));return grp([at(mesh(new T.BoxGeometry(1.6,.08,1),c),0,.76,0),...l])},
  snowman:()=>{const n=mesh(new T.ConeGeometry(.045,.25,16),'#ff8a3d');n.rotation.x=Math.PI/2;n.position.set(0,1.58,.32);return grp([at(mesh(new T.SphereGeometry(.45,32,24),'#ffffff'),0,.45,0),at(mesh(new T.SphereGeometry(.33,32,24),'#ffffff'),0,1.1,0),at(mesh(new T.SphereGeometry(.22,32,24),'#ffffff'),0,1.58,0),n,at(mesh(new T.SphereGeometry(.03,12,8),'#111'),.08,1.65,.2),at(mesh(new T.SphereGeometry(.03,12,8),'#111'),-.08,1.65,.2)])},
  mug:()=>{const h=mesh(new T.TorusGeometry(.18,.045,12,32,Math.PI),'#ffffff');h.rotation.z=-Math.PI/2;h.position.set(.36,.38,0);return grp([at(mesh(new T.CylinderGeometry(.33,.3,.7,40,1,true),'#ffffff',{side:T.DoubleSide}),0,.35,0),at(mesh(new T.CircleGeometry(.3,40),'#ffffff'),0,.01,0),h])},
+ coin:()=>{const g=new T.CylinderGeometry(.32,.32,.07,40);g.rotateX(Math.PI/2);const m=mesh(g,'#ffc928',{roughness:.25,metalness:.8,emissive:'#7a4d00'});m.position.y=.5;const o=grp([m]);o.userData.motion={t:'spin',ax:'y',sp:1,am:1,ph:0};return o},
+ goal:()=>{const fl=new T.Shape();fl.moveTo(0,0);fl.lineTo(.75,-.22);fl.lineTo(0,-.44);fl.closePath();const f=mesh(extr(fl,{depth:.04,bevelEnabled:false}),'#ffca28',{side:T.DoubleSide});f.geometry.translate(.38,-.22,0);f.position.set(.05,2.15,0);
+  return grp([at(mesh(new T.CylinderGeometry(.6,.7,.12,40),'#eceff1',{roughness:.4}),0,.06,0),at(mesh(new T.CylinderGeometry(.04,.04,2.3,16),'#cfd8dc',{metalness:.6,roughness:.3}),0,1.25,0),at(mesh(new T.SphereGeometry(.09,16,12),'#ffca28',{metalness:.7,roughness:.25}),0,2.42,0),f])},
+ checkpoint:()=>{const f=mesh(new T.BoxGeometry(.5,.32,.03),'#29b6f6');f.position.set(.27,1.25,0);return grp([at(mesh(new T.CylinderGeometry(.4,.45,.08,32),'#b3e5fc',{roughness:.4}),0,.04,0),at(mesh(new T.CylinderGeometry(.03,.03,1.4,12),'#cfd8dc',{metalness:.6,roughness:.3}),0,.7,0),f])},
+ spawn:()=>{const a=new T.Shape();a.moveTo(0,.32);a.lineTo(.26,0);a.lineTo(.1,0);a.lineTo(.1,-.28);a.lineTo(-.1,-.28);a.lineTo(-.1,0);a.lineTo(-.26,0);a.closePath();const ar=mesh(extr(a,{depth:.03,bevelEnabled:false}),'#ffffff');ar.rotation.x=-Math.PI/2;ar.position.y=.1;
+  return grp([at(mesh(new T.CylinderGeometry(.7,.75,.08,40),'#66bb6a',{roughness:.5}),0,.04,0),ar])},
+ spring:()=>{const parts=[at(mesh(new T.CylinderGeometry(.5,.55,.12,32),'#546e7a',{metalness:.5,roughness:.4}),0,.06,0)];for(let i=0;i<4;i++){const c=mesh(new T.TorusGeometry(.3,.045,10,32),'#b0bec5',{metalness:.8,roughness:.25});c.rotation.x=Math.PI/2;c.position.y=.18+i*.1;parts.push(c)}
+  parts.push(at(mesh(new T.CylinderGeometry(.48,.48,.1,32),'#ef5350',{roughness:.35}),0,.6,0));return grp(parts)},
+ lava:()=>at(mesh(new T.BoxGeometry(2,.12,2),'#ff5722',{emissive:'#ff3d00',roughness:.6}),0,.06,0),
+ spikes:()=>{const s=[at(mesh(new T.BoxGeometry(1.2,.08,1.2),'#455a64',{metalness:.4,roughness:.5}),0,.04,0)];for(const x of[-.4,0,.4])for(const z of[-.4,0,.4])s.push(at(mesh(new T.ConeGeometry(.13,.42,12),'#cfd8dc',{metalness:.8,roughness:.25}),x,.29,z));return grp(s)},
+ platform:()=>at(mesh(new T.BoxGeometry(2,.25,2),'#7e57c2',{roughness:.45}),0,.125,0),
  rocket:()=>{const f=[];for(let i=0;i<3;i++){const m=mesh(new T.BoxGeometry(.04,.35,.3),'#ef5350');const a=i*Math.PI*2/3;m.position.set(Math.cos(a)*.3,.25,Math.sin(a)*.3);m.rotation.y=-a;f.push(m)}return grp([at(mesh(new T.CylinderGeometry(.25,.25,1.1,32),'#eceff1',{roughness:.3,metalness:.3}),0,.75,0),at(mesh(new T.ConeGeometry(.25,.5,32),'#ef5350'),0,1.55,0),at(mesh(new T.SphereGeometry(.1,16,12),'#4fc3f7',{roughness:.1}),0,.95,.23),...f])}};
 /* library order and icons for the app */
 const LIB=[['mannequin','fa-person','Mannequin'],['cube','fa-cube','Cube'],['sphere','fa-circle','Sphere'],['cylinder','fa-database','Cylinder'],['cone','fa-ice-cream','Cone'],['pyramid','fa-play','Pyramid'],['dome','fa-cloud','Dome'],['wedge','fa-caret-up','Wedge'],['tube','fa-ring','Tube'],['torus','fa-life-ring','Donut'],['ring','fa-circle-notch','Ring'],['knot','fa-infinity','Knot'],['capsule','fa-capsules','Capsule'],['gem','fa-gem','Gem'],['heart','fa-heart','Heart'],['star','fa-star','Star'],['hex','fa-dice-d6','Hexagon'],['prism','fa-play','Prism'],['arch','fa-archway','Arch'],['roundbox','fa-square','Soft box'],['bowl','fa-bowl-food','Bowl'],['plane','fa-square-full','Plane'],
- ['house','fa-house','House'],['tree','fa-tree','Tree'],['car','fa-car','Car'],['chair','fa-chair','Chair'],['table','fa-table','Table'],['snowman','fa-snowman','Snowman'],['mug','fa-mug-hot','Mug'],['rocket','fa-rocket','Rocket']];
+ ['house','fa-house','House'],['tree','fa-tree','Tree'],['car','fa-car','Car'],['chair','fa-chair','Chair'],['table','fa-table','Table'],['snowman','fa-snowman','Snowman'],['mug','fa-mug-hot','Mug'],['rocket','fa-rocket','Rocket'],
+ ['spawn','fa-location-dot','Start'],['coin','fa-coins','Coin'],['goal','fa-flag-checkered','Goal flag'],['checkpoint','fa-flag','Checkpoint'],['spring','fa-arrows-up-to-line','Spring'],['lava','fa-fire','Lava'],['spikes','fa-triangle-exclamation','Spikes'],['platform','fa-grip-lines','Platform']];
+/* which shapes are game pieces in Play mode */
+const GAME=['spawn','coin','goal','checkpoint','spring','lava','spikes','platform'];
 
 /* ---------- outlines & materials ---------- */
 function outline(obj,on){meshesOf(obj).forEach(m=>{m.children.filter(c=>c.userData.outline).forEach(c=>m.remove(c));if(on){const o=new T.Mesh(m.geometry,new T.MeshBasicMaterial({color:0x14141a,side:T.BackSide}));o.scale.setScalar(1.035);o.userData.outline=true;o.raycast=()=>{};m.add(o)}});obj.userData.outlined=!!on}
@@ -1295,13 +1309,24 @@ async function decode(code){const m=String(code||'').replace(/\s+/g,'').match(/M
  if(u.length>3e6)throw Error('big');const spec=JSON.parse(new TextDecoder().decode(u));if(!spec||!Array.isArray(spec.parts))throw Error('bad');return spec}
 const findCode=s=>{const m=String(s||'').replace(/\s+/g,'').match(/MS3D[01]:[A-Za-z0-9_\-]+/);return m?m[0]:null};
 
+/* ---------- admin: ratings, staff picks and settings live on the GitHub issues ----------
+   Only people who can manage the repository can add labels, so ratings can't be faked. */
+const TRUST=['OWNER','MEMBER','COLLABORATOR'];
+const lbs=i=>(i.labels||[]).map(l=>typeof l==='string'?l:l&&l.name||'');
+const starsOf=i=>{const m=lbs(i).map(n=>/^rating[:\-]\s*([1-5])$/i.exec(n)).find(Boolean);return m?+m[1]:0};
+const pickOf=i=>lbs(i).some(n=>/^staff[\s\-]?pick$/i.test(n));
+function cfgOf(list){const c=(list||[]).find(i=>/^\s*\[config\]/i.test(i.title||'')&&i.state!=='closed'&&TRUST.includes(i.author_association));let o={};
+ if(c){const m=String(c.body||'').match(/```json\s*([\s\S]*?)```/);try{o=JSON.parse(m?m[1]:'{}')||{}}catch(e){}}
+ return{blocked:(Array.isArray(o.blocked)?o.blocked:[]).map(s=>String(s).toLowerCase().slice(0,40)).slice(0,500),lb:o.lb==='all'?'all':'rated'}}
+let CFG={blocked:[],lb:'rated'};
+const okItem=(i,c)=>!(i.user&&c.blocked.includes(String(i.user.login).toLowerCase()))&&!lbs(i).includes('hidden');
 /* ---------- community: models published as GitHub issues titled "[Model] name" ---------- */
-async function community(force){const key='msw_comm_v1';try{const c=JSON.parse(localStorage.getItem(key)||'null');if(!force&&c&&Date.now()-c.at<6e5)return c.items}catch(e){}
+async function community(force){const key='msw_comm_v2';try{const c=JSON.parse(localStorage.getItem(key)||'null');if(!force&&c&&Date.now()-c.at<6e5){if(c.cfg)CFG=c.cfg;return c.items}}catch(e){}
  const r=await fetch('https://api.github.com/repos/'+REPO+'/issues?state=open&per_page=100&sort=created&direction=desc',{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw Error('http '+r.status);
- const items=(await r.json()).filter(i=>!i.pull_request&&/^\s*\[model\]/i.test(i.title||'')).map(i=>{const body=String(i.body||''),code=findCode(body);if(!code)return null;
+ const raw=await r.json();CFG=cfgOf(raw);const items=raw.filter(i=>!i.pull_request&&/^\s*\[model\]/i.test(i.title||'')&&okItem(i,CFG)).map(i=>{const body=String(i.body||''),code=findCode(body);if(!code)return null;
   const by=(body.match(/\*\*By:\*\*\s*([^\n]{1,40})/)||[])[1],desc=(body.split(/```/)[0].replace(/\*\*(Model|By):\*\*[^\n]*\n?/g,'').trim()).slice(0,300);
-  return{id:'gh'+i.number,n:String(i.title).replace(/^\s*\[model\]\s*/i,'').slice(0,60)||'Model',a:(by||'').trim()||i.user&&i.user.login||'?',date:(i.created_at||'').slice(0,10),url:i.html_url,code,d:desc}}).filter(Boolean);
- try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items}))}catch(e){}return items}
+  return{id:'gh'+i.number,n:String(i.title).replace(/^\s*\[model\]\s*/i,'').slice(0,60)||'Model',a:(by||'').trim()||i.user&&i.user.login||'?',date:(i.created_at||'').slice(0,10),url:i.html_url,code,d:desc,stars:starsOf(i),pick:pickOf(i),num:i.number}}).filter(Boolean);
+ try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items,cfg:CFG}))}catch(e){}return items}
 function publishUrl(name,author,desc,code){const title='[Model] '+String(name||'Model').slice(0,60),body=`**Model:** ${String(name||'Model').slice(0,60)}\n**By:** ${String(author||'anonymous').slice(0,40)}\n\n${String(desc||'').slice(0,500)}\n\n\`\`\`ms3d\n${code}\n\`\`\`\n\n_Made with MasterSketch Studio · see every model at ${SITE}workshop.html_`;
  return'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)}
 
@@ -1316,9 +1341,9 @@ function useHit(id){if(!id||/^m\d/.test(id))return;try{const k='msw_hit_'+ukey(i
 async function uses(ids,force){const c=useCache(),out={},need=[];ids.forEach(id=>{const e=c[id];if(e&&!force&&Date.now()-e[1]<6e5)out[id]=e[0];else need.push(id)});
  let i=0,ok=0;const lane=async()=>{while(i<need.length&&i<27){const id=need[i++];try{const r=await fetch(CNT+'/get/'+NS+'/'+ukey(id));if(r.status===404){out[id]=0;setUse(id,0);ok++}else if(r.ok){const j=await r.json();out[id]=+j.value||0;setUse(id,out[id]);ok++}else if(c[id])out[id]=c[id][0]}catch(e){if(c[id])out[id]=c[id][0]}}};
  await Promise.all([lane(),lane(),lane()]);need.forEach(id=>{if(out[id]==null&&c[id])out[id]=c[id][0]});if(need.length&&!ok&&!Object.keys(out).length)throw Error('offline');return out}
-async function leaderboard(force){let comm=[];try{comm=await community(force)}catch(e){}
+async function leaderboard(force){let comm=[];try{comm=await community(force)}catch(e){}if(CFG.lb!=='all')comm=comm.filter(c=>c.stars>0);
  const items=FEATURED.map(f=>({id:f.id,n:f.n,a:f.a,d:f.d,spec:f.spec,kind:'featured'})).concat(comm.map(c=>Object.assign({},c,{kind:'comm'})));
- const u=await uses(items.map(x=>x.id),force);items.forEach(x=>x.uses=u[x.id]||0);return items.sort((a,b)=>b.uses-a.uses||(a.kind==='comm'?-1:1)-(b.kind==='comm'?-1:1))}
+ const u=await uses(items.map(x=>x.id),force);items.forEach(x=>x.uses=u[x.id]||0);return items.sort((a,b)=>(b.stars||0)-(a.stars||0)||b.uses-a.uses||(a.kind==='comm'?-1:1)-(b.kind==='comm'?-1:1))}
 
 /* ---------- thumbnails (separate small renderer) ---------- */
 let TR=null;
@@ -1378,5 +1403,5 @@ F('solar','Solar system','Planets orbit a glowing sun.',[P('sphere',[0,1.2,0],{k
  G([0,1.2,0],[P('sphere',[0,0,0],{k:.3,m:[M('#d7ccc8',.6)]}),P('ring',[0,0,0],{r:[70,0,0],k:.85,m:[M('#bcaaa4',.6)]})],{mo:{t:'orbit',ax:'y',sp:.32,am:2.8}}),
  ...[1.1,1.6,2.1,2.8].map(r=>P('ring',[0,1.2,0],{r:[90,0,0],k:r*2,m:[M('#ffffff',.5,0,.25,8)]}))]);
 
-window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS};
+window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS,GAME,starsOf,pickOf,cfgOf,cfg:()=>CFG};
 })();
