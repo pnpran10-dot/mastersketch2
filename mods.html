@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MasterSketch Mods</title>
+<meta name="description" content="Brushes, palettes and 3D models made by everyone for MasterSketch Studio. Try every brush right in your browser, then install it in the app with one tap.">
+<meta name="theme-color" content="#08090f">
+<meta property="og:title" content="MasterSketch Mods">
+<meta property="og:image" content="shot-mods.jpg">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08090f;--panel:#10131b;--panel2:#161a24;--line:#ffffff14;--line2:#ffffff22;--text:#eef0f6;--mute:#9aa2b5;--violet:#7c8cff;--orchid:#c084fc;--mint:#5fe3b4;
+ --display:"Bricolage Grotesque","Noto Sans Thai",system-ui,sans-serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Thai",sans-serif;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(900px 500px at 90% -10%,#c084fc2e,transparent 60%),radial-gradient(800px 500px at 0% 10%,#5fe3b41c,transparent 60%),var(--ink);color:var(--text);font:16px/1.55 var(--body);min-height:100vh;overflow-x:hidden}
+html[data-lang=en] [lang=th],html[data-lang=th] [lang=en]{display:none!important}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button,input{font:inherit;color:inherit}button{cursor:pointer}[hidden]{display:none!important}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+nav.top{position:sticky;top:0;z-index:30;background:rgba(8,9,15,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:12px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:18px}.brand img{width:32px;height:32px;border-radius:10px}
+.sp{flex:1}
+.lang{display:flex;border:1px solid var(--line2);border-radius:999px;padding:3px}.lang button{border:0;background:none;color:var(--mute);font-weight:600;font-size:12.5px;padding:5px 10px;border-radius:999px}.lang button.on{background:var(--violet);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:14px;font-weight:650;font-size:14.5px;border:1px solid var(--line2);background:var(--panel2);transition:transform .15s,border-color .15s;color:var(--text)}
+.btn:hover{transform:translateY(-2px);border-color:var(--violet)}.btn.pri{background:linear-gradient(135deg,var(--violet),var(--orchid));border:0;color:#fff;box-shadow:0 10px 30px #7c8cff40}
+.btn.sm{padding:8px 12px;font-size:13px;border-radius:11px}
+header{padding:56px 0 18px}
+.kicker{color:var(--orchid);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+header h1{font-size:clamp(38px,6vw,68px);font-weight:800;margin:10px 0 12px}
+header h1 .g{background:linear-gradient(100deg,var(--mint),var(--violet) 50%,var(--orchid));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:var(--mute);font-size:18px;max-width:660px}
+.hcta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.safe{display:inline-flex;gap:8px;align-items:center;margin-top:16px;padding:7px 12px;border-radius:999px;background:#5fe3b414;border:1px solid #5fe3b433;color:#bff5e1;font-size:13.5px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:24px 0 18px}
+.tabs{display:flex;flex-wrap:wrap;padding:4px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.tabs button{border:0;background:none;padding:8px 16px;border-radius:10px;font-weight:600;font-size:14px;color:var(--mute)}.tabs button.on{background:linear-gradient(135deg,var(--violet),var(--orchid));color:#fff}
+.search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.search input{flex:1;border:0;background:none;color:var(--text);padding:11px 0;outline:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;min-height:200px}
+.mc{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line);transition:transform .18s,border-color .18s}
+.mc:hover{transform:translateY(-3px);border-color:var(--line2)}
+.pv{display:flex;flex-direction:column;gap:2px;padding:12px 12px 8px;background:radial-gradient(circle at 50% 30%,#ffffff0d,transparent 70%),linear-gradient(180deg,#1d2335,#121620);cursor:pointer;border:0;width:100%;text-align:left;min-height:150px}
+.pv canvas{width:100%;height:42px;display:block}
+.sws{display:flex;gap:3px;flex-wrap:wrap;margin-top:6px}.sws i{width:16px;height:16px;border-radius:5px;border:1px solid #ffffff22}
+.mdl{font-size:12px;color:#cfd5e6;margin-top:6px}
+.info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.nm{display:flex;align-items:center;gap:8px}.nm b{font-size:16px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk{font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--panel2)}.rk.r1{background:linear-gradient(135deg,#ffe082,#ffb300);color:#3d2a00}.rk.r2{background:linear-gradient(135deg,#eceff1,#b0bec5);color:#263238}.rk.r3{background:linear-gradient(135deg,#ffccbc,#d7864f);color:#3e1d00}
+.info small{color:var(--mute);font-size:12.5px}.info .d{color:var(--mute);font-size:13.5px;line-height:1.4}.tags{color:var(--mint);font-size:12.5px;font-weight:650;margin-top:4px}
+.acts{display:flex;gap:6px;margin-top:10px}.acts .btn{flex:1;white-space:nowrap;padding:8px 10px}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:50px 20px;border:1px dashed var(--line2);border-radius:20px}.empty b{display:block;color:var(--text);font-size:18px;margin-bottom:6px}
+.how{margin:70px 0 40px;padding:34px;border-radius:26px;background:var(--panel);border:1px solid var(--line2);display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.how h2{font-size:32px;margin-bottom:12px}.how p{color:var(--mute)}
+.how ol{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.how li{display:flex;gap:12px;color:var(--mute)}.how li::before{counter-increment:s;content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--orchid));color:#fff;font-weight:700;font-size:13px}
+.how li b{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute);font-size:13.5px}footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}footer a{text-decoration:underline;text-underline-offset:3px}
+/* try-it viewer */
+.vm{position:fixed;inset:0;z-index:50;background:rgba(4,5,10,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}
+.vc{position:relative;width:min(1040px,100%);max-height:94vh;overflow:auto;display:grid;grid-template-columns:1.7fr 1fr;border-radius:26px;background:var(--panel);border:1px solid var(--line2);box-shadow:0 40px 100px #000d}
+.vleft{padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#pad{width:100%;aspect-ratio:16/10;border-radius:18px;background:#121620;border:1px solid var(--line2);touch-action:none;cursor:crosshair;display:block}#pad.light{background:#fbf8f1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips button{padding:7px 12px;border-radius:999px;border:1px solid var(--line2);background:var(--panel2);font-size:13.5px;font-weight:600}.chips button.on{background:linear-gradient(135deg,var(--violet),var(--orchid));border-color:transparent;color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--mute);font-size:13px}
+.tools input[type=color]{width:38px;height:34px;border:1px solid var(--line2);border-radius:10px;background:none;padding:2px}
+.tools input[type=range]{flex:1;min-width:120px;accent-color:var(--violet)}
+.vside{padding:26px 22px;display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--line)}
+.vside h3{font-size:26px}.vside .by{color:var(--mute);font-size:14px}.vside .desc{color:var(--mute);font-size:14.5px}
+.vside .btn{width:100%}
+.vx{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(8,9,15,.7);color:#fff;font-size:16px;z-index:2}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--panel2);border:1px solid var(--violet);padding:12px 18px;border-radius:14px;box-shadow:0 12px 30px #000a;font-size:14.5px;max-width:calc(100% - 32px)}
+@media(max-width:860px){.vc{grid-template-columns:1fr}.vside{border-left:0;border-top:1px solid var(--line)}.how{grid-template-columns:1fr;padding:24px}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}.grid{grid-template-columns:1fr}.navl{display:none}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+ <a class="brand" href="index.html"><img src="icon-192.png" alt="">MasterSketch</a><span class="sp"></span>
+ <a class="btn sm navl" href="workshop.html"><span lang="en">3D Workshop</span><span lang="th">เวิร์กช็อป 3D</span></a>
+ <a class="btn sm pri" href="app.html"><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a>
+ <div class="lang" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="th">ไทย</button></div>
+</div></nav>
+<header><div class="wrap">
+ <div class="kicker"><span lang="en">MasterSketch Studio · Mods</span><span lang="th">MasterSketch Studio · ม็อด</span></div>
+ <h1><span lang="en">The <span class="g">Mods Workshop</span></span><span lang="th"><span class="g">เวิร์กช็อปม็อด</span></span></h1>
+ <p><span lang="en">Brushes, palettes and 3D models made by everyone. Tap a mod to try its brushes right here, then install it in the app with one tap.</span><span lang="th">แปรง จานสี และโมเดล 3D ที่ทุกคนสร้าง แตะม็อดเพื่อลองแปรงได้ที่นี่เลย แล้วติดตั้งในแอปด้วยการแตะครั้งเดียว</span></p>
+ <div class="hcta"><a class="btn pri" href="app.html"><span lang="en">Make your own mod</span><span lang="th">สร้างม็อดของคุณเอง</span></a><a class="btn" href="#how"><span lang="en">How it works</span><span lang="th">ทำงานอย่างไร</span></a></div>
+ <div class="safe">🛡️ <span lang="en">Mods only contain brushes, palettes and 3D models – never code – so they're always safe to install.</span><span lang="th">ม็อดมีแค่แปรง จานสี และโมเดล 3D ไม่มีโค้ด จึงติดตั้งได้อย่างปลอดภัยเสมอ</span></div>
+</div></header>
+<main class="wrap">
+ <div class="bar">
+  <div class="tabs" role="tablist"><button data-t="all" class="on"><span lang="en">All</span><span lang="th">ทั้งหมด</span></button><button data-t="top"><span lang="en">🏆 Top mods</span><span lang="th">🏆 ยอดนิยม</span></button><button data-t="featured"><span lang="en">Featured</span><span lang="th">แนะนำ</span></button><button data-t="community"><span lang="en">Community</span><span lang="th">ชุมชน</span></button></div>
+  <label class="search"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="Search mods…" aria-label="Search mods"></label>
+ </div>
+ <div class="grid" id="grid"></div>
+ <section class="how" id="how">
+  <div><h2><span lang="en">Make a mod</span><span lang="th">สร้างม็อด</span></h2>
+   <p><span lang="en">A mod adds new things to MasterSketch without changing the app itself: brushes you design, color palettes and 3D models. Anyone can make one in the app's Mods tab.</span><span lang="th">ม็อดเพิ่มของใหม่ให้ MasterSketch โดยไม่เปลี่ยนตัวแอป ได้แก่ แปรงที่คุณออกแบบ จานสี และโมเดล 3D ใครก็สร้างได้ในแท็บม็อดของแอป</span></p></div>
+  <ol>
+   <li><span><span lang="en">Open the app and go to <b>Mods</b> → <b>Create a mod</b>.</span><span lang="th">เปิดแอปแล้วไปที่ <b>ม็อด</b> → <b>สร้างม็อด</b></span></span></li>
+   <li><span><span lang="en"><b>Design brushes:</b> pick a tip or draw your own, then set scatter, jitter, glow and rainbow colors. Try it as you go.</span><span lang="th"><b>ออกแบบแปรง:</b> เลือกหัวแปรงหรือวาดเอง แล้วตั้งการกระจาย ความสุ่ม การเรืองแสง และสีรุ้ง ลองใช้ไปพร้อมกัน</span></span></li>
+   <li><span><span lang="en">Add <b>palettes</b> and <b>3D models</b> from My models if you like.</span><span lang="th">เพิ่ม<b>จานสี</b>และ<b>โมเดล 3D</b>จากโมเดลของฉันได้ตามใจ</span></span></li>
+   <li><span><span lang="en">Press <b>Publish</b>. GitHub opens with your mod filled in – sign in (free) and press <b>Submit new issue</b>. It shows up here and in everyone's Mods tab.</span><span lang="th">กด<b>เผยแพร่</b> GitHub จะเปิดพร้อมข้อมูลม็อด ลงชื่อเข้าใช้ (ฟรี) แล้วกด <b>Submit new issue</b> ม็อดจะแสดงที่นี่และในแท็บม็อดของทุกคน</span></span></li>
+  </ol>
+ </section>
+</main>
+<footer><div class="wrap"><span>© 2026 MasterSketch Studio · v3.8</span><span><a href="index.html"><span lang="en">Home</span><span lang="th">หน้าแรก</span></a> · <a href="workshop.html"><span lang="en">3D Workshop</span><span lang="th">เวิร์กช็อป 3D</span></a> · <a href="app.html"><span lang="en">Open the app</span><span lang="th">เปิดแอป</span></a></span></div></footer>
+
+<div class="vm" id="vm" hidden><div class="vc" role="dialog" aria-modal="true" aria-labelledby="vT">
+ <button class="vx" id="vx" aria-label="Close">✕</button>
+ <div class="vleft">
+  <div class="chips" id="vB"></div>
+  <canvas id="pad" width="1200" height="750"></canvas>
+  <div class="tools"><input type="color" id="c1" value="#7c8cff" aria-label="Color"><input type="color" id="c2" value="#ff8fd6" aria-label="Second color"><span lang="en">Size</span><span lang="th">ขนาด</span><input type="range" id="sz" min="4" max="90" value="30"><button class="btn sm" id="paper">◐</button><button class="btn sm" id="clr"><span lang="en">Clear</span><span lang="th">ล้าง</span></button></div>
+  <div id="vP"></div>
+ </div>
+ <div class="vside"><h3 id="vT"></h3><div class="by" id="vBy"></div><p class="desc" id="vD"></p><div class="tags" id="vTags"></div>
+  <a class="btn pri" id="vOpen" href="app.html"><span lang="en">Install in MasterSketch</span><span lang="th">ติดตั้งใน MasterSketch</span></a>
+  <button class="btn" id="vLink"><span lang="en">Copy share link</span><span lang="th">คัดลอกลิงก์แชร์</span></button>
+  <button class="btn" id="vCode"><span lang="en">Copy mod code</span><span lang="th">คัดลอกรหัสม็อด</span></button>
+  <a class="btn" id="vGh" href="#" target="_blank" rel="noopener" hidden><span lang="en">View on GitHub</span><span lang="th">ดูบน GitHub</span></a>
+ </div></div></div>
+<div class="toast" id="toast" hidden></div>
+<script src="ms3d.js"></script>
+<script src="msmods.js"></script>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s),root=document.documentElement,th=()=>root.dataset.lang==='th';
+const setLang=l=>{root.dataset.lang=l;root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));$('#q').placeholder=l==='th'?'ค้นหาม็อด…':'Search mods…';try{localStorage.setItem('ms_site_lang',l)}catch(e){}};
+let saved=null;try{saved=localStorage.getItem('ms_site_lang')}catch(e){}setLang(saved||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{setLang(b.dataset.l);render()});
+const toast=(en,tx)=>{const t=$('#toast');t.textContent=th()?tx:en;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(()=>t.hidden=true,3500)};
+const copy=(s,en,tx)=>{const ok=()=>toast(en,tx),fb=()=>{const a=document.createElement('textarea');a.value=s;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}a.remove()};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(ok,fb);else fb()};
+const grid=$('#grid');
+if(!window.MSM){grid.innerHTML='<div class="empty"><b>Mods could not load</b>Please try another browser.</div>';return}
+const TH={'mod-nature':['ชุดธรรมชาติ','ใบไม้ หญ้า และดอกไม้ที่กระจายขณะวาด'],'mod-sparkle':['ปาร์ตี้ประกาย','ประกายเรืองแสง ฟองสบู่ และกระดาษโปรย'],'mod-ink':['หมึกและกระดาษ','แปรงแห้ง ถ่าน และหมึกกระเซ็นให้ดูทำมือ'],'mod-weather':['ชุดสภาพอากาศ','หิมะ ฝน และเมฆปุย'],'mod-candy':['ดินแดนขนมหวาน','เม็ดน้ำตาล หัวใจ ริบบิ้นสีรุ้ง และอมยิ้มหมุนได้'],'mod-space':['ชุดอวกาศ','ดวงดาว เมฆเนบิวลา จานสีกาแล็กซี และยูเอฟโอจิ๋ว']};
+const nm=it=>th()&&TH[it.id]?TH[it.id][0]:it.n,ds=it=>th()&&TH[it.id]?TH[it.id][1]:(it.d||'');
+const sum=m=>{const p=MSM.parts(m);return p.map(([n,a,b])=>th()?n+' '+({brush:'แปรง',palette:'จานสี','3D model':'โมเดล 3D'}[a]):n+' '+(n===1?a:b)).join(' · ')};
+const used=it=>{if(window.MSW&&(it.kind==='featured'||it.kind==='comm'))MSW.useHit(it.id)};
+let tab='all',comm=null,commErr=false,top=null,topErr=false,topForce=false;
+async function modOf(it){if(it.mod)return it.mod;it.mod=await MSM.decode(it.code);return it.mod}
+async function codeOf(it){if(it.code)return it.code;it.code=await MSM.encode(it.mod);return it.code}
+const base=()=>location.href.replace(/mods\.html.*$/,'');
+function card(it){const d=document.createElement('article');d.className='mc';d.innerHTML='<button class="pv" aria-label="Try"></button><div class="info"><div class="nm"><b></b><span class="rk" hidden></span></div><small></small><span class="d"></span><span class="tags"></span><div class="acts"><button class="btn sm try"></button><a class="btn sm pri op"></a></div></div>';
+ d.querySelector('b').textContent=nm(it);d.querySelector('small').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.uses!=null?' · '+it.uses+(th()?' ครั้งที่ติดตั้ง':it.uses===1?' install':' installs'):'');d.querySelector('.d').textContent=ds(it);
+ if(it.rank){const r=d.querySelector('.rk');r.hidden=false;r.textContent='#'+it.rank;if(it.rank<4)r.classList.add('r'+it.rank)}
+ d.querySelector('.try').textContent=th()?'ลองแปรง':'Try it';const op=d.querySelector('.op');op.textContent=th()?'ติดตั้งในแอป':'Install in app';op.href='app.html';op.onclick=()=>used(it);
+ d.querySelector('.try').onclick=d.querySelector('.pv').onclick=()=>view(it);
+ modOf(it).then(m=>{d.querySelector('.tags').textContent=sum(m);const pv=d.querySelector('.pv');m.brushes.slice(0,3).forEach(b=>{const c=document.createElement('canvas');c.width=400;c.height=60;pv.appendChild(c);MSM.preview(c,b,'#7c8cff','#ff8fd6',20)});
+  m.palettes.slice(0,1).forEach(p=>{const s=document.createElement('div');s.className='sws';p.c.slice(0,14).forEach(cc=>{const i=document.createElement('i');i.style.background=cc;s.appendChild(i)});pv.appendChild(s)});
+  if(m.models.length){const s=document.createElement('div');s.className='mdl';s.textContent='🧊 '+m.models.map(x=>x.n||'Model').join(', ');pv.appendChild(s)}
+  codeOf(it).then(c=>op.href='app.html#mod='+c)}).catch(()=>{d.querySelector('.tags').textContent=th()?'โหลดม็อดนี้ไม่ได้':'This mod could not be loaded'});return d}
+async function render(){grid.innerHTML='';const qq=($('#q').value||'').trim().toLowerCase();let list=[];
+ if(tab!=='featured'&&!comm&&!commErr){grid.innerHTML='<div class="empty"><b>…</b></div>';try{comm=await MSM.community()}catch(e){commErr=true}grid.innerHTML=''}
+ if(tab==='top'){if(!top&&!topErr){grid.innerHTML='<div class="empty"><b>…</b></div>';try{const all=MSM.FEATURED.concat(comm||[]),u=await MSW.uses(all.map(x=>x.id),topForce);top=all.map(x=>({...x,uses:u[x.id]||0})).sort((a,b)=>b.uses-a.uses);top.forEach((x,i)=>x.rank=i+1)}catch(e){topErr=true}topForce=false;grid.innerHTML=''}
+  const n=document.createElement('div');n.className='empty';n.style.cssText='padding:4px 0;border:0;text-align:left;display:flex;gap:10px;align-items:center;flex-wrap:wrap';n.innerHTML='<span style="flex:1"></span><button class="btn sm"></button>';n.firstChild.textContent=th()?'ม็อดที่ถูกติดตั้งมากที่สุด ม็อดได้ 1 แต้มทุกครั้งที่มีคนติดตั้ง':'The most installed mods. A mod gets a point each time someone installs it.';n.lastChild.textContent=th()?'รีเฟรช':'Refresh';n.lastChild.onclick=()=>{top=null;topErr=false;topForce=true;render()};grid.appendChild(n);
+  if(topErr){const e=document.createElement('div');e.className='empty';e.innerHTML=th()?'<b>โหลดอันดับไม่ได้</b>ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง':'<b>Could not load the leaderboard</b>Check your internet connection and try again.';grid.appendChild(e);return}list=top}
+ else{if(tab!=='community')list=list.concat(MSM.FEATURED);if(tab!=='featured'&&comm)list=list.concat(comm)}
+ if(qq)list=list.filter(it=>(it.n+' '+nm(it)+' '+(it.a||'')+' '+ds(it)).toLowerCase().includes(qq));
+ if(!list.length){const e=document.createElement('div');e.className='empty';if(tab==='community'&&commErr)e.innerHTML=th()?'<b>เชื่อมต่อชุมชนไม่ได้</b>ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง':'<b>Could not reach the Community</b>Check your internet connection and try again.';else if(tab==='community')e.innerHTML=th()?'<b>ยังไม่มีม็อดจากชุมชน</b>มาเป็นคนแรกที่เผยแพร่กัน – ดูวิธีด้านล่าง':'<b>No community mods yet</b>Be the first to publish one – see how below.';else e.innerHTML=th()?'<b>ไม่พบผลลัพธ์</b>':'<b>No results</b>';grid.appendChild(e);return}
+ list.forEach(it=>grid.appendChild(card(it)))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));render()});
+$('#q').oninput=()=>render();
+/* try-it pad */
+let cur=null,bi=0;const pad=$('#pad'),px=pad.getContext('2d');
+function demo(){px.clearRect(0,0,pad.width,pad.height);const b=cur&&cur.brushes[bi];if(!b)return;const pts=[];for(let i=0;i<=70;i++)pts.push({x:120+(pad.width-240)*i/70,y:pad.height/2+Math.sin(i/70*Math.PI*3)*pad.height*.22});MSM.strokeAlong(px,b,pts,+$('#sz').value*2,$('#c1').value,$('#c2').value)}
+let st=null,last=null;const P=e=>{const r=pad.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*pad.width,y:(e.clientY-r.top)/r.height*pad.height}};
+pad.addEventListener('pointerdown',e=>{const b=cur&&cur.brushes[bi];if(!b)return;st={};last=P(e);try{pad.setPointerCapture(e.pointerId)}catch(_){}MSM.strokeAlong(px,b,[last,{x:last.x+.01,y:last.y}],+$('#sz').value*2,$('#c1').value,$('#c2').value,st)});
+pad.addEventListener('pointermove',e=>{if(!st)return;const p=P(e);MSM.strokeAlong(px,cur.brushes[bi],[last,p],+$('#sz').value*2,$('#c1').value,$('#c2').value,st);last=p});
+const end=()=>{st=null};pad.addEventListener('pointerup',end);pad.addEventListener('pointercancel',end);
+$('#clr').onclick=()=>px.clearRect(0,0,pad.width,pad.height);$('#paper').onclick=()=>pad.classList.toggle('light');$('#sz').oninput=()=>{};
+async function view(it){let m;try{m=await modOf(it)}catch(e){return toast('This mod could not be loaded','โหลดม็อดนี้ไม่ได้')}cur=m;bi=0;
+ const B=$('#vB');B.innerHTML='';m.brushes.forEach((b,i)=>{const x=document.createElement('button');x.textContent=b.n;x.classList.toggle('on',i===0);x.onclick=()=>{bi=i;B.querySelectorAll('button').forEach(y=>y.classList.toggle('on',y===x));demo()};B.appendChild(x)});
+ pad.hidden=!m.brushes.length;document.querySelector('.tools').hidden=!m.brushes.length;
+ const V=$('#vP');V.innerHTML='';m.palettes.forEach(p=>{const s=document.createElement('div');s.className='sws';p.c.forEach(cc=>{const i=document.createElement('button');i.style.cssText=`width:26px;height:26px;border-radius:8px;border:1px solid #ffffff33;background:${cc}`;i.title=cc;i.onclick=()=>{$('#c1').value=cc;demo()};s.appendChild(i)});V.appendChild(s)});
+ if(m.models.length){const s=document.createElement('div');s.className='mdl';s.textContent='🧊 '+(th()?'โมเดล 3D: ':'3D models: ')+m.models.map(x=>x.n||'Model').join(', ');V.appendChild(s)}
+ $('#vT').textContent=nm(it);$('#vBy').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');$('#vD').textContent=ds(it);$('#vTags').textContent=sum(m);
+ const code=await codeOf(it);$('#vOpen').href='app.html#mod='+code;$('#vOpen').onclick=()=>used(it);
+ $('#vLink').onclick=()=>{used(it);copy(base()+'app.html#mod='+code,'Share link copied','คัดลอกลิงก์แชร์แล้ว')};$('#vCode').onclick=()=>{used(it);copy(code,'Mod code copied','คัดลอกรหัสม็อดแล้ว')};
+ $('#vGh').hidden=!it.url;if(it.url)$('#vGh').href=it.url;$('#vm').hidden=false;demo();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
+const close=()=>{$('#vm').hidden=true;history.replaceState(null,'',location.pathname)};
+$('#vx').onclick=close;$('#vm').addEventListener('click',e=>{if(e.target.id==='vm')close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+$('#c1').oninput=$('#c2').oninput=demo;$('#sz').onchange=demo;
+if(location.hash==='#top'){tab='top';document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t==='top'))}
+render();const h=location.hash.slice(1);if(h&&h!=='top'){const f=MSM.FEATURED.find(x=>x.id===h);if(f)setTimeout(()=>view(f),300)}
+})();
+</script>
+</body>
+</html>
