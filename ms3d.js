@@ -1109,6 +1109,46 @@
 } )();
 
 ;
+/* MasterSketch Cloud client (window.MSC) – shared by the app, workshop.html and mods.html.
+   The cloud is a small Google Apps Script web app inside the owner's Google Sheet. Nobody needs an account:
+   each device gets a random id so people can see the team's answers to what they sent. */
+(()=>{if(window.MSC)return;
+const SITE='https://pnpran10-dot.github.io/mastersketch2/';
+const BAKED='';
+const OKURL=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_\-]{20,}\/exec$/;
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let url=BAKED||ls.get('msc_url','')||'',checked=false,boot=null;
+const err=(code,msg)=>{const e=Error(msg||code);e.code=code;return e};
+/* the address of the cloud lives in cloud.json on the website, so it can change without a new app version */
+async function look(){if(checked)return url;checked=true;try{const r=await fetch(SITE+'cloud.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&OKURL.test(j.url||'')&&!BAKED){url=j.url;ls.set('msc_url',url)}}}catch(e){}return url}
+async function base(){if(window.MSC_TEST_URL)return window.MSC_TEST_URL;if(url){if(!checked)look();return url}return look()}
+function dev(){let d=ls.get('msc_dev','');if(!/^[A-Za-z0-9\-]{8,40}$/.test(d)){d=(self.crypto&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2)).slice(0,36);ls.set('msc_dev',d)}return d}
+async function call(params,body){const u=await base();if(!u)throw err('setup','The cloud is not set up yet');
+ let r;try{r=body?await fetch(u,{method:'POST',body:JSON.stringify(body),redirect:'follow'}):await fetch(u+'?'+new URLSearchParams(params),{cache:'no-store',redirect:'follow'})}catch(e){throw err('offline','No internet connection')}
+ let j=null;try{j=await r.json()}catch(e){}if(!r.ok||!j)throw err('http','The cloud did not answer ('+r.status+')');if(!j.ok)throw err(j.err||'error',j.msg||j.err);return j}
+const get=p=>call(p),post=b=>call(null,b);
+/* public lists are kept for a few minutes so the app stays fast */
+const mem={};
+async function list(k,force){const key='msc_l_'+k;if(!force){const m=mem[k]||ls.get(key,null);if(m&&Date.now()-m.at<5*60e3)return m.r}
+ try{const r=await get({a:'list',k});const v={at:Date.now(),r:{items:r.items||[],lb:r.lb||'all'}};mem[k]=v;if(!ls.set(key,v))ls.del(key);return v.r}
+ catch(e){const m=mem[k]||ls.get(key,null);if(m)return m.r;throw e}}
+function drop(k){(k?[k]:['art','model','mod']).forEach(x=>{delete mem[x];ls.del('msc_l_'+x)});boot=null;ls.del('msc_boot')}
+async function getBoot(force){if(boot&&!force)return boot;const c=ls.get('msc_boot',null);if(!force&&c&&Date.now()-c.at<15*60e3)return boot=c.r;
+ try{const r=await get({a:'boot'});boot=r;ls.set('msc_boot',{at:Date.now(),r});return r}catch(e){if(c)return boot=c.r;throw e}}
+const cfg=()=>boot&&boot.cfg||(ls.get('msc_boot',null)||{r:{}}).r.cfg||{lb:'all',approve:{}};
+const send=o=>post(Object.assign({a:'send',dev:dev()},o));
+const share=o=>post(Object.assign({a:'share',dev:dev()},o)).then(r=>{const m=ls.get('msc_mine',[]);m.unshift({id:r.id,k:o.k,t:o.t,at:Date.now()});ls.set('msc_mine',m.slice(0,80));return r});
+const mine=()=>get({a:'mine',dev:dev()});
+const flag=(id,why)=>post({a:'flag',id,why:why||'',dev:dev()});
+const img=id=>get({a:'img',id});
+const ready=async()=>!!(await base());
+/* friendly words for the error codes the cloud sends back */
+const WHY={setup:'Sharing is being set up – please try again later.',offline:'No internet connection. Check your Wi-Fi and try again.',http:'The MasterSketch cloud is busy. Please try again in a minute.',slow:'You sent a lot just now – please wait a little and try again.',words:'Please use kind words – something in the title or name is not allowed.',paused:'Sharing is paused by the MasterSketch team right now.',closed:'Messages are closed for now – please try again later.',short:'Please write a little more.',code:'This could not be shared – it may be too big.',gone:'This is not available any more.',big:'This is too big to share.'};
+const why=e=>WHY[e&&e.code]||WHY.http;
+window.MSC={SITE,base,setUrl:u=>{if(OKURL.test(u)){url=u;ls.set('msc_url',u)}},dev,get,post,list,drop,boot:getBoot,cfg,send,share,mine,flag,img,ready,why,WHY,ls};
+})();
+
+;
 /* MasterSketch 3D Workshop core: model builders, shareable model codes, motions and thumbnails.
    Shared by the app and the website. Needs THREE r147 (global build). Exposes window.MSW. */
 (function(){'use strict';
@@ -1309,26 +1349,12 @@ async function decode(code){const m=String(code||'').replace(/\s+/g,'').match(/M
  if(u.length>3e6)throw Error('big');const spec=JSON.parse(new TextDecoder().decode(u));if(!spec||!Array.isArray(spec.parts))throw Error('bad');return spec}
 const findCode=s=>{const m=String(s||'').replace(/\s+/g,'').match(/MS3D[01]:[A-Za-z0-9_\-]+/);return m?m[0]:null};
 
-/* ---------- admin: ratings, staff picks and settings live on the GitHub issues ----------
-   Only people who can manage the repository can add labels, so ratings can't be faked. */
-const TRUST=['OWNER','MEMBER','COLLABORATOR'];
-const lbs=i=>(i.labels||[]).map(l=>typeof l==='string'?l:l&&l.name||'');
-const starsOf=i=>{const m=lbs(i).map(n=>/^rating[:\-]\s*([1-5])$/i.exec(n)).find(Boolean);return m?+m[1]:0};
-const pickOf=i=>lbs(i).some(n=>/^staff[\s\-]?pick$/i.test(n));
-function cfgOf(list){const c=(list||[]).find(i=>/^\s*\[config\]/i.test(i.title||'')&&i.state!=='closed'&&TRUST.includes(i.author_association));let o={};
- if(c){const m=String(c.body||'').match(/```json\s*([\s\S]*?)```/);try{o=JSON.parse(m?m[1]:'{}')||{}}catch(e){}}
- return{blocked:(Array.isArray(o.blocked)?o.blocked:[]).map(s=>String(s).toLowerCase().slice(0,40)).slice(0,500),lb:o.lb==='all'?'all':'rated'}}
-let CFG={blocked:[],lb:'rated'};
-const okItem=(i,c)=>!(i.user&&c.blocked.includes(String(i.user.login).toLowerCase()))&&!lbs(i).includes('hidden');
-/* ---------- community: models published as GitHub issues titled "[Model] name" ---------- */
-async function community(force){const key='msw_comm_v2';try{const c=JSON.parse(localStorage.getItem(key)||'null');if(!force&&c&&Date.now()-c.at<6e5){if(c.cfg)CFG=c.cfg;return c.items}}catch(e){}
- const r=await fetch('https://api.github.com/repos/'+REPO+'/issues?state=open&per_page=100&sort=created&direction=desc',{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw Error('http '+r.status);
- const raw=await r.json();CFG=cfgOf(raw);const items=raw.filter(i=>!i.pull_request&&/^\s*\[model\]/i.test(i.title||'')&&okItem(i,CFG)).map(i=>{const body=String(i.body||''),code=findCode(body);if(!code)return null;
-  const by=(body.match(/\*\*By:\*\*\s*([^\n]{1,40})/)||[])[1],desc=(body.split(/```/)[0].replace(/\*\*(Model|By):\*\*[^\n]*\n?/g,'').trim()).slice(0,300);
-  return{id:'gh'+i.number,n:String(i.title).replace(/^\s*\[model\]\s*/i,'').slice(0,60)||'Model',a:(by||'').trim()||i.user&&i.user.login||'?',date:(i.created_at||'').slice(0,10),url:i.html_url,code,d:desc,stars:starsOf(i),pick:pickOf(i),num:i.number}}).filter(Boolean);
- try{localStorage.setItem(key,JSON.stringify({at:Date.now(),items,cfg:CFG}))}catch(e){}return items}
-function publishUrl(name,author,desc,code){const title='[Model] '+String(name||'Model').slice(0,60),body=`**Model:** ${String(name||'Model').slice(0,60)}\n**By:** ${String(author||'anonymous').slice(0,40)}\n\n${String(desc||'').slice(0,500)}\n\n\`\`\`ms3d\n${code}\n\`\`\`\n\n_Made with MasterSketch Studio · see every model at ${SITE}workshop.html_`;
- return'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)}
+/* ---------- community: models shared to the MasterSketch cloud (no account needed), rated and picked by the team ---------- */
+const starsOf=i=>+(i&&i.stars)||0,pickOf=i=>!!(i&&i.pick);
+let CFG={blocked:[],lb:'all'};const cfgOf=()=>CFG;
+async function community(force){if(!window.MSC)throw Error('offline');const r=await MSC.list('model',force);CFG={blocked:[],lb:r.lb==='rated'?'rated':'all'};
+ return r.items.map(x=>{const code=findCode(x.code);if(!code)return null;return{id:'c'+x.id,cid:x.id,n:String(x.t||'Model').slice(0,60),a:String(x.by||'').trim().slice(0,40)||'Anonymous',date:new Date(+x.c||Date.now()).toISOString().slice(0,10),url:'',code,d:String(x.d||'').slice(0,300),stars:+x.s||0,pick:!!x.p,num:x.id}}).filter(Boolean)}
+const publishUrl=()=>'';
 
 /* ---------- uses: how often each Workshop model is used (counted on a free public counter, no personal data) ---------- */
 const CNT='https://abacus.jasoncameron.dev',NS='mastersketch2';

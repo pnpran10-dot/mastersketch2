@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="robots" content="noindex">
+<title>MasterSketch Boom Box</title>
+<style>html,body{margin:0;height:100%;background:#000;overflow:hidden}#p,iframe{width:100%;height:100%;border:0;display:block}</style></head>
+<body><div id="p"></div>
+<script>
+/* The MasterSketch Boom Box player: the app puts this page in a frame and controls it with messages. */
+let P=null,ready=false,queue=[];
+const send=o=>{try{parent.postMessage(Object.assign({msbb:1},o),'*')}catch(e){}};
+function info(){try{const d=P.getVideoData()||{};return{t:d.title||'',a:d.author||'',id:d.video_id||'',dur:P.getDuration()||0,cur:P.getCurrentTime()||0}}catch(e){return{}}}
+function run(m){if(!ready){queue.push(m);return}try{switch(m.cmd){
+ case'load':if(m.list)P.loadPlaylist({list:m.list,listType:'playlist'});else if(/^[A-Za-z0-9_-]{11}$/.test(m.id||''))P.loadVideoById({videoId:m.id,startSeconds:+m.start||0});break;
+ case'play':P.playVideo();break;case'pause':P.pauseVideo();break;case'stop':P.stopVideo();break;
+ case'vol':P.setVolume(Math.max(0,Math.min(100,+m.v||0)));if(+m.v>0)P.unMute();break;case'seek':P.seekTo(+m.t||0,true);break;
+ case'next':P.nextVideo();break;case'prev':P.previousVideo();break}}catch(e){}}
+window.onYouTubeIframeAPIReady=()=>{P=new YT.Player('p',{host:'https://www.youtube-nocookie.com',width:'100%',height:'100%',
+ playerVars:{playsinline:1,rel:0,modestbranding:1,iv_load_policy:3,fs:0,origin:location.origin},
+ events:{onReady:()=>{ready=true;send({ev:'ready'});queue.splice(0).forEach(run)},onStateChange:e=>send({ev:'state',s:e.data,info:info()}),onError:e=>send({ev:'error',code:e.data})}})};
+addEventListener('message',e=>{const m=e.data;if(m&&m.msbb&&m.cmd)run(m)});
+setInterval(()=>{if(ready&&P&&P.getPlayerState&&P.getPlayerState()===1)send({ev:'tick',s:1,info:info()})},1000);
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body></html>

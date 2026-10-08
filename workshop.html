@@ -114,7 +114,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
    <li><span><span lang="en"><b>Shape:</b> add shapes in the 3D Studio – or draw your own – and stretch them into place.</span><span lang="th"><b>รูปทรง:</b> เพิ่มรูปทรงในสตูดิโอ 3D หรือวาดเอง แล้วยืดให้เข้าที่</span></span></li>
    <li><span><span lang="en"><b>Color</b> each part with a tap, then give parts a <b>Motion</b> – or create your own from poses.</span><span lang="th"><b>ระบายสี</b>แต่ละชิ้นด้วยการแตะ แล้วใส่<b>การเคลื่อนไหว</b> หรือสร้างท่าเองจากหลาย ๆ ท่า</span></span></li>
    <li><span><span lang="en">In <b>Share</b>, join the parts into one model and press <b>Share / publish</b>, then <b>Publish</b>.</span><span lang="th">ในขั้น<b>แชร์</b> รวมชิ้นส่วนเป็นโมเดลเดียว กด <b>แชร์ / เผยแพร่</b> แล้วกด <b>เผยแพร่</b></span></span></li>
-   <li><span><span lang="en">GitHub opens with your model filled in. Sign in (free) and press <b>Submit new issue</b>.</span><span lang="th">GitHub จะเปิดพร้อมข้อมูลโมเดล ลงชื่อเข้าใช้ (ฟรี) แล้วกด <b>Submit new issue</b></span></span></li>
+   <li><span><span lang="en">Press <b>Publish</b>. Your model goes to the MasterSketch team – no account needed – and shows up here and in the app after a quick check.</span><span lang="th">กด<b>เผยแพร่</b> โมเดลจะถูกส่งถึงทีม MasterSketch – ไม่ต้องมีบัญชี – และจะแสดงที่นี่และในแอปหลังการตรวจสอบสั้น ๆ</span></span></li>
    <li><span><span lang="en">Your model shows up here and in everyone's <b>Community</b> tab. The more people use it, the higher it climbs on the <b>Top models</b> board.</span><span lang="th">โมเดลของคุณจะแสดงที่นี่และในแท็บ <b>ชุมชน</b> ของทุกคน ยิ่งมีคนใช้มาก ก็ยิ่งขึ้นอันดับสูงใน<b>ยอดนิยม</b></span></span></li>
   </ol>
  </section>
@@ -127,7 +127,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
   <a class="btn pri" id="vOpen" href="app.html"><span lang="en">Open in MasterSketch</span><span lang="th">เปิดใน MasterSketch</span></a>
   <button class="btn" id="vLink"><span lang="en">Copy share link</span><span lang="th">คัดลอกลิงก์แชร์</span></button>
   <button class="btn" id="vCode"><span lang="en">Copy model code</span><span lang="th">คัดลอกรหัสโมเดล</span></button>
-  <a class="btn" id="vGh" href="#" target="_blank" rel="noopener" hidden><span lang="en">View on GitHub</span><span lang="th">ดูบน GitHub</span></a>
  </div></div></div>
 <div class="toast" id="toast" hidden></div>
 <script src="ms3d.js"></script>
@@ -188,7 +187,7 @@ async function view(it){const v=viewer();let spec;try{spec=await specOf(it)}catc
  const b2=new THREE.Box3().setFromObject(o),c=b2.getCenter(new THREE.Vector3()),rad=Math.max(.6,b2.getSize(new THREE.Vector3()).length()/2);v.ctl.target.copy(c);v.cam.position.copy(c).add(new THREE.Vector3(.8,.45,1).normalize().multiplyScalar(rad/Math.sin(v.cam.fov*Math.PI/360)*1.05));v.ctl.autoRotate=true;v.ctl.update();
  $('#vT').textContent=nm(it);$('#vBy').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');$('#vD').textContent=it.d||'';const code=await codeOf(it);$('#vOpen').href='app.html#model='+code;$('#vOpen').onclick=()=>used(it);
  $('#vLink').onclick=()=>{used(it);copy(location.href.replace(/workshop\.html.*$/,'')+'app.html#model='+code,'Share link copied','คัดลอกลิงก์แชร์แล้ว')};$('#vCode').onclick=()=>{used(it);copy(code,'Model code copied','คัดลอกรหัสโมเดลแล้ว')};
- $('#vGh').hidden=!it.url;if(it.url)$('#vGh').href=it.url;$('#vm').hidden=false;cancelAnimationFrame(v.raf);loop();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
+ $('#vm').hidden=false;cancelAnimationFrame(v.raf);loop();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
 const close=()=>{$('#vm').hidden=true;if(V)cancelAnimationFrame(V.raf);history.replaceState(null,'',location.pathname)};
 $('#vx').onclick=close;$('#vm').addEventListener('click',e=>{if(e.target.id==='vm')close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
 if(location.hash==='#top'){tab='top';document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t==='top'))}

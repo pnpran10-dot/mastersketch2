@@ -106,7 +106,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
    <li><span><span lang="en">Open the app and go to <b>Mods</b> → <b>Create a mod</b>.</span><span lang="th">เปิดแอปแล้วไปที่ <b>ม็อด</b> → <b>สร้างม็อด</b></span></span></li>
    <li><span><span lang="en"><b>Design brushes:</b> pick a tip or draw your own, then set scatter, jitter, glow and rainbow colors. Try it as you go.</span><span lang="th"><b>ออกแบบแปรง:</b> เลือกหัวแปรงหรือวาดเอง แล้วตั้งการกระจาย ความสุ่ม การเรืองแสง และสีรุ้ง ลองใช้ไปพร้อมกัน</span></span></li>
    <li><span><span lang="en">Add <b>palettes</b> and <b>3D models</b> from My models if you like.</span><span lang="th">เพิ่ม<b>จานสี</b>และ<b>โมเดล 3D</b>จากโมเดลของฉันได้ตามใจ</span></span></li>
-   <li><span><span lang="en">Press <b>Publish</b>. GitHub opens with your mod filled in – sign in (free) and press <b>Submit new issue</b>. It shows up here and in everyone's Mods tab.</span><span lang="th">กด<b>เผยแพร่</b> GitHub จะเปิดพร้อมข้อมูลม็อด ลงชื่อเข้าใช้ (ฟรี) แล้วกด <b>Submit new issue</b> ม็อดจะแสดงที่นี่และในแท็บม็อดของทุกคน</span></span></li>
+   <li><span><span lang="en">Press <b>Publish</b>. Your mod goes to the MasterSketch team – no account needed – and shows up here and in the app after a quick check.</span><span lang="th">กด<b>เผยแพร่</b> ม็อดจะถูกส่งถึงทีม MasterSketch – ไม่ต้องมีบัญชี – และจะแสดงที่นี่และในแอปหลังการตรวจสอบสั้น ๆ</span></span></li>
   </ol>
  </section>
 </main>
@@ -124,7 +124,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area
   <a class="btn pri" id="vOpen" href="app.html"><span lang="en">Install in MasterSketch</span><span lang="th">ติดตั้งใน MasterSketch</span></a>
   <button class="btn" id="vLink"><span lang="en">Copy share link</span><span lang="th">คัดลอกลิงก์แชร์</span></button>
   <button class="btn" id="vCode"><span lang="en">Copy mod code</span><span lang="th">คัดลอกรหัสม็อด</span></button>
-  <a class="btn" id="vGh" href="#" target="_blank" rel="noopener" hidden><span lang="en">View on GitHub</span><span lang="th">ดูบน GitHub</span></a>
  </div></div></div>
 <div class="toast" id="toast" hidden></div>
 <script src="ms3d.js"></script>
@@ -183,7 +182,7 @@ async function view(it){let m;try{m=await modOf(it)}catch(e){return toast('This 
  $('#vT').textContent=nm(it);$('#vBy').textContent=(th()?'โดย ':'by ')+(it.a||'?')+(it.date?' · '+it.date:'');$('#vD').textContent=ds(it);$('#vTags').textContent=sum(m);
  const code=await codeOf(it);$('#vOpen').href='app.html#mod='+code;$('#vOpen').onclick=()=>used(it);
  $('#vLink').onclick=()=>{used(it);copy(base()+'app.html#mod='+code,'Share link copied','คัดลอกลิงก์แชร์แล้ว')};$('#vCode').onclick=()=>{used(it);copy(code,'Mod code copied','คัดลอกรหัสม็อดแล้ว')};
- $('#vGh').hidden=!it.url;if(it.url)$('#vGh').href=it.url;$('#vm').hidden=false;demo();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
+ $('#vm').hidden=false;demo();if(it.kind==='featured')history.replaceState(null,'','#'+it.id)}
 const close=()=>{$('#vm').hidden=true;history.replaceState(null,'',location.pathname)};
 $('#vx').onclick=close;$('#vm').addEventListener('click',e=>{if(e.target.id==='vm')close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
 $('#c1').oninput=$('#c2').oninput=demo;$('#sz').onchange=demo;
