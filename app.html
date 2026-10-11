@@ -1322,9 +1322,92 @@ body.flying3d .s3bar,body.flying3d #s3Steps,body.flying3d #s3L,body.flying3d #s3
  .flyhelp{bottom:164px}}
 body.modeanim footer{display:none!important}
 @media(max-width:900px){#awDur{display:none}.anfps>span{display:none}.antlbar{gap:6px;row-gap:4px}.antl{padding:6px 8px 4px}}
-@media(max-width:480px){.modeSw button{padding:6px 8px;gap:0}.modeSw{margin-left:2px}}</style></head>
+@media(max-width:480px){.modeSw button{padding:6px 8px;gap:0}.modeSw{margin-left:2px}}
+/* ---------- 6.1: Animation Workshop tools ---------- */
+#awPage{position:relative}
+body.modeanim #sideB{display:none!important}
+.ancol{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;gap:8px}
+.anopts{display:flex;align-items:center;gap:6px 10px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:6px 10px;border-radius:18px;background:var(--glass);border:1px solid var(--ln2);min-height:50px;flex:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.anopts::-webkit-scrollbar{display:none}.anopts>*{flex:none}
+.anopts.ovf{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.anoti{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;padding-right:10px;border-right:1px solid var(--ln2);white-space:nowrap;min-height:28px}.anoti i{color:var(--ac2)}
+.anopts .anrng{flex:0 0 140px;min-width:0}.anopts .anrng.sm{flex-basis:118px}.anopts .anrng>i{color:var(--mu);font-size:12px;width:14px;text-align:center}.anopts .anrng b{min-width:28px}
+.anchip{display:flex;align-items:center;gap:7px;height:34px;padding:0 10px 0 9px;border-radius:12px;background:var(--p2);border:1px solid var(--ln2);font-size:12.5px;font-weight:700;color:var(--tx);white-space:nowrap}
+.anchip i:first-child{color:var(--ac2)}.anchip i:last-child{font-size:10px;color:var(--mu)}.anchip:hover{border-color:var(--ac)}
+.anseg2{display:flex;padding:2px;border-radius:12px;background:var(--p2);border:1px solid var(--ln2)}
+.anseg2 button{width:30px;height:30px;border-radius:10px;color:var(--mu);font-size:13px}.anseg2 button:hover{color:var(--tx)}
+.anseg2 button.on{background:var(--grad);color:#fff;box-shadow:var(--glow)}
+.anopts .b{width:34px;height:34px;border-radius:12px;flex:none}
+.antg.on{background:var(--grad)!important;color:#fff!important;box-shadow:var(--glow)}
+.anboth{color:var(--ac2);-webkit-text-stroke:2.5px var(--tx)}.anseg2 button.on .anboth{color:#fff;-webkit-text-stroke-color:#ffffff99}
+.anol{-webkit-text-stroke:1.4px currentColor;color:transparent}
+#awFont,#awSym{height:34px;max-width:140px;padding:0 8px;border-radius:12px;background:var(--p2);border:1px solid var(--ln2);color:var(--tx);font-size:12.5px}
+.ansymw{display:flex;align-items:center;gap:6px}.ansymw>i{color:var(--mu);font-size:12px}
+.anflo{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.anflo .btn{flex:none;padding:7px 12px}
+.anhint{font-size:12px;min-width:0;line-height:1.3}
+#awView{transform-origin:50% 50%}
+#awView.pix{image-rendering:pixelated}
+.anzoom{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:2px;padding:3px;border-radius:14px;background:var(--glass);border:1px solid var(--ln2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:2}
+.anzoom button{min-width:30px;height:28px;border-radius:10px;font-size:12px;font-weight:700;color:var(--tx);font-variant-numeric:tabular-nums}.anzoom button:hover{background:var(--p3)}
+#awZv{min-width:52px}
+.antxt{position:absolute;z-index:3;margin:0;padding:0 4px 0 0;border:1px dashed var(--ac);border-radius:4px;background:#ffffff1a;outline:none;resize:none;overflow:hidden;white-space:pre;min-width:40px;caret-color:var(--ac);box-sizing:content-box}
+.anside{gap:12px;padding:10px 12px 14px}
+.antabs{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:3px;border-radius:16px;background:var(--p2);border:1px solid var(--ln2);flex:none}
+.antabs button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:12px;font-size:10.5px;font-weight:700;color:var(--mu);min-width:0}
+.antabs button span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.antabs button i{font-size:14px}.antabs button:hover{color:var(--tx)}
+.antabs button.on{background:var(--grad);color:#fff;box-shadow:var(--glow)}
+.anpane{display:none;flex-direction:column;gap:10px}.anpane.on{display:flex}
+.anpane h4{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);font-weight:800;margin-top:6px}.anpane h4 i{color:var(--ac2)}
+.anh5{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);font-weight:800;margin:4px 0 -2px}
+.anslots{display:flex;align-items:center;gap:6px}
+.anslot{width:42px;height:42px;border-radius:14px;padding:3px;border:2px solid var(--ln2);background:repeating-conic-gradient(#cbd5e1 0 25%,#fff 0 50%) 50%/10px 10px;flex:none}
+.anslot i{display:block;width:100%;height:100%;border-radius:10px;box-shadow:inset 0 0 0 1px #0002}
+.anslot.sm{width:32px;height:32px;border-radius:12px}.anslot.sm i{border-radius:8px}
+.anslot.on{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+#awHex{width:80px;height:32px;padding:0 8px;border-radius:10px;background:var(--p2);border:1px solid var(--ln2);color:var(--tx);font:600 12.5px ui-monospace,Consolas,monospace;margin-left:auto;min-width:0}
+.ansv{position:relative;border-radius:14px;overflow:hidden;touch-action:none;cursor:crosshair;border:1px solid var(--ln2);flex:none}
+.ansv canvas{display:block;width:100%;height:132px}
+#awSVK{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 0 0 1px #0007,0 2px 6px #0006;pointer-events:none}
+.anhue{-webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:8px;background:linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);outline:none;flex:none}
+.anhue::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid #0006;box-shadow:0 1px 4px #0006;cursor:pointer}
+.anhue::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #0006}
+#awPal{height:32px;padding:0 8px;border-radius:10px;background:var(--p2);border:1px solid var(--ln2);color:var(--tx);font-size:12.5px}
+.anpane .ancols{gap:6px}.anpane .answ{width:26px;height:26px}.anpane .ancols.sm .answ{width:22px;height:22px}
+.anbr{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.anbi{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:5px 5px 6px;border-radius:12px;background:var(--p2);border:1px solid var(--ln2);font-size:11px;font-weight:700;color:var(--mu);min-width:0;text-align:center}
+.anbi canvas{display:block;width:100%;height:auto;aspect-ratio:132/40;border-radius:8px;background:#f8fafc}
+#awBrushes.dk .anbi canvas{background:#1e1b2e}
+.anbi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.anbi:hover{border-color:var(--ac);color:var(--tx)}
+.anbi.on{border-color:var(--ac);color:var(--tx);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 28%,transparent)}
+.anstamps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.anstamps button{padding:3px;border-radius:12px;background:#f8fafc;border:1px solid var(--ln2)}.anstamps canvas{display:block;width:100%;height:auto}
+.anstamps button.on{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 28%,transparent)}
+.anchk{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mu);margin-top:4px}
+.anlays{display:flex;flex-direction:column;gap:6px}
+.anlay{display:flex;align-items:center;gap:10px;padding:6px 8px 6px 6px;border-radius:14px;background:var(--p2);border:1px solid var(--ln2);cursor:pointer}
+.anlay canvas{width:64px;height:auto;border-radius:8px;flex:none;background:repeating-conic-gradient(#e2e8f0 0 25%,#fff 0 50%) 50%/10px 10px;box-shadow:inset 0 0 0 1px #0002}
+.anlayi{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}.anlayi b{font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.anlayi b i{color:var(--ac2);font-size:11px}.anlayi small{font-size:11px}
+.anlay:hover{border-color:var(--ac)}.anlay.on{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent)}
+.anfxg{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.anfxb{display:flex;align-items:center;gap:8px;padding:8px 9px;min-height:40px;border-radius:12px;background:var(--p2);border:1px solid var(--ln2);font-size:12px;font-weight:700;color:var(--tx);text-align:left;min-width:0}
+.anfxb i{color:var(--ac2);width:16px;text-align:center;flex:none}.anfxb span{min-width:0;line-height:1.2;overflow-wrap:anywhere}
+.anfxb:hover{border-color:var(--ac)}.anfxb:active{transform:scale(.97)}
+.anmenu{position:absolute;z-index:30;min-width:250px;max-width:calc(100% - 16px);padding:6px;border-radius:16px;background:var(--p);border:1px solid var(--ln2);box-shadow:var(--sh);display:flex;flex-direction:column}
+.anmenu button{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:13px;text-align:left;color:var(--tx)}.anmenu button i{width:16px;color:var(--ac2);text-align:center}
+.anmenu button:hover{background:var(--p2)}.anmenu button:disabled{opacity:.4;pointer-events:none}
+.anmenu hr{border:0;border-top:1px solid var(--ln2);margin:4px 6px}
+.anf.dropl{box-shadow:-5px 0 0 var(--ac)}.anf.dropr{box-shadow:5px 0 0 var(--ac)}
+@media(max-width:900px){
+ .ancol{gap:6px}
+ .anopts{padding:5px 8px;min-height:46px;border-radius:16px}
+ .anoti b{display:none}.anoti{padding-right:8px}
+ .anhint{white-space:nowrap}
+ .anzoom{bottom:8px;right:8px}
+ .anside{top:104px;bottom:auto;height:min(540px,72vh);overscroll-behavior:contain}
+ .anopts{min-height:48px}
+}</style></head>
 <body>
-<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 6.0</div></div>
+<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 6.1</div></div>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
  <div class="brand"><span class="mark"><i class="fa-solid fa-pen-nib"></i></span><b>MasterSketch</b><small class="ver">PRO</small></div>
@@ -1715,20 +1798,94 @@ body.modeanim footer{display:none!important}
  </div>
  <div class="anmain">
   <div class="antools" id="awTools"></div>
-  <div class="anstage" id="awStage"><canvas id="awView" width="960" height="540"></canvas><div class="anring" id="awRing"></div><span class="anfr" id="awFrLab">1 / 1</span><span class="anbgl"><i class="fa-solid fa-image"></i> <span data-i18n>Background</span></span>
-   <button class="b anside-t" id="awSideT" title="Colors and sounds" data-i18t><i class="fa-solid fa-palette"></i></button></div>
+  <div class="ancol">
+   <div class="anopts" id="awOpts">
+    <span class="anoti" id="awOptT"><i></i><b></b></span>
+    <button class="anchip ano" data-for="brush" id="awBrushB" title="Pick a brush" data-i18t><i></i><span></span><i class="fa-solid fa-chevron-down"></i></button>
+    <div class="ano anseg2" data-for="shape" id="awShapeK"></div>
+    <div class="ano anseg2" data-for="select" id="awSelK"></div>
+    <label class="anrng ano" data-for="brush eraser smudge shape" title="Size" data-i18t><i class="fa-solid fa-circle-dot"></i><input type="range" id="awSize" min="1" max="100" value="6"><b id="awSizeV">6</b></label>
+    <label class="anrng ano" data-for="brush eraser shape gradient text fill" title="Opacity" data-i18t><i class="fa-solid fa-droplet"></i><input type="range" id="awAlpha" min="5" max="100" value="100"><b id="awAlphaV">100%</b></label>
+    <label class="anrng ano" data-for="brush" id="awHardW" title="Hardness" data-i18t><i class="fa-solid fa-circle-half-stroke"></i><input type="range" id="awHard" min="0" max="100" value="80"><b id="awHardV">80</b></label>
+    <label class="anrng ano" data-for="brush eraser" title="Smooth lines (stabilizer)" data-i18t><i class="fa-solid fa-wave-square"></i><input type="range" id="awSmooth" min="0" max="100" value="20"><b id="awSmoothV">20</b></label>
+    <div class="ano anseg2" data-for="shape" id="awShapeM"><button data-v="stroke" title="Outline" data-i18t><i class="fa-regular fa-square"></i></button><button data-v="fill" title="Filled" data-i18t><i class="fa-solid fa-square"></i></button><button data-v="both" title="Outline and fill (second color)" data-i18t><i class="fa-solid fa-square-full anboth"></i></button></div>
+    <button class="b ano antg" data-for="shape" id="awDash" title="Dashed line" data-i18t><i class="fa-solid fa-grip-lines"></i></button>
+    <label class="anrng ano sm" data-for="shape" id="awRadW" title="Round corners" data-i18t><i class="fa-regular fa-square-full"></i><input type="range" id="awRad" min="0" max="120" value="0"><b id="awRadV">0</b></label>
+    <label class="anrng ano sm" data-for="shape" id="awSidesW" title="Sides / points" data-i18t><i class="fa-solid fa-draw-polygon"></i><input type="range" id="awSides" min="3" max="12" value="5"><b id="awSidesV">5</b></label>
+    <label class="anrng ano" data-for="fill select" id="awTolW" title="Tolerance – how similar the colors must be" data-i18t><i class="fa-solid fa-sliders"></i><input type="range" id="awTol" min="0" max="200" value="48"><b id="awTolV">48</b></label>
+    <div class="ano anseg2" data-for="gradient" id="awGradK"><button data-v="linear" title="Straight gradient" data-i18t><i class="fa-solid fa-arrow-right"></i></button><button data-v="radial" title="Round gradient" data-i18t><i class="fa-regular fa-circle-dot"></i></button></div>
+    <button class="b ano antg" data-for="gradient" id="awGradT" title="Fade to see-through instead of the second color" data-i18t><i class="fa-solid fa-chess-board"></i></button>
+    <button class="b ano antg" data-for="gradient" id="awGradA" title="Only on the drawing (keeps empty space empty)" data-i18t><i class="fa-solid fa-user"></i></button>
+    <select class="ano" data-for="text" id="awFont" title="Font" data-i18t></select>
+    <label class="anrng ano" data-for="text" title="Text size" data-i18t><i class="fa-solid fa-text-height"></i><input type="range" id="awTsize" min="10" max="240" value="48"><b id="awTsizeV">48</b></label>
+    <button class="b ano antg" data-for="text" id="awBold" title="Bold" data-i18t><i class="fa-solid fa-bold"></i></button>
+    <button class="b ano antg" data-for="text" id="awItal" title="Italic" data-i18t><i class="fa-solid fa-italic"></i></button>
+    <button class="b ano antg" data-for="text" id="awOutl" title="Outline in the second color" data-i18t><i class="fa-solid fa-font anol"></i></button>
+    <div class="ano ansymw" data-for="brush eraser shape" title="Symmetry – draw on both sides at once" data-i18t><i class="fa-solid fa-arrows-left-right-to-line"></i><select id="awSym"></select></div>
+    <label class="anrng ano sm" data-for="brush eraser shape" id="awSymNW" title="Number of copies" data-i18t><i class="fa-solid fa-asterisk"></i><input type="range" id="awSymN" min="3" max="16" value="6"><b id="awSymNV">6</b></label>
+    <div class="ano anflo" data-for="*" id="awFlo">
+     <button class="btn mini pri" id="awFlOk"><i class="fa-solid fa-check"></i><span data-i18n>Done</span></button>
+     <button class="b" id="awFlFx" title="Flip sideways" data-i18t><i class="fa-solid fa-left-right"></i></button>
+     <button class="b" id="awFlFy" title="Flip upside down" data-i18t><i class="fa-solid fa-up-down"></i></button>
+     <button class="b" id="awFlR" title="Turn 90°" data-i18t><i class="fa-solid fa-rotate-right"></i></button>
+     <button class="b" id="awFlC" title="Copy (Ctrl+C)" data-i18t><i class="fa-solid fa-copy"></i></button>
+     <button class="b" id="awFlD" title="Delete (Delete)" data-i18t><i class="fa-solid fa-trash"></i></button>
+     <button class="btn mini" id="awFlN" title="Put it down here and carry a copy to the next frame" data-i18t><i class="fa-solid fa-forward"></i><span data-i18n>Next frame</span></button>
+    </div>
+    <span class="ano anhint mut" data-for="pick pan move select text" id="awHint"></span>
+    <span class="sp"></span>
+    <button class="b ano" data-for="select move" id="awPasteB" title="Paste (Ctrl+V)" data-i18t><i class="fa-solid fa-paste"></i></button>
+   </div>
+   <div class="anstage" id="awStage"><canvas id="awView" width="960" height="540"></canvas><div class="anring" id="awRing"></div><span class="anfr" id="awFrLab">1 / 1</span><span class="anbgl" id="awLayLab"><i class="fa-solid fa-image"></i> <span></span></span>
+    <textarea id="awTxt" class="antxt hide" rows="1" spellcheck="false" placeholder="Type here" data-i18p></textarea>
+    <div class="anzoom"><button id="awZo" title="Zoom out" data-i18t><i class="fa-solid fa-minus"></i></button><button id="awZv" title="Fit to screen" data-i18t>100%</button><button id="awZi" title="Zoom in" data-i18t><i class="fa-solid fa-plus"></i></button></div>
+    <button class="b anside-t" id="awSideT" title="Colors, brushes and sounds" data-i18t><i class="fa-solid fa-palette"></i></button></div>
+  </div>
   <aside class="anside" id="awSide">
-   <div class="ansec"><h4 data-i18n>Color</h4>
+   <div class="antabs" id="awTabs">
+    <button data-t="color"><i class="fa-solid fa-palette"></i><span data-i18n>Color</span></button>
+    <button data-t="brush"><i class="fa-solid fa-paintbrush"></i><span data-i18n>Brushes</span></button>
+    <button data-t="layer"><i class="fa-solid fa-layer-group"></i><span data-i18n>Layers</span></button>
+    <button data-t="fx"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n>Effects</span></button>
+    <button data-t="snd"><i class="fa-solid fa-volume-high"></i><span data-i18n>Sound</span></button>
+   </div>
+   <div class="anpane" data-p="color">
+    <div class="anslots"><button class="anslot" id="awC1" title="Main color" data-i18t><i></i></button><button class="anslot sm" id="awC2" title="Second color – for fills, outlines and gradients" data-i18t><i></i></button><button class="b sm" id="awSwap" title="Swap colors (X)" data-i18t><i class="fa-solid fa-right-left"></i></button>
+     <input id="awHex" maxlength="7" spellcheck="false" autocomplete="off"><button class="b sm" id="awSysC" title="More colors" data-i18t><i class="fa-solid fa-sliders"></i></button><input type="color" id="awColor" class="vh"></div>
+    <div class="ansv" id="awSV"><canvas id="awSVC" width="256" height="150"></canvas><span id="awSVK"></span></div>
+    <input type="range" id="awHue" class="anhue" min="0" max="360" value="0" title="Hue" data-i18t>
+    <select id="awPal" title="Palette" data-i18t></select>
     <div class="ancols" id="awCols"></div>
-    <div class="anrow"><span class="ancur" id="awCurC"></span><input type="color" id="awColor" value="#1e293b"><label class="anrng"><span data-i18n>Size</span><input type="range" id="awSize" min="1" max="60" value="6"><b id="awSizeV">6</b></label></div>
-    <label class="anrng"><span data-i18n>Opacity</span><input type="range" id="awAlpha" min="10" max="100" value="100"><b id="awAlphaV">100%</b></label>
+    <h5 class="anh5" data-i18n>Recent</h5>
+    <div class="ancols sm" id="awRec"></div>
    </div>
-   <div class="ansec"><h4 data-i18n>Draw on</h4>
-    <div class="segs anseg" id="awLayer"><button data-l="f" class="on"><i class="fa-solid fa-film"></i> <span data-i18n>This frame</span></button><button data-l="b"><i class="fa-solid fa-image"></i> <span data-i18n>Background</span></button></div>
-    <small class="mut" data-i18n>The background shows behind every frame – draw the scenery once.</small>
+   <div class="anpane" data-p="brush">
+    <div id="awBrushes"></div>
+    <div class="anstamps hide" id="awStamps"></div>
+    <label class="anchk"><input type="checkbox" id="awPress"><span data-i18n>Pen pressure changes the size</span></label>
+   </div>
+   <div class="anpane" data-p="layer">
+    <div class="anlays" id="awLays"></div>
+    <small class="mut" data-i18n>The background shows behind every frame – draw the scenery once. The front layer shows over every frame – great for titles.</small>
     <div class="anrow anpaper"><span data-i18n>Paper</span><div id="awPaper" class="ancols sm"></div></div>
+    <h4><i class="fa-solid fa-image"></i> <span data-i18n>Picture</span></h4>
+    <div class="anrow"><button class="btn mini" id="awPicB"><i class="fa-solid fa-file-image"></i><span data-i18n>Add picture</span></button><button class="btn mini" id="awSelAll"><i class="fa-solid fa-expand"></i><span data-i18n>Select all</span></button></div>
+    <h4><i class="fa-solid fa-person-chalkboard"></i> <span data-i18n>Tracing picture</span></h4>
+    <small class="mut" data-i18n>Put a photo under your drawing and trace it. It is not exported.</small>
+    <div class="anrow"><button class="btn mini" id="awTrB"><i class="fa-solid fa-image"></i><span data-i18n>Choose picture</span></button><button class="b sm hide" id="awTrX" title="Remove" data-i18t><i class="fa-solid fa-xmark"></i></button><input type="range" id="awTrA" class="hide" min="5" max="100" value="40" title="See-through" data-i18t></div>
+    <h4><i class="fa-solid fa-border-all"></i> <span data-i18n>Guides</span></h4>
+    <div class="segs anseg" id="awGuide"><button data-g="off" data-i18n>Off</button><button data-g="thirds" data-i18n>Thirds</button><button data-g="grid" data-i18n>Grid</button><button data-g="center" data-i18n>Center</button></div>
+    <h4><i class="fa-solid fa-layer-group"></i> <span data-i18n>Onion skin</span></h4>
+    <label class="anrng"><span data-i18n>Strength</span><input type="range" id="awOnA" min="10" max="100" value="60"><b id="awOnAV">60%</b></label>
+    <input type="file" id="awPicF" accept="image/*" class="vh"><input type="file" id="awTrF" accept="image/*" class="vh">
    </div>
-   <div class="ansec"><h4><i class="fa-solid fa-volume-high"></i> <span data-i18n>Sounds</span></h4>
+   <div class="anpane" data-p="fx">
+    <div class="segs anseg" id="awFxS"><button data-s="1" class="on"><i class="fa-solid fa-film"></i> <span data-i18n>This frame</span></button><button data-s="all"><i class="fa-solid fa-clone"></i> <span data-i18n>All frames</span></button></div>
+    <label class="anrng"><span data-i18n>Amount</span><input type="range" id="awFxA" min="1" max="40" value="8"><b id="awFxAV">8</b></label>
+    <div class="anfxg" id="awFx"></div>
+    <small class="mut" id="awFxN"></small>
+   </div>
+   <div class="anpane" data-p="snd">
     <small class="mut" id="awSndL"></small>
     <div class="ansnds" id="awSnds"></div>
     <div class="anrow"><button class="btn mini" id="awRecB"><i class="fa-solid fa-microphone"></i><span data-i18n>Record</span></button><button class="btn mini" id="awUpS"><i class="fa-solid fa-file-arrow-up"></i><span data-i18n>Upload sound</span></button></div>
@@ -1744,16 +1901,27 @@ body.modeanim footer{display:none!important}
    <div class="angrp"><button class="b" id="awFirst" title="First frame (Home)" data-i18t><i class="fa-solid fa-backward-step"></i></button><button class="b" id="awPrev" title="Previous frame (,)" data-i18t><i class="fa-solid fa-caret-left"></i></button>
     <button class="b anplay" id="awPlay" title="Play (Space)" data-i18t><i class="fa-solid fa-play"></i></button><button class="b" id="awNext" title="Next frame (.)" data-i18t><i class="fa-solid fa-caret-right"></i></button><button class="b" id="awLast" title="Last frame (End)" data-i18t><i class="fa-solid fa-forward-step"></i></button>
     <button class="b" id="awLoop" title="Loop" data-i18t><i class="fa-solid fa-repeat"></i></button></div>
-   <label class="anrng anfps"><span data-i18n>Speed</span><input type="range" id="awFps" min="1" max="24" value="8"><b><span id="awFpsV">8</span> fps</b></label>
+   <label class="anrng anfps"><span data-i18n>Speed</span><input type="range" id="awFps" min="1" max="30" value="8"><b><span id="awFpsV">8</span> fps</b></label>
    <div class="angrp"><button class="b" id="awOnion" title="Onion skin (K) – see the frames before and after" data-i18t><i class="fa-solid fa-layer-group"></i></button><select id="awOnN" title="How many frames the onion skin shows" data-i18t><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
    <span class="sp"></span>
    <small class="mut" id="awDur"></small>
    <div class="angrp"><button class="b" id="awAdd" title="New frame (N)" data-i18t><i class="fa-solid fa-plus"></i></button><button class="b" id="awDup" title="Copy this frame (Ctrl+D)" data-i18t><i class="fa-solid fa-clone"></i></button>
     <button class="b" id="awMoveL" title="Move frame left" data-i18t><i class="fa-solid fa-arrow-left"></i></button><button class="b" id="awMoveR" title="Move frame right" data-i18t><i class="fa-solid fa-arrow-right"></i></button>
-    <button class="b" id="awClear" title="Clear this frame" data-i18t><i class="fa-solid fa-broom"></i></button><button class="b" id="awDel" title="Delete frame (Delete)" data-i18t><i class="fa-solid fa-trash"></i></button></div>
+    <button class="b" id="awClear" title="Clear this frame" data-i18t><i class="fa-solid fa-broom"></i></button><button class="b" id="awDel" title="Delete frame (Delete)" data-i18t><i class="fa-solid fa-trash"></i></button>
+    <button class="b" id="awFrM" title="More frame tools" data-i18t><i class="fa-solid fa-ellipsis"></i></button></div>
    <div class="angrp anhold" title="How long this frame stays on screen" data-i18t><button class="b sm" id="awHoldM"><i class="fa-solid fa-minus"></i></button><b id="awHoldV">×1</b><button class="b sm" id="awHoldP"><i class="fa-solid fa-plus"></i></button></div>
   </div>
   <div class="anstrip" id="awStrip"></div>
+ </div>
+ <div class="anmenu hide" id="awFrMenu">
+  <button data-m="copy"><i class="fa-solid fa-copy"></i><span data-i18n>Copy frame</span></button>
+  <button data-m="paste"><i class="fa-solid fa-paste"></i><span data-i18n>Paste frame after this one</span></button>
+  <button data-m="merge"><i class="fa-solid fa-object-group"></i><span data-i18n>Paste on top of this frame</span></button>
+  <button data-m="blank"><i class="fa-solid fa-square-plus"></i><span data-i18n>New frame before this one</span></button>
+  <hr>
+  <button data-m="reverse"><i class="fa-solid fa-arrow-right-arrow-left"></i><span data-i18n>Reverse all frames</span></button>
+  <button data-m="bounce"><i class="fa-solid fa-arrows-left-right"></i><span data-i18n>Bounce – play forward, then back</span></button>
+  <button data-m="holdall"><i class="fa-solid fa-stopwatch"></i><span data-i18n>Use this hold for all frames</span></button>
  </div>
 </section>
 <section id="playPage">
@@ -15089,13 +15257,115 @@ const TR={
 'Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.':['ภาพวาด โมเดล และม็อดที่ทีม MasterSketch ตรวจแล้วจะได้ป้ายยืนยันสีฟ้า','Las pinturas, modelos y mods revisados por el equipo de MasterSketch reciben una insignia azul de Verificado.','MasterSketchチームがチェックした絵・モデル・MODには、青い認証バッジがつきます。','经 MasterSketch 团队检查的画作、模型和模组会获得蓝色认证徽章。'],
 'Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.':['วาดทีละเฟรมพร้อมออนเนียนสกิน กดเล่น ใส่เสียงเอฟเฟกต์ เสียงของคุณเอง หรือเพลง แล้วส่งออกเป็นวิดีโอหรือ GIF – หรือแชร์ในแกลเลอรี','Dibuja cuadro a cuadro con papel cebolla, dale a reproducir, añade efectos, tu voz o música y exporta un vídeo o GIF, o compártelo en la Galería.','オニオンスキンで1コマずつかいて再生。効果音や自分の声、音楽を入れて、ビデオやGIFで書き出したり、ギャラリーでシェアしたりできます。','用洋葱皮逐帧绘画，按播放，加上音效、你自己的声音或音乐，然后导出视频或 GIF——或分享到画廊。'],
 'A brand-new look':['หน้าตาใหม่ทั้งหมด','Un aspecto totalmente nuevo','まったく新しいデザイン','全新外观'],
-'MasterSketch 6 has a fresh design with softer panels and a new violet glow.':['MasterSketch 6 มาพร้อมดีไซน์ใหม่ แผงที่นุ่มนวลขึ้น และแสงสีม่วงแบบใหม่','MasterSketch 6 tiene un diseño renovado con paneles más suaves y un nuevo brillo violeta.','MasterSketch 6は、やわらかいパネルと新しいむらさきの光の、あたらしいデザインになりました。','MasterSketch 6 采用全新设计，面板更柔和，还有新的紫色光晕。']
+'MasterSketch 6 has a fresh design with softer panels and a new violet glow.':['MasterSketch 6 มาพร้อมดีไซน์ใหม่ แผงที่นุ่มนวลขึ้น และแสงสีม่วงแบบใหม่','MasterSketch 6 tiene un diseño renovado con paneles más suaves y un nuevo brillo violeta.','MasterSketch 6は、やわらかいパネルと新しいむらさきの光の、あたらしいデザインになりました。','MasterSketch 6 采用全新设计，面板更柔和，还有新的紫色光晕。'],
+'Box select':['เลือกแบบกล่อง','Selección de caja','四角でえらぶ','框选'],
+'Lasso – draw around it':['บ่วงบาศ – วาดล้อมรอบ','Lazo: dibuja alrededor','なげなわ：まわりをかこむ','套索——沿着它画一圈'],
+'Magic wand – tap a color area':['ไม้กายสิทธิ์ – แตะพื้นที่สี','Varita mágica: toca una zona de color','まほうのつえ：色のところをタップ','魔棒——点一下颜色区域'],
+'No symmetry':['ไม่สมมาตร','Sin simetría','シンメトリーなし','不对称'],
+'Mirror ↔':['กระจก ↔','Espejo ↔','ミラー ↔','镜像 ↔'],
+'Mirror ↕':['กระจก ↕','Espejo ↕','ミラー ↕','镜像 ↕'],
+'4 ways':['4 ทิศ','4 lados','4方向','四向'],
+'Flip sideways':['พลิกซ้าย-ขวา','Voltear de lado','左右反転','左右翻转'],
+'Flip upside down':['พลิกบน-ล่าง','Voltear de arriba abajo','上下反転','上下翻转'],
+'Brighter':['สว่างขึ้น','Más claro','明るく','更亮'],
+'Darker':['มืดลง','Más oscuro','暗く','更暗'],
+'Change colors':['เปลี่ยนสี','Cambiar colores','色をかえる','改变颜色'],
+'Drop shadow':['เงาตกกระทบ','Sombra','ドロップシャドウ','投影'],
+'Pixelate':['พิกเซล','Pixelar','ピクセル化','像素化'],
+'Cartoon effect':['เอฟเฟกต์การ์ตูน','Efecto cómic','マンガ風','卡通效果'],
+'Glitch':['กลิตช์','Glitch','グリッチ','故障风'],
+'Tap the picture to pick a color':['แตะที่ภาพเพื่อเลือกสี','Toca el dibujo para elegir un color','絵をタップして色をえらぶ','点一下画面来取色'],
+'Drag to move around · pinch, scroll or use + and − to zoom':['ลากเพื่อเลื่อนดู · ใช้สองนิ้ว ลูกกลิ้ง หรือ + และ − เพื่อซูม','Arrastra para moverte · pellizca, usa la rueda o + y − para hacer zoom','ドラッグで移動・ピンチ、スクロール、＋/−でズーム','拖动来移动 · 双指捏合、滚轮或 + 和 − 来缩放'],
+'Drag the drawing on this layer · drag a corner to resize · drag the pink dot to turn':['ลากภาพบนเลเยอร์นี้ · ลากมุมเพื่อย่อขยาย · ลากจุดสีชมพูเพื่อหมุน','Arrastra el dibujo de esta capa · arrastra una esquina para cambiar el tamaño · arrastra el punto rosa para girar','このレイヤーの絵をドラッグ・角をドラッグで大きさ・ピンクの点で回す','拖动这一层的画 · 拖角来缩放 · 拖粉色圆点来旋转'],
+'Drag a box around a part of your drawing':['ลากกล่องล้อมส่วนที่ต้องการของภาพ','Arrastra una caja alrededor de una parte de tu dibujo','絵の一部を四角でかこむ','拖出一个框，框住画的一部分'],
+'Draw around a part of your drawing':['วาดล้อมรอบส่วนที่ต้องการของภาพ','Dibuja alrededor de una parte de tu dibujo','絵の一部のまわりをかこむ','沿着画的一部分画一圈'],
+'Tap a color area to pick it up':['แตะพื้นที่สีเพื่อหยิบขึ้นมา','Toca una zona de color para levantarla','色のところをタップして持ち上げる','点一下颜色区域把它拿起来'],
+'Tap where the text should go · Enter puts it on the frame':['แตะตรงที่ต้องการวางข้อความ · กด Enter เพื่อวางบนเฟรม','Toca donde va el texto · Enter lo pone en el cuadro','文字を置く場所をタップ・Enterでコマにのせる','点一下文字要放的位置 · 按 Enter 放到帧上'],
+'Pick a brush':['เลือกแปรง','Elige un pincel','ブラシをえらぶ','选择画笔'],
+'Smooth lines (stabilizer)':['เส้นนุ่มนวล (กันมือสั่น)','Líneas suaves (estabilizador)','なめらかな線（手ぶれ補正）','平滑线条（防抖）'],
+'Filled':['เติมสี','Relleno','ぬりつぶし','填充'],
+'Outline and fill (second color)':['ขอบและสีเติม (สีที่สอง)','Borde y relleno (segundo color)','ふちとぬり（2番目の色）','描边和填充（第二种颜色）'],
+'Dashed line':['เส้นประ','Línea discontinua','点線','虚线'],
+'Round corners':['มุมโค้ง','Esquinas redondas','角を丸く','圆角'],
+'Sides / points':['ด้าน / แฉก','Lados / puntas','辺 / とがり','边数 / 角数'],
+'Tolerance – how similar the colors must be':['ค่าความคลาดเคลื่อน – สีต้องคล้ายกันแค่ไหน','Tolerancia: cuánto se deben parecer los colores','許容値：どれくらい似た色までえらぶか','容差——颜色要有多相近'],
+'Straight gradient':['ไล่สีแนวตรง','Degradado recto','まっすぐグラデーション','线性渐变'],
+'Round gradient':['ไล่สีแบบวงกลม','Degradado redondo','まるいグラデーション','径向渐变'],
+'Fade to see-through instead of the second color':['จางเป็นโปร่งใสแทนสีที่สอง','Desvanecer a transparente en vez del segundo color','2番目の色のかわりに透明へ','渐隐为透明，而不是第二种颜色'],
+'Only on the drawing (keeps empty space empty)':['เฉพาะบนภาพวาด (พื้นที่ว่างยังว่างอยู่)','Solo sobre el dibujo (lo vacío sigue vacío)','絵の上だけ（空いているところはそのまま）','只在画上（空白处保持空白）'],
+'Outline in the second color':['ขอบด้วยสีที่สอง','Borde con el segundo color','2番目の色でふちどり','用第二种颜色描边'],
+'Symmetry – draw on both sides at once':['สมมาตร – วาดทั้งสองข้างพร้อมกัน','Simetría: dibuja en los dos lados a la vez','シンメトリー：両がわに同時にかく','对称——同时画两边'],
+'Number of copies':['จำนวนชุด','Número de copias','コピーの数','副本数量'],
+'Turn 90°':['หมุน 90°','Girar 90°','90°回す','旋转 90°'],
+'Copy (Ctrl+C)':['คัดลอก (Ctrl+C)','Copiar (Ctrl+C)','コピー (Ctrl+C)','复制 (Ctrl+C)'],
+'Delete (Delete)':['ลบ (Delete)','Eliminar (Supr)','削除 (Delete)','删除 (Delete)'],
+'Put it down here and carry a copy to the next frame':['วางไว้ตรงนี้ แล้วถือสำเนาไปเฟรมถัดไป','Déjalo aquí y lleva una copia al siguiente cuadro','ここに置いて、コピーを次のコマへ運ぶ','放在这里，并把一份副本带到下一帧'],
+'Next frame':['เฟรมถัดไป','Siguiente cuadro','次のコマ','下一帧'],
+'Paste (Ctrl+V)':['วาง (Ctrl+V)','Pegar (Ctrl+V)','貼りつけ (Ctrl+V)','粘贴 (Ctrl+V)'],
+'Type here':['พิมพ์ที่นี่','Escribe aquí','ここに入力','在这里输入'],
+'Colors, brushes and sounds':['สี แปรง และเสียง','Colores, pinceles y sonidos','色・ブラシ・音','颜色、画笔和声音'],
+'Effects':['เอฟเฟกต์','Efectos','エフェクト','效果'],
+'Main color':['สีหลัก','Color principal','メインの色','主颜色'],
+'Second color – for fills, outlines and gradients':['สีที่สอง – สำหรับสีเติม ขอบ และการไล่สี','Segundo color: para rellenos, bordes y degradados','2番目の色：ぬり、ふち、グラデーション用','第二种颜色——用于填充、描边和渐变'],
+'Swap colors (X)':['สลับสี (X)','Cambiar colores (X)','色を入れかえ (X)','交换颜色 (X)'],
+'Palette':['จานสี','Paleta','パレット','调色板'],
+'Pen pressure changes the size':['แรงกดปากกาเปลี่ยนขนาดเส้น','La presión del lápiz cambia el tamaño','ペンの筆圧で太さがかわる','笔压改变粗细'],
+'The background shows behind every frame – draw the scenery once. The front layer shows over every frame – great for titles.':['พื้นหลังจะแสดงอยู่หลังทุกเฟรม – วาดฉากครั้งเดียวพอ ส่วนเลเยอร์หน้าจะแสดงอยู่บนทุกเฟรม – เหมาะสำหรับชื่อเรื่อง','El fondo se ve detrás de cada cuadro: dibuja el paisaje una vez. La capa de delante se ve sobre cada cuadro: genial para títulos.','背景はすべてのコマのうしろに出ます（景色は1回でOK）。前のレイヤーはすべてのコマの上に出ます（タイトルにぴったり）。','背景显示在每一帧后面——风景只需画一次。前景层显示在每一帧上面——很适合放标题。'],
+'Tracing picture':['ภาพสำหรับลอกลาย','Imagen para calcar','なぞり用の絵','描摹图片'],
+'Put a photo under your drawing and trace it. It is not exported.':['วางรูปไว้ใต้ภาพวาดแล้วลากเส้นตาม รูปนี้จะไม่ถูกส่งออก','Pon una foto debajo de tu dibujo y cálcala. No se exporta.','写真を絵の下に置いてなぞろう。書き出しには入りません。','把照片放在画的下面来描摹。它不会被导出。'],
+'Choose picture':['เลือกรูป','Elegir imagen','絵をえらぶ','选择图片'],
+'See-through':['ความโปร่งใส','Transparencia','すけぐあい','透明度'],
+'Guides':['เส้นนำ','Guías','ガイド','参考线'],
+'Thirds':['สามส่วน','Tercios','3分割','三分法'],
+'Strength':['ความเข้ม','Intensidad','こさ','强度'],
+'All frames':['ทุกเฟรม','Todos los cuadros','すべてのコマ','所有帧'],
+'More frame tools':['เครื่องมือเฟรมเพิ่มเติม','Más herramientas de cuadros','コマのツールをもっと','更多帧工具'],
+'Copy frame':['คัดลอกเฟรม','Copiar cuadro','コマをコピー','复制帧'],
+'Paste frame after this one':['วางเฟรมต่อจากเฟรมนี้','Pegar el cuadro después de este','このコマのあとに貼りつけ','在这一帧后面粘贴帧'],
+'Paste on top of this frame':['วางทับบนเฟรมนี้','Pegar encima de este cuadro','このコマの上に貼りつけ','粘贴到这一帧上面'],
+'New frame before this one':['เฟรมใหม่ก่อนเฟรมนี้','Cuadro nuevo antes de este','このコマの前に新しいコマ','在这一帧前面新建帧'],
+'Reverse all frames':['กลับลำดับทุกเฟรม','Invertir todos los cuadros','コマの順番を逆にする','反转所有帧'],
+'Bounce – play forward, then back':['เด้งกลับ – เล่นไปข้างหน้าแล้วถอยกลับ','Rebote: hacia delante y luego atrás','バウンス：前に進んでからもどる','往返——先正放，再倒放'],
+'Use this hold for all frames':['ใช้ระยะเวลานี้กับทุกเฟรม','Usar esta duración en todos los cuadros','この長さをすべてのコマに使う','所有帧都用这个时长'],
+'Nothing to pick up there':['ไม่มีอะไรให้หยิบตรงนั้น','No hay nada que levantar ahí','そこには何もありません','那里没有可以拿起的东西'],
+'This layer is empty':['เลเยอร์นี้ว่างอยู่','Esta capa está vacía','このレイヤーはからっぽです','这一层是空的'],
+'Deleted – Undo brings it back':['ลบแล้ว – กดเลิกทำเพื่อเอากลับมา','Eliminado: Deshacer lo recupera','削除しました。元に戻すで復活できます','已删除——撤销可以恢复'],
+'Cut – paste it on any frame':['ตัดแล้ว – วางบนเฟรมไหนก็ได้','Cortado: pégalo en cualquier cuadro','切り取りました。どのコマにも貼りつけできます','已剪切——可以粘贴到任意帧'],
+'Copied – paste it on any frame (Ctrl+V)':['คัดลอกแล้ว – วางบนเฟรมไหนก็ได้ (Ctrl+V)','Copiado: pégalo en cualquier cuadro (Ctrl+V)','コピーしました。どのコマにも貼りつけできます (Ctrl+V)','已复制——可以粘贴到任意帧 (Ctrl+V)'],
+'Copy something first (Ctrl+C)':['คัดลอกอะไรสักอย่างก่อน (Ctrl+C)','Copia algo primero (Ctrl+C)','先に何かをコピーしてね (Ctrl+C)','先复制一些东西 (Ctrl+C)'],
+'Move and resize the picture, then press Done':['เลื่อนและย่อขยายรูป แล้วกดเสร็จ','Mueve y ajusta la imagen y pulsa Listo','絵を動かして大きさをかえたら「完了」を押してね','移动并调整图片大小，然后按“完成”'],
+'move it a little':['ขยับอีกนิด','muévelo un poco','少しだけ動かしてね','稍微移动一下'],
+'Shows over every frame':['แสดงอยู่บนทุกเฟรม','Se ve sobre cada cuadro','すべてのコマの上に出る','显示在每一帧上面'],
+'Only on this frame':['เฉพาะเฟรมนี้','Solo en este cuadro','このコマだけ','只在这一帧'],
+'Shows behind every frame':['แสดงอยู่หลังทุกเฟรม','Se ve detrás de cada cuadro','すべてのコマのうしろに出る','显示在每一帧后面'],
+'Front layer':['เลเยอร์หน้า','Capa de delante','前のレイヤー','前景层'],
+'Clear this layer':['ล้างเลเยอร์นี้','Borrar esta capa','このレイヤーを消す','清空这一层'],
+'Drawing on the front layer – it shows over every frame':['กำลังวาดบนเลเยอร์หน้า – จะแสดงอยู่บนทุกเฟรม','Dibujando en la capa de delante: se ve sobre cada cuadro','前のレイヤーにかいています。すべてのコマの上に出ます','正在前景层上画——它会显示在每一帧上面'],
+'Tracing picture added – it is not exported':['เพิ่มภาพสำหรับลอกลายแล้ว – จะไม่ถูกส่งออก','Imagen para calcar añadida: no se exporta','なぞり用の絵を入れました。書き出しには入りません','已添加描摹图片——它不会被导出'],
+'Effects change the layer you are drawing on.':['เอฟเฟกต์จะเปลี่ยนเลเยอร์ที่คุณกำลังวาด','Los efectos cambian la capa en la que dibujas.','エフェクトはかいているレイヤーをかえます。','效果会改变你正在画的这一层。'],
+'Effects change every frame – Undo brings them back.':['เอฟเฟกต์จะเปลี่ยนทุกเฟรม – กดเลิกทำเพื่อย้อนกลับ','Los efectos cambian todos los cuadros: Deshacer los recupera.','エフェクトはすべてのコマをかえます。元に戻すでもどせます。','效果会改变所有帧——撤销可以恢复。'],
+'Effects change the frame you are on.':['เอฟเฟกต์จะเปลี่ยนเฟรมที่คุณอยู่','Los efectos cambian el cuadro en el que estás.','エフェクトは今のコマをかえます。','效果会改变你当前所在的帧。'],
+'Frame copied':['คัดลอกเฟรมแล้ว','Cuadro copiado','コマをコピーしました','已复制帧'],
+'Frames reversed':['กลับลำดับเฟรมแล้ว','Cuadros invertidos','コマの順番を逆にしました','已反转帧'],
+'Bounce added – it plays forward, then back':['เพิ่มการเด้งกลับแล้ว – จะเล่นไปข้างหน้าแล้วถอยกลับ','Rebote añadido: va hacia delante y luego atrás','バウンスを追加しました。前に進んでからもどります','已添加往返——先正放，再倒放'],
+'Every frame now stays':['ทุกเฟรมจะแสดงนาน','Ahora cada cuadro dura','すべてのコマの長さ：','每一帧现在停留'],
+'Add at least three frames first':['เพิ่มอย่างน้อยสามเฟรมก่อน','Añade al menos tres cuadros primero','先にコマを3つ以上つくってね','请先添加至少三帧'],
+'Copy a frame first':['คัดลอกเฟรมก่อน','Copia un cuadro primero','先にコマをコピーしてね','请先复制一帧'],
+'That effect does not work on this device':['เอฟเฟกต์นี้ใช้กับอุปกรณ์นี้ไม่ได้','Ese efecto no funciona en este dispositivo','このエフェクトはこの端末では使えません','这个效果在此设备上无法使用'],
+'Welcome to the Animation Workshop! Draw on frame 1, press + to add the next frame and draw it a little different. The faded red drawing is the frame before (onion skin), so you can see where to draw. Every brush from the drawing canvas is here, plus shapes, text and selection. Press play to watch it move, and tap a sound to add it to a frame.':['ยินดีต้อนรับสู่เวิร์กช็อปแอนิเมชัน! วาดบนเฟรม 1 แล้วกด + เพื่อเพิ่มเฟรมถัดไป และวาดให้ต่างไปนิดหน่อย ภาพสีแดงจาง ๆ คือเฟรมก่อนหน้า (ออนเนียนสกิน) จะได้รู้ว่าต้องวาดตรงไหน แปรงทุกแบบจากผืนผ้าใบวาดภาพอยู่ที่นี่ พร้อมรูปทรง ข้อความ และการเลือก กดเล่นเพื่อดูมันขยับ และแตะเสียงเพื่อใส่ในเฟรม','¡Bienvenido al Taller de animación! Dibuja en el cuadro 1, pulsa + para añadir el siguiente y dibújalo un poco distinto. El dibujo rojo clarito es el cuadro anterior (papel cebolla), para que veas dónde dibujar. Aquí están todos los pinceles del lienzo, además de formas, texto y selección. Pulsa reproducir para verlo moverse y toca un sonido para añadirlo a un cuadro.','アニメ工房へようこそ！コマ1にかいて、＋で次のコマをつくり、少しだけちがう絵をかこう。うすい赤の絵は前のコマ（オニオンスキン）なので、どこにかけばいいかわかります。お絵かきキャンバスのブラシがぜんぶ使えて、図形・文字・選択もあります。再生で動きを見て、音をタップするとコマに入ります。','欢迎来到动画工坊！在第 1 帧上画画，按 + 添加下一帧，然后画得稍微不一样。淡红色的画是上一帧（洋葱皮），这样你就知道该画在哪里。画布上的所有画笔这里都有，还有形状、文字和选区。按播放看它动起来，点一下声音就能把它加到帧上。'],
+'Animation Workshop 2.0':['เวิร์กช็อปแอนิเมชัน 2.0','Taller de animación 2.0','アニメ工房 2.0','动画工坊 2.0'],
+'Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.':['แปรงทุกแบบจากผืนผ้าใบวาดภาพมาอยู่ในเวิร์กช็อปแอนิเมชันแล้ว – พร้อมรูปทรง การไล่สี ข้อความ นิ้วเกลี่ย สมมาตร การซูม และการเลือกที่เลื่อน ย่อขยาย หมุน และพลิกได้','Todos los pinceles del lienzo están ahora en el Taller de animación, además de formas, degradado, texto, difuminar, simetría, zoom y una selección que puedes mover, escalar, girar y voltear.','お絵かきキャンバスのブラシがぜんぶアニメ工房で使えるように！図形、グラデーション、文字、指先ツール、シンメトリー、ズーム、動かす・大きさ・回転・反転ができる選択もあります。','画布上的所有画笔现在都能在动画工坊里用了——还有形状、渐变、文字、涂抹、对称、缩放，以及可以移动、缩放、旋转和翻转的选区。'],
+'Front layer, tracing and effects':['เลเยอร์หน้า การลอกลาย และเอฟเฟกต์','Capa de delante, calco y efectos','前のレイヤー・なぞり・エフェクト','前景层、描摹和效果'],
+'Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.':['วาดชื่อเรื่องบนเลเยอร์หน้า ลอกลายจากรูปถ่าย ใส่เส้นนำ และใช้เอฟเฟกต์กับเฟรมเดียวหรือทุกเฟรมพร้อมกัน เครื่องมือเฟรมใหม่: กลับลำดับ เด้งกลับ คัดลอกและวางเฟรม และลากเฟรมเพื่อจัดลำดับ','Dibuja títulos en la capa de delante, calca una foto, añade guías y usa efectos en un cuadro o en todos a la vez. Nuevas herramientas de cuadros: invertir, rebote, copiar y pegar cuadros, y arrastrarlos para ordenarlos.','前のレイヤーにタイトルをかいたり、写真をなぞったり、ガイドを出したり、エフェクトを1コマやすべてのコマに使ったりできます。新しいコマのツール：逆再生、バウンス、コマのコピーと貼りつけ、ドラッグで並べかえ。','在前景层上画标题，描摹照片，添加参考线，并把效果用在一帧或所有帧上。新的帧工具：反转、往返、复制和粘贴帧，还可以拖动帧来调整顺序。'],
+'Add picture':['ใส่รูป','Añadir imagen','絵を入れる','添加图片'],
+'Center':['กึ่งกลาง','Centro','中心','中心'],
+'Mod brushes':['แปรงจากม็อด','Pinceles de mods','MODのブラシ','模组画笔']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='6.0';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='6.1';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -15133,6 +15403,7 @@ matchMedia('(prefers-color-scheme: light)').addEventListener('change',()=>{if(SE
 function applyLang(){document.documentElement.lang=SET.lang;
  $$('[data-i18n]').forEach(e=>{if(!e.dataset.i18n)e.dataset.i18n=e.textContent.trim();e.textContent=t(e.dataset.i18n)});
  $$('[data-i18t]').forEach(e=>{if(!e.dataset.i18t)e.dataset.i18t=e.title;e.title=t(e.dataset.i18t)});
+ $$('[data-i18p]').forEach(e=>{if(!e.dataset.i18p)e.dataset.i18p=e.placeholder;e.placeholder=t(e.dataset.i18p)});
  $('#palI').placeholder=t('Type a command or tool…');updRef();renderHist()}
 
 /* ---------- Storage (IndexedDB with localStorage fallback) ---------- */
@@ -17658,38 +17929,92 @@ MENUS.splice(MENUS.findIndex(m=>m[0]==='Help'),0,['Fun',['xDaily','xColoring','x
 HOME.splice(HOME.indexOf('inspire')+1,0,'xDaily','xColoring','xLesson','xGuess');
 
 /* ---------- v16: Animation Workshop – draw frame by frame with onion skin, play it back, add sound effects,
-   your own voice or music, export a video or GIF and share it in the Gallery ---------- */
-const AW={w:960,h:540,paper:'#ffffff',frames:[],bg:null,cur:0,fps:8,loop:true,onion:true,onN:1,tool:'pen',color:'#1e293b',size:6,alpha:1,layer:'f',playing:false,
- undo:[],redo:[],lib:[],music:null,id:null,name:'',inited:false,saveT:0,ac:null,master:null,raf:0,st:null,sfx:{},rec:null,busy:false,seq:0};
-const AN_TOOLS=[['pencil','fa-pencil','Pencil','p'],['pen','fa-pen-nib','Pen','b'],['marker','fa-highlighter','Marker','m'],['spray','fa-spray-can','Spray','s'],['eraser','fa-eraser','Eraser','e'],
- ['fill','fa-fill-drip','Fill','g'],['line','fa-slash','Line','l'],['rect','fa-square','Rectangle','r'],['ellipse','fa-circle','Circle','o'],['move','fa-up-down-left-right','Move drawing','v'],['pick','fa-eye-dropper','Pick color','i']];
-const AN_COLORS=['#1e293b','#ffffff','#ef4444','#f97316','#facc15','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899','#92400e','#94a3b8'];
-const AN_PAPER=['#ffffff','#fff7e6','#e0f2fe','#ecfccb','#1e1b2e'];
+   your own voice or music, export a video or GIF and share it in the Gallery.
+   6.1: the same brushes as the drawing canvas (both use stroke()), shapes, gradient, text, smudge, selection that can
+   be moved, resized, turned and flipped, symmetry, smoothing, zoom and pan, a front layer, a tracing picture, guides,
+   effects for one frame or all frames, and more frame tools ---------- */
+const AW={w:960,h:540,paper:'#ffffff',frames:[],bg:null,fg:null,cur:0,fps:8,loop:true,onion:true,onN:1,onA:.6,
+ tool:'brush',brush:'pen',color:'#1e293b',color2:'#ffffff',slot:1,hsv:[0,0,0],size:6,alpha:1,hard:80,smooth:20,sym:'off',symN:6,
+ shapeK:'rect',shapeM:'stroke',dash:false,radius:0,sides:5,tol:48,gradK:'linear',gradT:false,gradA:false,selK:'rect',
+ font:'system-ui, sans-serif',tsize:48,bold:false,italic:false,outline:false,guide:'off',fxAll:false,fxAmt:8,recent:[],tab:'color',pal:'Basic',
+ layer:'f',playing:false,undo:[],redo:[],lib:[],music:null,id:null,name:'',inited:false,saveT:0,ac:null,master:null,raf:0,st:null,sfx:{},rec:null,busy:false,seq:0,
+ fl:null,clip:null,fclip:null,txt:null,z:1,px:0,py:0,k:1,trace:null,ptrs:new Map(),gest:null,pan:null,space:false,spaceUsed:false,lastPt:null,prevTool:null,dragI:null};
+const AN_TOOLS=[['brush','fa-solid fa-paintbrush','Brushes','B'],['eraser','fa-solid fa-eraser','Eraser','E'],['smudge','fa-solid fa-fingerprint','Smudge','U'],['fill','fa-solid fa-fill-drip','Fill bucket','G'],['gradient','fa-solid fa-circle-half-stroke','Gradient','D'],
+ ['shape','fa-solid fa-shapes','Shapes','R'],['text','fa-solid fa-font','Text','T'],['select','fa-solid fa-vector-square','Select','M'],['move','fa-solid fa-up-down-left-right','Move / transform','V'],['pick','fa-solid fa-eye-dropper','Pick color','I'],['pan','fa-solid fa-hand','Pan','H']];
+const AN_KEYS={b:['brush'],p:['brush','pencil'],s:['brush','spray'],a:['brush','brush'],e:['eraser'],u:['smudge'],g:['fill'],d:['gradient'],r:['shape','rect'],o:['shape','ellipse'],l:['shape','line'],t:['text'],m:['select','rect'],j:['select','lasso'],w:['select','wand'],v:['move'],i:['pick'],h:['pan']};
+const AN_SHAPES=[['line','fa-solid fa-slash','Line'],['arrow','fa-solid fa-arrow-right-long','Arrow'],['rect','fa-regular fa-square','Rectangle'],['ellipse','fa-regular fa-circle','Circle'],['poly','fa-solid fa-draw-polygon','Polygon'],['star','fa-regular fa-star','Star'],['heart','fa-regular fa-heart','Heart'],['bubble','fa-regular fa-comment','Speech bubble']];
+const AN_SELS=[['rect','fa-solid fa-vector-square','Box select'],['lasso','fa-solid fa-draw-polygon','Lasso – draw around it'],['wand','fa-solid fa-wand-magic-sparkles','Magic wand – tap a color area']];
+const AN_SYM=[['off','No symmetry'],['v','Mirror ↔'],['h','Mirror ↕'],['quad','4 ways'],['radial','Radial'],['mandala','Mandala']];
+const AN_PAPER=['#ffffff','#fff7e6','#e0f2fe','#ecfccb','#fce7f3','#1e1b2e','#000000'];
 const AN_SFX=[['pop','Pop','fa-circle-dot'],['boing','Boing','fa-arrows-up-down'],['whoosh','Whoosh','fa-wind'],['ding','Ding','fa-bell'],['drum','Drum','fa-drum'],['clap','Clap','fa-hands-clapping'],
  ['laser','Laser','fa-bolt'],['jump','Jump','fa-person-running'],['coin','Coin','fa-coins'],['tada','Ta-da!','fa-star'],['bonk','Bonk','fa-hammer'],['splash','Splash','fa-water']];
 const AN_SIZES=[['wide','Wide','16:9',960,540],['square','Square','1:1',720,720],['tall','Tall','9:16',540,960],['classic','Classic','4:3',800,600]];
+const AN_FX=[['flipx','fa-solid fa-left-right','Flip sideways'],['flipy','fa-solid fa-up-down','Flip upside down'],['bright','fa-solid fa-sun','Brighter'],['dark','fa-solid fa-moon','Darker'],['hue','fa-solid fa-palette','Change colors'],['gray','fa-solid fa-circle-half-stroke','Grayscale'],['sepia','fa-solid fa-mug-hot','Sepia'],['invert','fa-solid fa-circle-notch','Invert colors'],
+ ['blur','fa-solid fa-droplet','Blur'],['outline','fa-solid fa-object-ungroup','Outline'],['glow','fa-solid fa-lightbulb','Glow'],['shadow','fa-solid fa-clone','Drop shadow'],['pixel','fa-solid fa-chess-board','Pixelate'],['cartoon','fa-solid fa-face-smile','Cartoon effect'],['glitch','fa-solid fa-tv','Glitch'],['nowhite','fa-solid fa-eraser','Remove white background']];
+const AN_HINTS={pick:'Tap the picture to pick a color',pan:'Drag to move around · pinch, scroll or use + and − to zoom',move:'Drag the drawing on this layer · drag a corner to resize · drag the pink dot to turn',
+ select_rect:'Drag a box around a part of your drawing',select_lasso:'Draw around a part of your drawing',select_wand:'Tap a color area to pick it up',text:'Tap where the text should go · Enter puts it on the frame'};
+const AN_PK=['brush','size','alpha','hard','smooth','sym','symN','color','color2','shapeK','shapeM','dash','radius','sides','tol','gradK','gradT','gradA','selK','font','tsize','bold','italic','outline','guide','fxAmt','recent','tab','pal','onA'];
 const anId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-const anFrame=(c)=>({id:anId(),c:c||mkC(AW.w,AW.h),d:1,s:null,th:null,blob:null});
-const anTgt=()=>AW.layer==='b'?AW.bg:AW.frames[AW.cur];
+const anFrame=(c)=>({id:anId(),c:c||mkC(AW.w,AW.h),d:1,s:null,th:null,blob:null,v:0});
+const anTgt=()=>AW.layer==='b'?AW.bg:AW.layer==='t'?AW.fg:AW.frames[AW.cur];
 function anCopy(c){const k=mkC(c.width,c.height);k.getContext('2d').drawImage(c,0,0);return k}
+function anPut(o,c){const x=o.c.getContext('2d');x.clearRect(0,0,AW.w,AW.h);x.drawImage(c,0,0)}
+const anPPU=()=>{const r=AW.view.getBoundingClientRect();return r.width/AW.w||1};
+const anBrushId=()=>{const b=AW.brush;return FREE.includes(b)&&!DIRECT.includes(b)?b:'pen'};
+function anPrefLoad(){const p=LS.get('msan_prefs',null);if(p&&typeof p==='object')AN_PK.forEach(k=>{if(p[k]!=null&&typeof p[k]===typeof AW[k])AW[k]=p[k]});AW.size=clamp(AW.size,1,100);AW.tsize=clamp(AW.tsize,10,240)}
+let anPrefT=0;function anPref(){clearTimeout(anPrefT);anPrefT=setTimeout(()=>{const o={};AN_PK.forEach(k=>o[k]=AW[k]);LS.set('msan_prefs',o)},400)}
+/* the drawing canvas' brush engine reads S, W and H – lend it the workshop's settings for one call */
+function anWith(fn){const k={color:S.color,color2:S.color2,size:S.size,opa:S.opa,hard:S.hard,sym:S.sym,symN:S.symN},w0=W,h0=H,t0=strokeTarget;
+ S.color=AW.color;S.color2=AW.color2;S.size=AW.size;S.opa=Math.round(AW.alpha*100);S.hard=AW.hard;S.sym=AW.sym;S.symN=AW.symN;W=AW.w;H=AW.h;
+ try{return fn()}finally{Object.assign(S,k);W=w0;H=h0;strokeTarget=t0}}
 
-/* ---------- stage ---------- */
-function anSetup(){if(AW.inited)return;AW.inited=true;
- AW.view=$('#awView');AW.vx=AW.view.getContext('2d');
- const T=$('#awTools');AN_TOOLS.forEach(([id,ic,nm,k])=>{const b=ae('button','b');b.dataset.at=id;b.innerHTML=`<i class="fa-solid ${ic}"></i>`;b.title=t(nm)+' ('+k.toUpperCase()+')';b.onclick=()=>anTool(id);T.appendChild(b)});
- T.appendChild(ae('span','ansep'));[['anUndo','fa-rotate-left','Undo (Ctrl+Z)',anUndo],['anRedo','fa-rotate-right','Redo (Ctrl+Y)',anRedo]].forEach(([id,ic,nm,fn])=>{const b=ae('button','b');b.id=id;b.innerHTML=`<i class="fa-solid ${ic}"></i>`;b.title=t(nm);b.onclick=fn;T.appendChild(b)});
- const C=$('#awCols');AN_COLORS.forEach(c=>{const b=ae('button','answ');b.style.setProperty('--c',c);b.dataset.c=c;b.title=c;b.onclick=()=>anColor(c);C.appendChild(b)});
- const P=$('#awPaper');AN_PAPER.forEach(c=>{const b=ae('button','answ sm');b.style.setProperty('--c',c);b.dataset.p=c;b.onclick=()=>{AW.paper=c;anPaperUI();anAll();anTouch()};P.appendChild(b)});
- $('#awColor').oninput=e=>anColor(e.target.value);
- $('#awSize').oninput=e=>{AW.size=+e.target.value;$('#awSizeV').textContent=AW.size};$('#awAlpha').oninput=e=>{AW.alpha=+e.target.value/100;$('#awAlphaV').textContent=e.target.value+'%'};
- $$('#awLayer button').forEach(b=>b.onclick=()=>{AW.layer=b.dataset.l;anLayerUI();anUnderUp();anDraw();toast(t(AW.layer==='b'?'Drawing on the background – it shows behind every frame':'Drawing on the frame'),AW.layer==='b'?'fa-image':'fa-film')});
- $('#awFps').oninput=e=>{AW.fps=+e.target.value;$('#awFpsV').textContent=AW.fps;anTouch()};
+/* ---------- setup ---------- */
+function anSetup(){if(AW.inited)return;AW.inited=true;anPrefLoad();
+ AW.view=$('#awView');AW.vx=AW.view.getContext('2d');const ST=$('#awStage');
+ const T=$('#awTools');AN_TOOLS.forEach(([id,ic,nm,k])=>{const b=ae('button','b');b.dataset.at=id;b.innerHTML=`<i class="${ic}"></i>`;b.title=t(nm)+' ('+k+')';
+  b.onclick=()=>{if(AW.tool===id&&id==='brush')anTab('brush',true);anTool(id)};T.appendChild(b)});
+ T.appendChild(ae('span','ansep'));[['awUndo','fa-rotate-left','Undo (Ctrl+Z)',anUndo],['awRedo','fa-rotate-right','Redo (Ctrl+Y)',anRedo]].forEach(([id,ic,nm,fn])=>{const b=ae('button','b');b.id=id;b.innerHTML=`<i class="fa-solid ${ic}"></i>`;b.title=t(nm);b.onclick=fn;T.appendChild(b)});
+ // options bar
+ const seg=(id,arr,key,cb)=>{const G=$(id);arr.forEach(([v,ic,nm])=>{const b=ae('button');b.dataset.v=v;b.innerHTML=`<i class="${ic}"></i>`;b.title=t(nm);G.appendChild(b)});$$(id+' button').forEach(b=>b.onclick=()=>{AW[key]=b.dataset.v;anOptsUI();anToolIcons();anPref();cb&&cb()})};
+ seg('#awShapeK',AN_SHAPES,'shapeK');seg('#awSelK',AN_SELS,'selK');$$('#awShapeM button').forEach(b=>b.onclick=()=>{AW.shapeM=b.dataset.v;anOptsUI();anPref()});$$('#awGradK button').forEach(b=>b.onclick=()=>{AW.gradK=b.dataset.v;anOptsUI();anPref()});
+ const rng=(id,key,fmt,cb)=>{const i=$(id),v=$(id+'V');i.oninput=()=>{AW[key]=+i.value/(key==='alpha'||key==='onA'?100:1);v.textContent=fmt?fmt(+i.value):i.value;anPref();cb&&cb()}};
+ rng('#awSize','size');rng('#awAlpha','alpha',v=>v+'%');rng('#awHard','hard');rng('#awSmooth','smooth');rng('#awRad','radius');rng('#awSides','sides');rng('#awTol','tol');rng('#awSymN','symN',null,anDraw);rng('#awTsize','tsize',null,()=>{if(AW.txt)anTxtStyle()});
+ rng('#awFxA','fxAmt');rng('#awOnA','onA',v=>v+'%',()=>{anUnderUp();anDraw()});
+ const tg=(id,key,cb)=>{$(id).onclick=()=>{AW[key]=!AW[key];anOptsUI();anPref();cb&&cb()}};tg('#awDash','dash');tg('#awGradT','gradT');tg('#awGradA','gradA');const ts=()=>{if(AW.txt){anTxtStyle();$('#awTxt').focus()}};tg('#awBold','bold',ts);tg('#awItal','italic',ts);tg('#awOutl','outline',ts);
+ const SY=$('#awSym');AN_SYM.forEach(([v,n])=>SY.add(new Option(t(n),v)));SY.onchange=()=>{AW.sym=SY.value;anOptsUI();anDraw();anPref()};
+ $('#awBrushB').onclick=()=>anTab('brush',true);$('#awPasteB').onclick=anPasteSel;
+ const O=$('#awOpts');O.addEventListener('wheel',e=>{if(O.scrollWidth>O.clientWidth&&Math.abs(e.deltaY)>Math.abs(e.deltaX)&&!e.target.closest('select')){O.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});O.addEventListener('scroll',anOvf,{passive:true});addEventListener('resize',anOvf);
+ $('#awFlOk').onclick=anFlCommit;$('#awFlFx').onclick=()=>anFlXf(f=>f.sx*=-1);$('#awFlFy').onclick=()=>anFlXf(f=>f.sy*=-1);$('#awFlR').onclick=()=>anFlXf(f=>f.r+=Math.PI/2);$('#awFlC').onclick=()=>anCopySel(false);$('#awFlD').onclick=anFlDelete;$('#awFlN').onclick=anFlNext;
+ anFontUI();$('#awFont').onchange=async()=>{const F=$('#awFont'),v=F.value,n=(v.match(/^'([^']+)'/)||[])[1];if(n&&WEB_FONTS.includes(n)){F.disabled=true;const ok=await loadWebFont(n);F.disabled=false;if(!ok){F.value=AW.font;return}}AW.font=v;anPref();if(AW.txt){anTxtStyle();$('#awTxt').focus()}};
+ const TX=$('#awTxt');noKeys(TX);TX.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();anTxtCancel()}else if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();anTxtCommit()}});TX.addEventListener('input',anTxtSize);
+ // side panel
+ $$('#awTabs button').forEach(b=>b.onclick=()=>anTab(b.dataset.t));
+ $('#awC1').onclick=()=>{AW.slot=1;anColorUI()};$('#awC2').onclick=()=>{AW.slot=2;anColorUI()};$('#awSwap').onclick=anSwapColors;
+ $('#awHex').oninput=e=>{let v=e.target.value.trim();if(v[0]!=='#')v='#'+v;if(/^#([0-9a-f]{3}){1,2}$/i.test(v)){if(v.length===4)v='#'+[...v.slice(1)].map(c=>c+c).join('');anSetColor(v,0,false,true)}};noKeys($('#awHex'));
+ $('#awSysC').onclick=()=>{const c=$('#awColor');c.value=AW.slot===2?AW.color2:AW.color;c.click()};$('#awColor').oninput=e=>anSetColor(e.target.value);$('#awColor').onchange=()=>anRecent();
+ const sv=$('#awSV'),svAt=e=>{const r=sv.getBoundingClientRect();AW.hsv[1]=clamp((e.clientX-r.left)/r.width,0,1);AW.hsv[2]=clamp(1-(e.clientY-r.top)/r.height,0,1);anSetColor(hsv2hex(...AW.hsv),0,true)};
+ sv.addEventListener('pointerdown',e=>{try{sv.setPointerCapture(e.pointerId)}catch(_){}svAt(e);sv.onpointermove=svAt});sv.addEventListener('pointerup',()=>{sv.onpointermove=null;anRecent()});
+ $('#awHue').oninput=e=>{AW.hsv[0]=+e.target.value;anSetColor(hsv2hex(...AW.hsv),0,true);anSVDraw()};$('#awHue').onchange=()=>anRecent();
+ const PL=$('#awPal');PL.onchange=()=>{AW.pal=PL.value;anSwatches();anPref()};PL.onfocus=anPalOpts;anPalOpts();anSwatches();
+ const P=$('#awPaper');AN_PAPER.forEach(c=>{const b=ae('button','answ sm');b.style.setProperty('--c',c);b.dataset.p=c;b.onclick=()=>{AW.paper=c;anPaperUI();anUnderUp();anDraw();AW.frames.forEach(f=>f.th=null);anStrip();anTouch()};P.appendChild(b)});
+ $('#awPress').checked=!!SET.pressure;$('#awPress').onchange=e=>{SET.pressure=e.target.checked;saveSet();const m=$('#pressure');if(m)m.checked=SET.pressure};
+ $('#awPicB').onclick=()=>$('#awPicF').click();$('#awPicF').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(f){try{anPasteImage(await readImg(f))}catch(_){warn('Could not read that image')}}};$('#awSelAll').onclick=anSelectAll;
+ $('#awTrB').onclick=()=>$('#awTrF').click();$('#awTrF').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(f){try{anSetTrace(await readImg(f))}catch(_){warn('Could not read that image')}}};
+ $('#awTrX').onclick=()=>{AW.trace=null;anTraceUI();anUnderUp();anDraw();anTouch()};$('#awTrA').oninput=e=>{if(AW.trace){AW.trace.a=+e.target.value/100;anUnderUp();anDraw();anTouch()}};
+ $$('#awGuide button').forEach(b=>b.onclick=()=>{AW.guide=b.dataset.g;anGuideUI();anDraw();anPref()});
+ $$('#awFxS button').forEach(b=>b.onclick=()=>{AW.fxAll=b.dataset.s==='all';anFxUI()});
+ const FX=$('#awFx');AN_FX.forEach(([k,ic,nm])=>{const b=ae('button','anfxb');b.innerHTML=`<i class="${ic}"></i><span></span>`;b.lastChild.textContent=t(nm);b.onclick=()=>anFxRun(k);FX.appendChild(b)});
+ // timeline
+ $('#awFps').oninput=e=>{AW.fps=+e.target.value;$('#awFpsV').textContent=AW.fps;anBarUI();anTouch()};
  $('#awPlay').onclick=()=>AW.playing?anStop():anPlay();$('#awPrev').onclick=()=>anGo(AW.cur-1);$('#awNext').onclick=()=>anGo(AW.cur+1);$('#awFirst').onclick=()=>anGo(0);$('#awLast').onclick=()=>anGo(AW.frames.length-1);
  $('#awLoop').onclick=()=>{AW.loop=!AW.loop;anBarUI();anTouch()};$('#awOnion').onclick=()=>{AW.onion=!AW.onion;anBarUI();anUnderUp();anDraw()};
  $('#awOnN').onchange=e=>{AW.onN=+e.target.value;anUnderUp();anDraw()};
  $('#awAdd').onclick=()=>anInsert(false);$('#awDup').onclick=()=>anInsert(true);$('#awDel').onclick=anDelete;$('#awClear').onclick=anClearFrame;
  $('#awMoveL').onclick=()=>anMoveFrame(-1);$('#awMoveR').onclick=()=>anMoveFrame(1);
  $('#awHoldM').onclick=()=>anHold(-1);$('#awHoldP').onclick=()=>anHold(1);
+ $('#awFrM').onclick=e=>{e.stopPropagation();const M=$('#awFrMenu');if(!M.classList.contains('hide'))return M.classList.add('hide');M.classList.remove('hide');const r=e.currentTarget.getBoundingClientRect(),pr=$('#awPage').getBoundingClientRect();
+  M.style.right=Math.max(8,pr.right-r.right)+'px';M.style.bottom=(pr.bottom-r.top+6)+'px';M.querySelector('[data-m=paste]').disabled=M.querySelector('[data-m=merge]').disabled=!AW.fclip};
+ $$('#awFrMenu button').forEach(b=>b.onclick=()=>anFrMenu(b.dataset.m));document.addEventListener('pointerdown',e=>{const M=$('#awFrMenu');if(M&&!M.classList.contains('hide')&&!e.target.closest('#awFrMenu,#awFrM'))M.classList.add('hide')});
  $('#awNew').onclick=anNewOpen;$('#awOpen').onclick=anOpenList;$('#awExport').onclick=anExportOpen;$('#awShare').onclick=anShareOpen;$('#awToDraw').onclick=anToDraw;
  $('#awSideT').onclick=()=>$('#awSide').classList.toggle('open');
  $('#awName').onchange=e=>{AW.name=e.target.value.trim().slice(0,60);anTouch()};noKeys($('#awName'));
@@ -17697,107 +18022,354 @@ function anSetup(){if(AW.inited)return;AW.inited=true;
  $('#awSndF').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(f)anAddSound(f,f.name.replace(/\.[^.]+$/,'').slice(0,24))};
  $('#awMusF').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(f)anSetMusic(f)};
  $('#awMusX').onclick=()=>{AW.music=null;anSndUI();anTouch()};$('#awMusV').oninput=e=>{if(AW.music){AW.music.vol=+e.target.value/100;anTouch()}};
- // drawing
- const v=AW.view;v.addEventListener('pointerdown',anDown);v.addEventListener('pointermove',anMoveP);v.addEventListener('pointerup',anUp);v.addEventListener('pointercancel',anUp);v.addEventListener('lostpointercapture',anUp);
- v.addEventListener('pointerleave',()=>{$('#awRing').style.display='none'});
- new ResizeObserver(()=>anFit()).observe($('#awStage'));
+ // drawing, zoom and pan
+ ST.addEventListener('pointerdown',anPDown);ST.addEventListener('pointermove',anPMove);ST.addEventListener('pointerup',anPUp);ST.addEventListener('pointercancel',anPUp);ST.addEventListener('lostpointercapture',e=>{if(AW.ptrs.has(e.pointerId))anPUp(e)});
+ ST.addEventListener('pointerleave',()=>{$('#awRing').style.display='none'});ST.addEventListener('contextmenu',e=>{if(!e.target.closest('textarea'))e.preventDefault()});
+ ST.addEventListener('wheel',e=>{if(e.target.closest('textarea'))return;e.preventDefault();if(e.ctrlKey||e.metaKey||SET.wheel!=='pan')anZoomAt(AW.z*Math.exp(-e.deltaY*(e.ctrlKey?.01:.0015)),e.clientX,e.clientY);else{AW.px-=e.deltaX;AW.py-=e.deltaY;anZoomApply()}},{passive:false});
+ $('#awZi').onclick=()=>anZoomAt(AW.z*1.25);$('#awZo').onclick=()=>anZoomAt(AW.z/1.25);$('#awZv').onclick=anZoomFit;
+ new ResizeObserver(()=>anFit()).observe(ST);
  // new / open / export / share dialogs
- const S=$('#awSizes');AN_SIZES.forEach(([id,nm,r,w,h],i)=>{const b=ae('button','ansz'+(i?'':' on'));b.dataset.s=id;b.innerHTML=`<span class="anszr" style="aspect-ratio:${w}/${h}"></span><b></b><small>${r}</small>`;b.querySelector('b').textContent=t(nm);b.onclick=()=>{$$('#awSizes .ansz').forEach(x=>x.classList.toggle('on',x===b))};S.appendChild(b)});
+ const SZ=$('#awSizes');AN_SIZES.forEach(([id,nm,r,w,h],i)=>{const b=ae('button','ansz'+(i?'':' on'));b.dataset.s=id;b.innerHTML=`<span class="anszr" style="aspect-ratio:${w}/${h}"></span><b></b><small>${r}</small>`;b.querySelector('b').textContent=t(nm);b.onclick=()=>{$$('#awSizes .ansz').forEach(x=>x.classList.toggle('on',x===b))};SZ.appendChild(b)});
  $$('#awStarts .anst').forEach(b=>b.onclick=()=>{$$('#awStarts .anst').forEach(x=>x.classList.toggle('on',x===b))});
  $('#awNewGo').onclick=()=>{const sz=AN_SIZES.find(x=>x[0]===($('#awSizes .ansz.on')||{}).dataset?.s)||AN_SIZES[0],st=($('#awStarts .anst.on')||{dataset:{}}).dataset.k||'blank';show('#awNewM',false);anNewDoc(sz[3],sz[4],st)};
  $('#awExpGo').onclick=anExportGo;$$('#awExpK button').forEach(b=>b.onclick=()=>{$$('#awExpK button').forEach(x=>x.classList.toggle('on',x===b));anExpUI()});
  $('#awShGo').onclick=anShareGo;['#awShT','#awShN','#awShD'].forEach(s=>noKeys($(s)));
- anSndUI()}
-function anFit(){const S=$('#awStage');if(!S||!AW.view)return;const r=S.getBoundingClientRect(),pad=16,k=Math.min((r.width-pad*2)/AW.w,(r.height-pad*2)/AW.h);if(!(k>0))return;
- AW.view.style.width=Math.round(AW.w*k)+'px';AW.view.style.height=Math.round(AW.h*k)+'px';AW.k=k}
-function anResize(w,h){AW.w=w;AW.h=h;AW.view.width=w;AW.view.height=h;AW.uc=mkC(w,h);AW.ux=AW.uc.getContext('2d');AW.sc=mkC(w,h);AW.sx=AW.sc.getContext('2d');AW.wc=mkC(w,h);AW.wx=AW.wc.getContext('2d');AW.tc=mkC(w,h);AW.tx=AW.tc.getContext('2d');anFit()}
+ anSndUI();anGuideUI();anFxUI();anTab(AW.tab||'color');
+ [['#awSize','size'],['#awAlpha','alpha'],['#awHard','hard'],['#awSmooth','smooth'],['#awRad','radius'],['#awSides','sides'],['#awTol','tol'],['#awSymN','symN'],['#awTsize','tsize'],['#awFxA','fxAmt'],['#awOnA','onA']].forEach(([id,k])=>{const v=k==='alpha'||k==='onA'?Math.round(AW[k]*100):AW[k];$(id).value=v;$(id+'V').textContent=k==='alpha'||k==='onA'?v+'%':v})}
+
+/* ---------- stage: fit, zoom and pan ---------- */
+function anFit(){const S2=$('#awStage');if(!S2||!AW.view)return;const r=S2.getBoundingClientRect(),pad=16,k=Math.min((r.width-pad*2)/AW.w,(r.height-pad*2)/AW.h);if(!(k>0))return;
+ AW.view.style.width=Math.round(AW.w*k)+'px';AW.view.style.height=Math.round(AW.h*k)+'px';AW.k=k;anZoomApply()}
+function anZoomApply(){if(!AW.view)return;const sr=$('#awStage').getBoundingClientRect(),vw=AW.w*AW.k*AW.z,vh=AW.h*AW.k*AW.z,mx=Math.max(0,(sr.width+vw)/2-60),my=Math.max(0,(sr.height+vh)/2-60);
+ AW.px=clamp(AW.px,-mx,mx);AW.py=clamp(AW.py,-my,my);AW.view.style.transform=AW.z===1&&!AW.px&&!AW.py?'':`translate(${AW.px}px,${AW.py}px) scale(${AW.z})`;
+ AW.view.classList.toggle('pix',AW.k*AW.z>=3);$('#awZv').textContent=Math.round(AW.k*AW.z*100)+'%';if(AW.txt)anTxtStyle();if(AW.fl||AW.guide!=='off')anDrawSoon()}
+function anZoomAt(nz,cx,cy){const sr=$('#awStage').getBoundingClientRect(),ox=sr.left+sr.width/2,oy=sr.top+sr.height/2;if(cx==null){cx=ox;cy=oy}nz=clamp(nz,.5,8);
+ const qx=(cx-ox-AW.px)/AW.z,qy=(cy-oy-AW.py)/AW.z;AW.z=nz;AW.px=cx-ox-nz*qx;AW.py=cy-oy-nz*qy;anZoomApply()}
+function anZoomFit(){AW.z=1;AW.px=AW.py=0;anZoomApply()}
+function anResize(w,h){AW.w=w;AW.h=h;AW.view.width=w;AW.view.height=h;AW.uc=mkC(w,h);AW.ux=AW.uc.getContext('2d');AW.sc=mkC(w,h);AW.sx=AW.sc.getContext('2d');AW.wc=mkC(w,h);AW.wx=AW.wc.getContext('2d');AW.tc=mkC(w,h);AW.tx=AW.tc.getContext('2d');AW.z=1;AW.px=AW.py=0;anFit()}
 function anTint(c,col){const x=AW.tx;x.globalCompositeOperation='copy';x.drawImage(c,0,0);x.globalCompositeOperation='source-in';x.fillStyle=col;x.fillRect(0,0,AW.w,AW.h);x.globalCompositeOperation='source-over';return AW.tc}
-/* what is under the frame being drawn: paper, background and the onion skin */
-function anUnderUp(){const x=AW.ux;x.globalAlpha=1;x.fillStyle=AW.paper;x.fillRect(0,0,AW.w,AW.h);
- if(AW.layer==='b')return;x.drawImage(AW.bg.c,0,0);
- if(AW.onion&&!AW.playing)for(let k=AW.onN;k>=1;k--){const a=AW.frames[AW.cur-k],b=AW.frames[AW.cur+k];
-  if(b){x.globalAlpha=.2/k;x.drawImage(anTint(b.c,'#16a34a'),0,0)}if(a){x.globalAlpha=.32/k;x.drawImage(anTint(a.c,'#e11d48'),0,0)}}
+/* what is under the layer being drawn: paper, background, tracing picture and the onion skin */
+function anUnderUp(){const x=AW.ux;x.globalAlpha=1;x.globalCompositeOperation='source-over';x.fillStyle=AW.paper;x.fillRect(0,0,AW.w,AW.h);
+ if(AW.layer!=='b')x.drawImage(AW.bg.c,0,0);
+ if(AW.trace&&!AW.playing){x.globalAlpha=AW.trace.a;x.drawImage(AW.trace.c,0,0);x.globalAlpha=1}
+ if(AW.layer==='f'&&AW.onion&&!AW.playing)for(let k=AW.onN;k>=1;k--){const a=AW.frames[AW.cur-k],b=AW.frames[AW.cur+k];
+  if(b){x.globalAlpha=.33*AW.onA/k;x.drawImage(anTint(b.c,'#16a34a'),0,0)}if(a){x.globalAlpha=.53*AW.onA/k;x.drawImage(anTint(a.c,'#e11d48'),0,0)}}
  x.globalAlpha=1}
-function anDraw(){if(!AW.vx)return;const x=AW.vx,f=AW.frames[AW.cur];if(!f)return;x.globalAlpha=1;x.globalCompositeOperation='source-over';x.drawImage(AW.uc,0,0);
- const tg=anTgt(),s=AW.st;let src=tg.c;
- if(s&&s.live){const w=AW.wx;w.globalCompositeOperation='copy';w.globalAlpha=1;w.drawImage(s.k==='move'?s.snap:tg.c,0,0);
-  if(s.k==='move'){w.globalCompositeOperation='copy';w.drawImage(s.snap,s.dx,s.dy)}else{w.globalCompositeOperation=s.erase?'destination-out':'source-over';w.globalAlpha=s.erase?1:s.a;w.drawImage(AW.sc,0,0)}
-  w.globalCompositeOperation='source-over';w.globalAlpha=1;src=AW.wc}
- if(AW.layer==='b'){x.drawImage(src,0,0);x.globalAlpha=.4;x.drawImage(f.c,0,0);x.globalAlpha=1}else x.drawImage(src,0,0);
+/* the layer being drawn, with the stroke in progress and the floating selection on it */
+function anLive(tg){const s=AW.st,fl=AW.fl&&AW.fl.o===tg?AW.fl:null,live=s&&s.live&&!s.direct&&s.o===tg;if(!live&&!fl)return tg.c;
+ const w=AW.wx;w.globalCompositeOperation='copy';w.globalAlpha=1;w.drawImage(tg.c,0,0);w.globalCompositeOperation='source-over';
+ if(live){w.globalCompositeOperation=s.erase?'destination-out':(s.op||'source-over');w.globalAlpha=s.erase?AW.alpha:s.a;w.drawImage(AW.sc,0,0);w.globalCompositeOperation='source-over';w.globalAlpha=1}
+ if(fl)anFlDrawTo(w,fl);return AW.wc}
+function anDraw(){if(!AW.vx)return;const x=AW.vx,f=AW.frames[AW.cur];if(!f)return;x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.globalCompositeOperation='source-over';x.drawImage(AW.uc,0,0);
+ const L=AW.layer,src=anLive(anTgt());
+ if(L==='b'){x.drawImage(src,0,0);x.globalAlpha=.4;x.drawImage(f.c,0,0);x.drawImage(AW.fg.c,0,0);x.globalAlpha=1}
+ else if(L==='t'){x.globalAlpha=.5;x.drawImage(f.c,0,0);x.globalAlpha=1;x.drawImage(src,0,0)}
+ else{x.drawImage(src,0,0);x.drawImage(AW.fg.c,0,0)}
+ if(!AW.playing)anOverlay(x);
  $('#awFrLab').textContent=(AW.cur+1)+' / '+AW.frames.length}
-function anAll(){anUnderUp();anDraw();anStrip();anBarUI()}
+function anAnts(x,u){x.lineWidth=1.5*u;x.setLineDash([]);x.strokeStyle='#ffffff';x.stroke();x.setLineDash([5*u,4*u]);x.strokeStyle='#111827';x.stroke();x.setLineDash([])}
+/* guides, symmetry lines and selection handles – only on screen, never in the animation */
+function anOverlay(x){const u=1/anPPU(),W2=AW.w,H2=AW.h,s=AW.st;x.save();
+ if(AW.guide!=='off'){x.strokeStyle='rgba(139,92,246,.6)';x.lineWidth=u;x.beginPath();
+  if(AW.guide==='thirds'){for(const k of[1/3,2/3]){x.moveTo(W2*k,0);x.lineTo(W2*k,H2);x.moveTo(0,H2*k);x.lineTo(W2,H2*k)}}
+  else if(AW.guide==='grid'){const g=Math.max(8,Math.round(Math.min(W2,H2)/8));for(let v=g;v<W2;v+=g){x.moveTo(v,0);x.lineTo(v,H2)}for(let v=g;v<H2;v+=g){x.moveTo(0,v);x.lineTo(W2,v)}}
+  else{x.moveTo(W2/2,0);x.lineTo(W2/2,H2);x.moveTo(0,H2/2);x.lineTo(W2,H2/2);x.moveTo(W2/2+H2*.1,H2/2);x.arc(W2/2,H2/2,H2*.1,0,TAU)}x.stroke()}
+ if(AW.sym!=='off'&&['brush','eraser','shape'].includes(AW.tool)){x.strokeStyle='rgba(236,72,153,.75)';x.lineWidth=1.2*u;x.setLineDash([6*u,5*u]);x.beginPath();const cx=W2/2,cy=H2/2;
+  if(AW.sym==='v'||AW.sym==='quad'){x.moveTo(cx,0);x.lineTo(cx,H2)}if(AW.sym==='h'||AW.sym==='quad'){x.moveTo(0,cy);x.lineTo(W2,cy)}
+  if(AW.sym==='radial'||AW.sym==='mandala'){const R=Math.hypot(W2,H2);for(let i=0;i<AW.symN;i++){const g=-Math.PI/2+i*TAU/AW.symN;x.moveTo(cx,cy);x.lineTo(cx+Math.cos(g)*R,cy+Math.sin(g)*R)}}x.stroke();x.setLineDash([])}
+ if(s&&s.k==='sel'){x.beginPath();if(s.m==='lasso')s.pts.forEach((p,i)=>i?x.lineTo(p.x,p.y):x.moveTo(p.x,p.y));else x.rect(Math.min(s.x0,s.x1),Math.min(s.y0,s.y1),Math.abs(s.x1-s.x0),Math.abs(s.y1-s.y0));anAnts(x,u)}
+ if(s&&s.k==='gradient'&&s.b){x.beginPath();x.moveTo(s.x0,s.y0);x.lineTo(s.b.x,s.b.y);anAnts(x,u);for(const[q,c]of[[{x:s.x0,y:s.y0},AW.color],[s.b,AW.gradT?'#ffffff':AW.color2]]){x.beginPath();x.arc(q.x,q.y,6*u,0,TAU);x.fillStyle=c;x.fill();x.lineWidth=2*u;x.strokeStyle='#8b5cf6';x.stroke()}}
+ if(AW.fl){const g=anFlGeo();x.beginPath();[[-g.hw,-g.hh],[g.hw,-g.hh],[g.hw,g.hh],[-g.hw,g.hh]].forEach(([a,b],i)=>{const q=g.toW(a,b);i?x.lineTo(q.x,q.y):x.moveTo(q.x,q.y)});x.closePath();anAnts(x,u);
+  const top=g.toW(0,-g.hh),rot=g.toW(0,-g.hh-30*u);x.strokeStyle='#8b5cf6';x.lineWidth=1.5*u;x.beginPath();x.moveTo(top.x,top.y);x.lineTo(rot.x,rot.y);x.stroke();
+  g.hs.forEach(([k,a,b])=>{const q=g.toW(a,b);x.beginPath();x.arc(q.x,q.y,(k==='r'?7:k==='s'?6:4.5)*u,0,TAU);x.fillStyle=k==='r'?'#ec4899':'#ffffff';x.fill();x.lineWidth=2*u;x.strokeStyle='#8b5cf6';x.stroke()})}
+ x.restore()}
+function anAll(){anUnderUp();anDraw();anStrip();anBarUI();anLaysSoon()}
 let anRaf=0;const anDrawSoon=()=>{if(!anRaf)anRaf=requestAnimationFrame(()=>{anRaf=0;anDraw()})};
 
-/* ---------- tools ---------- */
-function anTool(id){AW.tool=id;$$('#awTools [data-at]').forEach(b=>b.classList.toggle('on',b.dataset.at===id));AW.view.style.cursor=id==='move'?'move':id==='pick'||id==='fill'?'copy':'crosshair'}
-function anColor(c){AW.color=c;$('#awColor').value=/^#[0-9a-f]{6}$/i.test(c)?c:'#000000';$$('#awCols .answ').forEach(b=>b.classList.toggle('on',b.dataset.c.toLowerCase()===c.toLowerCase()));$('#awCurC').style.background=c;if(AW.tool==='eraser'||AW.tool==='pick'||AW.tool==='move')anTool('pen')}
-function anPaperUI(){$$('#awPaper .answ').forEach(b=>b.classList.toggle('on',b.dataset.p===AW.paper))}
-function anLayerUI(){$$('#awLayer button').forEach(b=>b.classList.toggle('on',b.dataset.l===AW.layer));$('#awStage').classList.toggle('bgl',AW.layer==='b')}
-function anPt(e){const r=AW.view.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*AW.w,y:(e.clientY-r.top)/r.height*AW.h,p:e.pointerType==='mouse'||!e.pressure?.5:e.pressure}}
-function anRingAt(e){const R=$('#awRing'),r=AW.view.getBoundingClientRect(),z=Math.max(4,(AW.tool==='eraser'?AW.size*2.2:AW.tool==='marker'?AW.size*2.2:AW.tool==='spray'?AW.size*4:AW.size)*r.width/AW.w);
- if(['fill','pick','move'].includes(AW.tool)){R.style.display='none';return}R.style.display='block';R.style.width=R.style.height=z+'px';const S=$('#awStage').getBoundingClientRect();R.style.left=(e.clientX-S.left-z/2)+'px';R.style.top=(e.clientY-S.top-z/2)+'px'}
-function anDown(e){if(AW.busy)return;if(e.button>0&&e.pointerType==='mouse')return;e.preventDefault();if(AW.playing)anStop();const p=anPt(e),tg=anTgt();if(!tg)return;
- try{AW.view.setPointerCapture(e.pointerId)}catch(_){}
- if(AW.tool==='pick'){const d=AW.vx.getImageData(clamp(p.x|0,0,AW.w-1),clamp(p.y|0,0,AW.h-1),1,1).data;anColor('#'+[d[0],d[1],d[2]].map(v=>v.toString(16).padStart(2,'0')).join(''));return}
- if(AW.tool==='fill'){anPush(tg);anFill(tg.c,p.x|0,p.y|0,AW.color);anDone(tg);return}
- const s={id:e.pointerId,k:AW.tool,x0:p.x,y0:p.y,last:p,pts:[p],live:true,erase:AW.tool==='eraser',a:AW.tool==='marker'?AW.alpha*.5:AW.alpha,before:anCopy(tg.c)};AW.st=s;
- AW.sx.clearRect(0,0,AW.w,AW.h);
- if(s.k==='move'){s.snap=s.before;s.dx=s.dy=0}else if(['pencil','pen','marker','eraser','spray'].includes(s.k))anSeg(s,p,p);
+/* ---------- tools and their options ---------- */
+function anTool(id){if(id!=='select'&&id!=='move')anFlCommit();if(id!=='text')anTxtCommit();if(id!==AW.tool&&AW.tool!=='pick')AW.prevTool=AW.tool;AW.tool=id;
+ $$('#awTools [data-at]').forEach(b=>b.classList.toggle('on',b.dataset.at===id));anToolIcons();anCursor();anOptsUI();anDraw();$('#awRing').style.display='none';
+ if(id==='text'){const n=(AW.font.match(/^'([^']+)'/)||[])[1];if(n&&WEB_FONTS.includes(n))loadWebFont(n)}}
+function anToolIcons(){const set=(id,ic)=>{const b=$(`#awTools [data-at="${id}"] i`);if(b&&ic)b.className=ic};set('brush',TI[anBrushId()]);set('shape',(AN_SHAPES.find(s=>s[0]===AW.shapeK)||[])[1]);set('select',(AN_SELS.find(s=>s[0]===AW.selK)||[])[1])}
+function anCursor(){const S2=$('#awStage');if(!S2)return;S2.style.cursor=AW.pan?'grabbing':AW.space||AW.tool==='pan'?'grab':AW.tool==='move'?'move':AW.tool==='text'?'text':AW.tool==='pick'||AW.tool==='fill'?'copy':'crosshair'}
+function anOptsUI(){if(!$('#awOpts'))return;const tl=AW.tool,fl=!!AW.fl,bid=anBrushId(),tool=AN_TOOLS.find(x=>x[0]===tl)||[];
+ $('#awOptT i').className=fl?'fa-solid fa-vector-square':tl==='brush'?TI[bid]||'fa-solid fa-pen':tool[1]||'';$('#awOptT b').textContent=fl?t('Selection'):tl==='brush'?t(TN[bid]||'Brush'):tl==='shape'?t((AN_SHAPES.find(s=>s[0]===AW.shapeK)||[])[2]||'Shapes'):t(tool[2]||'');
+ $$('#awOpts .ano').forEach(o=>{let on=o.id==='awFlo'?fl:!fl&&o.dataset.for.split(' ').includes(tl);
+  if(on&&o.id!=='awFlo'){if(o.id==='awHardW')on=['brush','water'].includes(bid);else if(o.id==='awSymNW')on=AW.sym==='radial'||AW.sym==='mandala';else if(o.id==='awRadW')on=AW.shapeK==='rect';else if(o.id==='awSidesW')on=AW.shapeK==='poly'||AW.shapeK==='star';
+   else if(o.id==='awTolW')on=tl==='fill'||AW.selK==='wand';else if(o.id==='awShapeM')on=!['line','arrow'].includes(AW.shapeK);else if(o.id==='awPasteB')on=!!AW.clip;
+   else if(o.id==='awHint'){const h=AN_HINTS[tl==='select'?'select_'+AW.selK:tl];on=!!h;if(h)o.textContent=t(h)}}
+  o.classList.toggle('hide',!on)});
+ $('#awBrushB i').className=TI[bid]||'fa-solid fa-pen';$('#awBrushB span').textContent=t(TN[bid]||bid);$('#awFlN').classList.toggle('hide',AW.layer!=='f');
+ const on=(sel,v)=>$$(sel+' button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));on('#awShapeK',AW.shapeK);on('#awSelK',AW.selK);on('#awShapeM',AW.shapeM);on('#awGradK',AW.gradK);
+ [['#awDash','dash'],['#awGradT','gradT'],['#awGradA','gradA'],['#awBold','bold'],['#awItal','italic'],['#awOutl','outline']].forEach(([id,k])=>$(id).classList.toggle('on',!!AW[k]));$('#awSym').value=AW.sym;
+ $('#awOptT').classList.toggle('hide',!fl&&['brush','shape','select'].includes(tl));anOvf()}
+function anOvf(){const O=$('#awOpts');if(O)O.classList.toggle('ovf',O.scrollWidth>O.clientWidth+2&&O.scrollLeft+O.clientWidth<O.scrollWidth-4)}
+function anSetSize(v){AW.size=clamp(Math.round(v),1,100);$('#awSize').value=AW.size;$('#awSizeV').textContent=AW.size;anPref()}
+function anPt(e){const r=AW.view.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*AW.w,y:(e.clientY-r.top)/r.height*AW.h}}
+function anRingAt(e){const R=$('#awRing');if(e.pointerType==='touch'||!['brush','eraser','smudge'].includes(AW.tool)||AW.gest||AW.pan||AW.space||e.target.closest('button,textarea,select')){R.style.display='none';return}
+ const id=AW.tool==='brush'?anBrushId():AW.tool,d=anWith(()=>id==='pencil'?S.size:id==='spray'?S.size*3:id==='brush'?base('brush')*1.4:XB[id]?S.size*2.4:base(id)),z=Math.max(4,d*anPPU());
+ R.style.display='block';R.style.width=R.style.height=z+'px';R.style.borderRadius=id==='pencil'?'0':'50%';const S2=$('#awStage').getBoundingClientRect();R.style.left=(e.clientX-S2.left-z/2)+'px';R.style.top=(e.clientY-S2.top-z/2)+'px'}
+
+/* ---------- pointers: one finger or the mouse draws, two fingers zoom and pan, a two-finger tap undoes ---------- */
+function anPDown(e){if(AW.busy||e.target.closest('button,textarea,input,select'))return;const ST=$('#awStage'),SD=$('#awSide');
+ if(innerWidth<=900&&SD.classList.contains('open')){SD.classList.remove('open');return}try{ST.setPointerCapture(e.pointerId)}catch(_){}
+ AW.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+ if(AW.ptrs.size>=2&&e.pointerType!=='mouse'){anGestStart();return}if(AW.gest)return;
+ if(e.button===1||(e.button===0&&(AW.tool==='pan'||AW.space))){e.preventDefault();AW.pan={id:e.pointerId,x:e.clientX-AW.px,y:e.clientY-AW.py};AW.spaceUsed=true;anCursor();return}
+ if(e.button>0&&e.pointerType==='mouse')return;e.preventDefault();anDown(e)}
+function anPMove(e){if(AW.ptrs.has(e.pointerId))AW.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+ if(AW.gest){anGestMove();return}
+ if(AW.pan){if(e.pointerId===AW.pan.id){AW.px=e.clientX-AW.pan.x;AW.py=e.clientY-AW.pan.y;anZoomApply()}return}
+ anRingAt(e);anMoveP(e)}
+function anPUp(e){AW.ptrs.delete(e.pointerId);
+ if(AW.gest){if(!AW.ptrs.size){const g=AW.gest;AW.gest=null;if(SET.tapUndo!==false&&!g.moved&&Date.now()-g.t<350){g.n>=3?anRedo():anUndo();toast(t(g.n>=3?'Redo':'Undo'),g.n>=3?'fa-rotate-right':'fa-rotate-left');haptic(6)}}return}
+ if(AW.pan){if(e.pointerId===AW.pan.id){AW.pan=null;anCursor()}return}
+ anUp(e)}
+function anGestStart(){anCancelStroke();const P=[...AW.ptrs.values()],a=P[0],b=P[1],sr=$('#awStage').getBoundingClientRect();
+ AW.gest={d0:Math.hypot(a.x-b.x,a.y-b.y)||1,mx:(a.x+b.x)/2,my:(a.y+b.y)/2,z0:AW.z,px0:AW.px,py0:AW.py,t:Date.now(),moved:false,n:AW.ptrs.size,ox:sr.left+sr.width/2,oy:sr.top+sr.height/2};$('#awRing').style.display='none'}
+function anGestMove(){const g=AW.gest,P=[...AW.ptrs.values()];g.n=Math.max(g.n,P.length);if(P.length<2)return;const a=P[0],b=P[1],d=Math.hypot(a.x-b.x,a.y-b.y)||1,mx=(a.x+b.x)/2,my=(a.y+b.y)/2;
+ if(!g.moved&&(Math.abs(d-g.d0)>12||Math.hypot(mx-g.mx,my-g.my)>12))g.moved=true;if(!g.moved)return;
+ const qx=(g.mx-g.ox-g.px0)/g.z0,qy=(g.my-g.oy-g.py0)/g.z0,nz=clamp(g.z0*d/g.d0,.5,8);AW.z=nz;AW.px=mx-g.ox-nz*qx;AW.py=my-g.oy-nz*qy;anZoomApply()}
+function anCancelStroke(){const s=AW.st;if(!s)return;AW.st=null;if(s.iv)clearInterval(s.iv);clearTimeout(s.qt);
+ if(s.k==='fl'&&AW.fl)Object.assign(AW.fl,s.f0);else if(s.direct&&s.before)anPut(s.o,s.before);AW.sx.clearRect(0,0,AW.w,AW.h);anDraw()}
+function anDown(e){if(AW.playing)anStop();const p=anPt(e),tg=anTgt(),tl=AW.tool;if(!tg)return;
+ if(AW.txt){anTxtCommit();if(tl==='text')return}
+ if(AW.fl){if(tl==='select'||tl==='move'){const h=anFlHit(p,e.pointerType==='touch'?24:14);if(h){anFlDragStart(e,p,h);return}}anFlCommit();if(tl==='move')return}
+ if(e.altKey&&['brush','fill','shape','gradient','text'].includes(tl)){anPickAt(p);return}
+ if(tl==='pick'){anPickAt(p);if(AW.prevTool&&AW.prevTool!=='pick')anTool(AW.prevTool);return}
+ if(tl==='fill'){anPush(tg);if(anFill(tg.c,p.x|0,p.y|0,AW.color,AW.tol,AW.alpha)){anDone(tg);anRecent()}else AW.undo.pop();return}
+ if(tl==='text'){anTxtOpen(p);return}
+ if(tl==='move'){if(anFlFromMask(null,tg))anFlDragStart(e,p,{k:'m'});return}
+ if(tl==='select'){if(AW.selK==='wand'){const m=anWandMask(tg,p);if(m)anFlFromMask(m,tg);return}AW.st={id:e.pointerId,k:'sel',m:AW.selK,x0:p.x,y0:p.y,x1:p.x,y1:p.y,pts:[p]};anDraw();return}
+ if(tl==='shape'||tl==='gradient'){AW.st={id:e.pointerId,k:tl,o:tg,x0:p.x,y0:p.y,live:true,a:AW.alpha,op:tl==='gradient'&&AW.gradA?'source-atop':null,before:anCopy(tg.c)};AW.sx.clearRect(0,0,AW.w,AW.h);return}
+ anStrokeStart(e,p,tg)}
+function anMoveP(e){const s=AW.st;if(!s){anHover(e);return}if(s.id!==e.pointerId)return;const p=anPt(e);
+ if(s.k==='fl'){anFlDrag(s,p,e);return}
+ if(s.k==='sel'){if(s.m==='lasso'){const l=s.pts[s.pts.length-1];if(Math.hypot(p.x-l.x,p.y-l.y)>1.5/anPPU())s.pts.push(p)}else{let q=p;if(e.shiftKey){const dx=q.x-s.x0,dy=q.y-s.y0,m=Math.max(Math.abs(dx),Math.abs(dy));q={x:s.x0+Math.sign(dx||1)*m,y:s.y0+Math.sign(dy||1)*m}}s.x1=q.x;s.y1=q.y}anDrawSoon();return}
+ if(s.k==='shape'){const[a,b]=anShapePts(s,p,e);s.a=a;s.b=b;AW.sx.clearRect(0,0,AW.w,AW.h);anShapeDraw(AW.sx,AW.shapeK,a,b);anDrawSoon();return}
+ if(s.k==='gradient'){let b=p;if(e.shiftKey){const dx=b.x-s.x0,dy=b.y-s.y0,g=Math.round(Math.atan2(dy,dx)/(Math.PI/4))*Math.PI/4,d=Math.hypot(dx,dy);b={x:s.x0+Math.cos(g)*d,y:s.y0+Math.sin(g)*d}}s.b=b;anGradDraw(AW.sx,{x:s.x0,y:s.y0},b);anDrawSoon();return}
+ if(s.quick){AW.sx.clearRect(0,0,AW.w,AW.h);s.acc=null;s.hd=0;s.dist=0;let q=p;if(e.shiftKey){const dx=q.x-s.p0.x,dy=q.y-s.p0.y,g=Math.round(Math.atan2(dy,dx)/(Math.PI/12))*Math.PI/12,d=Math.hypot(dx,dy);q={x:s.p0.x+Math.cos(g)*d,y:s.p0.y+Math.sin(g)*d}}anStrokeSeg(s,s.p0,q,1);s.last=s.cur=q;anDrawSoon();return}
+ const evs=(e.getCoalescedEvents&&e.getCoalescedEvents())||[];
+ for(const ce of evs.length?evs:[e]){const q=anPt(ce),k=1-AW.smooth/100*.94;s.cur={x:s.cur.x+(q.x-s.cur.x)*k,y:s.cur.y+(q.y-s.cur.y)*k};s.plen=(s.plen||0)+Math.hypot(s.cur.x-s.last.x,s.cur.y-s.last.y);anStrokeSeg(s,s.last,s.cur,prs(ce));s.last=s.cur}
+ if(SET.quickShape&&!s.direct&&s.t!=='spray'){clearTimeout(s.qt);s.qt=setTimeout(()=>anQuick(s),850)}
  anDrawSoon()}
-function anMoveP(e){anRingAt(e);const s=AW.st;if(!s||s.id!==e.pointerId)return;const evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];
- for(const ev of evs.length?evs:[e]){const p=anPt(ev);
-  if(s.k==='move'){s.dx=Math.round(p.x-s.x0);s.dy=Math.round(p.y-s.y0)}
-  else if(['line','rect','ellipse'].includes(s.k)){s.x1=p.x;s.y1=p.y;s.shift=e.shiftKey;anShape(s)}
-  else{anSeg(s,s.last,p);s.last=p}}
- anDrawSoon()}
-function anUp(e){const s=AW.st;if(!s||(e.pointerId!=null&&s.id!==e.pointerId))return;AW.st=null;const tg=anTgt();if(!tg)return;
- if(s.k==='move'&&!s.dx&&!s.dy){anDraw();return}
- AW.undo.push({t:'px',o:tg,c:s.before});if(AW.undo.length>40)AW.undo.shift();AW.redo=[];
- const x=tg.c.getContext('2d');if(s.k==='move'){x.clearRect(0,0,AW.w,AW.h);x.drawImage(s.snap,s.dx,s.dy)}
- else{x.save();x.globalCompositeOperation=s.erase?'destination-out':'source-over';x.globalAlpha=s.erase?1:s.a;x.drawImage(AW.sc,0,0);x.restore()}
+function anUp(e){const s=AW.st;if(!s||(e.pointerId!=null&&s.id!==e.pointerId))return;AW.st=null;
+ if(s.k==='fl'){anDraw();anOptsUI();return}
+ if(s.k==='sel'){anSelEnd(s);return}
+ if(s.k==='shape'||s.k==='gradient'){if(!s.b){AW.sx.clearRect(0,0,AW.w,AW.h);anDraw();return}anCommitSc(s);anRecent();return}
+ if(s.iv)clearInterval(s.iv);clearTimeout(s.qt);
+ if(!s.quick&&e.type!=='pointercancel'){const p=anPt(e);if(Math.hypot(p.x-s.last.x,p.y-s.last.y)>.5){anStrokeSeg(s,s.last,p,prs(e));s.last=p}}
+ anCommitSc(s);AW.lastPt={x:s.last.x,y:s.last.y,o:s.o};if(!s.erase&&!s.direct)anRecent()}
+function anHover(e){if(!AW.fl||!['select','move'].includes(AW.tool)||e.pointerType==='touch'||AW.space)return;const h=anFlHit(anPt(e),14);
+ $('#awStage').style.cursor=!h?'default':h.k==='m'?'move':h.k==='r'?'grab':h.k==='x'?'ew-resize':h.k==='y'?'ns-resize':'nwse-resize'}
+
+/* ---------- brushes: the stroke goes on its own canvas first, then onto the layer when the finger lifts ---------- */
+function anStrokeStart(e,p,tg){const t0=AW.tool==='brush'?anBrushId():AW.tool;
+ const s={id:e.pointerId,k:'stroke',t:t0,o:tg,p0:p,last:p,cur:p,live:true,erase:t0==='eraser',direct:t0==='smudge',a:AW.alpha*(t0==='highlighter'?.4:t0==='marker'?.85:1),before:anCopy(tg.c),pen:e.pointerType==='pen',box:null};
+ if(s.direct)s.L={ctx:tg.c.getContext('2d'),canvas:tg.c};AW.st=s;AW.sx.clearRect(0,0,AW.w,AW.h);const pr=prs(e);
+ if(e.shiftKey&&AW.lastPt&&AW.lastPt.o===tg){anStrokeSeg(s,AW.lastPt,p,pr);s.last=p;AW.st=null;anCommitSc(s);AW.lastPt={x:p.x,y:p.y,o:tg};return}
+ anStrokeSeg(s,p,p,pr);if(t0==='spray')s.iv=setInterval(()=>{if(AW.st===s){anStrokeSeg(s,s.cur,s.cur,1);anDrawSoon()}},40);anDrawSoon()}
+function anStrokeSeg(s,a,b,pr){anWith(()=>{if(s.erase){const c=AW.sx,pw=(SET.pressure?pr:1);c.save();c.lineCap=c.lineJoin='round';c.lineWidth=base('eraser')*pw;c.strokeStyle='#000';sym(c,()=>{c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x+.01,b.y);c.stroke()});c.restore();return}
+ strokeTarget=AW.sx;stroke(s,a,b,pr)})}
+function anQuick(s){if(AW.st!==s||s.quick)return;const dd=Math.hypot(s.cur.x-s.p0.x,s.cur.y-s.p0.y);if(dd<24/anPPU()||(s.plen||0)>dd*1.2)return;
+ s.quick=true;AW.sx.clearRect(0,0,AW.w,AW.h);s.acc=null;s.hd=0;s.dist=0;anStrokeSeg(s,s.p0,s.cur,1);anDrawSoon();toast(t('Straight line'),'fa-ruler-combined')}
+function anCommitSc(s){const tg=s.o;AW.undo.push({t:'px',o:tg,c:s.before});if(AW.undo.length>40)AW.undo.shift();AW.redo=[];
+ if(!s.direct){const x=tg.c.getContext('2d');x.save();x.globalCompositeOperation=s.erase?'destination-out':(s.op||'source-over');x.globalAlpha=s.erase?AW.alpha:s.a;x.drawImage(AW.sc,0,0);x.restore()}
  AW.sx.clearRect(0,0,AW.w,AW.h);anDone(tg)}
-function anSeg(s,a,b){const x=AW.sx;x.strokeStyle=x.fillStyle=s.erase?'#000':AW.color;x.lineCap=x.lineJoin='round';const z=AW.size;
- if(s.k==='spray'){const n=Math.max(4,z*1.5),R=z*2;for(let i=0;i<n;i++){const an=Math.random()*TAU,r=Math.sqrt(Math.random())*R,tt=Math.random();x.fillRect(a.x+(b.x-a.x)*tt+Math.cos(an)*r,a.y+(b.y-a.y)*tt+Math.sin(an)*r,1.4,1.4)}return}
- let w=s.k==='pencil'?Math.max(1,z*.5):s.k==='marker'||s.erase?z*2.2:z*(.35+b.p*1.3);
- if(s.k==='pen'){s.w=s.w==null?w:s.w+(w-s.w)*.35;w=s.w}
- x.lineWidth=w;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x+(a===b?.01:0),b.y);x.stroke()}
-function anShape(s){const x=AW.sx;x.clearRect(0,0,AW.w,AW.h);x.strokeStyle=AW.color;x.lineWidth=Math.max(1.5,AW.size*.8);x.lineCap=x.lineJoin='round';let w=s.x1-s.x0,h=s.y1-s.y0;
- if(s.shift&&s.k!=='line'){const m=Math.max(Math.abs(w),Math.abs(h));w=Math.sign(w||1)*m;h=Math.sign(h||1)*m}x.beginPath();
- if(s.k==='line')x.moveTo(s.x0,s.y0),x.lineTo(s.x1,s.y1);else if(s.k==='rect')x.rect(s.x0,s.y0,w,h);else x.ellipse(s.x0+w/2,s.y0+h/2,Math.abs(w/2),Math.abs(h/2),0,0,TAU);x.stroke()}
-/* flood fill: fills the area of the same color, then tucks the color under the soft edge of the lines */
-function anFill(c,sx,sy,col){if(sx<0||sy<0||sx>=AW.w||sy>=AW.h)return;const x=c.getContext('2d'),W2=AW.w,H2=AW.h,id=x.getImageData(0,0,W2,H2),d=id.data,i0=(sy*W2+sx)*4;
- const r0=d[i0],g0=d[i0+1],b0=d[i0+2],a0=d[i0+3],tol=48,seen=new Uint8Array(W2*H2),m=mkC(W2,H2),mx=m.getContext('2d'),md=mx.createImageData(W2,H2),mm=md.data;
- const rgb=parseInt(col.slice(1),16),cr=rgb>>16&255,cg=rgb>>8&255,cb=rgb&255;
+/* shapes: Shift keeps them even, Alt draws from the middle */
+function anShapePts(s,p,e){let a={x:s.x0,y:s.y0},x=p.x,y=p.y;const k=AW.shapeK;
+ if(e.shiftKey){const dx=x-a.x,dy=y-a.y;if(['line','arrow','poly','star','heart','bubble'].includes(k)){const st8=k==='line'||k==='arrow'?Math.PI/4:Math.PI/12,g=Math.round(Math.atan2(dy,dx)/st8)*st8,d=Math.hypot(dx,dy);x=a.x+Math.cos(g)*d;y=a.y+Math.sin(g)*d}
+  else{const m=Math.max(Math.abs(dx),Math.abs(dy));x=a.x+Math.sign(dx||1)*m;y=a.y+Math.sign(dy||1)*m}}
+ if(e.altKey&&(k==='rect'||k==='ellipse'))a={x:2*a.x-x,y:2*a.y-y};return[a,{x,y}]}
+function anShapeDraw(c,k,a,b){anWith(()=>{c.save();c.lineCap=c.lineJoin='round';c.lineWidth=AW.size;c.strokeStyle=AW.color;const m=k==='line'||k==='arrow'?'stroke':AW.shapeM,dash=()=>c.setLineDash(AW.dash?[AW.size*2.5+2,AW.size*2+3]:[]);c.fillStyle=m==='both'?AW.color2:AW.color;dash();
+ sym(c,()=>{c.beginPath();
+  if(k==='line'){c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);c.stroke();return}
+  if(k==='arrow'){const g=Math.atan2(b.y-a.y,b.x-a.x),hl=Math.max(14,AW.size*4),hw=Math.PI/7;c.moveTo(a.x,a.y);c.lineTo(b.x-Math.cos(g)*hl*.7,b.y-Math.sin(g)*hl*.7);c.stroke();c.setLineDash([]);
+   c.beginPath();c.moveTo(b.x,b.y);c.lineTo(b.x-hl*Math.cos(g-hw),b.y-hl*Math.sin(g-hw));c.lineTo(b.x-hl*Math.cos(g+hw),b.y-hl*Math.sin(g+hw));c.closePath();c.fillStyle=AW.color;c.fill();dash();return}
+  if(k==='rect'){const x=Math.min(a.x,b.x),y=Math.min(a.y,b.y),w=Math.abs(b.x-a.x),h=Math.abs(b.y-a.y),r=Math.min(AW.radius,w/2,h/2);if(r>0&&c.roundRect)c.roundRect(x,y,w,h,r);else c.rect(x,y,w,h)}
+  else if(k==='ellipse')c.ellipse((a.x+b.x)/2,(a.y+b.y)/2,Math.abs(b.x-a.x)/2,Math.abs(b.y-a.y)/2,0,0,TAU);
+  else if(k==='heart'){const R=Math.hypot(b.x-a.x,b.y-a.y),cx=a.x,cy=a.y;c.moveTo(cx,cy+R*.9);c.bezierCurveTo(cx-R*1.3,cy+R*.1,cx-R*.8,cy-R,cx,cy-R*.35);c.bezierCurveTo(cx+R*.8,cy-R,cx+R*1.3,cy+R*.1,cx,cy+R*.9);c.closePath()}
+  else if(k==='bubble'){const R=Math.hypot(b.x-a.x,b.y-a.y),cx=a.x,cy=a.y,x0=cx-R,y0=cy-R*.65,x1=cx+R,y1=cy+R*.65,rr=R*.25;c.moveTo(x0+rr,y0);c.lineTo(x1-rr,y0);c.quadraticCurveTo(x1,y0,x1,y0+rr);c.lineTo(x1,y1-rr);c.quadraticCurveTo(x1,y1,x1-rr,y1);
+   c.lineTo(cx-R*.1,y1);c.lineTo(cx-R*.55,y1+R*.5);c.lineTo(cx-R*.45,y1);c.lineTo(x0+rr,y1);c.quadraticCurveTo(x0,y1,x0,y1-rr);c.lineTo(x0,y0+rr);c.quadraticCurveTo(x0,y0,x0+rr,y0);c.closePath()}
+  else{const R=Math.hypot(b.x-a.x,b.y-a.y),g0=Math.atan2(b.y-a.y,b.x-a.x),star=k==='star',n=AW.sides*(star?2:1);for(let i=0;i<n;i++){const rr=star&&i%2?R*.45:R,g=g0+i*TAU/n,x=a.x+Math.cos(g)*rr,y=a.y+Math.sin(g)*rr;i?c.lineTo(x,y):c.moveTo(x,y)}c.closePath()}
+  if(m!=='stroke')c.fill();if(m!=='fill')c.stroke()});c.restore()})}
+function anGradDraw(c,a,b){c.clearRect(0,0,AW.w,AW.h);const[R,G,B]=hexRgb(AW.color),end=AW.gradT?`rgba(${R},${G},${B},0)`:AW.color2,d=Math.max(1,Math.hypot(b.x-a.x,b.y-a.y));
+ const g=AW.gradK==='radial'?c.createRadialGradient(a.x,a.y,0,a.x,a.y,d):c.createLinearGradient(a.x,a.y,b.x,b.y);g.addColorStop(0,AW.color);g.addColorStop(1,end);c.fillStyle=g;c.fillRect(0,0,AW.w,AW.h)}
+function anPickAt(p){const c=mkC(1,1),x=c.getContext('2d'),px=clamp(p.x|0,0,AW.w-1),py=clamp(p.y|0,0,AW.h-1);x.translate(-px,-py);x.fillStyle=AW.paper;x.fillRect(px,py,1,1);
+ [AW.bg,AW.frames[AW.cur],AW.fg].forEach(o=>x.drawImage(AW.fl&&AW.fl.o===o?anLive(o):o.c,0,0));const d=x.getImageData(0,0,1,1).data;anSetColor(rgbHex([d[0],d[1],d[2]]));anRecent()}
+/* flood fill (also used by the magic wand): marks the area of the same color */
+function anFlood(c,sx,sy,tol){if(sx<0||sy<0||sx>=AW.w||sy>=AW.h)return null;const W2=AW.w,H2=AW.h,d=c.getContext('2d').getImageData(0,0,W2,H2).data,i0=(sy*W2+sx)*4,r0=d[i0],g0=d[i0+1],b0=d[i0+2],a0=d[i0+3],seen=new Uint8Array(W2*H2);
  const same=p=>{const i=p*4;if(a0<8&&d[i+3]<8)return true;return Math.abs(d[i]-r0)+Math.abs(d[i+1]-g0)+Math.abs(d[i+2]-b0)+Math.abs(d[i+3]-a0)*1.5<=tol};
  const st=[sy*W2+sx];let n=0;
  while(st.length){let p=st.pop();if(seen[p])continue;const y=(p/W2)|0;let l=p;while(l>y*W2&&!seen[l-1]&&same(l-1))l--;let r=p;while(r<y*W2+W2-1&&!seen[r+1]&&same(r+1))r++;
-  for(let q=l;q<=r;q++){if(!same(q)&&q!==p)continue;seen[q]=1;n++;const k=q*4;mm[k]=cr;mm[k+1]=cg;mm[k+2]=cb;mm[k+3]=255;if(y>0&&!seen[q-W2]&&same(q-W2))st.push(q-W2);if(y<H2-1&&!seen[q+W2]&&same(q+W2))st.push(q+W2)}}
- if(!n)return;mx.putImageData(md,0,0);x.save();x.globalCompositeOperation='destination-over';[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,-1]].forEach(([u,v])=>x.drawImage(m,u,v));x.restore();x.drawImage(m,0,0)}
+  for(let q=l;q<=r;q++){if(!same(q)&&q!==p)continue;seen[q]=1;n++;if(y>0&&!seen[q-W2]&&same(q-W2))st.push(q-W2);if(y<H2-1&&!seen[q+W2]&&same(q+W2))st.push(q+W2)}}
+ return n?seen:null}
+function anMaskC(seen,col){const W2=AW.w,H2=AW.h,m=mkC(W2,H2),mx=m.getContext('2d'),md=mx.createImageData(W2,H2),mm=md.data,rgb=parseInt((col||'#000000').slice(1),16),cr=rgb>>16&255,cg=rgb>>8&255,cb=rgb&255;
+ for(let p=0;p<seen.length;p++)if(seen[p]){const k=p*4;mm[k]=cr;mm[k+1]=cg;mm[k+2]=cb;mm[k+3]=255}mx.putImageData(md,0,0);return m}
+/* fills, then tucks the color under the soft edge of the lines */
+function anFill(c,sx,sy,col,tol,al){const seen=anFlood(c,sx,sy,tol);if(!seen)return false;const m=anMaskC(seen,col),x=c.getContext('2d');x.save();x.globalAlpha=al==null?1:al;
+ x.globalCompositeOperation='destination-over';[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,-1]].forEach(([u,v])=>x.drawImage(m,u,v));x.globalCompositeOperation='source-over';x.drawImage(m,0,0);x.restore();return true}
+function anWandMask(tg,p){const seen=anFlood(tg.c,p.x|0,p.y|0,AW.tol);if(!seen)return null;const m=anMaskC(seen),g=mkC(AW.w,AW.h),gx=g.getContext('2d');[[0,0],[1,0],[-1,0],[0,1],[0,-1]].forEach(([u,v])=>gx.drawImage(m,u,v));return g}
+
+/* ---------- selection: picks a part of the drawing up so it can be moved, resized, turned, flipped or copied ---------- */
+function anBBox(c){const w=c.width,h=c.height,d=c.getContext('2d').getImageData(0,0,w,h).data;let x0=w,y0=h,x1=-1,y1=-1;
+ for(let y=0;y<h;y++){let r=y*w*4,any=false;for(let x=0;x<w;x++,r+=4)if(d[r+3]>4){if(x<x0)x0=x;if(x>x1)x1=x;any=true}if(any){if(y<y0)y0=y;y1=y}}
+ return x1<0?null:{x:x0,y:y0,w:x1-x0+1,h:y1-y0+1}}
+function anFlFromMask(mask,tg){const W2=AW.w,H2=AW.h,c=mkC(W2,H2),x=c.getContext('2d');x.drawImage(tg.c,0,0);if(mask){x.globalCompositeOperation='destination-in';x.drawImage(mask,0,0)}
+ const bb=anBBox(c);if(!bb){toast(t(mask?'Nothing to pick up there':'This layer is empty'),'fa-circle-info');anDraw();return false}
+ const fc=mkC(bb.w,bb.h);fc.getContext('2d').drawImage(c,-bb.x,-bb.y);const before=anCopy(tg.c),tx=tg.c.getContext('2d');
+ if(mask){tx.save();tx.globalCompositeOperation='destination-out';tx.drawImage(mask,0,0);tx.restore()}else tx.clearRect(0,0,W2,H2);
+ AW.fl={c:fc,x:bb.x+bb.w/2,y:bb.y+bb.h/2,w:bb.w,h:bb.h,sx:1,sy:1,r:0,o:tg,before};anOptsUI();anDraw();haptic(6);return true}
+function anSelEnd(s){const tg=anTgt();let m=null;
+ if(s.m==='lasso'){if(s.pts.length<3){anDraw();return}m=mkC(AW.w,AW.h);const x=m.getContext('2d');x.beginPath();s.pts.forEach((p,i)=>i?x.lineTo(p.x,p.y):x.moveTo(p.x,p.y));x.closePath();x.fillStyle='#000';x.fill()}
+ else{const x0=Math.round(Math.min(s.x0,s.x1)),y0=Math.round(Math.min(s.y0,s.y1)),w=Math.round(Math.abs(s.x1-s.x0)),h=Math.round(Math.abs(s.y1-s.y0));if(w<3||h<3){anDraw();return}m=mkC(AW.w,AW.h);const x=m.getContext('2d');x.fillStyle='#000';x.fillRect(x0,y0,w,h)}
+ anFlFromMask(m,tg)}
+function anSelectAll(){anSettle();if(AW.tool!=='select'&&AW.tool!=='move')anTool('move');anFlFromMask(null,anTgt())}
+function anFlDrawTo(x,f){x.save();x.imageSmoothingQuality='high';x.translate(f.x,f.y);x.rotate(f.r);x.scale(f.sx,f.sy);x.drawImage(f.c,-f.w/2,-f.h/2);x.restore()}
+function anFlGeo(){const f=AW.fl,co=Math.cos(f.r),si=Math.sin(f.r),hw=f.w*Math.abs(f.sx)/2,hh=f.h*Math.abs(f.sy)/2,u=1/anPPU(),toW=(lx,ly)=>({x:f.x+lx*co-ly*si,y:f.y+lx*si+ly*co});
+ return{hw,hh,u,toW,hs:[['s',-hw,-hh],['s',hw,-hh],['s',hw,hh],['s',-hw,hh],['x',hw,0],['x',-hw,0],['y',0,hh],['y',0,-hh],['r',0,-hh-30*u]]}}
+function anLocal(p){const f=AW.fl,dx=p.x-f.x,dy=p.y-f.y,co=Math.cos(f.r),si=Math.sin(f.r);return{x:dx*co+dy*si,y:-dx*si+dy*co}}
+function anFlHit(p,rad){const g=anFlGeo(),R=rad*g.u;for(const[k,lx,ly]of g.hs.slice().reverse()){const q=g.toW(lx,ly);if(Math.hypot(p.x-q.x,p.y-q.y)<=R)return{k}}
+ const l=anLocal(p);return Math.abs(l.x)<=g.hw+4*g.u&&Math.abs(l.y)<=g.hh+4*g.u?{k:'m'}:null}
+function anFlDragStart(e,p,h){const f=AW.fl;AW.st={id:e.pointerId,k:'fl',h,p0:p,f0:{x:f.x,y:f.y,sx:f.sx,sy:f.sy,r:f.r},l0:anLocal(p),a0:Math.atan2(p.y-f.y,p.x-f.x)}}
+function anFlDrag(s,p,e){const f=AW.fl,f0=s.f0;if(!f)return;const lim=v=>Math.abs(v)<.02?.02*(Math.sign(v)||1):v;
+ if(s.h.k==='m'){f.x=f0.x+p.x-s.p0.x;f.y=f0.y+p.y-s.p0.y;if(e.shiftKey){if(Math.abs(p.x-s.p0.x)>Math.abs(p.y-s.p0.y))f.y=f0.y;else f.x=f0.x}}
+ else if(s.h.k==='r'){let r=f0.r+Math.atan2(p.y-f.y,p.x-f.x)-s.a0;if(e.shiftKey)r=Math.round(r/(Math.PI/12))*Math.PI/12;f.r=r}
+ else{const l=anLocal(p);if(s.h.k==='s'){const k=Math.max(.02,Math.hypot(l.x,l.y)/Math.max(1e-3,Math.hypot(s.l0.x,s.l0.y)));f.sx=f0.sx*k;f.sy=f0.sy*k}
+  else if(s.h.k==='x')f.sx=lim(f0.sx*l.x/(s.l0.x||1e-3));else f.sy=lim(f0.sy*l.y/(s.l0.y||1e-3))}
+ anDrawSoon()}
+function anFlXf(fn){if(!AW.fl)return;fn(AW.fl);anDraw()}
+function anFlCommit(){const f=AW.fl;if(!f)return;AW.fl=null;anFlDrawTo(f.o.c.getContext('2d'),f);AW.undo.push({t:'px',o:f.o,c:f.before});if(AW.undo.length>40)AW.undo.shift();AW.redo=[];anDone(f.o);anOptsUI()}
+function anFlCancel(){const f=AW.fl;if(!f)return;AW.fl=null;anPut(f.o,f.before);anDone(f.o);anOptsUI()}
+function anFlDelete(){const f=AW.fl;if(!f)return;AW.fl=null;AW.undo.push({t:'px',o:f.o,c:f.before});if(AW.undo.length>40)AW.undo.shift();AW.redo=[];anDone(f.o);anOptsUI();toast(t('Deleted – Undo brings it back'),'fa-trash')}
+function anCopySel(cut){if(AW.fl){const f=AW.fl;AW.clip={c:anCopy(f.c),w:f.w,h:f.h,sx:f.sx,sy:f.sy,r:f.r,x:f.x,y:f.y};if(cut)anFlDelete()}
+ else{const tg=anTgt(),bb=anBBox(tg.c);if(!bb)return toast(t('This layer is empty'),'fa-circle-info');const c=mkC(bb.w,bb.h);c.getContext('2d').drawImage(tg.c,-bb.x,-bb.y);AW.clip={c,w:bb.w,h:bb.h,sx:1,sy:1,r:0,x:bb.x+bb.w/2,y:bb.y+bb.h/2};if(cut){anPush(tg);tg.c.getContext('2d').clearRect(0,0,AW.w,AW.h);anDone(tg)}}
+ toast(t(cut?'Cut – paste it on any frame':'Copied – paste it on any frame (Ctrl+V)'),cut?'fa-scissors':'fa-copy');anOptsUI()}
+function anFlNew(src){const tg=anTgt();if(AW.tool!=='select'&&AW.tool!=='move')anTool('move');AW.fl={c:anCopy(src.c),w:src.w,h:src.h,sx:src.sx,sy:src.sy,r:src.r,x:src.x,y:src.y,o:tg,before:anCopy(tg.c)};anOptsUI();anDraw()}
+function anPasteSel(){if(!AW.clip)return toast(t('Copy something first (Ctrl+C)'),'fa-circle-info');anSettle();anFlNew(AW.clip)}
+function anPasteImage(i){anSettle();const k=Math.min(1,AW.w*.9/i.width,AW.h*.9/i.height),c=mkC(i.width*k,i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);
+ anFlNew({c,w:c.width,h:c.height,sx:1,sy:1,r:0,x:AW.w/2,y:AW.h/2});toast(t('Move and resize the picture, then press Done'),'fa-image')}
+/* cut-out animation: put the piece down and carry a copy to the next frame, ready to be moved a little */
+function anFlNext(){const f=AW.fl;if(!f||AW.layer!=='f')return;const src={c:anCopy(f.c),w:f.w,h:f.h,sx:f.sx,sy:f.sy,r:f.r,x:f.x,y:f.y};anFlCommit();
+ if(AW.cur>=AW.frames.length-1)anInsert(false);else anGo(AW.cur+1);anFlNew(src);toast(t('Frame')+' '+(AW.cur+1)+' – '+t('move it a little'),'fa-forward')}
+
+/* ---------- text ---------- */
+const anTxtFont=k=>(AW.italic?'italic ':'')+(AW.bold?'bold ':'')+(AW.tsize*(k||1))+'px '+AW.font;
+function anFontUI(){const F=$('#awFont');F.innerHTML='';const og=(lab,arr)=>{const g=document.createElement('optgroup');g.label=t(lab);arr.forEach(([n,v])=>g.appendChild(new Option(n,v)));F.appendChild(g)};
+ if(customFonts.size)og('Imported fonts',[...customFonts].map(n=>[n,`'${n}', sans-serif`]));og('System fonts',SYS_FONTS);og('Online fonts',WEB_FONTS.map(n=>[n,`'${n}', sans-serif`]));
+ if(![...F.options].some(o=>o.value===AW.font))AW.font=SYS_FONTS[0][1];F.value=AW.font}
+function anTxtOpen(p){AW.txt={x:p.x,y:p.y,o:anTgt()};const T=$('#awTxt');T.value='';T.classList.remove('hide');anTxtStyle();setTimeout(()=>T.focus(),0)}
+function anTxtStyle(){const T=$('#awTxt'),tx=AW.txt;if(!tx)return;const k=anPPU(),r=AW.view.getBoundingClientRect(),S2=$('#awStage').getBoundingClientRect();
+ T.style.font=anTxtFont(k);T.style.lineHeight='1.25';T.style.color=AW.color;T.style.webkitTextStroke=AW.outline?Math.max(1,AW.tsize*k/14)+'px '+AW.color2:'';T.style.paintOrder='stroke fill';
+ T.style.left=(r.left-S2.left+tx.x*k-1)+'px';T.style.top=(r.top-S2.top+tx.y*k-1)+'px';anTxtSize()}
+function anTxtSize(){const T=$('#awTxt');if(!AW.txt)return;const k=anPPU(),x=AW.vx;x.save();x.font=anTxtFont();const lines=T.value.split('\n'),w=Math.max(x.measureText('Mmm').width,...lines.map(l=>x.measureText(l).width));x.restore();
+ T.style.width=(w*k+AW.tsize*k*.5+8)+'px';T.style.height=(lines.length*AW.tsize*1.25*k+6)+'px'}
+function anTxtCancel(){AW.txt=null;const T=$('#awTxt');T.classList.add('hide');T.blur();anDraw()}
+function anTxtCommit(){const tx=AW.txt;if(!tx)return;const T=$('#awTxt'),v=T.value.replace(/\s+$/,'');AW.txt=null;T.classList.add('hide');T.blur();if(!v.trim()){anDraw();return}
+ const tg=tx.o,x=tg.c.getContext('2d'),lh=AW.tsize*1.25,pad=(lh-AW.tsize)/2;anPush(tg);x.save();x.globalAlpha=AW.alpha;x.font=anTxtFont();x.textBaseline='top';x.lineJoin='round';
+ v.split('\n').forEach((ln,i)=>{const y=tx.y+i*lh+pad;if(AW.outline){x.strokeStyle=AW.color2;x.lineWidth=Math.max(2,AW.tsize/7);x.strokeText(ln,tx.x,y)}x.fillStyle=AW.color;x.fillText(ln,tx.x,y)});x.restore();anDone(tg);anRecent()}
+function anSettle(){if(AW.txt)anTxtCommit();if(AW.fl)anFlCommit()}
+
+/* ---------- colors ---------- */
+function anSetColor(c,slot,fromPicker,fromHex){if(!/^#[0-9a-f]{6}$/i.test(c))return;c=c.toLowerCase();slot=slot||AW.slot;if(slot===2)AW.color2=c;else AW.color=c;
+ if(!fromPicker&&slot===AW.slot)AW.hsv=rgb2hsv(hexRgb(c));anColorUI(fromPicker,fromHex);anPref();anBrushSoon();if(AW.txt)anTxtStyle()}
+function anColorUI(fromPicker,fromHex){if(!$('#awC1'))return;$('#awC1 i').style.background=AW.color;$('#awC2 i').style.background=AW.color2;$('#awC1').classList.toggle('on',AW.slot!==2);$('#awC2').classList.toggle('on',AW.slot===2);
+ const c=AW.slot===2?AW.color2:AW.color;if(!fromHex)$('#awHex').value=c;$$('#awCols .answ,#awRec .answ').forEach(b=>b.classList.toggle('on',b.dataset.c.toLowerCase()===c));
+ if(!fromPicker){AW.hsv=rgb2hsv(hexRgb(c));anSVDraw()}else{const k=$('#awSVK');k.style.left=AW.hsv[1]*100+'%';k.style.top=(1-AW.hsv[2])*100+'%';k.style.background=c}}
+function anSVDraw(){const cv=$('#awSVC');if(!cv)return;const x=cv.getContext('2d'),w=cv.width,h=cv.height,[hh,s,v]=AW.hsv;x.fillStyle=hsv2hex(hh,1,1);x.fillRect(0,0,w,h);let g=x.createLinearGradient(0,0,w,0);g.addColorStop(0,'#fff');g.addColorStop(1,'#fff0');x.fillStyle=g;x.fillRect(0,0,w,h);
+ g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#0000');g.addColorStop(1,'#000');x.fillStyle=g;x.fillRect(0,0,w,h);const k=$('#awSVK');k.style.left=s*100+'%';k.style.top=(1-v)*100+'%';k.style.background=hsv2hex(hh,s,v);$('#awHue').value=Math.round(hh)}
+function anSwapColors(){const a=AW.color;AW.color=AW.color2;AW.color2=a;anColorUI();anPref();anBrushSoon();if(AW.txt)anTxtStyle()}
+function anRecent(c){c=c||AW.color;if(AW.recent[0]===c)return;AW.recent=[c,...AW.recent.filter(x=>x!==c)].slice(0,16);anRecUI();anPref()}
+function anSw(box,arr){box.innerHTML='';arr.forEach(c=>{const b=ae('button','answ');b.style.setProperty('--c',c);b.dataset.c=c;b.title=c;b.onclick=()=>{anSetColor(c);anRecent(c);if(['eraser','pick','smudge'].includes(AW.tool))anTool('brush')};
+  b.oncontextmenu=e=>{e.preventDefault();anSetColor(c,AW.slot===2?1:2)};box.appendChild(b)});anColorUI()}
+function anSwatches(){const P=PALETTES[AW.pal]||SW;anSw($('#awCols'),P.slice(0,48))}
+function anRecUI(){anSw($('#awRec'),AW.recent)}
+function anPalOpts(){const PL=$('#awPal'),keys=Object.keys(PALETTES);if(!keys.includes(AW.pal))AW.pal='Basic';PL.innerHTML='';keys.forEach(k=>PL.add(new Option(t(k),k)));PL.value=AW.pal}
+function anPaperUI(){$$('#awPaper .answ').forEach(b=>b.classList.toggle('on',b.dataset.p===AW.paper))}
+
+/* ---------- side panel: brushes, layers, guides, effects ---------- */
+function anTab(id,open){AW.tab=id;$$('#awTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));$$('#awSide .anpane').forEach(p=>p.classList.toggle('on',p.dataset.p===id));
+ if(id==='brush')anBrushUI();else if(id==='layer')anLaysUI();else if(id==='color'){anSVDraw();anRecUI()}if(open&&innerWidth<=900)$('#awSide').classList.add('open');anPref()}
+let anBrT=0;function anBrushSoon(){if(AW.tab!=='brush')return;clearTimeout(anBrT);anBrT=setTimeout(anBrushUI,250)}
+function anBrushUI(){const B=$('#awBrushes');if(!B)return;B.innerHTML='';const[r0,g0,b0]=hexRgb(AW.color);B.classList.toggle('dk',r0*.299+g0*.587+b0*.114>215);const g=GROUPS.find(x=>x&&x[0]==='draw'),fun=GROUPS.find(x=>x&&x[0]==='fun'),all=g?g[2]:[],bid=anBrushId();
+ const sec=(title,ids)=>{if(!ids.length)return;B.appendChild(ae('h5','anh5',t(title)));const G=ae('div','anbr');ids.forEach(id=>{const b=ae('button','anbi'+(bid===id?' on':''));b.dataset.b=id;const cv=mkC(132,40);b.appendChild(cv);b.appendChild(ae('span','',t(TN[id]||id)));b.title=t(TN[id]||id);
+  b.onclick=()=>{AW.brush=id;anTool('brush');$$('#awBrushes .anbi').forEach(x=>x.classList.toggle('on',x===b));anStampUI();anPref();if(innerWidth<=900)$('#awSide').classList.remove('open')};G.appendChild(b);try{anWith(()=>brushPreview(id,cv))}catch(e){}});B.appendChild(G)};
+ sec('Brushes',all.filter(id=>!id.startsWith('mb_')));sec('Fun brushes',fun?fun[2]:[]);sec('Mod brushes',all.filter(id=>id.startsWith('mb_')));anStampUI()}
+function anStampUI(){const bar=$('#awStamps');if(!bar)return;const on=anBrushId()==='x_stamp';bar.classList.toggle('hide',!on);if(!on)return;bar.innerHTML='';
+ XS.forEach(([id,n,f])=>{const b=ae('button','xsbi'+(id===xStampK?' on':''));b.title=t(n);const cv=mkC(68,68),x=cv.getContext('2d');anWith(()=>f(x,34,36,24));b.appendChild(cv);b.onclick=()=>{xStampK=id;LS.set('msx_stamp',id);anStampUI();haptic(6)};bar.appendChild(b)})}
+let anLaysT=0;function anLaysSoon(){if(AW.tab!=='layer')return;clearTimeout(anLaysT);anLaysT=setTimeout(anLaysUI,150)}
+function anLaysUI(){const L=$('#awLays');if(!L||!AW.bg)return;L.innerHTML='';
+ [['t','fa-solid fa-arrow-up-from-bracket','Front layer','Shows over every frame',AW.fg],['f','fa-solid fa-film','Frame','Only on this frame',AW.frames[AW.cur]],['b','fa-solid fa-image','Background','Shows behind every frame',AW.bg]].forEach(([k,ic,nm,ds,o])=>{if(!o)return;
+  const d=ae('div','anlay'+(AW.layer===k?' on':'')),th=mkC(72,Math.max(20,Math.round(72*AW.h/AW.w))),x=th.getContext('2d');if(k==='b'){x.fillStyle=AW.paper;x.fillRect(0,0,th.width,th.height)}x.drawImage(o.c,0,0,th.width,th.height);
+  const info=ae('div','anlayi'),hd=ae('b');hd.innerHTML=`<i class="${ic}"></i> `;hd.appendChild(document.createTextNode(k==='f'?t('Frame')+' '+(AW.cur+1):t(nm)));info.appendChild(hd);info.appendChild(ae('small','mut',t(ds)));
+  const clr=ae('button','b sm');clr.innerHTML='<i class="fa-solid fa-broom"></i>';clr.title=t('Clear this layer');clr.onclick=ev=>{ev.stopPropagation();anSettle();anPush(o);o.c.getContext('2d').clearRect(0,0,AW.w,AW.h);anDone(o)};
+  d.append(th,info,clr);d.onclick=()=>anSetLayer(k);L.appendChild(d)})}
+function anSetLayer(k){if(k===AW.layer)return;anSettle();AW.layer=k;anLayerUI();anUnderUp();anDraw();anLaysUI();
+ toast(t(k==='b'?'Drawing on the background – it shows behind every frame':k==='t'?'Drawing on the front layer – it shows over every frame':'Drawing on the frame'),k==='b'?'fa-image':k==='t'?'fa-arrow-up-from-bracket':'fa-film')}
+function anLayerUI(){$('#awStage').classList.toggle('bgl',AW.layer!=='f');const L=$('#awLayLab');L.querySelector('i').className='fa-solid '+(AW.layer==='t'?'fa-arrow-up-from-bracket':'fa-image');L.querySelector('span').textContent=t(AW.layer==='t'?'Front layer':'Background');anOptsUI()}
+function anGuideUI(){$$('#awGuide button').forEach(b=>b.classList.toggle('on',b.dataset.g===AW.guide))}
+function anSetTrace(i,a){const c=mkC(AW.w,AW.h),k=Math.min(AW.w/i.width,AW.h/i.height),w=i.width*k,h=i.height*k;c.getContext('2d').drawImage(i,(AW.w-w)/2,(AW.h-h)/2,w,h);AW.trace={c,a:a==null?.4:a,blob:null};anTraceUI();anUnderUp();anDraw();anTouch();toast(t('Tracing picture added – it is not exported'),'fa-person-chalkboard')}
+function anTraceUI(){const on=!!AW.trace;$('#awTrX').classList.toggle('hide',!on);$('#awTrA').classList.toggle('hide',!on);if(on)$('#awTrA').value=Math.round(AW.trace.a*100)}
+function anFxUI(){$$('#awFxS button').forEach(b=>b.classList.toggle('on',(b.dataset.s==='all')===AW.fxAll));$('#awFxN').textContent=t(AW.layer!=='f'?'Effects change the layer you are drawing on.':AW.fxAll?'Effects change every frame – Undo brings them back.':'Effects change the frame you are on.')}
+function anHueRot(o,deg){const a=deg*Math.PI/180,c=Math.cos(a),s=Math.sin(a),m=[.213+c*.787-s*.213,.715-c*.715-s*.715,.072-c*.072+s*.928,.213-c*.213+s*.143,.715+c*.285+s*.14,.072-c*.072-s*.283,.213-c*.213-s*.787,.715-c*.715+s*.715,.072+c*.928+s*.072];
+ for(let i=0;i<o.length;i+=4){const r=o[i],g=o[i+1],b=o[i+2];o[i]=r*m[0]+g*m[1]+b*m[2];o[i+1]=r*m[3]+g*m[4]+b*m[5];o[i+2]=r*m[6]+g*m[7]+b*m[8]}}
+function anFxOne(k,c){const x=c.getContext('2d'),W2=AW.w,H2=AW.h,A=AW.fxAmt;
+ const flip=(sx,sy)=>{const tc=anCopy(c);x.save();x.clearRect(0,0,W2,H2);x.translate(sx<0?W2:0,sy<0?H2:0);x.scale(sx,sy);x.drawImage(tc,0,0);x.restore()};
+ const css=(f,fb)=>{if(hasCF){const tc=anCopy(c);x.save();x.clearRect(0,0,W2,H2);x.filter=f;x.drawImage(tc,0,0);x.restore()}else if(fb){const d=x.getImageData(0,0,W2,H2);fb(d.data);x.putImageData(d,0,0)}else throw Error('no filter')};
+ if(k==='flipx')flip(-1,1);else if(k==='flipy')flip(1,-1);
+ else if(k==='bright'||k==='dark'){const m=k==='bright'?1+A/40:Math.max(.1,1-A/50);css(`brightness(${m})`,o=>{for(let i=0;i<o.length;i+=4){o[i]*=m;o[i+1]*=m;o[i+2]*=m}})}
+ else if(k==='hue'){const deg=A*9;css(`hue-rotate(${deg}deg)`,o=>anHueRot(o,deg))}
+ else if(k==='blur'){const r=Math.max(1,A/2);if(hasCF)css(`blur(${r}px)`);else{const q=1/(1+r/2),tc=mkC(W2*q,H2*q);tc.getContext('2d').drawImage(c,0,0,tc.width,tc.height);x.clearRect(0,0,W2,H2);x.drawImage(tc,0,0,W2,H2)}}
+ else if(k==='outline'){const r=Math.max(1,A*.75),sil=anTint(c,AW.color),o=mkC(W2,H2),ox=o.getContext('2d'),n=Math.max(16,Math.round(r*3));for(const rr of[r*.5,r])for(let i=0;i<n;i++){const g=i/n*TAU;ox.drawImage(sil,Math.cos(g)*rr,Math.sin(g)*rr)}ox.drawImage(c,0,0);x.clearRect(0,0,W2,H2);x.drawImage(o,0,0)}
+ else if(k==='glow'){const r=A*2.5,tc=anCopy(c);x.save();x.clearRect(0,0,W2,H2);x.shadowColor=AW.color;x.shadowBlur=r;x.drawImage(tc,0,0);x.shadowBlur=r/2;x.drawImage(tc,0,0);x.restore()}
+ else if(k==='shadow'){const r=A*1.5,tc=anCopy(c);x.save();x.clearRect(0,0,W2,H2);x.shadowColor='rgba(0,0,0,.55)';x.shadowBlur=r;x.shadowOffsetX=x.shadowOffsetY=Math.round(r*.5);x.drawImage(tc,0,0);x.restore()}
+ else if(k==='pixel'){const b=Math.max(2,Math.round(A*.8)),tc=mkC(Math.ceil(W2/b),Math.ceil(H2/b));tc.getContext('2d').drawImage(c,0,0,tc.width,tc.height);x.save();x.clearRect(0,0,W2,H2);x.imageSmoothingEnabled=false;x.drawImage(tc,0,0,tc.width*b,tc.height*b);x.restore()}
+ else{const id={gray:'f_gray',sepia:'f_sepia',invert:'f_invert',cartoon:'f_cartoon',glitch:'f_glitch',nowhite:'f_c2a'}[k];if(id&&FILTERS[id])anWith(()=>FILTERS[id][1]({canvas:c,ctx:x}))}}
+function anFxRun(k){if(AW.playing)anStop();anSettle();const all=AW.fxAll&&AW.layer==='f',list=all?AW.frames.slice():[anTgt()],items=list.map(o=>({o,c:anCopy(o.c)}));
+ try{list.forEach(o=>anFxOne(k,o.c))}catch(e){console.warn(e);items.forEach(i=>anPut(i.o,i.c));warn('That effect does not work on this device');return}
+ AW.undo.push(items.length===1?{t:'px',o:items[0].o,c:items[0].c}:{t:'multi',items});if(AW.undo.length>40)AW.undo.shift();AW.redo=[];
+ list.forEach(o=>{o.blob=null;o.th=null;o.v=(o.v||0)+1});if(list.includes(AW.bg)||list.includes(AW.fg))AW.frames.forEach(f=>f.th=null);anAll();anTouch();
+ toast(t((AN_FX.find(x=>x[0]===k)||[])[2]||'')+(all?' · '+t('All frames'):''),'fa-wand-magic-sparkles')}
+
+/* ---------- undo ---------- */
 function anPush(o){AW.undo.push({t:'px',o,c:anCopy(o.c)});if(AW.undo.length>40)AW.undo.shift();AW.redo=[]}
 function anPushFr(){AW.undo.push({t:'fr',f:AW.frames.slice(),cur:AW.cur,d:AW.frames.map(f=>f.d),s:AW.frames.map(f=>f.s)});if(AW.undo.length>40)AW.undo.shift();AW.redo=[]}
-function anDone(o){o.blob=null;o.th=null;if(o===AW.bg)AW.frames.forEach(f=>f.th=null);anUnderUp();anDraw();anStrip();anTouch()}
-function anSwap(a,b){const e=a.pop();if(!e)return;if(e.t==='px'){b.push({t:'px',o:e.o,c:anCopy(e.o.c)});const x=e.o.c.getContext('2d');x.clearRect(0,0,AW.w,AW.h);x.drawImage(e.c,0,0);anDone(e.o)}
+function anDone(o){o.blob=null;o.th=null;o.v=(o.v||0)+1;if(o===AW.bg||o===AW.fg)AW.frames.forEach(f=>f.th=null);anUnderUp();anDraw();anStrip();anTouch();anLaysSoon()}
+function anSwap(a,b){const e=a.pop();if(!e)return;
+ if(e.t==='px'){b.push({t:'px',o:e.o,c:anCopy(e.o.c)});anPut(e.o,e.c);anDone(e.o)}
+ else if(e.t==='multi'){b.push({t:'multi',items:e.items.map(i=>({o:i.o,c:anCopy(i.o.c)}))});e.items.forEach(i=>{anPut(i.o,i.c);i.o.blob=null;i.o.th=null;i.o.v=(i.o.v||0)+1});if(e.items.some(i=>i.o===AW.bg||i.o===AW.fg))AW.frames.forEach(f=>f.th=null);anAll();anTouch()}
  else{b.push({t:'fr',f:AW.frames.slice(),cur:AW.cur,d:AW.frames.map(f=>f.d),s:AW.frames.map(f=>f.s)});AW.frames=e.f;AW.frames.forEach((f,i)=>{f.d=e.d[i];f.s=e.s[i]});AW.cur=clamp(e.cur,0,AW.frames.length-1);anAll();anTouch()}}
-function anUndo(){if(AW.playing)anStop();anSwap(AW.undo,AW.redo)}
-function anRedo(){if(AW.playing)anStop();anSwap(AW.redo,AW.undo)}
+function anUndo(){if(AW.playing)anStop();if(AW.txt)return anTxtCancel();if(AW.fl)return anFlCancel();anSwap(AW.undo,AW.redo)}
+function anRedo(){if(AW.playing)anStop();anSettle();anSwap(AW.redo,AW.undo)}
 
 /* ---------- frames ---------- */
-function anGo(i){if(!AW.frames.length)return;const n=AW.frames.length;i=AW.loop&&AW.playing?(i+n)%n:clamp(i,0,n-1);if(i===AW.cur&&!AW.playing)return;AW.cur=i;anUnderUp();anDraw();anStripSel();anBarUI();anSndUI()}
-function anInsert(dup){if(AW.playing)anStop();anPushFr();const f=anFrame(dup?anCopy(AW.frames[AW.cur].c):null);if(dup)f.d=AW.frames[AW.cur].d;AW.frames.splice(AW.cur+1,0,f);AW.cur++;anAll();anTouch();anStripScroll();haptic(6)}
-function anDelete(){if(AW.frames.length<2){anClearFrame();return}anPushFr();AW.frames.splice(AW.cur,1);AW.cur=Math.min(AW.cur,AW.frames.length-1);anAll();anTouch();toast(t('Frame deleted – Undo brings it back'),'fa-trash')}
-function anClearFrame(){const f=anTgt();anPush(f);f.c.getContext('2d').clearRect(0,0,AW.w,AW.h);anDone(f)}
-function anMoveFrame(d){const j=AW.cur+d;if(j<0||j>=AW.frames.length)return;anPushFr();const a=AW.frames;[a[AW.cur],a[j]]=[a[j],a[AW.cur]];AW.cur=j;anAll();anTouch();anStripScroll()}
+function anGo(i){if(!AW.frames.length)return;const n=AW.frames.length;i=AW.loop&&AW.playing?(i+n)%n:clamp(i,0,n-1);if(i===AW.cur&&!AW.playing)return;if(!AW.playing)anSettle();AW.cur=i;anUnderUp();anDraw();anStripSel();anBarUI();anSndUI();anLaysSoon()}
+function anInsert(dup){if(AW.playing)anStop();anSettle();anPushFr();const f=anFrame(dup?anCopy(AW.frames[AW.cur].c):null);if(dup)f.d=AW.frames[AW.cur].d;AW.frames.splice(AW.cur+1,0,f);AW.cur++;anAll();anTouch();anStripScroll();haptic(6)}
+function anDelete(){anSettle();if(AW.frames.length<2){anClearFrame();return}anPushFr();AW.frames.splice(AW.cur,1);AW.cur=Math.min(AW.cur,AW.frames.length-1);anAll();anTouch();toast(t('Frame deleted – Undo brings it back'),'fa-trash')}
+function anClearFrame(){anSettle();const f=anTgt();anPush(f);f.c.getContext('2d').clearRect(0,0,AW.w,AW.h);anDone(f)}
+function anMoveFrame(d){const j=AW.cur+d;if(j<0||j>=AW.frames.length)return;anSettle();anPushFr();const a=AW.frames;[a[AW.cur],a[j]]=[a[j],a[AW.cur]];AW.cur=j;anAll();anTouch();anStripScroll()}
+function anMoveFrameTo(from,to){if(to>from)to--;if(to===from||from<0||from>=AW.frames.length)return;anSettle();anPushFr();const[f]=AW.frames.splice(from,1);AW.frames.splice(clamp(to,0,AW.frames.length),0,f);AW.cur=AW.frames.indexOf(f);anAll();anTouch()}
 function anHold(d){const f=AW.frames[AW.cur];const v=clamp(f.d+d,1,12);if(v===f.d)return;anPushFr();f.d=v;anStrip();anBarUI();anTouch()}
-function anThumb(f){if(f.th)return f.th;const k=Math.min(150/AW.w,90/AW.h),c=mkC(AW.w*k,AW.h*k),x=c.getContext('2d');x.fillStyle=AW.paper;x.fillRect(0,0,c.width,c.height);x.drawImage(AW.bg.c,0,0,c.width,c.height);x.drawImage(f.c,0,0,c.width,c.height);f.th=c;return c}
-function anStrip(){const S=$('#awStrip');if(!S)return;S.innerHTML='';AW.frames.forEach((f,i)=>{const d=ae('button','anf'+(i===AW.cur?' on':''));d.dataset.i=i;const th=anThumb(f),cv=mkC(th.width,th.height);cv.getContext('2d').drawImage(th,0,0);d.appendChild(cv);
+function anFrMenu(m){$('#awFrMenu').classList.add('hide');if(AW.playing)anStop();anSettle();const f=AW.frames[AW.cur];
+ if(m==='copy'){AW.fclip={c:anCopy(f.c),d:f.d,s:f.s};toast(t('Frame copied'),'fa-copy')}
+ else if(m==='paste'||m==='merge'){const C=AW.fclip;if(!C)return warn('Copy a frame first');if(m==='merge'){anPush(f);f.c.getContext('2d').drawImage(C.c,0,0);anDone(f)}else{anPushFr();const n=anFrame();n.c.getContext('2d').drawImage(C.c,0,0);n.d=C.d;n.s=C.s;AW.frames.splice(AW.cur+1,0,n);AW.cur++;anAll();anTouch();anStripScroll()}}
+ else if(m==='blank'){anPushFr();AW.frames.splice(AW.cur,0,anFrame());anAll();anTouch();anStripScroll()}
+ else if(m==='reverse'){if(AW.frames.length<2)return;anPushFr();AW.frames.reverse();AW.cur=AW.frames.length-1-AW.cur;anAll();anTouch();toast(t('Frames reversed'),'fa-arrow-right-arrow-left')}
+ else if(m==='bounce'){const n=AW.frames.length;if(n<3)return warn('Add at least three frames first');anPushFr();for(let i=n-2;i>=1;i--){const s=AW.frames[i],c=anFrame(anCopy(s.c));c.d=s.d;AW.frames.push(c)}anAll();anTouch();toast(t('Bounce added – it plays forward, then back'),'fa-arrows-left-right')}
+ else if(m==='holdall'){anPushFr();AW.frames.forEach(x=>x.d=f.d);anStrip();anBarUI();anTouch();toast(t('Every frame now stays')+' ×'+f.d,'fa-stopwatch')}}
+function anThumb(f){if(f.th)return f.th;const k=Math.min(150/AW.w,90/AW.h),c=mkC(AW.w*k,AW.h*k),x=c.getContext('2d');x.fillStyle=AW.paper;x.fillRect(0,0,c.width,c.height);x.drawImage(AW.bg.c,0,0,c.width,c.height);x.drawImage(f.c,0,0,c.width,c.height);x.drawImage(AW.fg.c,0,0,c.width,c.height);f.th=c;return c}
+function anStrip(){const S2=$('#awStrip');if(!S2)return;S2.innerHTML='';AW.frames.forEach((f,i)=>{const d=ae('button','anf'+(i===AW.cur?' on':''));d.dataset.i=i;const th=anThumb(f),cv=mkC(th.width,th.height);cv.getContext('2d').drawImage(th,0,0);d.appendChild(cv);
   const n=ae('span','anfn',String(i+1));d.appendChild(n);if(f.d>1)d.appendChild(ae('span','anfh','×'+f.d));if(f.s){const s=ae('span','anfs');s.innerHTML='<i class="fa-solid fa-volume-high"></i>';d.appendChild(s)}
-  d.onclick=()=>{if(AW.playing)anStop();anGo(i)};S.appendChild(d)});
- const add=ae('button','anf add');add.innerHTML='<i class="fa-solid fa-plus"></i>';add.title=t('Add a frame');add.onclick=()=>{AW.cur=AW.frames.length-1;anInsert(false)};S.appendChild(add)}
+  d.onclick=()=>{if(AW.playing)anStop();anGo(i)};d.draggable=true;
+  d.ondragstart=e=>{AW.dragI=i;try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i))}catch(_){}};d.ondragend=()=>{AW.dragI=null;$$('#awStrip .anf').forEach(x=>x.classList.remove('dropl','dropr'))};
+  d.ondragover=e=>{if(AW.dragI==null)return;e.preventDefault();const r=d.getBoundingClientRect(),rt=e.clientX>r.left+r.width/2;d.classList.toggle('dropl',!rt);d.classList.toggle('dropr',rt)};d.ondragleave=()=>d.classList.remove('dropl','dropr');
+  d.ondrop=e=>{if(AW.dragI==null)return;e.preventDefault();const r=d.getBoundingClientRect(),from=AW.dragI;AW.dragI=null;anMoveFrameTo(from,i+(e.clientX>r.left+r.width/2?1:0))};S2.appendChild(d)});
+ const add=ae('button','anf add');add.innerHTML='<i class="fa-solid fa-plus"></i>';add.title=t('Add a frame');add.onclick=()=>{anSettle();AW.cur=AW.frames.length-1;anInsert(false)};S2.appendChild(add)}
 function anStripSel(){$$('#awStrip .anf').forEach(b=>b.classList.toggle('on',+b.dataset.i===AW.cur));anStripScroll()}
 function anStripScroll(){const b=$('#awStrip .anf.on');if(b)b.scrollIntoView({block:'nearest',inline:'nearest'})}
 function anBarUI(){$('#awPlay').innerHTML=`<i class="fa-solid fa-${AW.playing?'pause':'play'}"></i>`;$('#awPlay').classList.toggle('on',AW.playing);$('#awLoop').classList.toggle('on',AW.loop);$('#awOnion').classList.toggle('on',AW.onion);
- $('#awFps').value=AW.fps;$('#awFpsV').textContent=AW.fps;const f=AW.frames[AW.cur];$('#awHoldV').textContent='×'+(f?f.d:1);$('#anUndo').disabled=!AW.undo.length;$('#anRedo').disabled=!AW.redo.length;
- const tot=AW.frames.reduce((s,f)=>s+f.d,0)/AW.fps;$('#awDur').textContent=AW.frames.length+' '+t(AW.frames.length===1?'frame':'frames')+' · '+tot.toFixed(1)+' s';$('#awStage').classList.toggle('playing',AW.playing)}
+ $('#awFps').value=AW.fps;$('#awFpsV').textContent=AW.fps;const f=AW.frames[AW.cur];$('#awHoldV').textContent='×'+(f?f.d:1);$('#awUndo').disabled=!AW.undo.length&&!AW.fl&&!AW.txt;$('#awRedo').disabled=!AW.redo.length;
+ const tot=AW.frames.reduce((s,f)=>s+f.d,0)/AW.fps;$('#awDur').textContent=AW.frames.length+' '+t(AW.frames.length===1?'frame':'frames')+' · '+tot.toFixed(1)+' s';$('#awStage').classList.toggle('playing',AW.playing);anFxUI()}
 
 /* ---------- playback ---------- */
 function anAC(){if(!AW.ac){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;AW.ac=new A();AW.master=AW.ac.createGain();AW.master.connect(AW.ac.destination)}if(AW.ac.state==='suspended')AW.ac.resume().catch(()=>{});return AW.ac}
@@ -17807,13 +18379,13 @@ function anFrameSound(f){if(!f||!f.s||MUTE)return;const b=anBufOf(f.s);if(b)anPl
 const anStart=i=>AW.frames.slice(0,i).reduce((s,f)=>s+f.d,0)/AW.fps;
 function anMusicAt(sec){anMusicStop();if(!AW.music||!AW.music.buf||MUTE)return;if(sec<AW.music.buf.duration)AW.music.src=anPlayBuf(AW.music.buf,AW.music.vol,sec)}
 function anMusicStop(){if(AW.music&&AW.music.src){try{AW.music.src.stop()}catch(e){}AW.music.src=null}}
-async function anPlay(){if(AW.frames.length<2)return warn('Add at least two frames to play your animation');anAC();await anSfxAll();
+async function anPlay(){if(AW.frames.length<2)return warn('Add at least two frames to play your animation');anSettle();anAC();await anSfxAll();
  AW.playing=true;if(AW.cur>=AW.frames.length-1)AW.cur=0;anUnderUp();anBarUI();let i=AW.cur,t0=performance.now()-anStart(i)*1000;anMusicAt(anStart(i));anFrameSound(AW.frames[i]);anGo(i);
  const tick=()=>{if(!AW.playing)return;const tot=anStart(AW.frames.length);let el=(performance.now()-t0)/1000;
   if(el>=tot){if(!AW.loop){anStop();return}t0+=tot*1000;el-=tot;anMusicAt(el);i=-1}
   let j=0,acc=0;while(j<AW.frames.length-1&&acc+AW.frames[j].d/AW.fps<=el){acc+=AW.frames[j].d/AW.fps;j++}
   if(j!==i){i=j;AW.cur=j;anDraw();anStripSel();anFrameSound(AW.frames[j])}AW.raf=requestAnimationFrame(tick)};AW.raf=requestAnimationFrame(tick)}
-function anStop(){if(!AW.playing)return;AW.playing=false;cancelAnimationFrame(AW.raf);anMusicStop();anUnderUp();anDraw();anBarUI();anSndUI()}
+function anStop(){if(!AW.playing)return;AW.playing=false;cancelAnimationFrame(AW.raf);anMusicStop();anUnderUp();anDraw();anBarUI();anSndUI();anLaysSoon()}
 
 /* ---------- sounds: built-in effects are made with the Web Audio API, so they work offline ---------- */
 function anSfx(k){if(AW.sfx[k])return Promise.resolve(AW.sfx[k]);const O=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!O)return Promise.resolve(null);
@@ -17833,7 +18405,7 @@ function anSfxAll(){return Promise.all([...new Set(AW.frames.map(f=>f.s).filter(
 async function anDecode(blob){const ac=anAC();if(!ac)throw Error('no audio');const ab=await blob.arrayBuffer();return await new Promise((ok,no)=>{const p=ac.decodeAudioData(ab,ok,no);if(p&&p.then)p.then(ok,no)})}
 async function anAddSound(blob,name){try{const buf=await anDecode(blob);if(buf.duration>30)return warn('That sound is longer than 30 seconds – add it as music instead');const u={id:'u:'+anId(),name:name||t('My sound'),buf,blob};AW.lib.push(u);anAttach(u.id,true);anTouch();toast(t('Sound added to frame')+' '+(AW.cur+1),'fa-volume-high')}catch(e){warn('That sound file could not be opened')}}
 async function anSetMusic(f){try{const buf=await anDecode(f);AW.music={name:f.name.replace(/\.[^.]+$/,'').slice(0,40),buf,blob:f,vol:.8};anSndUI();anTouch();toast(t('Music added – it plays from the first frame'),'fa-music')}catch(e){warn('That music file could not be opened')}}
-function anAttach(id,force){const f=AW.frames[AW.cur];if(!f)return;if(f.s===id&&!force)f.s=null;else f.s=id;f.blob=f.blob;anStrip();anSndUI();anTouch();if(f.s===id){const b=anBufOf(id);if(b)anPlayBuf(b,1);else if(id.startsWith('b:'))anSfx(id.slice(2)).then(b=>anPlayBuf(b,1))}}
+function anAttach(id,force){const f=AW.frames[AW.cur];if(!f)return;if(f.s===id&&!force)f.s=null;else f.s=id;anStrip();anSndUI();anTouch();if(f.s===id){const b=anBufOf(id);if(b)anPlayBuf(b,1);else if(id.startsWith('b:'))anSfx(id.slice(2)).then(b=>anPlayBuf(b,1))}}
 async function anRecord(){const B=$('#awRecB');if(AW.rec){try{AW.rec.stop()}catch(e){}return}
  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder)return warn('Recording is not available here – you can upload a sound file instead');
  let stream;try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){return warn('Could not use the microphone – allow it, or upload a sound file instead')}
@@ -17854,27 +18426,31 @@ const ANDB={p:null,open(){return this.p||(this.p=new Promise((ok,no)=>{if(!windo
  all(){return this.run('readonly',s=>s.getAll())},get(id){return this.run('readonly',s=>s.get(id))},put(o){return this.run('readwrite',s=>s.put(o))},del(id){return this.run('readwrite',s=>s.delete(id))}};
 const anBlob=c=>new Promise(ok=>c.toBlob(b=>ok(b),'image/png'));
 function anTouch(){clearTimeout(AW.saveT);AW.saveT=setTimeout(anSave,1200)}
-async function anSave(){if(!AW.id||AW.busy)return;const seq=++AW.seq;try{for(const f of AW.frames.concat([AW.bg]))if(!f.blob)f.blob=await anBlob(f.c);if(seq!==AW.seq)return;
+async function anSave(){if(!AW.id||AW.busy)return;const seq=++AW.seq;try{const fl=AW.fl;
+ const bl=async f=>{if(fl&&fl.o===f){const c=anCopy(f.c);anFlDrawTo(c.getContext('2d'),fl);return anBlob(c)}if(f.blob)return f.blob;const v=f.v,b=await anBlob(f.c);if(f.v===v)f.blob=b;return b};
+ const frames=[];for(const f of AW.frames)frames.push({b:await bl(f),d:f.d,s:f.s});const bg=await bl(AW.bg),fg=await bl(AW.fg);if(AW.trace&&!AW.trace.blob)AW.trace.blob=await anBlob(AW.trace.c);if(seq!==AW.seq)return;
  const th=anThumb(AW.frames[0]).toDataURL('image/jpeg',.7);
- await ANDB.put({id:AW.id,name:AW.name,w:AW.w,h:AW.h,paper:AW.paper,fps:AW.fps,loop:AW.loop,updated:Date.now(),th,bg:AW.bg.blob,frames:AW.frames.map(f=>({b:f.blob,d:f.d,s:f.s})),
+ await ANDB.put({id:AW.id,name:AW.name,w:AW.w,h:AW.h,paper:AW.paper,fps:AW.fps,loop:AW.loop,updated:Date.now(),th,bg,fg,frames,tr:AW.trace?{b:AW.trace.blob,a:AW.trace.a}:null,
   lib:AW.lib.map(u=>({id:u.id,name:u.name,b:u.blob,v:u.voice?1:0})),music:AW.music?{name:AW.music.name,b:AW.music.blob,vol:AW.music.vol}:null});LS.set('msan_last',AW.id)}catch(e){console.warn('anim save',e)}}
 async function anCanvasOf(blob){const c=mkC(AW.w,AW.h);if(blob){const u=URL.createObjectURL(blob);try{const i=await img(u);c.getContext('2d').drawImage(i,0,0)}finally{URL.revokeObjectURL(u)}}return c}
-async function anLoad(id){const p=await ANDB.get(id);if(!p)return false;if(AW.playing)anStop();AW.busy=true;try{
+function anReset(){AW.fl=null;AW.st=null;AW.lastPt=null;if(AW.txt){AW.txt=null;$('#awTxt').classList.add('hide')}AW.cur=0;AW.undo=[];AW.redo=[];AW.layer='f'}
+async function anLoad(id){const p=await ANDB.get(id);if(!p)return false;if(AW.playing)anStop();AW.busy=true;try{anReset();
  AW.id=p.id;AW.name=p.name||'';AW.paper=p.paper||'#ffffff';AW.fps=p.fps||8;AW.loop=p.loop!==false;anResize(p.w,p.h);
- AW.bg={c:await anCanvasOf(p.bg),blob:p.bg||null};AW.frames=[];for(const f of p.frames){const fr=anFrame(await anCanvasOf(f.b));fr.d=f.d||1;fr.s=f.s||null;fr.blob=f.b||null;AW.frames.push(fr)}if(!AW.frames.length)AW.frames.push(anFrame());
+ AW.bg={c:await anCanvasOf(p.bg),blob:p.bg||null,v:0};AW.fg={c:await anCanvasOf(p.fg),blob:p.fg||null,v:0};AW.frames=[];for(const f of p.frames){const fr=anFrame(await anCanvasOf(f.b));fr.d=f.d||1;fr.s=f.s||null;fr.blob=f.b||null;AW.frames.push(fr)}if(!AW.frames.length)AW.frames.push(anFrame());
+ AW.trace=null;if(p.tr&&p.tr.b){try{AW.trace={c:await anCanvasOf(p.tr.b),a:p.tr.a||.4,blob:p.tr.b}}catch(e){}}
  AW.lib=[];for(const u of p.lib||[]){try{AW.lib.push({id:u.id,name:u.name,blob:u.b,voice:u.v,buf:await anDecode(u.b)})}catch(e){}}
  AW.music=null;if(p.music&&p.music.b){try{AW.music={name:p.music.name,blob:p.music.b,vol:p.music.vol==null?.8:p.music.vol,buf:await anDecode(p.music.b)}}catch(e){}}
- AW.cur=0;AW.undo=[];AW.redo=[];AW.layer='f'}finally{AW.busy=false}anUI();LS.set('msan_last',AW.id);return true}
-function anUI(){$('#awName').value=AW.name;anPaperUI();anLayerUI();anAll();anSndUI();anFit()}
-function anNewDoc(w,h,start){if(AW.playing)anStop();AW.id=anId();AW.name='';AW.fps=8;AW.loop=true;AW.paper='#ffffff';anResize(w,h);AW.bg={c:mkC(w,h),blob:null};AW.frames=[anFrame()];AW.lib=[];AW.music=null;AW.cur=0;AW.undo=[];AW.redo=[];AW.layer='f';
+ }finally{AW.busy=false}anUI();LS.set('msan_last',AW.id);return true}
+function anUI(){$('#awName').value=AW.name;anPaperUI();anLayerUI();anTraceUI();anAll();anSndUI();anFit()}
+function anNewDoc(w,h,start){if(AW.playing)anStop();anReset();AW.id=anId();AW.name='';AW.fps=8;AW.loop=true;AW.paper='#ffffff';anResize(w,h);AW.bg={c:mkC(w,h),blob:null,v:0};AW.fg={c:mkC(w,h),blob:null,v:0};AW.trace=null;AW.frames=[anFrame()];AW.lib=[];AW.music=null;
  if(start==='ball')anStarterBall();else if(start==='walk')anStarterWalk();else if(start==='flip')anStarterFlip();
  anUI();anSave();if(start!=='blank')toast(t('Press play to watch it – then change it or add your own frames'),'fa-play')}
 async function anShow(){anSetup();if(!AW.id){let ok=false;const last=LS.get('msan_last','');if(last){try{ok=await anLoad(last)}catch(e){}}if(!ok){anNewDoc(960,540,'blank');setTimeout(()=>{if(document.body.classList.contains('modeanim')&&!LS.get('msan_tip',0)){LS.set('msan_tip',1);anHelp()}},400)}}
- anTool(AW.tool);anColor(AW.color);anUI();anSfx('pop')}
-function anLeave(){if(AW.playing)anStop();if(AW.id&&AW.inited)anSave()}
-function anHelp(){dlg(t('Welcome to the Animation Workshop! Draw on frame 1, press + to add the next frame and draw it a little different. The faded red drawing is the frame before (onion skin), so you can see where to draw. Press play to watch it move, and tap a sound to add it to a frame.'),{ok:t('Let’s animate!'),noCancel:true})}
+ anTool(AW.tool);anColorUI();anRecUI();anUI();anSfx('pop')}
+function anLeave(){if(AW.playing)anStop();if(AW.inited)anSettle();if(AW.id&&AW.inited)anSave()}
+function anHelp(){dlg(t('Welcome to the Animation Workshop! Draw on frame 1, press + to add the next frame and draw it a little different. The faded red drawing is the frame before (onion skin), so you can see where to draw. Every brush from the drawing canvas is here, plus shapes, text and selection. Press play to watch it move, and tap a sound to add it to a frame.'),{ok:t('Let’s animate!'),noCancel:true})}
 /* starters */
-function anStarterBall(){AW.bg.c.getContext('2d');const g=AW.bg.c.getContext('2d'),W2=AW.w,H2=AW.h,fl=H2*.82;g.fillStyle='#bae6fd';g.fillRect(0,0,W2,fl);g.fillStyle='#86efac';g.fillRect(0,fl,W2,H2-fl);g.fillStyle='#fde047';g.beginPath();g.arc(W2*.86,H2*.17,H2*.08,0,TAU);g.fill();
+function anStarterBall(){const g=AW.bg.c.getContext('2d'),W2=AW.w,H2=AW.h,fl=H2*.82;g.fillStyle='#bae6fd';g.fillRect(0,0,W2,fl);g.fillStyle='#86efac';g.fillRect(0,fl,W2,H2-fl);g.fillStyle='#fde047';g.beginPath();g.arc(W2*.86,H2*.17,H2*.08,0,TAU);g.fill();
  AW.frames=[];const N=12,R=H2*.07;for(let i=0;i<N;i++){const f=anFrame(),x=f.c.getContext('2d'),u=i/N,h=Math.abs(Math.cos(u*Math.PI)),sq=h<.18?1-(.18-h)*1.6:1,cy=fl-R*sq-h*H2*.55,cx=W2*.42;
   x.fillStyle='#0000001f';x.beginPath();x.ellipse(cx,fl+3,R*(1.2-h*.5),R*.22*(1-h*.4),0,0,TAU);x.fill();x.fillStyle='#ef4444';x.strokeStyle='#7f1d1d';x.lineWidth=4;x.beginPath();x.ellipse(cx,cy,R/sq*.98,R*sq,0,0,TAU);x.fill();x.stroke();x.fillStyle='#ffffff99';x.beginPath();x.ellipse(cx-R*.35,cy-R*.35*sq,R*.22,R*.15,-.6,0,TAU);x.fill();
   if(i===0)f.s='b:boing';AW.frames.push(f)}AW.fps=12;AW.name=t('Bouncing ball')}
@@ -17889,23 +18465,22 @@ function anStarterFlip(){const W2=AW.w,H2=AW.h,s=Math.min(W2,H2)/540;AW.frames=[
   x.fillStyle='#1e293b';if(bl){x.beginPath();x.moveTo(cx-70*s,cy-35*s);x.lineTo(cx-30*s,cy-35*s);x.moveTo(cx+30*s,cy-35*s);x.lineTo(cx+70*s,cy-35*s);x.stroke()}else{x.beginPath();x.arc(cx-50*s,cy-35*s,14*s,0,TAU);x.arc(cx+50*s,cy-35*s,14*s,0,TAU);x.fill()}
   const sm=i<3?i/2:(5-i)/2;x.beginPath();x.arc(cx,cy+20*s,70*s,.15*Math.PI+.1*(1-sm),.85*Math.PI-.1*(1-sm));x.stroke();if(i===3)f.s='b:pop';AW.frames.push(f)}AW.fps=6;AW.name=t('Blinking smiley')}
 /* New and My animations */
-function anNewOpen(){if(AW.playing)anStop();show('#awNewM')}
-async function anOpenList(){if(AW.playing)anStop();await anSave();const L=$('#awList');L.innerHTML='';show('#awOpenM');let all=[];try{all=await ANDB.all()}catch(e){}all.sort((a,b)=>b.updated-a.updated);
+function anNewOpen(){if(AW.playing)anStop();anSettle();show('#awNewM')}
+async function anOpenList(){if(AW.playing)anStop();anSettle();await anSave();const L=$('#awList');L.innerHTML='';show('#awOpenM');let all=[];try{all=await ANDB.all()}catch(e){}all.sort((a,b)=>b.updated-a.updated);
  if(!all.length){const d=ae('div','wsempty');d.innerHTML='<i class="fa-solid fa-film"></i><span></span>';d.lastChild.textContent=t('No animations yet.');L.appendChild(d);return}
  all.forEach(p=>{const d=ae('div','anli'+(p.id===AW.id?' on':''));d.innerHTML='<img alt=""><div><b></b><small class="mut"></small></div><button class="b sm" title=""><i class="fa-solid fa-trash"></i></button>';d.querySelector('img').src=p.th||'';d.querySelector('b').textContent=p.name||t('Untitled');
   d.querySelector('small').textContent=p.frames.length+' '+t(p.frames.length===1?'frame':'frames')+' · '+ago(p.updated);const del=d.querySelector('button');del.title=t('Delete');
   del.onclick=async e=>{e.stopPropagation();if(!await dlg(t('Delete this animation? This cannot be undone.'),{ok:t('Delete')}))return;await ANDB.del(p.id);if(p.id===AW.id){AW.id=null;LS.set('msan_last','');anNewDoc(960,540,'blank')}anOpenList()};
   d.onclick=async()=>{show('#awOpenM',false);try{await anLoad(p.id)}catch(e){warn('This animation could not be opened')}};L.appendChild(d)})}
 /* the current frame as a new layer in the drawing */
-function anToDraw(){const f=AW.frames[AW.cur],c=mkC(AW.w,AW.h),x=c.getContext('2d');x.drawImage(AW.bg.c,0,0);x.drawImage(f.c,0,0);setMode('draw');placeImage(c,t('Frame')+' '+(AW.cur+1));toast(t('Added to your canvas as a new layer'),'fa-layer-group')}
-function anPasteImage(i){const f=anTgt();anPush(f);const k=Math.min(AW.w/i.width,AW.h/i.height,1),w=i.width*k,h=i.height*k;f.c.getContext('2d').drawImage(i,(AW.w-w)/2,(AW.h-h)/2,w,h);anDone(f);toast(t('Picture added to the frame'),'fa-image')}
+function anToDraw(){anSettle();const f=AW.frames[AW.cur],c=mkC(AW.w,AW.h),x=c.getContext('2d');x.drawImage(AW.bg.c,0,0);x.drawImage(f.c,0,0);x.drawImage(AW.fg.c,0,0);setMode('draw');placeImage(c,t('Frame')+' '+(AW.cur+1));toast(t('Added to your canvas as a new layer'),'fa-layer-group')}
 
 /* ---------- export: video with sound, GIF, sprite sheet, picture ---------- */
-function anExportOpen(){if(AW.playing)anStop();show('#awExpP',false);$('#awExpGo').disabled=false;anExpUI();show('#awExpM')}
+function anExportOpen(){if(AW.playing)anStop();anSettle();show('#awExpP',false);$('#awExpGo').disabled=false;anExpUI();show('#awExpM')}
 function anExpUI(){const k=($('#awExpK button.on')||{dataset:{k:'video'}}).dataset.k;$('#awExpRep').closest('label').classList.toggle('hide',k==='sheet'||k==='png');
  $('#awExpNote').textContent=t({video:window.MediaRecorder?'A video with all your sounds and music – plays on phones, computers and video sites.':'Video export is not available on this device – try GIF.',gif:'A moving picture that plays everywhere – GIFs have no sound.',sheet:'All frames in one picture, like a sprite sheet for games.',png:'Just the frame you are on, as a picture.'}[k])}
 const anSleep=ms=>new Promise(r=>setTimeout(r,ms));
-function anComp(f,x,w,h){x.fillStyle=AW.paper;x.fillRect(0,0,w,h);x.drawImage(AW.bg.c,0,0,w,h);x.drawImage(f.c,0,0,w,h)}
+function anComp(f,x,w,h){x.fillStyle=AW.paper;x.fillRect(0,0,w,h);x.drawImage(AW.bg.c,0,0,w,h);x.drawImage(f.c,0,0,w,h);x.drawImage(AW.fg.c,0,0,w,h)}
 function anProg(p,txt){show('#awExpP');$('#awExpP i').style.width=Math.round(p*100)+'%';if(txt)$('#awExpP span').textContent=txt}
 async function anExportGo(){const k=($('#awExpK button.on')||{dataset:{k:'video'}}).dataset.k,rep=+$('#awExpRep').value||1,name=(AW.name||t('My animation')).replace(/[\\/:*?"<>|]+/g,'').slice(0,50)||'animation';
  $('#awExpGo').disabled=true;try{
@@ -17948,7 +18523,7 @@ function anCode(c,q,meta){let u=c.toDataURL('image/webp',q),m='w';if(!u.startsWi
  const bin=atob(u.split(',')[1])+AN_TAG+JSON.stringify(meta);return{code:'MSART1:'+m+':'+btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''),url:'data:'+(m==='w'?'image/webp':'image/jpeg')+';base64,'+btoa(bin)}}
 function anSheet(sc){const n=Math.min(AW.frames.length,60),fw=Math.max(16,Math.round(AW.w*sc)),fh=Math.max(16,Math.round(AW.h*sc)),cols=Math.max(1,Math.min(n,Math.round(Math.sqrt(n*fh/fw)))),rows=Math.ceil(n/cols),c=mkC(cols*fw,rows*fh),x=c.getContext('2d');
  for(let i=0;i<n;i++){x.save();x.translate((i%cols)*fw,((i/cols)|0)*fh);anComp(AW.frames[i],x,fw,fh);x.restore()}return{c,meta:{n,c:cols,fw,fh,fps:AW.fps,d:AW.frames.slice(0,n).map(f=>f.d),l:AW.loop?1:0}}}
-function anShareOpen(){if(AW.playing)anStop();if(AW.frames.length<2)return warn('Add at least two frames before you share your animation');if(MSC.cfg().paused)return warn('Sharing is paused by the MasterSketch team right now.');
+function anShareOpen(){if(AW.playing)anStop();anSettle();if(AW.frames.length<2)return warn('Add at least two frames before you share your animation');if(MSC.cfg().paused)return warn('Sharing is paused by the MasterSketch team right now.');
  const c=mkC(AW.w,AW.h);anComp(AW.frames[0],c.getContext('2d'),AW.w,AW.h);$('#awShImg').src=c.toDataURL('image/jpeg',.8);$('#awShT').value=AW.name;$('#awShN').value=LS.get('msu8_author','');$('#awShD').value='';
  $('#awShInfo').textContent=AW.frames.length+' '+t('frames')+' · '+AW.fps+' fps'+(AW.frames.length>60?' · '+t('the first 60 frames are shared'):'');show('#awShM');setTimeout(()=>$('#awShT').focus(),60)}
 async function anShareGo(){const ti=$('#awShT').value.trim(),by=$('#awShN').value.trim(),d=$('#awShD').value.trim();if(ti.length<2){warn('Give your animation a title');return $('#awShT').focus()}LS.set('msu8_author',by);
@@ -17971,16 +18546,35 @@ function anBadge(){const s=ae('span','anbadge');s.innerHTML='<i class="fa-solid 
  const add=$('#arVadd'),tr=$('#arVtr');add.querySelector('span').textContent=t('Add to my canvas');tr.classList.remove('hide');const tm=anMeta(it.th);if(!tm)return;
  tr.classList.add('hide');add.querySelector('span').textContent=t('Open in Animation Workshop');
  artFull(it).then(u=>{const m=anMeta(u);if(!m||ART.cur!==it)return;vi.classList.add('hide');box.appendChild(anPlayer(u,m));add.onclick=async()=>{show('#arV',false);try{await anFromSheet(u,m,it.t)}catch(e){warn('This animation could not be opened')}}}).catch(()=>{})}}
-/* keys in the Animation Workshop */
-addEventListener('keydown',e=>{if(!document.body.classList.contains('modeanim'))return;const el=document.activeElement;if(el&&el.matches('input,select,textarea'))return;if(document.querySelector('.modal:not(.hide)'))return;
- const k=e.key.toLowerCase(),c=e.ctrlKey||e.metaKey;if(k==='escape')return;let h=true;
- if(c&&k==='z'){e.shiftKey?anRedo():anUndo()}else if(c&&k==='y')anRedo();else if(c&&k==='s'){anSave();toast(t('Saved'),'fa-check')}else if(c&&k==='d')anInsert(true);else if(c){h=false}
- else if(k===' '||k==='enter'){AW.playing?anStop():anPlay()}else if(k===','||k==='arrowleft')anGo(AW.cur-1);else if(k==='.'||k==='arrowright')anGo(AW.cur+1);else if(k==='home')anGo(0);else if(k==='end')anGo(AW.frames.length-1);
- else if(k==='n'||k==='+')anInsert(false);else if(k==='delete'||k==='backspace')anDelete();else if(k==='['){AW.size=Math.max(1,AW.size-2);$('#awSize').value=AW.size;$('#awSizeV').textContent=AW.size}else if(k===']'){AW.size=Math.min(60,AW.size+2);$('#awSize').value=AW.size;$('#awSizeV').textContent=AW.size}
- else if(k==='k'){AW.onion=!AW.onion;anBarUI();anUnderUp();anDraw()}else{const tl=AN_TOOLS.find(x=>x[3]===k);if(tl)anTool(tl[0]);else h=false}
- e.preventDefault();e.stopImmediatePropagation();if(!h)return},true);
-addEventListener('paste',async e=>{if(!document.body.classList.contains('modeanim'))return;const el=document.activeElement;if(el&&el.matches('input,textarea'))return;const f=[...(e.clipboardData?.files||[])].find(x=>x.type.startsWith('image/'));e.stopImmediatePropagation();e.preventDefault();if(f){try{anPasteImage(await readImg(f))}catch(_){warn('Could not read that image')}}},true);
-addEventListener('drop',e=>{if(!document.body.classList.contains('modeanim'))return;e.preventDefault();e.stopImmediatePropagation();const f=e.dataTransfer&&e.dataTransfer.files[0];if(!f)return;
+
+/* labels made in code follow a language change too */
+function anRelabel(){AN_TOOLS.forEach(([id,ic,nm,k])=>{const b=$(`#awTools [data-at="${id}"]`);if(b)b.title=t(nm)+' ('+k+')'});$('#awUndo').title=t('Undo (Ctrl+Z)');$('#awRedo').title=t('Redo (Ctrl+Y)');
+ [...$('#awSym').options].forEach((o,i)=>o.textContent=t(AN_SYM[i][1]));[['#awShapeK',AN_SHAPES],['#awSelK',AN_SELS]].forEach(([id,arr])=>$$(id+' button').forEach((b,i)=>b.title=t(arr[i][2])));
+ $$('#awFx .anfxb span').forEach((s,i)=>s.textContent=t(AN_FX[i][2]));$$('#awSizes .ansz b').forEach((b,i)=>b.textContent=t(AN_SIZES[i][1]));
+ anFontUI();anPalOpts();anFxUI();anSndUI();if(AW.frames.length){anLayerUI();anBarUI();anStrip()}if(AW.tab==='brush')anBrushUI();if(AW.tab==='layer')anLaysUI()}
+{const al=applyLang;applyLang=function(){al();if(AW.inited)anRelabel()}}
+
+/* ---------- keys in the Animation Workshop ---------- */
+addEventListener('keydown',e=>{if(!document.body.classList.contains('modeanim'))return;const el=document.activeElement,k=e.key.toLowerCase(),c=e.ctrlKey||e.metaKey;
+ if(el&&el.matches('select,textarea,input:not([type=range]):not([type=checkbox])'))return;if(el&&el.matches('input')&&k.startsWith('arrow'))return;if(document.querySelector('.modal:not(.hide)'))return;
+ if(k==='escape'){if(AW.txt)anTxtCancel();else if(AW.fl)anFlCancel();else if(AW.st&&AW.st.k==='sel'){AW.st=null;anDraw()}else if(!$('#awFrMenu').classList.contains('hide'))$('#awFrMenu').classList.add('hide');else return;e.preventDefault();e.stopImmediatePropagation();return}
+ let h=true;
+ if(c&&k==='z'){e.shiftKey?anRedo():anUndo()}else if(c&&k==='y')anRedo();else if(c&&k==='s'){anSave();toast(t('Saved'),'fa-check')}else if(c&&k==='d')anInsert(true);
+ else if(c&&k==='c')anCopySel(false);else if(c&&k==='x')anCopySel(true);else if(c&&k==='a')anSelectAll();
+ else if(c&&(k==='='||k==='+'))anZoomAt(AW.z*1.25);else if(c&&k==='-')anZoomAt(AW.z/1.25);else if(c&&k==='0')anZoomFit();else if(c){h=false}
+ else if(AW.fl&&k.startsWith('arrow')){const d=e.shiftKey?10:1;AW.fl.x+=k==='arrowleft'?-d:k==='arrowright'?d:0;AW.fl.y+=k==='arrowup'?-d:k==='arrowdown'?d:0;anDraw()}
+ else if(AW.fl&&k==='enter')anFlCommit();else if(AW.fl&&(k==='delete'||k==='backspace'))anFlDelete();
+ else if(k===' '){if(!e.repeat){AW.space=true;AW.spaceUsed=false;anCursor()}}
+ else if(k==='enter'){AW.playing?anStop():anPlay()}else if(k===','||k==='arrowleft')anGo(AW.cur-1);else if(k==='.'||k==='arrowright')anGo(AW.cur+1);else if(k==='home')anGo(0);else if(k==='end')anGo(AW.frames.length-1);
+ else if(k==='n'||k==='+')anInsert(false);else if(k==='delete'||k==='backspace')anDelete();else if(k==='['||k===']')anSetSize(AW.size+(k===']'?1:-1)*Math.max(1,Math.round(AW.size*.15)));
+ else if(k==='x')anSwapColors();else if(k==='k'){AW.onion=!AW.onion;anBarUI();anUnderUp();anDraw()}else if(k==='-')anZoomAt(AW.z/1.25);else if(k==='=')anZoomAt(AW.z*1.25);else if(k==='0')anZoomFit();
+ else{const m=AN_KEYS[k];if(m&&!e.altKey){if(m[1]){if(m[0]==='brush')AW.brush=m[1];else if(m[0]==='shape')AW.shapeK=m[1];else AW.selK=m[1]}anTool(m[0]);anPref();if(AW.tab==='brush')anBrushUI()}else h=false}
+ if(!h)return;e.preventDefault();e.stopImmediatePropagation()},true);
+addEventListener('keyup',e=>{if(!document.body.classList.contains('modeanim')||e.key!==' '||!AW.space)return;AW.space=false;anCursor();const el=document.activeElement;
+ if(!AW.spaceUsed&&!(el&&el.matches('select,textarea,input:not([type=range]):not([type=checkbox])'))&&!document.querySelector('.modal:not(.hide)'))AW.playing?anStop():anPlay();e.preventDefault();e.stopImmediatePropagation()},true);
+addEventListener('paste',async e=>{if(!document.body.classList.contains('modeanim'))return;const el=document.activeElement;if(el&&el.matches('input,textarea'))return;const f=[...(e.clipboardData?.files||[])].find(x=>x.type.startsWith('image/'));e.stopImmediatePropagation();e.preventDefault();
+ if(f){try{anPasteImage(await readImg(f))}catch(_){warn('Could not read that image')}}else if(AW.clip)anPasteSel()},true);
+addEventListener('drop',e=>{if(!document.body.classList.contains('modeanim')||AW.dragI!=null)return;e.preventDefault();e.stopImmediatePropagation();const f=e.dataTransfer&&e.dataTransfer.files[0];if(!f)return;
  if(f.type.startsWith('image/'))readImg(f).then(anPasteImage,()=>warn('Could not read that image'));else if(f.type.startsWith('audio/'))anAddSound(f,f.name.replace(/\.[^.]+$/,'').slice(0,24))},true);
 addEventListener('visibilitychange',()=>{if(document.hidden&&AW.id&&AW.inited)anSave()});
 
@@ -18135,7 +18729,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
@@ -18149,8 +18743,8 @@ $('#stInspR').onclick=()=>{$('#stInspT').textContent=inspNew()};$('#stInspT').on
 /* ---------- App & mobile glue ---------- */
 window.msAutosave=async()=>{if(!dirty||!SET.autosave)return;try{await cacheNow();await store.set('autosave',{date:new Date().toLocaleString(),name:$('#pname').value,data:ser()})}catch(e){}};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)window.msAutosave()});
-window.msBack=()=>{if(FLY.on){flyStop();return true}if(PG.on){pgStop();return true}if(st){cancelStroke();return true}if(in3D()&&document.querySelector('.s3p.open')){closeS3Panels();return true}
- const open=['#dlg','#formM','#anNewM','#anOpenM','#anExpM','#anShM','#xPicM','#xDayM','#xMixM','#xGuessM','#shpM','#pubM','#codeM','#wsHelpM','#newM','#inspM','#statsM','#tileM','#palM','#setM','#keysM','#tlM','#expM','#projM','#menuM','#startM'].find(s=>!$(s).classList.contains('hide'));
+window.msBack=()=>{if(document.body.classList.contains('modeanim')&&AW.inited){if($('#awSide').classList.contains('open')){$('#awSide').classList.remove('open');return true}if(AW.txt){anTxtCancel();return true}if(AW.fl){anFlCommit();return true}}if(FLY.on){flyStop();return true}if(PG.on){pgStop();return true}if(st){cancelStroke();return true}if(in3D()&&document.querySelector('.s3p.open')){closeS3Panels();return true}
+ const open=['#dlg','#formM','#awNewM','#awOpenM','#awExpM','#awShM','#xPicM','#xDayM','#xMixM','#xGuessM','#shpM','#pubM','#codeM','#wsHelpM','#newM','#inspM','#statsM','#tileM','#palM','#setM','#keysM','#tlM','#expM','#projM','#menuM','#startM'].find(s=>!$(s).classList.contains('hide'));
  if(open){if(open==='#dlg')$('#dlgNo').click();else if(open==='#formM')$('#formNo').click();else show(open,false);return true}
  for(const pp of['#brushPop','#fontPop','#emojiPop'])if(!$(pp).classList.contains('hide')){$(pp).classList.add('hide');return true}if(!$('#ctx').classList.contains('hide')){hideCtx();return true}if(!$('#flyout').classList.contains('hide')){closeFly();return true}
  if($('#side').classList.contains('open')){$('#side').classList.remove('open');return true}if(document.body.classList.contains('focus')){toggleFocus(false);return true}return false};
