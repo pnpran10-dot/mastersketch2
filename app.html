@@ -1475,9 +1475,53 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
 #accOff{align-self:center;font-size:13px}
 .accev .adperson.accnew{box-shadow:inset 3px 0 0 #10b981}
 .acclive{font-size:11.5px}
+
+/* ---------- v20: player profile ---------- */
+header .b.me{padding:0 3px;min-width:var(--bh)}
+.meav{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:12.5px;background:var(--p3) center/cover no-repeat;box-shadow:0 0 0 2px var(--p),0 0 0 3.5px var(--ac)}
+.meav i{color:var(--mu);font-size:12px}
+.card.prf{width:min(560px,calc(100vw - 24px));max-width:560px;overflow:hidden;max-height:min(88vh,900px);display:flex;flex-direction:column;gap:8px;padding-bottom:10px}
+.prfbody{overflow:auto;display:flex;flex-direction:column;gap:12px;padding:2px 2px 6px;margin:0 -2px;overscroll-behavior:contain}
+.prfhead{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.prfpic{width:96px;height:96px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:40px;font-weight:800;background:var(--p3) center/cover no-repeat;
+ box-shadow:0 0 0 3px var(--p),0 0 0 6px var(--ring,var(--ac));cursor:pointer;margin:6px;transition:transform .15s}
+.prfpic:hover{transform:scale(1.04)}
+.prfwho{flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px}
+.prfwho b{font-size:21px;overflow-wrap:anywhere}
+.prfpicb{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.prfpicb .btn{font-size:12.5px;flex:none;white-space:nowrap}
+.prfsec{display:flex;flex-direction:column;gap:8px;padding:12px 13px;border-radius:var(--r);background:var(--p2);border:1px solid var(--ln)}
+.prfsec h4{margin:0;font-size:14px;display:flex;align-items:center;gap:7px}
+.prfsec h4 i{color:var(--ac)}
+.prfsec small{line-height:1.45}
+.prfsec input:not([type=checkbox]):not([type=color]),.prfsec textarea,.prfsec select,.accc .fld input{font-size:15px;padding:9px 11px;width:100%;box-sizing:border-box;background:var(--bg);border:1px solid var(--ln);border-radius:9px;color:var(--tx);outline:0}
+.prfsec input:focus,.prfsec textarea:focus,.prfsec select:focus,.accc .fld input:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--acs)}
+.prfsec textarea{resize:vertical;min-height:70px;font-family:inherit}
+.prfsec input[type=color]{width:100%;height:40px;padding:2px;border-radius:9px;border:1px solid var(--ln);background:var(--p)}
+.prfrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.prfrow input:not([type=checkbox]){flex:1;min-width:150px;width:auto}
+.prfrow .btn{flex:none}
+.prfgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.prfcnt{align-self:flex-end;margin-top:-4px;font-variant-numeric:tabular-nums}
+.prfsty{display:flex;flex-wrap:wrap;gap:6px}
+.prfchip{padding:6px 11px;border-radius:99px;border:1px solid var(--ln);background:var(--p);color:var(--mu);font-size:12.5px;cursor:pointer}
+.prfchip:hover{color:var(--tx)}
+.prfchip.on{background:var(--acs);color:var(--tx);border-color:var(--ac)}
+.prfstat{display:flex;gap:7px;align-items:flex-start;font-size:13px;line-height:1.4}
+.prfstat i{margin-top:2px}.prfstat span{color:var(--tx)}
+.prfcode{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.prfcode .fld{flex:1;min-width:160px}
+.prfcode input{letter-spacing:5px;font-variant-numeric:tabular-nums}
+.prfout{align-self:center}
+#prfSave{align-self:flex-start}
+.accl{display:flex;justify-content:center;gap:14px}
+.accl .lnk{font-size:13px}
+#accC{letter-spacing:5px;font-variant-numeric:tabular-nums}
+.accbio{display:block;font-style:italic;overflow-wrap:anywhere}
+.adperson .adav{background-size:cover;background-position:center}
 </style></head>
 <body>
-<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 8.1</div></div>
+<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 8.2</div></div>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
  <div class="brand"><span class="mark"><i class="fa-solid fa-pen-nib"></i></span><b>MasterSketch</b><small class="ver">PRO</small></div>
@@ -1492,6 +1536,7 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
  <button class="b" id="redo" title="Redo" data-i18t disabled><i class="fa-solid fa-rotate-right"></i></button>
  <i class="vr"></i>
  <button class="b t" id="projB" title="Projects" data-i18t><i class="fa-solid fa-folder-open"></i><span data-i18n>Projects</span></button>
+ <button class="b me" id="meB" title="My profile"><span class="meav" id="meAv"></span></button>
  <button class="b" id="setB" title="Settings" data-i18t><i class="fa-solid fa-gear"></i></button>
  <button class="b t pri" id="expB" title="Export" data-i18t><i class="fa-solid fa-download"></i><span data-i18n>Export</span></button>
  <button class="b" id="sideB" title="Panels" data-i18t><i class="fa-solid fa-sliders"></i></button>
@@ -2293,15 +2338,66 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
 <div id="accM" class="modal accm hide"><div class="card accc">
  <div class="acchero"><span class="mark big"><i class="fa-solid fa-pen-nib"></i></span><h2 id="accH">Welcome to MasterSketch!</h2><p class="mut" id="accP"></p></div>
  <div class="segs acctab" id="accTab"><button data-v="new" class="on" data-i18n>New player</button><button data-v="in" data-i18n>I have an account</button></div>
- <label class="fld"><span data-i18n>Player name</span><input id="accN" maxlength="20" autocomplete="username" spellcheck="false" autocapitalize="off"></label>
+ <label class="fld"><span id="accNl">Player name</span><input id="accN" maxlength="20" autocomplete="username" spellcheck="false" autocapitalize="off"></label>
  <small class="mut acchint" id="accNh"><i class="fa-solid fa-mask"></i> <span data-i18n>Make up a fun name – not your real name. Nobody else can have the same name.</span></small>
- <label class="fld"><span data-i18n>Password</span><input id="accW" type="password" maxlength="64" autocomplete="new-password"></label>
+ <label class="fld hide" id="accCb"><span data-i18n>6-digit code from the e-mail</span><input id="accC" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="123456"></label>
+ <label class="fld" id="accWb"><span id="accWl">Password</span><input id="accW" type="password" maxlength="64" autocomplete="new-password"></label>
  <label class="fld" id="accW2b"><span data-i18n>Type the password again</span><input id="accW2" type="password" maxlength="64" autocomplete="new-password"></label>
  <label class="chk"><input type="checkbox" id="accShow"> <span data-i18n>Show password</span></label>
  <div class="accerr hide" id="accE"></div>
  <button class="btn pri accgo" id="accGo"><i class="fa-solid fa-right-to-bracket"></i><span id="accGoT">Create my account</span></button>
  <button class="lnk hide" id="accOff" data-i18n>Play offline for now</button>
+ <div class="accl"><button class="lnk hide" id="accFg" data-i18n>Forgot password?</button><button class="lnk hide" id="accBk" data-i18n>Back to log in</button></div>
  <small class="mut accfine"><i class="fa-solid fa-shield-heart"></i> <span data-i18n>Your password is kept secret – not even the MasterSketch team can read it. Don’t use a password from another app.</span></small>
+</div></div>
+<div id="prfM" class="modal hide"><div class="card prf">
+ <h3><span><i class="fa-solid fa-id-badge"></i>&nbsp; <span data-i18n>My profile</span></span><button class="b sm" data-close title="Close" data-i18t><i class="fa-solid fa-xmark"></i></button></h3>
+ <div class="prfbody">
+  <div class="prfhead">
+   <button class="prfpic" id="prfPic" title="Change picture" data-i18t></button>
+   <div class="prfwho"><b id="prfName"></b><small class="mut" id="prfStats"></small>
+    <div class="prfpicb"><button class="btn" id="prfUp"><i class="fa-solid fa-image"></i><span data-i18n>Upload a picture</span></button><button class="btn" id="prfDraw"><i class="fa-solid fa-paintbrush"></i><span data-i18n>Use my drawing</span></button><button class="btn hide" id="prfPicX" title="Remove picture" data-i18t><i class="fa-solid fa-trash"></i></button></div>
+   </div>
+   <input type="file" id="prfFile" accept="image/*" class="hide">
+  </div>
+
+  <section class="prfsec"><h4><i class="fa-solid fa-signature"></i> <span data-i18n>Player name</span></h4>
+   <div class="prfrow"><input id="prfN" maxlength="20" spellcheck="false" autocapitalize="off"><button class="btn" id="prfNGo"><span data-i18n>Change name</span></button></div>
+   <small class="mut" data-i18n>Make up a fun name – not your real name. Nobody else can have the same name.</small>
+   <div class="accerr hide" id="prfE1"></div></section>
+
+  <section class="prfsec"><h4><i class="fa-solid fa-face-smile"></i> <span data-i18n>About me</span></h4>
+   <textarea id="prfBio" maxlength="200" rows="3" placeholder="I love drawing dragons and space!" data-i18p></textarea><small class="mut prfcnt" id="prfCnt"></small>
+   <div class="prfgrid">
+    <label class="fld"><span data-i18n>Favourite thing to draw</span><input id="prfFav" maxlength="40" placeholder="Cats" data-i18p></label>
+    <label class="fld"><span data-i18n>Country</span><input id="prfPlace" maxlength="40" placeholder="Thailand" data-i18p></label>
+    <label class="fld"><span data-i18n>Birthday month</span><select id="prfBday"><option value="">–</option></select></label>
+    <label class="fld"><span data-i18n>Favourite colour</span><input type="color" id="prfCol" value="#7c8cff"></label>
+   </div>
+   <span class="fld"><span data-i18n>What I like to draw</span></span><div class="prfsty" id="prfSty"></div>
+   <button class="btn pri" id="prfSave"><i class="fa-solid fa-floppy-disk"></i><span data-i18n>Save profile</span></button>
+   <div class="accerr hide" id="prfE2"></div></section>
+
+  <section class="prfsec"><h4><i class="fa-solid fa-envelope"></i> <span data-i18n>Recovery e-mail</span></h4>
+   <small class="mut" data-i18n>Add your Gmail (or any e-mail). If you forget your password, we send a code there so you can make a new one. Nobody else can see it.</small>
+   <div class="prfstat" id="prfMailSt"></div>
+   <label class="fld"><span data-i18n>E-mail</span><input id="prfMail" type="email" maxlength="200" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="name@gmail.com"></label>
+   <label class="fld"><span data-i18n>Your password</span><input id="prfMailPw" type="password" maxlength="64" autocomplete="current-password"></label>
+   <div class="prfrow"><button class="btn pri" id="prfMailGo"><i class="fa-solid fa-paper-plane"></i><span data-i18n>Send me a code</span></button><button class="btn hide" id="prfMailX"><span data-i18n>Remove e-mail</span></button></div>
+   <div class="prfcode hide" id="prfCodeB"><label class="fld"><span data-i18n>6-digit code from the e-mail</span><input id="prfCode" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="123456"></label><button class="btn pri" id="prfCodeGo"><i class="fa-solid fa-check"></i><span data-i18n>Confirm</span></button></div>
+   <div class="accerr hide" id="prfE3"></div></section>
+
+  <section class="prfsec"><h4><i class="fa-solid fa-key"></i> <span data-i18n>Change password</span></h4>
+   <div class="prfgrid">
+    <label class="fld"><span data-i18n>Current password</span><input id="prfOld" type="password" maxlength="64" autocomplete="current-password"></label>
+    <label class="fld"><span data-i18n>New password</span><input id="prfNew" type="password" maxlength="64" autocomplete="new-password"></label>
+    <label class="fld"><span data-i18n>Type the password again</span><input id="prfNew2" type="password" maxlength="64" autocomplete="new-password"></label>
+   </div>
+   <div class="prfrow"><label class="chk"><input type="checkbox" id="prfShow"> <span data-i18n>Show password</span></label><span class="sp"></span><button class="btn" id="prfPwGo"><i class="fa-solid fa-key"></i><span data-i18n>Change password</span></button></div>
+   <div class="accerr hide" id="prfE4"></div></section>
+
+  <button class="btn danger prfout" id="prfOut"><i class="fa-solid fa-right-from-bracket"></i><span data-i18n>Log out</span></button>
+ </div>
 </div></div>
 <div id="toasts"></div>
 <script>/* three.js r147 (MIT) */
@@ -15747,13 +15843,93 @@ const TR={
 'Could not load the accounts.':['โหลดบัญชีไม่ได้','No se pudieron cargar las cuentas.','アカウントを読み込めませんでした。','无法加载账号。'],
 'Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.':['เลือกชื่อผู้เล่น (ไม่ใช่ชื่อจริง) และรหัสผ่าน เข้าสู่ระบบได้ทุกอุปกรณ์ด้วยชื่อเดียวกัน ออกจากระบบได้ที่ ช่วยเหลือ ▸ บัญชีของฉัน','Elige un nombre de jugador (no tu nombre real) y una contraseña. Inicia sesión en cualquier dispositivo con el mismo nombre. Ayuda ▸ Mi cuenta para cerrar sesión.','プレイヤー名（本名ではなく）とパスワードを決めよう。同じ名前でどの端末からもログインできます。ログアウトはヘルプ ▸ マイアカウント。','选一个玩家名（不要用真名）和密码。用同一个名字可以在任何设备上登录。在 帮助 ▸ 我的账号 里退出登录。'],
 'Admin stats fixed':['แก้หน้าสถิติของแอดมินแล้ว','Estadísticas del administrador arregladas','管理者の統計を修正','已修复管理员统计'],
-'The charts on the Stats page show correctly again.':['กราฟในหน้าสถิติแสดงผลถูกต้องแล้ว','Los gráficos de la página de estadísticas vuelven a verse bien.','統計ページのグラフが正しく表示されるようになりました。','统计页面的图表又能正常显示了。']
+'The charts on the Stats page show correctly again.':['กราฟในหน้าสถิติแสดงผลถูกต้องแล้ว','Los gráficos de la página de estadísticas vuelven a verse bien.','統計ページのグラフが正しく表示されるようになりました。','统计页面的图表又能正常显示了。'],
+'My profile':['โปรไฟล์ของฉัน','Mi perfil','マイプロフィール','我的资料'],
+'My profile…':['โปรไฟล์ของฉัน…','Mi perfil…','マイプロフィール…','我的资料…'],
+'Change picture':['เปลี่ยนรูป','Cambiar foto','写真を変える','更换头像'],
+'Upload a picture':['อัปโหลดรูป','Subir una foto','写真をアップロード','上传图片'],
+'Use my drawing':['ใช้ภาพที่ฉันวาด','Usar mi dibujo','自分の絵を使う','用我的画'],
+'Remove picture':['ลบรูป','Quitar foto','写真を削除','移除头像'],
+'Change name':['เปลี่ยนชื่อ','Cambiar nombre','名前を変える','改名'],
+'About me':['เกี่ยวกับฉัน','Sobre mí','自己紹介','关于我'],
+'I love drawing dragons and space!':['ฉันชอบวาดมังกรกับอวกาศ!','¡Me encanta dibujar dragones y el espacio!','ドラゴンと宇宙を描くのが大好き！','我喜欢画龙和太空！'],
+'Favourite thing to draw':['สิ่งที่ชอบวาดที่สุด','Lo que más me gusta dibujar','いちばん好きな題材','最喜欢画的东西'],
+'Cats':['แมว','Gatos','ねこ','猫'],
+'Country':['ประเทศ','País','国','国家'],
+'Thailand':['ประเทศไทย','Tailandia','タイ','泰国'],
+'Birthday month':['เดือนเกิด','Mes de cumpleaños','誕生月','生日月份'],
+'Favourite colour':['สีที่ชอบ','Color favorito','好きな色','最喜欢的颜色'],
+'What I like to draw':['แนวที่ชอบวาด','Lo que me gusta dibujar','好きなジャンル','我喜欢画的类型'],
+'Anime':['อนิเมะ','Anime','アニメ','动漫'],
+'Realistic':['เหมือนจริง','Realista','リアル','写实'],
+'Pixel art':['พิกเซลอาร์ต','Pixel art','ドット絵','像素画'],
+'Abstract':['นามธรรม','Abstracto','抽象','抽象'],
+'Comics':['คอมิก','Cómics','コミック','漫画'],
+'Nature':['ธรรมชาติ','Naturaleza','自然','自然'],
+'Animals':['สัตว์','Animales','動物','动物'],
+'Fantasy':['แฟนตาซี','Fantasía','ファンタジー','奇幻'],
+'Save profile':['บันทึกโปรไฟล์','Guardar perfil','プロフィールを保存','保存资料'],
+'Profile saved':['บันทึกโปรไฟล์แล้ว','Perfil guardado','プロフィールを保存しました','资料已保存'],
+'Recovery e-mail':['อีเมลกู้คืนบัญชี','Correo de recuperación','復旧用メール','找回邮箱'],
+'Add your Gmail (or any e-mail). If you forget your password, we send a code there so you can make a new one. Nobody else can see it.':['ใส่ Gmail (หรืออีเมลอะไรก็ได้) ถ้าลืมรหัสผ่าน เราจะส่งรหัสไปที่อีเมลนี้เพื่อให้ตั้งรหัสผ่านใหม่ได้ คนอื่นมองไม่เห็นอีเมลนี้','Añade tu Gmail (o cualquier correo). Si olvidas tu contraseña, te enviamos un código para crear una nueva. Nadie más puede verlo.','Gmail（またはほかのメール）を登録しよう。パスワードを忘れたら、新しいパスワードを作るためのコードを送ります。ほかの人には見えません。','添加你的 Gmail（或任何邮箱）。忘记密码时，我们会发验证码到这里，让你设置新密码。别人看不到它。'],
+'E-mail':['อีเมล','Correo','メール','邮箱'],
+'Your password':['รหัสผ่านของคุณ','Tu contraseña','あなたのパスワード','你的密码'],
+'Send me a code':['ส่งรหัสให้ฉัน','Envíame un código','コードを送る','给我发验证码'],
+'Send a new code':['ส่งรหัสใหม่','Enviar un código nuevo','新しいコードを送る','重新发送验证码'],
+'Remove e-mail':['ลบอีเมล','Quitar correo','メールを削除','移除邮箱'],
+'6-digit code from the e-mail':['รหัส 6 หลักจากอีเมล','Código de 6 dígitos del correo','メールに届いた6桁のコード','邮件里的 6 位验证码'],
+'Confirm':['ยืนยัน','Confirmar','確認','确认'],
+'Log out of {n}?':['ออกจากระบบ {n} ไหม?','¿Cerrar la sesión de {n}?','{n} からログアウトしますか？','要退出 {n} 吗？'],
+'That e-mail address does not look right.':['อีเมลนี้ดูไม่ถูกต้อง','Esa dirección de correo no parece correcta.','メールアドレスが正しくないようです。','这个邮箱地址好像不对。'],
+'Another player already uses that e-mail.':['มีผู้เล่นคนอื่นใช้อีเมลนี้แล้ว','Otro jugador ya usa ese correo.','そのメールはほかのプレイヤーが使っています。','另一个玩家已经在用这个邮箱。'],
+'That code is not right. Check the e-mail and try again.':['รหัสไม่ถูกต้อง ตรวจอีเมลแล้วลองอีกครั้ง','Ese código no es correcto. Revisa el correo e inténtalo de nuevo.','コードがちがいます。メールを確認してもう一度試してね。','验证码不对。请查看邮件后再试一次。'],
+'That code has expired. Ask for a new one.':['รหัสหมดอายุแล้ว ขอรหัสใหม่ได้เลย','Ese código ha caducado. Pide uno nuevo.','コードの期限が切れました。新しいコードをもらってね。','验证码已过期，请重新获取。'],
+'Please wait a little and try again.':['รอสักครู่แล้วลองใหม่','Espera un poco e inténtalo de nuevo.','少し待ってからもう一度試してね。','请稍等再试。'],
+'MasterSketch has sent too many e-mails today. Please try again tomorrow.':['วันนี้ MasterSketch ส่งอีเมลเยอะเกินไปแล้ว ลองใหม่พรุ่งนี้นะ','MasterSketch ha enviado demasiados correos hoy. Inténtalo mañana.','今日はMasterSketchがメールを送りすぎました。明日もう一度試してね。','MasterSketch 今天发的邮件太多了，请明天再试。'],
+'That picture could not be used. Try another one.':['ใช้รูปนี้ไม่ได้ ลองรูปอื่นนะ','No se pudo usar esa imagen. Prueba con otra.','その写真は使えませんでした。別の写真を試してね。','这张图片用不了，换一张试试。'],
+'This account has no confirmed e-mail. Ask the MasterSketch team for a new password.':['บัญชีนี้ยังไม่มีอีเมลที่ยืนยันแล้ว ขอรหัสผ่านใหม่จากทีม MasterSketch','Esta cuenta no tiene un correo confirmado. Pide una contraseña nueva al equipo de MasterSketch.','このアカウントには確認済みのメールがありません。MasterSketchチームに新しいパスワードをお願いしてね。','这个账号没有已确认的邮箱。请向 MasterSketch 团队要一个新密码。'],
+'Type your password first.':['พิมพ์รหัสผ่านก่อน','Escribe primero tu contraseña.','先にパスワードを入力してね。','请先输入密码。'],
+'This needs the newest MasterSketch cloud. Please try again later.':['ต้องใช้คลาวด์ MasterSketch เวอร์ชันใหม่ล่าสุด ลองใหม่ภายหลัง','Esto necesita la nube más reciente de MasterSketch. Inténtalo más tarde.','最新のMasterSketchクラウドが必要です。あとでもう一度試してね。','这需要最新的 MasterSketch 云端，请稍后再试。'],
+'No e-mail yet. Without one, only the MasterSketch team can give you a new password.':['ยังไม่มีอีเมล ถ้าไม่มี จะมีแค่ทีม MasterSketch ที่ตั้งรหัสผ่านใหม่ให้ได้','Aún no hay correo. Sin él, solo el equipo de MasterSketch puede darte una contraseña nueva.','まだメールがありません。メールがないと、新しいパスワードはMasterSketchチームしか出せません。','还没有邮箱。没有邮箱的话，只有 MasterSketch 团队能给你新密码。'],
+'Confirmed: {e} – you can get a new password if you forget it.':['ยืนยันแล้ว: {e} – ถ้าลืมรหัสผ่าน ขอรหัสใหม่ได้','Confirmado: {e}. Si olvidas tu contraseña, podrás crear una nueva.','確認済み：{e} – パスワードを忘れても新しく作れます。','已确认：{e}——忘记密码时可以重新设置。'],
+'We sent a code to {e}. Type it below to confirm.':['เราส่งรหัสไปที่ {e} แล้ว พิมพ์รหัสด้านล่างเพื่อยืนยัน','Enviamos un código a {e}. Escríbelo abajo para confirmar.','{e} にコードを送りました。下に入力して確認してね。','我们已把验证码发到 {e}，在下面输入以确认。'],
+'New profile picture!':['เปลี่ยนรูปโปรไฟล์แล้ว!','¡Nueva foto de perfil!','プロフィール写真を変えました！','头像已更新！'],
+'Picture removed':['ลบรูปแล้ว','Foto quitada','写真を削除しました','头像已移除'],
+'Draw something first.':['วาดอะไรสักอย่างก่อนนะ','Dibuja algo primero.','先に何か描いてね。','先画点什么吧。'],
+'You are now {n}!':['ตอนนี้คุณคือ {n} แล้ว!','¡Ahora eres {n}!','これからは {n} だよ！','你现在是 {n} 了！'],
+'Code sent! Check your e-mail (and the spam folder).':['ส่งรหัสแล้ว! ดูในอีเมล (และโฟลเดอร์สแปม)','¡Código enviado! Revisa tu correo (y la carpeta de spam).','コードを送りました！メール（と迷惑メールフォルダ）を見てね。','验证码已发送！请查看邮箱（和垃圾邮件文件夹）。'],
+'E-mail removed':['ลบอีเมลแล้ว','Correo quitado','メールを削除しました','邮箱已移除'],
+'E-mail confirmed!':['ยืนยันอีเมลแล้ว!','¡Correo confirmado!','メールを確認しました！','邮箱已确认！'],
+'Password changed. Other devices need to log in again.':['เปลี่ยนรหัสผ่านแล้ว อุปกรณ์อื่นต้องเข้าสู่ระบบใหม่','Contraseña cambiada. Los demás dispositivos tendrán que iniciar sesión de nuevo.','パスワードを変えました。ほかの端末ではもう一度ログインが必要です。','密码已修改。其他设备需要重新登录。'],
+'Forgot password?':['ลืมรหัสผ่าน?','¿Olvidaste la contraseña?','パスワードを忘れた？','忘记密码？'],
+'Forgot your password?':['ลืมรหัสผ่านใช่ไหม?','¿Olvidaste tu contraseña?','パスワードを忘れたの？','忘记密码了？'],
+'Back to log in':['กลับไปหน้าเข้าสู่ระบบ','Volver a iniciar sesión','ログインにもどる','返回登录'],
+'Player name or e-mail':['ชื่อผู้เล่นหรืออีเมล','Nombre de jugador o correo','プレイヤー名またはメール','玩家名或邮箱'],
+'Type your player name or your e-mail. We will send a code to the e-mail on your profile.':['พิมพ์ชื่อผู้เล่นหรืออีเมลของคุณ เราจะส่งรหัสไปที่อีเมลในโปรไฟล์','Escribe tu nombre de jugador o tu correo. Enviaremos un código al correo de tu perfil.','プレイヤー名かメールを入力してね。プロフィールのメールにコードを送ります。','输入你的玩家名或邮箱。我们会把验证码发到你资料里的邮箱。'],
+'We sent a 6-digit code to {e}. Type it here with your new password.':['เราส่งรหัส 6 หลักไปที่ {e} แล้ว พิมพ์รหัสที่นี่พร้อมรหัสผ่านใหม่','Enviamos un código de 6 dígitos a {e}. Escríbelo aquí con tu contraseña nueva.','{e} に6桁のコードを送りました。ここにコードと新しいパスワードを入力してね。','我们已把 6 位验证码发到 {e}。在这里输入验证码和新密码。'],
+'Set new password':['ตั้งรหัสผ่านใหม่','Crear contraseña nueva','新しいパスワードにする','设置新密码'],
+'New password saved. Welcome back, {n}!':['บันทึกรหัสผ่านใหม่แล้ว ยินดีต้อนรับกลับมา {n}!','Contraseña nueva guardada. ¡Hola de nuevo, {n}!','新しいパスワードを保存しました。おかえり、{n}！','新密码已保存。欢迎回来，{n}！'],
+'Changed name':['เปลี่ยนชื่อ','Cambió el nombre','名前を変更','改了名字'],
+'Changed password':['เปลี่ยนรหัสผ่าน','Cambió la contraseña','パスワードを変更','改了密码'],
+'New password by e-mail':['รหัสผ่านใหม่ทางอีเมล','Contraseña nueva por correo','メールで新しいパスワード','通过邮箱重设密码'],
+'not confirmed':['ยังไม่ยืนยัน','sin confirmar','未確認','未确认'],
+'Search names or e-mails':['ค้นหาชื่อหรืออีเมล','Buscar nombres o correos','名前かメールで検索','搜索名字或邮箱'],
+'Players choose their own name (not their real name). Passwords are secret – not even you can see them. Players who confirmed an e-mail can get a new password themselves; for anyone else use “New password”.':['ผู้เล่นตั้งชื่อเอง (ไม่ใช่ชื่อจริง) รหัสผ่านเป็นความลับ – แม้แต่คุณก็มองไม่เห็น ผู้เล่นที่ยืนยันอีเมลแล้วตั้งรหัสผ่านใหม่เองได้ ส่วนคนอื่นใช้ “รหัสผ่านใหม่”','Los jugadores eligen su propio nombre (no su nombre real). Las contraseñas son secretas: ni tú puedes verlas. Quien confirmó un correo puede crear una contraseña nueva por sí mismo; para los demás usa «Contraseña nueva».','プレイヤーは自分で名前を決めます（本名ではありません）。パスワードは秘密で、あなたにも見えません。メールを確認したプレイヤーは自分で新しいパスワードを作れます。それ以外は「新しいパスワード」を使ってください。','玩家自己取名（不是真名）。密码是保密的——连你也看不到。确认过邮箱的玩家可以自己重设密码；其他人请用“新密码”。'],
+'Player profiles':['โปรไฟล์ผู้เล่น','Perfiles de jugador','プレイヤープロフィール','玩家资料'],
+'Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.':['แตะรูปของคุณที่มุมขวาบน: เปลี่ยนชื่อ รหัสผ่าน และรูปโปรไฟล์ เขียนแนะนำตัว และเลือกแนวที่ชอบวาด','Toca tu foto arriba a la derecha: cambia tu nombre, contraseña y foto de perfil, escribe sobre ti y elige lo que te gusta dibujar.','右上の写真をタップ：名前・パスワード・プロフィール写真を変えたり、自己紹介や好きなジャンルを書いたりできます。','点右上角的头像：修改名字、密码和头像，写写自我介绍，选你喜欢画的类型。'],
+'Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.':['ใส่ Gmail ในโปรไฟล์ของฉัน ถ้าลืมรหัสผ่าน MasterSketch จะส่งรหัสทางอีเมลเพื่อตั้งรหัสผ่านใหม่','Añade tu Gmail en Mi perfil. Si olvidas tu contraseña, MasterSketch te envía un código para crear una nueva.','マイプロフィールにGmailを登録しよう。パスワードを忘れたら、MasterSketchが新しいパスワード用のコードをメールで送ります。','在“我的资料”里添加 Gmail。忘记密码时，MasterSketch 会发邮件给你验证码来设置新密码。'],
+'Make admin':['ให้เป็นแอดมิน','Hacer admin','管理者にする','设为管理员'],
+'Remove admin':['เอาสิทธิ์แอดมินออก','Quitar admin','管理者をやめる','取消管理员'],
+'Give {n} admin access? They can open this panel by typing /admin in the search box.':['ให้ {n} เป็นแอดมินไหม? ผู้เล่นจะเปิดแผงนี้ได้โดยพิมพ์ /admin ในช่องค้นหา','¿Dar a {n} acceso de administrador? Podrá abrir este panel escribiendo /admin en el buscador.','{n} を管理者にしますか？検索欄に /admin と入力するとこのパネルを開けます。','要让 {n} 成为管理员吗？在搜索框输入 /admin 就能打开这个面板。'],
+'Take admin access away from {n}?':['เอาสิทธิ์แอดมินของ {n} ออกไหม?','¿Quitar el acceso de administrador a {n}?','{n} の管理者権限を外しますか？','要取消 {n} 的管理员权限吗？'],
+'Admin access given':['ให้สิทธิ์แอดมินแล้ว','Acceso de administrador dado','管理者権限を渡しました','已授予管理员权限'],
+'Admin access removed':['เอาสิทธิ์แอดมินออกแล้ว','Acceso de administrador quitado','管理者権限を外しました','已取消管理员权限']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='8.1';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='8.2';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -19678,23 +19854,23 @@ const accApp=()=>`MasterSketch ${VERSION} · ${appPlat()}`;
 const accCall=(a,o)=>MSC.post(Object.assign({a,dev:MSC.dev(),app:accApp()},o));
 const ACCW={taken:'That name is already taken – try another one.',name:'Use 2–20 letters or numbers for your player name.',words:'Please pick a kinder name.',weak:'Your password needs at least 4 characters.',
  wrongpw:'Wrong player name or password.',locked:'Too many tries. Please wait 15 minutes and try again.',banned:'This account has been blocked by the MasterSketch team.',auth:'Please log in again.'};
-function accSave(){LS.set('msk_acct',{name:ACC.name,tok:ACC.tok})}
+function accSave(){LS.set('msk_acct',{name:ACC.name,tok:ACC.tok,pic:ACC.pic||''});meBtn()}
 function accErr(m){const e=$('#accE');e.textContent=m?t(m):'';e.classList.toggle('hide',!m)}
-function accMode(m){ACC.mode=m;const nw=m==='new';$$('#accTab button').forEach(b=>b.classList.toggle('on',b.dataset.v===m));
+function accMode0(m){ACC.mode=m;const nw=m==='new';$$('#accTab button').forEach(b=>b.classList.toggle('on',b.dataset.v===m));
  $('#accH').textContent=t(nw?'Welcome to MasterSketch!':'Welcome back!');$('#accP').textContent=t(nw?'Make your player account to start. It only takes a moment.':'Log in with your player name and password.');
  show('#accW2b',nw);show('#accNh',nw);$('#accGoT').textContent=t(nw?'Create my account':'Log in');$('#accW').autocomplete=nw?'new-password':'current-password';accErr('')}
 function accOpen(mode,msg){proEnd();accMode(mode||'new');if(ACC.name&&mode==='in')$('#accN').value=ACC.name;$('#accW').value=$('#accW2').value='';show('#accOff',ACC.off);show('#accM');if(msg)accErr(msg);setTimeout(()=>($('#accN').value?$('#accW'):$('#accN')).focus(),60)}
-async function accSubmit(){const nw=ACC.mode==='new',name=$('#accN').value.replace(/\s+/g,' ').trim(),pw=$('#accW').value;
+async function accSubmit0(){const nw=ACC.mode==='new',name=$('#accN').value.replace(/\s+/g,' ').trim(),pw=$('#accW').value;
  if(name.length<2||name.length>20)return accErr(ACCW.name);if(pw.length<4)return accErr(ACCW.weak);if(nw&&pw!==$('#accW2').value)return accErr('The two passwords are not the same.');
  const b=$('#accGo');b.disabled=true;b.classList.add('busy');accErr('');
  try{const r=await accCall(nw?'reg':'signin',{name,pw});ACC.name=r.name;ACC.tok=r.tok;accSave();if(!LS.get('msu8_author',''))LS.set('msu8_author',r.name);try{if(!FB.n){FB.n=r.name;fbSave()}}catch(e){}
-  show('#accM',false);toast(t(nw?'Welcome, {n}! Your account is ready.':'Welcome back, {n}!').replace('{n}',r.name),'fa-user-check')}
+  ACC.pic='';PRF.p=null;accSave();prfSync();show('#accM',false);toast(t(nw?'Welcome, {n}! Your account is ready.':'Welcome back, {n}!').replace('{n}',r.name),'fa-user-check')}
  catch(e){const c=e&&e.code;if(c==='unknown'){show('#accM',false);return}
   if(cloudOff(e)){ACC.off=true;show('#accOff');accErr('Could not reach the MasterSketch cloud. Check your internet connection and try again.')}else accErr(ACCW[c]||MSC.why(e))}
  finally{b.disabled=false;b.classList.remove('busy')}}
-async function accCheck(){if(window.MSK_NOACC)return;if(!ACC.tok){accOpen('new');return}
- try{const r=await accCall('me',{name:ACC.name,tok:ACC.tok});if(r.name&&r.name!==ACC.name){ACC.name=r.name;accSave()}}
- catch(e){if(e&&(e.code==='auth'||e.code==='banned')){ACC.tok='';accSave();accOpen('in',ACCW[e.code])}}}
+async function accCheck(){if(window.MSK_NOACC)return;if(!ACC.tok){accOpen(ACC.name?'in':'new');return}
+ try{const r=await accCall('me',{name:ACC.name,tok:ACC.tok});if(r.name)ACC.name=r.name;if('pic' in r)ACC.pic=r.pic||'';accSave()}
+ catch(e){if(e&&(e.code==='auth'||e.code==='banned')){ACC.tok='';ACC.pic='';accSave();accOpen('in',ACCW[e.code])}}}
 async function accMenu(){if(!ACC.tok)return accOpen('in');if(await dlg(t('You are playing as {n}.').replace('{n}',ACC.name),{ok:t('Log out')})){ACC.tok='';accSave();accOpen('in')}}
 $$('#accTab button').forEach(b=>b.onclick=()=>accMode(b.dataset.v));
 $('#accGo').onclick=accSubmit;$('#accOff').onclick=()=>show('#accM',false);
@@ -19704,7 +19880,7 @@ $('#accShow').onchange=e=>['#accW','#accW2'].forEach(s=>$(s).type=e.target.check
 $('#accM').addEventListener('pointerdown',e=>{if(e.target===e.currentTarget)e.stopImmediatePropagation()},true);
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#accM').classList.contains('hide')){e.preventDefault();e.stopImmediatePropagation()}},true);
 setTimeout(accCheck,400);
-Object.assign(CMD,{acct:['My account…','',accMenu]});Object.assign(CMD_IC,{acct:'fa-id-card'});
+Object.assign(CMD,{acct:['My profile…','',()=>prfOpen()]});Object.assign(CMD_IC,{acct:'fa-id-card'});
 {const h=MENUS.find(m=>m[0]==='Help');if(h)h[1].splice(h[1].indexOf('settings')+1,0,'acct')}
 
 /* ---------- admin panel ▸ Accounts: every player account and a live list of log-ins ---------- */
@@ -19723,8 +19899,8 @@ async function admAccounts(B){const box=ae('div');box.appendChild(adEmpty('fa-sp
  if(ADM.pg!=='accounts')return;box.remove();accPoll();
  const T=ae('div','adtiles');B.appendChild(T);
  const lc=adCard('Recent log-ins','fa-right-to-bracket',ae('small','mut acclive'));const LL=ae('div','accev');lc.appendChild(LL);B.appendChild(lc);
- const tb=ae('div','adtool');tb.appendChild(adSearch(ACT.q,v=>{ACT.q=v;drawList()},'Search player names'));
- const ac=adCard('Player accounts','fa-id-card');ac.appendChild(tb);const L=ae('div');ac.appendChild(L);ac.appendChild(ae('small','mut',t('Players choose their own name (not their real name). Passwords are secret – not even you can see them. If a player forgets theirs, give them a new one with “New password”.')));B.appendChild(ac);
+ const tb=ae('div','adtool');tb.appendChild(adSearch(ACT.q,v=>{ACT.q=v;drawList()},'Search names or e-mails'));
+ const ac=adCard('Player accounts','fa-id-card');ac.appendChild(tb);const L=ae('div');ac.appendChild(L);ac.appendChild(ae('small','mut',t('Players choose their own name (not their real name). Passwords are secret – not even you can see them. Players who confirmed an e-mail can get a new password themselves; for anyone else use “New password”.')));B.appendChild(ac);
  function drawTop(){T.innerHTML='';const d0=new Date();d0.setHours(0,0,0,0);const a=ACT.list;
   admTile(T,'fa-id-card','Accounts',a.length,'#7c8cff');admTile(T,'fa-user-plus','New today',a.filter(x=>x.created>=+d0).length,'#10b981');admTile(T,'fa-calendar-day','Played today',a.filter(x=>x.last>=+d0).length,'#06b6d4');admTile(T,'fa-user-slash','Blocked',a.filter(x=>x.banned).length,'#ef4444');
   lc.querySelector('.acclive').textContent=t('Updates by itself')+' · '+ago(ACT.at);
@@ -19732,16 +19908,105 @@ async function admAccounts(B){const box=ae('div');box.appendChild(adEmpty('fa-sp
   ev.forEach(e=>{const k=ACE[e.w]||ACE.open,r=ae('div','adperson'+(e.t>ACT.seen&&e.w!=='open'?' accnew':''));r.innerHTML='<span class="adav"></span><div><b></b><small class="mut"></small></div><span class="sp"></span>';const av=r.querySelector('.adav');av.style.background=dot(e.n);av.textContent=(e.n||'?').slice(0,1).toUpperCase();
    r.querySelector('b').textContent=e.n;r.querySelector('small').textContent=ago(e.t)+(e.app?' · '+e.app.replace(/^MasterSketch /,''):'');r.appendChild(chip(t(k[1]),k[2],k[0]));LL.appendChild(r)});
   if(ACT.ev.length){ACT.seen=Math.max(ACT.seen,ACT.ev[0].t);LS.set('msa_acc_seen',ACT.seen)}accBadge()}
- function drawList(){const q=ACT.q.trim().toLowerCase();L.innerHTML='';const list=ACT.list.filter(a=>!q||a.name.toLowerCase().includes(q)).sort((a,b)=>b.last-a.last).slice(0,300);
+ function drawList(){const q=ACT.q.trim().toLowerCase();L.innerHTML='';const list=ACT.list.filter(a=>!q||(a.name+' '+(a.email||'')).toLowerCase().includes(q)).sort((a,b)=>b.last-a.last).slice(0,300);
   if(!list.length)return L.appendChild(adEmpty('fa-id-card',ACT.list.length?'No player has that name.':'No accounts yet.'));
-  list.forEach(a=>{const r=ae('div','adperson');r.innerHTML='<span class="adav"></span><div><b></b><small class="mut"></small></div><span class="sp"></span>';const av=r.querySelector('.adav');av.style.background=dot(a.name);av.textContent=a.name.slice(0,1).toUpperCase();
-   r.querySelector('b').textContent=a.name+(a.banned?' · '+t('Blocked'):'');r.querySelector('small').textContent=t('Joined')+' '+ago(a.created)+' · '+t('Last seen')+' '+ago(a.last)+' · '+a.logins+' '+t(a.logins===1?'visit':'visits')+(a.app?' · '+a.app.replace(/^MasterSketch /,''):'');
+  list.forEach(a=>{const r=ae('div','adperson');r.innerHTML='<span class="adav"></span><div><b></b><small class="mut"></small></div><span class="sp"></span>';avFill(r.querySelector('.adav'),a.name,a.pic);
+   r.querySelector('b').textContent=a.name+(a.banned?' · '+t('Blocked'):'');r.querySelector('small').textContent=t('Joined')+' '+ago(a.created)+' · '+t('Last seen')+' '+ago(a.last)+' · '+a.logins+' '+t(a.logins===1?'visit':'visits')+(a.app?' · '+a.app.replace(/^MasterSketch /,''):'')+(a.email?' · ✉ '+a.email+(a.ev?' ✓':' ('+t('not confirmed')+')'):'');{const i=a.info||{},x=[a.bio,i.fav&&'🎨 '+i.fav,i.place&&'📍 '+i.place].filter(Boolean).join(' · ');if(x)r.children[1].appendChild(ae('small','mut accbio',x))}
    const act=(op,msg)=>admDo(async()=>{const x=await adm('acct',Object.assign({id:a.id},op));if(x.pw)await dlg(t('New password for {n}: {p} – tell the player to log in with it.').replace('{n}',a.name).replace('{p}',x.pw),{noCancel:true});await accLoad();drawTop();drawList()},msg);
-   r.appendChild(icoBtn('fa-key','New password',async()=>{if(await dlg(t('Give {n} a new password? Their old password stops working.').replace('{n}',a.name)))act({reset:true})},'mini'));
+   if(a.staff)r.children[1].querySelector('b').after(chip(t('Admin'),'#7c8cff','fa-shield-halved'));r.appendChild(icoBtn('fa-shield-halved',a.staff?'Remove admin':'Make admin',async()=>{if(await dlg(t(a.staff?'Take admin access away from {n}?':'Give {n} admin access? They can open this panel by typing /admin in the search box.').replace('{n}',a.name),{danger:!a.staff}))act({staff:!a.staff},a.staff?'Admin access removed':'Admin access given')},'mini'+(a.staff?' on':'')));r.appendChild(icoBtn('fa-key','New password',async()=>{if(await dlg(t('Give {n} a new password? Their old password stops working.').replace('{n}',a.name)))act({reset:true})},'mini'));
    r.appendChild(icoBtn(a.banned?'fa-user-check':'fa-user-slash',a.banned?'Unblock':'Block',async()=>{if(a.banned||await dlg(t('Block {n}? They will be logged out and cannot log in again until you unblock them.').replace('{n}',a.name),{danger:true}))act({ban:!a.banned},a.banned?'Unblocked':'Blocked')},'mini'+(a.banned?'':' danger')));
    r.appendChild(icoBtn('fa-trash','Delete',async()=>{if(await dlg(t('Delete the account {n}? The name becomes free for someone else.').replace('{n}',a.name),{danger:true,ok:t('Delete')}))act({del:true},'Deleted')},'mini danger'));L.appendChild(r)})}
  ACT.draw=()=>{drawTop();drawList()};ACT.draw()}
 ADP.splice(ADP.findIndex(p=>p[0]==='players')+1,0,['accounts','fa-id-card','Accounts']);
+
+/* ---------- v20: player profile – picture, name, about me, recovery e-mail, password ----------
+   The profile button (top right) opens My profile. A confirmed e-mail lets a player who forgot their password
+   get a 6-digit code and make a new one ("Forgot password?" in the log-in window). */
+const PRF={p:null,sty:new Set()};
+const PSTY=[['cartoon','Cartoon'],['anime','Anime'],['real','Realistic'],['pixel','Pixel art'],['3d','3D'],['abstract','Abstract'],['comics','Comics'],['nature','Nature'],['animals','Animals'],['fantasy','Fantasy']];
+Object.assign(ACCW,{email:'That e-mail address does not look right.',emailused:'Another player already uses that e-mail.',badcode:'That code is not right. Check the e-mail and try again.',expired:'That code has expired. Ask for a new one.',
+ slow:'Please wait a little and try again.',quota:'MasterSketch has sent too many e-mails today. Please try again tomorrow.',pic:'That picture could not be used. Try another one.',nouser:'No player has that name.',
+ nomail:'This account has no confirmed e-mail. Ask the MasterSketch team for a new password.',needpw:'Type your password first.',unknown:'This needs the newest MasterSketch cloud. Please try again later.'});
+Object.assign(ACE,{rename:['fa-signature','Changed name','#f59e0b'],pw:['fa-key','Changed password','#a855f7'],reset:['fa-envelope','New password by e-mail','#ec4899']});
+const OFFMSG='Could not reach the MasterSketch cloud. Check your internet connection and try again.';
+function avFill(el,name,pic){if(!el)return;el.style.background=pic?`center/cover no-repeat url("${pic}")`:dot(name);el.textContent=pic?'':(name||'?').slice(0,1).toUpperCase()}
+function meBtn(){const b=$('#meB');if(!b)return;const on=!!ACC.tok;avFill($('#meAv'),on?ACC.name:'?',on?ACC.pic:'');if(!on){$('#meAv').style.background='';$('#meAv').innerHTML='<i class="fa-solid fa-user"></i>'}b.title=on?ACC.name+' · '+t('My profile'):t('Log in')}
+function prfMsg(id,m){const e=$('#'+id);e.textContent=m?t(m):'';e.classList.toggle('hide',!m)}
+async function prfCall(op,o){try{return await accCall('prof',Object.assign({op,name:ACC.name,tok:ACC.tok,lang:SET.lang},o))}
+ catch(e){if(e&&(e.code==='auth'||e.code==='banned')){ACC.tok='';ACC.pic='';accSave();show('#prfM',false);accOpen('in',ACCW[e.code])}throw e}}
+async function prfDo(btn,eid,fn){const b=$(btn);if(b.disabled)return;b.disabled=true;b.classList.add('busy');prfMsg(eid,'');
+ try{await fn()}catch(e){const c=e&&e.code;prfMsg(eid,c==='wrongpw'?'That password is not right.':ACCW[c]||(cloudOff(e)?OFFMSG:MSC.why(e)))}finally{b.disabled=false;b.classList.remove('busy')}}
+async function prfSync(){if(!ACC.tok)return;try{prfFill((await prfCall('get')).p)}catch(e){}}
+function prfCnt(){$('#prfCnt').textContent=$('#prfBio').value.length+' / 200'}
+function prfStyles(){const B=$('#prfSty');B.innerHTML='';PSTY.forEach(([k,l])=>{const b=ae('button','prfchip'+(PRF.sty.has(k)?' on':''),t(l));
+ b.onclick=()=>{if(PRF.sty.has(k))PRF.sty.delete(k);else if(PRF.sty.size<6)PRF.sty.add(k);prfStyles()};B.appendChild(b)})}
+function prfFill(p){if(!p)return;PRF.p=p;ACC.name=p.name;ACC.pic=p.pic||'';accSave();const i=p.info||{};
+ avFill($('#prfPic'),p.name,p.pic);$('#prfPic').style.setProperty('--ring',i.color||'var(--ac)');show('#prfPicX',!!p.pic);
+ $('#prfName').textContent=p.name;$('#prfStats').textContent=t('Joined')+' '+ago(p.created)+' · '+p.logins+' '+t(p.logins===1?'visit':'visits');
+ if(document.activeElement!==$('#prfN'))$('#prfN').value=p.name;
+ $('#prfBio').value=p.bio||'';prfCnt();$('#prfFav').value=i.fav||'';$('#prfPlace').value=i.place||'';$('#prfBday').value=i.bday||'';$('#prfCol').value=i.color||'#7c8cff';PRF.sty=new Set(i.styles||[]);prfStyles();
+ const [ic,col,msg]=!p.email?['fa-circle-info','var(--mu)','No e-mail yet. Without one, only the MasterSketch team can give you a new password.']:p.ev?['fa-circle-check','#10b981','Confirmed: {e} – you can get a new password if you forget it.']:['fa-hourglass-half','#f59e0b','We sent a code to {e}. Type it below to confirm.'];
+ const st=$('#prfMailSt');st.innerHTML=`<i class="fa-solid ${ic}"></i><span></span>`;st.style.color=col;st.lastChild.textContent=t(msg).replace('{e}',p.email);
+ if(document.activeElement!==$('#prfMail'))$('#prfMail').value=p.email||'';show('#prfMailX',!!p.email);show('#prfCodeB',!!p.email&&!p.ev);
+ $('#prfMailGo').lastChild.textContent=t(p.email&&!p.ev?'Send a new code':'Send me a code')}
+function prfOpen(){if(!ACC.tok)return accOpen('in');try{proEnd()}catch(e){}['prfE1','prfE2','prfE3','prfE4'].forEach(i=>prfMsg(i,''));
+ const sel=$('#prfBday');if(sel.options.length<13)for(let i=1;i<=12;i++){let n;try{n=new Intl.DateTimeFormat(SET.lang||'en',{month:'long'}).format(new Date(2026,i-1,1))}catch(e){n=String(i)}sel.appendChild(new Option(n,i))}
+ if(PRF.p)prfFill(PRF.p);else{avFill($('#prfPic'),ACC.name,ACC.pic);$('#prfName').textContent=ACC.name;$('#prfN').value=ACC.name;prfCnt();prfStyles()}
+ show('#prfM');prfCall('get').then(r=>prfFill(r.p)).catch(e=>prfMsg('prfE1',ACCW[e&&e.code]||(cloudOff(e)?OFFMSG:'')))}
+/* pictures become a small 128 × 128 square */
+function prfSquare(src,sw,sh){const S=128,c=mkC(S,S),x=c.getContext('2d'),k=Math.min(sw,sh);x.fillStyle='#fff';x.fillRect(0,0,S,S);x.imageSmoothingQuality='high';x.drawImage(src,(sw-k)/2,(sh-k)/2,k,k,0,0,S,S);
+ for(const q of[.86,.72,.58,.44]){let d=c.toDataURL('image/webp',q);if(!d.startsWith('data:image/webp'))d=c.toDataURL('image/jpeg',q);if(d.length<22000)return d}return c.toDataURL('image/jpeg',.3)}
+function prfPicSave(pic,btn){prfDo(btn||'#prfUp','prfE1',async()=>{const r=await prfCall('save',{pic});prfFill(r.p);toast(t(pic?'New profile picture!':'Picture removed'),'fa-image')})}
+$('#prfFile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const u=URL.createObjectURL(f),im=new Image();
+ im.onload=()=>{URL.revokeObjectURL(u);prfPicSave(prfSquare(im,im.naturalWidth,im.naturalHeight))};im.onerror=()=>{URL.revokeObjectURL(u);prfMsg('prfE1',ACCW.pic)};im.src=u};
+$('#prfUp').onclick=$('#prfPic').onclick=()=>$('#prfFile').click();
+$('#prfDraw').onclick=()=>{let f;try{f=flat({})}catch(e){}if(!f||!f.width)return prfMsg('prfE1','Draw something first.');prfPicSave(prfSquare(f,f.width,f.height),'#prfDraw')};
+$('#prfPicX').onclick=()=>prfPicSave('','#prfPicX');
+$('#prfBio').oninput=prfCnt;
+$('#prfSave').onclick=()=>prfDo('#prfSave','prfE2',async()=>{const r=await prfCall('save',{bio:$('#prfBio').value,info:{fav:$('#prfFav').value,place:$('#prfPlace').value,bday:$('#prfBday').value,color:$('#prfCol').value,styles:[...PRF.sty]}});
+ prfFill(r.p);toast(t('Profile saved'),'fa-circle-check')});
+$('#prfNGo').onclick=()=>prfDo('#prfNGo','prfE1',async()=>{const nw=$('#prfN').value.replace(/\s+/g,' ').trim(),old=ACC.name;if(nw.length<2||nw.length>20)throw{code:'name'};
+ const r=await prfCall('rename',{nw});$('#prfN').blur();prfFill(r.p);if(LS.get('msu8_author','')===old)LS.set('msu8_author',r.p.name);try{if(FB.n===old){FB.n=r.p.name;fbSave()}}catch(e){}
+ toast(t('You are now {n}!').replace('{n}',r.p.name),'fa-signature')});
+$('#prfMailGo').onclick=()=>prfDo('#prfMailGo','prfE3',async()=>{const em=$('#prfMail').value.trim(),pw=$('#prfMailPw').value;if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))throw{code:'email'};if(!pw)throw{code:'needpw'};
+ const r=await prfCall('mail',{email:em,pw});$('#prfMailPw').value='';$('#prfMail').blur();prfFill(r.p);toast(t('Code sent! Check your e-mail (and the spam folder).'),'fa-paper-plane');setTimeout(()=>$('#prfCode').focus(),60)});
+$('#prfMailX').onclick=()=>prfDo('#prfMailX','prfE3',async()=>{const pw=$('#prfMailPw').value;if(!pw)throw{code:'needpw'};const r=await prfCall('mail',{email:'',pw});$('#prfMailPw').value='';$('#prfMail').value='';prfFill(r.p);toast(t('E-mail removed'),'fa-envelope')});
+$('#prfCodeGo').onclick=()=>prfDo('#prfCodeGo','prfE3',async()=>{const code=$('#prfCode').value.replace(/\D/g,'');if(code.length!==6)throw{code:'badcode'};const r=await prfCall('verify',{code});$('#prfCode').value='';prfFill(r.p);toast(t('E-mail confirmed!'),'fa-circle-check')});
+$('#prfPwGo').onclick=()=>prfDo('#prfPwGo','prfE4',async()=>{const old=$('#prfOld').value,nw=$('#prfNew').value;if(!old)throw{code:'needpw'};if(nw.length<4)throw{code:'weak'};if(nw!==$('#prfNew2').value)throw{code:'same'};
+ const r=await prfCall('pw',{old,nw});ACC.tok=r.tok;accSave();['#prfOld','#prfNew','#prfNew2'].forEach(s=>$(s).value='');toast(t('Password changed. Other devices need to log in again.'),'fa-key')});
+ACCW.same='The two passwords are not the same.';
+$('#prfShow').onchange=e=>['#prfOld','#prfNew','#prfNew2'].forEach(s=>$(s).type=e.target.checked?'text':'password');
+$('#prfOut').onclick=async()=>{if(await dlg(t('Log out of {n}?').replace('{n}',ACC.name),{ok:t('Log out')})){ACC.tok='';ACC.pic='';PRF.p=null;accSave();show('#prfM',false);accOpen('in')}};
+$$('#prfM input,#prfM textarea,#prfM select').forEach(e=>e.addEventListener('keydown',ev=>{ev.stopPropagation();if(ev.key!=='Enter'||e.tagName==='TEXTAREA')return;ev.preventDefault();
+ const go={prfN:'#prfNGo',prfMail:'#prfMailGo',prfMailPw:'#prfMailGo',prfCode:'#prfCodeGo',prfOld:'#prfPwGo',prfNew:'#prfPwGo',prfNew2:'#prfPwGo',prfFav:'#prfSave',prfPlace:'#prfSave'}[e.id];if(go)$(go).click()}));
+$('#meB').onclick=prfOpen;
+meBtn();
+
+/* ---------- forgot password: a code by e-mail, then a new password ---------- */
+function accMode(m){const fg=m==='fg';if(!fg)ACC.fg=0;accMode0(fg?'in':m);ACC.mode=m;const s1=fg&&ACC.fg===1;
+ $('#accNl').textContent=t(fg?'Player name or e-mail':'Player name');$('#accN').maxLength=fg?200:20;$('#accWl').textContent=t(fg?'New password':'Password');
+ show('#accTab',!fg);show('#accFg',m==='in');show('#accBk',fg);show('#accNh',m==='new');show('#accCb',s1);show('#accWb',!fg||s1);show('#accW2b',m==='new'||s1);$('#accShow').parentNode.classList.toggle('hide',fg&&!s1);
+ if(fg){$('#accH').textContent=t('Forgot your password?');$('#accP').textContent=s1?t('We sent a 6-digit code to {e}. Type it here with your new password.').replace('{e}',ACC.fgTo||''):t('Type your player name or your e-mail. We will send a code to the e-mail on your profile.');
+  $('#accGoT').textContent=t(s1?'Set new password':'Send me a code');$('#accW').autocomplete='new-password'}}
+async function accSubmit(){if(ACC.mode!=='fg')return accSubmit0();
+ const q=$('#accN').value.trim(),b=$('#accGo'),s1=ACC.fg===1;if(q.length<2)return accErr(ACCW.nouser);
+ if(s1){if($('#accC').value.replace(/\D/g,'').length!==6)return accErr(ACCW.badcode);if($('#accW').value.length<4)return accErr(ACCW.weak);if($('#accW').value!==$('#accW2').value)return accErr(ACCW.same)}
+ b.disabled=true;b.classList.add('busy');accErr('');
+ try{if(!s1){const r=await accCall('forgot',{name:q,lang:SET.lang});ACC.fg=1;ACC.fgTo=r.to;accMode('fg');$('#accC').value=$('#accW').value=$('#accW2').value='';setTimeout(()=>$('#accC').focus(),60)}
+  else{const r=await accCall('reset',{name:q,code:$('#accC').value,nw:$('#accW').value});ACC.name=r.name;ACC.tok=r.tok;ACC.pic='';accSave();ACC.fg=0;show('#accM',false);prfSync();
+   toast(t('New password saved. Welcome back, {n}!').replace('{n}',r.name),'fa-user-check')}}
+ catch(e){const c=e&&e.code;if(c==='expired'){ACC.fg=0;accMode('fg')}accErr(ACCW[c]||(cloudOff(e)?OFFMSG:MSC.why(e)))}
+ finally{b.disabled=false;b.classList.remove('busy')}}
+$('#accFg').onclick=()=>{ACC.fg=0;accMode('fg')};$('#accBk').onclick=()=>accMode('in');
+$('#accC').addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();accSubmit()}});
+
+/* ---------- secret: typing /admin in a search box opens the admin panel for players with admin access ---------- */
+const isAdmCmd=v=>String(v||'').trim().toLowerCase()==='/admin';
+async function admSecret(inp){inp.value='';inp.blur();show('#palM',false);show('#menuM',false);if(!ACC.tok)return;
+ try{const r=await accCall('admacc',{name:ACC.name,tok:ACC.tok});ADM.tok=r.tok;LS.set('msa_ctok',r.tok);ADM.items=null;admOpen();admGo('home')}catch(e){}}
+['#palI','#mQ'].forEach(s=>{const i=$(s);if(!i)return;
+ i.addEventListener('keydown',e=>{if(e.key==='Enter'&&isAdmCmd(i.value)){e.preventDefault();e.stopImmediatePropagation();admSecret(i)}},true);
+ i.addEventListener('input',e=>{if(isAdmCmd(i.value)){e.stopImmediatePropagation();admSecret(i)}},true)});
 
 /* ---------- v8: drawing additions ---------- */
 /* PDF export (one page, the picture as a high-quality JPEG) */
@@ -19804,7 +20069,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-id-badge','Player profiles','Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.'],['fa-envelope','Forgot your password?','Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.'],['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
