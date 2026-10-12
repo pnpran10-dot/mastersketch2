@@ -1426,15 +1426,15 @@ body.modeanim #sideB{display:none!important}
 #v3d.tl-on .skbar{max-height:calc(100% - 190px)}
 @media(max-width:860px){.skbar{left:8px;top:58px;max-height:calc(100% - 124px)}.skbar .b{width:36px;height:36px;font-size:14px}.skopt{left:56px;top:58px}.skvcb{right:8px;bottom:62px}.skvcb input{width:104px}}
 /* AutoDraw */
-.adbar{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:31;display:flex;gap:8px;align-items:center;padding:6px 6px 6px 12px;border-radius:16px;max-width:calc(100vw - 24px)}
-.adh{display:flex;gap:6px;align-items:center;font-size:13px;white-space:nowrap}.adh i{color:var(--ac)}
-.adsug{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-height:44px;align-items:center;min-width:0}
-.adsug small{padding:0 6px;white-space:nowrap}
-.adpic{flex:none;width:46px;height:46px;padding:2px;border-radius:11px;background:var(--bg2,#fff1);border:1px solid var(--line,#8883);display:grid;place-items:center;cursor:pointer}
-.adpic:hover{border-color:var(--ac)}.adpic canvas{width:40px;height:40px}
-body.mode3d .adbar,body.modemods .adbar,body.modeplay .adbar,body.modeart .adbar,body.modeanim .adbar{display:none!important}
-body:has(#xLes:not(.hide)) .adbar,body:has(#xStampBar:not(.hide)) .adbar{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
-@media (max-width:700px){.adbar{left:calc(50% + 34px);max-width:calc(100vw - 92px)}.adh b{display:none}}
+.autobar{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:31;display:flex;gap:8px;align-items:center;padding:6px 6px 6px 12px;border-radius:16px;max-width:calc(100vw - 24px)}
+.autoh{display:flex;gap:6px;align-items:center;font-size:13px;white-space:nowrap}.autoh i{color:var(--ac)}
+.autosug{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-height:44px;align-items:center;min-width:0}
+.autosug small{padding:0 6px;white-space:nowrap}
+.autopic{flex:none;width:46px;height:46px;padding:2px;border-radius:11px;background:var(--bg2,#fff1);border:1px solid var(--line,#8883);display:grid;place-items:center;cursor:pointer}
+.autopic:hover{border-color:var(--ac)}.autopic canvas{width:40px;height:40px}
+body.mode3d .autobar,body.modemods .autobar,body.modeplay .autobar,body.modeart .autobar,body.modeanim .autobar{display:none!important}
+body:has(#xLes:not(.hide)) .autobar,body:has(#xStampBar:not(.hide)) .autobar{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+@media (max-width:700px){.autobar{left:calc(50% + 34px);max-width:calc(100vw - 92px)}.autoh b{display:none}}
 
 /* ---------- v18: Pro tools ---------- */
 .probar{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:max-content;z-index:31;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:7px 8px 7px 12px;border-radius:16px;max-width:calc(100vw - 24px);font-size:13px}
@@ -1459,9 +1459,25 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
 #cvCurveBox{display:flex;flex-direction:column;gap:6px}
 #cvC{width:100%;aspect-ratio:1;max-width:100%;border-radius:12px;background:var(--bg2,#0002);border:1px solid var(--line,#8883);touch-action:none;cursor:crosshair}
 #cvLvBox{display:flex;flex-direction:column;gap:6px}
+
+/* ---------- v19: player accounts ---------- */
+.modal.accm{z-index:400}
+.card.accc{width:min(400px,calc(100vw - 24px));display:flex;flex-direction:column;gap:11px}
+.acchero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.acchero h2{margin:4px 0 0;font-size:22px;text-wrap:balance}.acchero p{margin:0;font-size:13.5px;max-width:34ch}
+.acctab{display:flex}.acctab button{flex:1;padding:8px 6px;font-size:13px}
+.accc .fld{display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.accc .fld input{font-size:16px;padding:10px 12px}
+.acchint,.accfine{line-height:1.4;font-size:12px}
+.accerr{background:color-mix(in srgb,#ef4444 16%,transparent);color:#fca5a5;border:1px solid color-mix(in srgb,#ef4444 40%,transparent);border-radius:10px;padding:8px 11px;font-size:13px}
+[data-ms=light] .accerr{color:#b91c1c}
+.accgo{justify-content:center;padding:11px 14px;font-size:15px}
+#accOff{align-self:center;font-size:13px}
+.accev .adperson.accnew{box-shadow:inset 3px 0 0 #10b981}
+.acclive{font-size:11.5px}
 </style></head>
 <body>
-<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 8.0</div></div>
+<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 8.1</div></div>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
  <div class="brand"><span class="mark"><i class="fa-solid fa-pen-nib"></i></span><b>MasterSketch</b><small class="ver">PRO</small></div>
@@ -2264,7 +2280,7 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
  <label class="fbl"><span data-i18n>About it (optional)</span><textarea id="awShD" rows="2" maxlength="500"></textarea></label>
  <small class="mut" data-i18n>Your animation plays in everyone’s Gallery. Sounds stay on your device – export a video to share them. Don’t include your full name, address or school.</small>
  <div class="row"><span class="sp"></span><button class="btn" data-close><span data-i18n>Cancel</span></button><button class="btn pri" id="awShGo"><i class="fa-solid fa-share-from-square"></i><span data-i18n>Share</span></button></div></div></div>
-<div id="adBar" class="adbar glass hide"><span class="adh"><i class="fa-solid fa-wand-magic-sparkles"></i><b data-i18n>AutoDraw</b></span><div id="adSug" class="adsug"></div><button class="b sm" id="adX" title="Stop AutoDraw" data-i18t><i class="fa-solid fa-xmark"></i></button></div>
+<div id="adBar" class="autobar glass hide"><span class="autoh"><i class="fa-solid fa-wand-magic-sparkles"></i><b data-i18n>AutoDraw</b></span><div id="adSug" class="autosug"></div><button class="b sm" id="adX" title="Stop AutoDraw" data-i18t><i class="fa-solid fa-xmark"></i></button></div>
 <div id="proBar" class="probar glass hide"></div>
 <input type="file" id="psdIn" accept=".psd,image/vnd.adobe.photoshop" class="hide">
 <div id="crvM" class="modal hide"><div class="card crv">
@@ -2274,6 +2290,19 @@ body.mode3d .probar,body.modemods .probar,body.modeplay .probar,body.modeart .pr
  <div id="cvCurveBox"><canvas id="cvC" width="512" height="512"></canvas><small class="mut" data-i18n>Tap to add a point · drag points to change the curve · drag a point out of the box to remove it</small></div>
  <div id="cvLvBox" class="hide"><div data-r="lvIb:Input black:0:253:0"></div><div data-r="lvG:Gamma:10:300:100"></div><div data-r="lvIw:Input white:2:255:255"></div><div data-r="lvOb:Output black:0:255:0"></div><div data-r="lvOw:Output white:0:255:255"></div></div>
  <div class="row"><button class="btn" id="cvAuto"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n>Auto</span></button><button class="btn" id="cvReset"><span data-i18n>Reset</span></button><span class="sp"></span><button class="btn" id="cvNo"><span data-i18n>Cancel</span></button><button class="btn pri" id="cvOk"><span data-i18n>Apply</span></button></div></div></div>
+<div id="accM" class="modal accm hide"><div class="card accc">
+ <div class="acchero"><span class="mark big"><i class="fa-solid fa-pen-nib"></i></span><h2 id="accH">Welcome to MasterSketch!</h2><p class="mut" id="accP"></p></div>
+ <div class="segs acctab" id="accTab"><button data-v="new" class="on" data-i18n>New player</button><button data-v="in" data-i18n>I have an account</button></div>
+ <label class="fld"><span data-i18n>Player name</span><input id="accN" maxlength="20" autocomplete="username" spellcheck="false" autocapitalize="off"></label>
+ <small class="mut acchint" id="accNh"><i class="fa-solid fa-mask"></i> <span data-i18n>Make up a fun name – not your real name. Nobody else can have the same name.</span></small>
+ <label class="fld"><span data-i18n>Password</span><input id="accW" type="password" maxlength="64" autocomplete="new-password"></label>
+ <label class="fld" id="accW2b"><span data-i18n>Type the password again</span><input id="accW2" type="password" maxlength="64" autocomplete="new-password"></label>
+ <label class="chk"><input type="checkbox" id="accShow"> <span data-i18n>Show password</span></label>
+ <div class="accerr hide" id="accE"></div>
+ <button class="btn pri accgo" id="accGo"><i class="fa-solid fa-right-to-bracket"></i><span id="accGoT">Create my account</span></button>
+ <button class="lnk hide" id="accOff" data-i18n>Play offline for now</button>
+ <small class="mut accfine"><i class="fa-solid fa-shield-heart"></i> <span data-i18n>Your password is kept secret – not even the MasterSketch team can read it. Don’t use a password from another app.</span></small>
+</div></div>
 <div id="toasts"></div>
 <script>/* three.js r147 (MIT) */
 /**
@@ -15665,13 +15694,66 @@ const TR={
 'Close-gap fill':['เติมสีแบบปิดช่องว่าง','Relleno que cierra huecos','隙間を閉じる塗りつぶし','封闭缺口填充'],
 'The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.':['ถังเทสีปิดช่องว่างเล็ก ๆ ในลายเส้นได้ สีจึงอยู่ข้างใน และมีตัวช่วยกันสั่นแบบเชือกดึงสำหรับเส้นที่เนียนมาก','El bote de pintura puede cerrar pequeños huecos en tu línea, así el color se queda dentro. Estabilizador de cuerda para líneas muy suaves.','塗りつぶしが線画の小さな隙間を閉じるので、色がはみ出しません。とてもなめらかな線のための糸引き補正も。','油漆桶可以封闭线稿里的小缺口，让颜色留在里面。还有拉绳防抖，画出非常顺滑的线条。'],
 'Motion and zoom blur':['เบลอแบบเคลื่อนไหวและแบบซูม','Desenfoque de movimiento y radial','モーションぼかしとズームぼかし','动感模糊和径向模糊'],
-'Two new blur filters for speed and action.':['ฟิลเตอร์เบลอใหม่สองแบบสำหรับความเร็วและฉากแอ็กชัน','Dos nuevos filtros de desenfoque para velocidad y acción.','スピード感とアクションのための新しいぼかし2種。','两个新的模糊滤镜，表现速度和动作。']
+'Two new blur filters for speed and action.':['ฟิลเตอร์เบลอใหม่สองแบบสำหรับความเร็วและฉากแอ็กชัน','Dos nuevos filtros de desenfoque para velocidad y acción.','スピード感とアクションのための新しいぼかし2種。','两个新的模糊滤镜，表现速度和动作。'],
+'Welcome to MasterSketch!':['ยินดีต้อนรับสู่ MasterSketch!','¡Bienvenido a MasterSketch!','MasterSketchへようこそ！','欢迎来到 MasterSketch！'],
+'Welcome back!':['ยินดีต้อนรับกลับมา!','¡Hola de nuevo!','おかえりなさい！','欢迎回来！'],
+'Make your player account to start. It only takes a moment.':['สร้างบัญชีผู้เล่นเพื่อเริ่มต้น ใช้เวลาแป๊บเดียว','Crea tu cuenta de jugador para empezar. Solo toma un momento.','はじめにプレイヤーアカウントを作ろう。すぐできます。','先创建你的玩家账号，马上就好。'],
+'Log in with your player name and password.':['เข้าสู่ระบบด้วยชื่อผู้เล่นและรหัสผ่านของคุณ','Inicia sesión con tu nombre de jugador y contraseña.','プレイヤー名とパスワードでログインしてね。','用你的玩家名和密码登录。'],
+'New player':['ผู้เล่นใหม่','Jugador nuevo','新しいプレイヤー','新玩家'],
+'I have an account':['ฉันมีบัญชีแล้ว','Ya tengo una cuenta','アカウントを持っている','我已有账号'],
+'Player name':['ชื่อผู้เล่น','Nombre de jugador','プレイヤー名','玩家名'],
+'Make up a fun name – not your real name. Nobody else can have the same name.':['ตั้งชื่อสนุก ๆ ที่ไม่ใช่ชื่อจริงของคุณ ชื่อนี้จะไม่ซ้ำกับใคร','Inventa un nombre divertido, no tu nombre real. Nadie más puede tener el mismo.','楽しい名前を考えてね（本名はだめ）。同じ名前は使えません。','起一个有趣的名字（不要用真名）。名字不能和别人重复。'],
+'Show password':['แสดงรหัสผ่าน','Mostrar contraseña','パスワードを表示','显示密码'],
+'Create my account':['สร้างบัญชีของฉัน','Crear mi cuenta','アカウントを作る','创建我的账号'],
+'Log in':['เข้าสู่ระบบ','Iniciar sesión','ログイン','登录'],
+'Log out':['ออกจากระบบ','Cerrar sesión','ログアウト','退出登录'],
+'Play offline for now':['เล่นแบบออฟไลน์ไปก่อน','Jugar sin conexión por ahora','今はオフラインで遊ぶ','暂时离线玩'],
+'Your password is kept secret – not even the MasterSketch team can read it. Don’t use a password from another app.':['รหัสผ่านของคุณเป็นความลับ แม้แต่ทีม MasterSketch ก็อ่านไม่ได้ อย่าใช้รหัสผ่านเดียวกับแอปอื่น','Tu contraseña es secreta: ni siquiera el equipo de MasterSketch puede leerla. No uses la contraseña de otra app.','パスワードは秘密に守られ、MasterSketchチームにも見えません。ほかのアプリと同じパスワードは使わないでね。','你的密码是保密的，连 MasterSketch 团队也看不到。不要使用其他应用的密码。'],
+'That name is already taken – try another one.':['ชื่อนี้มีคนใช้แล้ว ลองชื่ออื่นนะ','Ese nombre ya está en uso, prueba otro.','その名前はもう使われています。ほかの名前にしてね。','这个名字已被使用，换一个吧。'],
+'Use 2–20 letters or numbers for your player name.':['ใช้ตัวอักษรหรือตัวเลข 2–20 ตัวสำหรับชื่อผู้เล่น','Usa de 2 a 20 letras o números para tu nombre de jugador.','プレイヤー名は2〜20文字の文字か数字にしてね。','玩家名请用 2–20 个字母或数字。'],
+'Please pick a kinder name.':['กรุณาเลือกชื่อที่สุภาพกว่านี้','Por favor, elige un nombre más amable.','もっとやさしい名前にしてね。','请换一个更友善的名字。'],
+'Your password needs at least 4 characters.':['รหัสผ่านต้องมีอย่างน้อย 4 ตัว','Tu contraseña necesita al menos 4 caracteres.','パスワードは4文字以上にしてね。','密码至少需要 4 个字符。'],
+'Wrong player name or password.':['ชื่อผู้เล่นหรือรหัสผ่านไม่ถูกต้อง','Nombre de jugador o contraseña incorrectos.','プレイヤー名かパスワードがちがいます。','玩家名或密码错误。'],
+'This account has been blocked by the MasterSketch team.':['บัญชีนี้ถูกระงับโดยทีม MasterSketch','El equipo de MasterSketch ha bloqueado esta cuenta.','このアカウントはMasterSketchチームによってブロックされています。','该账号已被 MasterSketch 团队封禁。'],
+'Please log in again.':['กรุณาเข้าสู่ระบบอีกครั้ง','Inicia sesión de nuevo.','もう一度ログインしてね。','请重新登录。'],
+'Could not reach the MasterSketch cloud. Check your internet connection and try again.':['ติดต่อคลาวด์ MasterSketch ไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่','No se pudo conectar con la nube de MasterSketch. Revisa tu conexión e inténtalo de nuevo.','MasterSketchクラウドにつながりません。インターネット接続を確認してもう一度どうぞ。','无法连接 MasterSketch 云端。请检查网络后重试。'],
+'Welcome, {n}! Your account is ready.':['ยินดีต้อนรับ {n}! บัญชีของคุณพร้อมแล้ว','¡Bienvenido, {n}! Tu cuenta está lista.','ようこそ、{n}！アカウントの準備ができました。','欢迎你，{n}！账号已经准备好了。'],
+'Welcome back, {n}!':['ยินดีต้อนรับกลับมา {n}!','¡Hola de nuevo, {n}!','おかえり、{n}！','欢迎回来，{n}！'],
+'You are playing as {n}.':['คุณกำลังเล่นในชื่อ {n}','Estás jugando como {n}.','{n} としてプレイ中です。','你正在以 {n} 的身份游玩。'],
+'My account…':['บัญชีของฉัน…','Mi cuenta…','マイアカウント…','我的账号…'],
+'Accounts':['บัญชี','Cuentas','アカウント','账号'],
+'Recent log-ins':['การเข้าสู่ระบบล่าสุด','Inicios de sesión recientes','最近のログイン','最近登录'],
+'Player accounts':['บัญชีผู้เล่น','Cuentas de jugadores','プレイヤーアカウント','玩家账号'],
+'Search player names':['ค้นหาชื่อผู้เล่น','Buscar nombres de jugadores','プレイヤー名を検索','搜索玩家名'],
+'Players choose their own name (not their real name). Passwords are secret – not even you can see them. If a player forgets theirs, give them a new one with “New password”.':['ผู้เล่นตั้งชื่อเอง (ไม่ใช่ชื่อจริง) รหัสผ่านเป็นความลับ แม้แต่คุณก็ดูไม่ได้ ถ้าผู้เล่นลืมรหัสผ่าน ให้ตั้งรหัสใหม่ด้วยปุ่ม “รหัสผ่านใหม่”','Los jugadores eligen su propio nombre (no su nombre real). Las contraseñas son secretas: ni tú puedes verlas. Si alguien olvida la suya, dale una nueva con «Contraseña nueva».','プレイヤーは自分で名前を決めます（本名ではありません）。パスワードは秘密で、あなたにも見えません。忘れた人には「新しいパスワード」で新しいものを渡してください。','玩家自己起名字（不是真名）。密码是保密的，连你也看不到。如果玩家忘了密码，用“新密码”给他一个新的。'],
+'New account':['บัญชีใหม่','Cuenta nueva','新しいアカウント','新账号'],
+'Logged in':['เข้าสู่ระบบแล้ว','Inició sesión','ログインしました','已登录'],
+'Opened the app':['เปิดแอป','Abrió la app','アプリを開いた','打开了应用'],
+'Updates by itself':['อัปเดตอัตโนมัติ','Se actualiza sola','自動で更新','自动更新'],
+'Nobody has logged in yet.':['ยังไม่มีใครเข้าสู่ระบบ','Nadie ha iniciado sesión todavía.','まだ誰もログインしていません。','还没有人登录。'],
+'No accounts yet.':['ยังไม่มีบัญชี','Todavía no hay cuentas.','まだアカウントはありません。','还没有账号。'],
+'No player has that name.':['ไม่มีผู้เล่นชื่อนี้','Ningún jugador tiene ese nombre.','その名前のプレイヤーはいません。','没有叫这个名字的玩家。'],
+'New today':['ใหม่วันนี้','Nuevas hoy','今日の新規','今日新增'],
+'Played today':['เล่นวันนี้','Jugaron hoy','今日遊んだ人','今日游玩'],
+'Joined':['สมัครเมื่อ','Se unió','登録','加入于'],
+'Last seen':['ใช้งานล่าสุด','Visto por última vez','最終ログイン','最近在线'],
+'visit':['ครั้ง','visita','回','次访问'],
+'visits':['ครั้ง','visitas','回','次访问'],
+'New password for {n}: {p} – tell the player to log in with it.':['รหัสผ่านใหม่ของ {n}: {p} – บอกผู้เล่นให้เข้าสู่ระบบด้วยรหัสนี้','Contraseña nueva para {n}: {p}. Dile al jugador que inicie sesión con ella.','{n} の新しいパスワード：{p} – これでログインするよう伝えてください。','{n} 的新密码：{p}——告诉玩家用它登录。'],
+'Give {n} a new password? Their old password stops working.':['ตั้งรหัสผ่านใหม่ให้ {n} ไหม? รหัสผ่านเดิมจะใช้ไม่ได้อีก','¿Dar a {n} una contraseña nueva? La anterior dejará de funcionar.','{n} に新しいパスワードを渡しますか？古いパスワードは使えなくなります。','要给 {n} 一个新密码吗？旧密码将失效。'],
+'Block {n}? They will be logged out and cannot log in again until you unblock them.':['ระงับ {n} ไหม? ผู้เล่นจะถูกออกจากระบบและเข้าใหม่ไม่ได้จนกว่าคุณจะยกเลิกการระงับ','¿Bloquear a {n}? Se cerrará su sesión y no podrá volver a entrar hasta que lo desbloquees.','{n} をブロックしますか？ログアウトされ、ブロックを解除するまでログインできません。','要封禁 {n} 吗？他会被退出登录，在你解封前无法再登录。'],
+'Delete the account {n}? The name becomes free for someone else.':['ลบบัญชี {n} ไหม? ชื่อนี้จะว่างให้คนอื่นใช้ได้','¿Eliminar la cuenta {n}? El nombre quedará libre para otra persona.','アカウント {n} を削除しますか？名前はほかの人が使えるようになります。','要删除账号 {n} 吗？这个名字会空出来给别人用。'],
+'Accounts need the new MasterSketch cloud code. Paste the new Code.gs into Apps Script and deploy a new version.':['บัญชีต้องใช้โค้ดคลาวด์ MasterSketch ใหม่ วาง Code.gs ใหม่ใน Apps Script แล้วเผยแพร่เวอร์ชันใหม่','Las cuentas necesitan el nuevo código de la nube de MasterSketch. Pega el nuevo Code.gs en Apps Script e implementa una versión nueva.','アカウントには新しいMasterSketchクラウドのコードが必要です。新しいCode.gsをApps Scriptに貼り付けて新しいバージョンをデプロイしてください。','账号功能需要新的 MasterSketch 云端代码。把新的 Code.gs 粘贴到 Apps Script 并部署新版本。'],
+'Could not load the accounts.':['โหลดบัญชีไม่ได้','No se pudieron cargar las cuentas.','アカウントを読み込めませんでした。','无法加载账号。'],
+'Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.':['เลือกชื่อผู้เล่น (ไม่ใช่ชื่อจริง) และรหัสผ่าน เข้าสู่ระบบได้ทุกอุปกรณ์ด้วยชื่อเดียวกัน ออกจากระบบได้ที่ ช่วยเหลือ ▸ บัญชีของฉัน','Elige un nombre de jugador (no tu nombre real) y una contraseña. Inicia sesión en cualquier dispositivo con el mismo nombre. Ayuda ▸ Mi cuenta para cerrar sesión.','プレイヤー名（本名ではなく）とパスワードを決めよう。同じ名前でどの端末からもログインできます。ログアウトはヘルプ ▸ マイアカウント。','选一个玩家名（不要用真名）和密码。用同一个名字可以在任何设备上登录。在 帮助 ▸ 我的账号 里退出登录。'],
+'Admin stats fixed':['แก้หน้าสถิติของแอดมินแล้ว','Estadísticas del administrador arregladas','管理者の統計を修正','已修复管理员统计'],
+'The charts on the Stats page show correctly again.':['กราฟในหน้าสถิติแสดงผลถูกต้องแล้ว','Los gráficos de la página de estadísticas vuelven a verse bien.','統計ページのグラフが正しく表示されるようになりました。','统计页面的图表又能正常显示了。']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='8.0';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='8.1';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -17608,7 +17690,7 @@ async function admGo(pg){if(!ADM.tok)pg='signin';if(pg!=='signin')ADM.pg=pg;$$('
  if(!ADM.items){B.appendChild(adEmpty('fa-spinner fa-spin','Loading from the MasterSketch cloud…'));try{await admLoad()}catch(e){B.innerHTML='';if(e&&e.code==='auth')return admOut(t('Please sign in again.'));
    B.appendChild(adEmpty('fa-wifi',e&&e.code==='setup'?'The MasterSketch cloud is not connected yet.':'Could not reach the MasterSketch cloud. Check your internet connection.'));const b=icoBtn('fa-rotate','Try again',()=>admGo(pg));b.style.alignSelf='center';B.appendChild(b);return}
   if(ADM.pg!==pg)return;B.innerHTML=''}
- ({home:admHome,inbox:admInbox,approve:admApprove,library:admLibrary,news:admNews,roadmap:admRoadmap,players:admPlayers,stats:admStats,safety:admSafety,log:admLogPg,aset:admSetPg})[pg](B);admBadges()}
+ ({home:admHome,inbox:admInbox,approve:admApprove,library:admLibrary,news:admNews,roadmap:admRoadmap,players:admPlayers,stats:admStats,safety:admSafety,log:admLogPg,aset:admSetPg,accounts:admAccounts})[pg](B);admBadges()}
 async function admRefresh(){if(!ADM.tok)return;const b=$('#admRef i');b.classList.add('fa-spin');ADM.items=null;ADM.code.clear();ADM.uses={};admFresh();await admGo(ADM.pg);b.classList.remove('fa-spin')}
 function admOut(msg){if(ADM.tok&&!msg)MSC.post({a:'adm',tok:ADM.tok,op:'out'}).catch(()=>{});ADM.tok='';ADM.items=null;try{localStorage.removeItem('msa_ctok')}catch(e){}admNav();admGo('signin');
  if(msg)setTimeout(()=>{const e=$('#admBody .aderr');if(e){e.textContent=msg;e.classList.remove('hide')}},400)}
@@ -19283,7 +19365,7 @@ function adRun(){if(!AD.on)return;const L=AD.L;if(!layers.includes(L)||AD.base.w
  AD.box=clipR({x:b.x*s-2,y:b.y*s-2,w:b.w*s+4,h:b.h*s+4});const g=adGrid(m,b.x,b.y,b.w,b.h),D=adDT(g),ar=b.w/b.h;
  const r=adTpl().map(T_=>({T:T_,sc:adScore(g,D,T_.g,T_.D)+Math.abs(Math.log(ar/T_.ar))*.9})).sort((x,y)=>x.sc-y.sc);adBar(r.slice(0,8).map(x=>x.T))}
 function adBar(list){const B_=$('#adSug');B_.innerHTML='';if(!list.length){const s=document.createElement('small');s.className='mut';s.textContent=t(AD.box===null?'Doodle something – picture ideas show up here':'Keep drawing…');B_.appendChild(s);return}
- const col=getComputedStyle(document.body).color||'#888';list.forEach(T_=>{const b=document.createElement('button');b.className='adpic';b.title=t(T_.p[1]);const c=mkC(64,64),x=c.getContext('2d');x.strokeStyle=col;const k=Math.min(54/T_.bb.w,54/T_.bb.h);xPicStroke(x,T_.p[2],k,32-(T_.bb.x+T_.bb.w/2)*k,32-(T_.bb.y+T_.bb.h/2)*k,2);b.appendChild(c);b.onclick=()=>adUse(T_);B_.appendChild(b)})}
+ const col=getComputedStyle(document.body).color||'#888';list.forEach(T_=>{const b=document.createElement('button');b.className='autopic';b.title=t(T_.p[1]);const c=mkC(64,64),x=c.getContext('2d');x.strokeStyle=col;const k=Math.min(54/T_.bb.w,54/T_.bb.h);xPicStroke(x,T_.p[2],k,32-(T_.bb.x+T_.bb.w/2)*k,32-(T_.bb.y+T_.bb.h/2)*k,2);b.appendChild(c);b.onclick=()=>adUse(T_);B_.appendChild(b)})}
 function adUse(T_){const L=AD.L,b=AD.box;if(!b||!layers.includes(L)||!editable(L))return;const lw=Math.max(2,S.size*.8),pad=Math.ceil(lw)+4,r=clipR({x:b.x-pad,y:b.y-pad,w:b.w+pad*2,h:b.h+pad*2}),before=copyC(L.canvas,r),c=L.ctx;
  c.save();c.globalAlpha=1;c.globalCompositeOperation='source-over';c.clearRect(b.x,b.y,b.w,b.h);c.drawImage(AD.base,b.x,b.y,b.w,b.h,b.x,b.y,b.w,b.h);
  const k=Math.min(b.w/T_.bb.w,b.h/T_.bb.h);c.strokeStyle=S.color;xPicStroke(c,T_.p[2],k,b.x+(b.w-T_.bb.w*k)/2-T_.bb.x*k,b.y+(b.h-T_.bb.h*k)/2-T_.bb.y*k,lw);c.restore();
@@ -19588,6 +19670,79 @@ Object.assign(CMD_IC,{clipMask:'fa-turn-down',proLiquify:'fa-water',proDistort:'
  const vw=M('View');if(vw)vw[1].splice(vw[1].indexOf('grid'),0,'proPersp')}
 HOME.splice(0,0,'f_curves','proLiquify','proPersp','psdSave');
 
+/* ---------- v19: player accounts – a made-up player name and a password ----------
+   The first time MasterSketch opens, the player picks a name (not their real name) and a password. The cloud keeps only
+   a salted hash of the password. The owner sees every account and every log-in in the admin panel ▸ Accounts. */
+const ACC=Object.assign({name:'',tok:'',mode:'new',off:false},LS.get('msk_acct',{}));
+const accApp=()=>`MasterSketch ${VERSION} · ${appPlat()}`;
+const accCall=(a,o)=>MSC.post(Object.assign({a,dev:MSC.dev(),app:accApp()},o));
+const ACCW={taken:'That name is already taken – try another one.',name:'Use 2–20 letters or numbers for your player name.',words:'Please pick a kinder name.',weak:'Your password needs at least 4 characters.',
+ wrongpw:'Wrong player name or password.',locked:'Too many tries. Please wait 15 minutes and try again.',banned:'This account has been blocked by the MasterSketch team.',auth:'Please log in again.'};
+function accSave(){LS.set('msk_acct',{name:ACC.name,tok:ACC.tok})}
+function accErr(m){const e=$('#accE');e.textContent=m?t(m):'';e.classList.toggle('hide',!m)}
+function accMode(m){ACC.mode=m;const nw=m==='new';$$('#accTab button').forEach(b=>b.classList.toggle('on',b.dataset.v===m));
+ $('#accH').textContent=t(nw?'Welcome to MasterSketch!':'Welcome back!');$('#accP').textContent=t(nw?'Make your player account to start. It only takes a moment.':'Log in with your player name and password.');
+ show('#accW2b',nw);show('#accNh',nw);$('#accGoT').textContent=t(nw?'Create my account':'Log in');$('#accW').autocomplete=nw?'new-password':'current-password';accErr('')}
+function accOpen(mode,msg){proEnd();accMode(mode||'new');if(ACC.name&&mode==='in')$('#accN').value=ACC.name;$('#accW').value=$('#accW2').value='';show('#accOff',ACC.off);show('#accM');if(msg)accErr(msg);setTimeout(()=>($('#accN').value?$('#accW'):$('#accN')).focus(),60)}
+async function accSubmit(){const nw=ACC.mode==='new',name=$('#accN').value.replace(/\s+/g,' ').trim(),pw=$('#accW').value;
+ if(name.length<2||name.length>20)return accErr(ACCW.name);if(pw.length<4)return accErr(ACCW.weak);if(nw&&pw!==$('#accW2').value)return accErr('The two passwords are not the same.');
+ const b=$('#accGo');b.disabled=true;b.classList.add('busy');accErr('');
+ try{const r=await accCall(nw?'reg':'signin',{name,pw});ACC.name=r.name;ACC.tok=r.tok;accSave();if(!LS.get('msu8_author',''))LS.set('msu8_author',r.name);try{if(!FB.n){FB.n=r.name;fbSave()}}catch(e){}
+  show('#accM',false);toast(t(nw?'Welcome, {n}! Your account is ready.':'Welcome back, {n}!').replace('{n}',r.name),'fa-user-check')}
+ catch(e){const c=e&&e.code;if(c==='unknown'){show('#accM',false);return}
+  if(cloudOff(e)){ACC.off=true;show('#accOff');accErr('Could not reach the MasterSketch cloud. Check your internet connection and try again.')}else accErr(ACCW[c]||MSC.why(e))}
+ finally{b.disabled=false;b.classList.remove('busy')}}
+async function accCheck(){if(window.MSK_NOACC)return;if(!ACC.tok){accOpen('new');return}
+ try{const r=await accCall('me',{name:ACC.name,tok:ACC.tok});if(r.name&&r.name!==ACC.name){ACC.name=r.name;accSave()}}
+ catch(e){if(e&&(e.code==='auth'||e.code==='banned')){ACC.tok='';accSave();accOpen('in',ACCW[e.code])}}}
+async function accMenu(){if(!ACC.tok)return accOpen('in');if(await dlg(t('You are playing as {n}.').replace('{n}',ACC.name),{ok:t('Log out')})){ACC.tok='';accSave();accOpen('in')}}
+$$('#accTab button').forEach(b=>b.onclick=()=>accMode(b.dataset.v));
+$('#accGo').onclick=accSubmit;$('#accOff').onclick=()=>show('#accM',false);
+$('#accShow').onchange=e=>['#accW','#accW2'].forEach(s=>$(s).type=e.target.checked?'text':'password');
+['#accN','#accW','#accW2'].forEach(s=>$(s).addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();accSubmit()}}));
+/* the window cannot be closed by tapping outside it or with Escape */
+$('#accM').addEventListener('pointerdown',e=>{if(e.target===e.currentTarget)e.stopImmediatePropagation()},true);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#accM').classList.contains('hide')){e.preventDefault();e.stopImmediatePropagation()}},true);
+setTimeout(accCheck,400);
+Object.assign(CMD,{acct:['My account…','',accMenu]});Object.assign(CMD_IC,{acct:'fa-id-card'});
+{const h=MENUS.find(m=>m[0]==='Help');if(h)h[1].splice(h[1].indexOf('settings')+1,0,'acct')}
+
+/* ---------- admin panel ▸ Accounts: every player account and a live list of log-ins ---------- */
+const ACT={list:null,ev:[],at:0,q:'',iv:0,seen:LS.get('msa_acc_seen',0)};
+const ACE={new:['fa-user-plus','New account','#10b981'],login:['fa-right-to-bracket','Logged in','#3b82f6'],open:['fa-door-open','Opened the app','#8b95a7']};
+async function accLoad(){let r;try{r=await MSC.post({a:'adm',tok:ADM.tok,op:'accts'})}catch(e){if(e&&e.code==='auth')admOut(t('Please sign in again.'));throw e}ACT.list=r.accts||[];ACT.ev=r.ev||[];ACT.at=Date.now();accBadge();return r}
+function accBadge(){const b=$('#admNavL button[data-p="accounts"] em');if(!b)return;const n=ACT.ev.filter(e=>e.t>ACT.seen&&e.w!=='open').length;b.textContent=n>99?'99+':n;b.classList.toggle('hide',!n||ADM.pg==='accounts')}
+{const _b=admBadges;admBadges=function(){_b.apply(this,arguments);accBadge()}}
+{const _o=admOpen;admOpen=function(){_o.apply(this,arguments);if(ADM.tok){accPoll();accLoad().catch(()=>{})}}}
+/* while the admin panel is open, new log-ins show up by themselves */
+function accPoll(){clearInterval(ACT.iv);ACT.iv=setInterval(async()=>{if($('#admM').classList.contains('hide')||!ADM.tok)return;const n0=ACT.ev.length?ACT.ev[0].t:0;
+ try{await accLoad()}catch(e){return}const fresh=ACT.ev.filter(e=>e.t>n0&&e.w!=='open');if(ADM.pg==='accounts'&&ACT.draw)ACT.draw();
+ else if(n0&&fresh.length){const e=fresh[0];noteToast(ACE[e.w][0],e.n+' · '+t(ACE[e.w][1]),()=>admGo('accounts'),6000)}},25000)}
+async function admAccounts(B){const box=ae('div');box.appendChild(adEmpty('fa-spinner fa-spin','Loading…'));B.appendChild(box);
+ try{await accLoad()}catch(e){box.innerHTML='';box.appendChild(adEmpty('fa-cloud',e&&e.code==='unknown'?'Accounts need the new MasterSketch cloud code. Paste the new Code.gs into Apps Script and deploy a new version.':'Could not load the accounts.'));return}
+ if(ADM.pg!=='accounts')return;box.remove();accPoll();
+ const T=ae('div','adtiles');B.appendChild(T);
+ const lc=adCard('Recent log-ins','fa-right-to-bracket',ae('small','mut acclive'));const LL=ae('div','accev');lc.appendChild(LL);B.appendChild(lc);
+ const tb=ae('div','adtool');tb.appendChild(adSearch(ACT.q,v=>{ACT.q=v;drawList()},'Search player names'));
+ const ac=adCard('Player accounts','fa-id-card');ac.appendChild(tb);const L=ae('div');ac.appendChild(L);ac.appendChild(ae('small','mut',t('Players choose their own name (not their real name). Passwords are secret – not even you can see them. If a player forgets theirs, give them a new one with “New password”.')));B.appendChild(ac);
+ function drawTop(){T.innerHTML='';const d0=new Date();d0.setHours(0,0,0,0);const a=ACT.list;
+  admTile(T,'fa-id-card','Accounts',a.length,'#7c8cff');admTile(T,'fa-user-plus','New today',a.filter(x=>x.created>=+d0).length,'#10b981');admTile(T,'fa-calendar-day','Played today',a.filter(x=>x.last>=+d0).length,'#06b6d4');admTile(T,'fa-user-slash','Blocked',a.filter(x=>x.banned).length,'#ef4444');
+  lc.querySelector('.acclive').textContent=t('Updates by itself')+' · '+ago(ACT.at);
+  LL.innerHTML='';const ev=ACT.ev.slice(0,40);if(!ev.length)LL.appendChild(adEmpty('fa-seedling','Nobody has logged in yet.'));
+  ev.forEach(e=>{const k=ACE[e.w]||ACE.open,r=ae('div','adperson'+(e.t>ACT.seen&&e.w!=='open'?' accnew':''));r.innerHTML='<span class="adav"></span><div><b></b><small class="mut"></small></div><span class="sp"></span>';const av=r.querySelector('.adav');av.style.background=dot(e.n);av.textContent=(e.n||'?').slice(0,1).toUpperCase();
+   r.querySelector('b').textContent=e.n;r.querySelector('small').textContent=ago(e.t)+(e.app?' · '+e.app.replace(/^MasterSketch /,''):'');r.appendChild(chip(t(k[1]),k[2],k[0]));LL.appendChild(r)});
+  if(ACT.ev.length){ACT.seen=Math.max(ACT.seen,ACT.ev[0].t);LS.set('msa_acc_seen',ACT.seen)}accBadge()}
+ function drawList(){const q=ACT.q.trim().toLowerCase();L.innerHTML='';const list=ACT.list.filter(a=>!q||a.name.toLowerCase().includes(q)).sort((a,b)=>b.last-a.last).slice(0,300);
+  if(!list.length)return L.appendChild(adEmpty('fa-id-card',ACT.list.length?'No player has that name.':'No accounts yet.'));
+  list.forEach(a=>{const r=ae('div','adperson');r.innerHTML='<span class="adav"></span><div><b></b><small class="mut"></small></div><span class="sp"></span>';const av=r.querySelector('.adav');av.style.background=dot(a.name);av.textContent=a.name.slice(0,1).toUpperCase();
+   r.querySelector('b').textContent=a.name+(a.banned?' · '+t('Blocked'):'');r.querySelector('small').textContent=t('Joined')+' '+ago(a.created)+' · '+t('Last seen')+' '+ago(a.last)+' · '+a.logins+' '+t(a.logins===1?'visit':'visits')+(a.app?' · '+a.app.replace(/^MasterSketch /,''):'');
+   const act=(op,msg)=>admDo(async()=>{const x=await adm('acct',Object.assign({id:a.id},op));if(x.pw)await dlg(t('New password for {n}: {p} – tell the player to log in with it.').replace('{n}',a.name).replace('{p}',x.pw),{noCancel:true});await accLoad();drawTop();drawList()},msg);
+   r.appendChild(icoBtn('fa-key','New password',async()=>{if(await dlg(t('Give {n} a new password? Their old password stops working.').replace('{n}',a.name)))act({reset:true})},'mini'));
+   r.appendChild(icoBtn(a.banned?'fa-user-check':'fa-user-slash',a.banned?'Unblock':'Block',async()=>{if(a.banned||await dlg(t('Block {n}? They will be logged out and cannot log in again until you unblock them.').replace('{n}',a.name),{danger:true}))act({ban:!a.banned},a.banned?'Unblocked':'Blocked')},'mini'+(a.banned?'':' danger')));
+   r.appendChild(icoBtn('fa-trash','Delete',async()=>{if(await dlg(t('Delete the account {n}? The name becomes free for someone else.').replace('{n}',a.name),{danger:true,ok:t('Delete')}))act({del:true},'Deleted')},'mini danger'));L.appendChild(r)})}
+ ACT.draw=()=>{drawTop();drawList()};ACT.draw()}
+ADP.splice(ADP.findIndex(p=>p[0]==='players')+1,0,['accounts','fa-id-card','Accounts']);
+
 /* ---------- v8: drawing additions ---------- */
 /* PDF export (one page, the picture as a high-quality JPEG) */
 function pdfBlob(cv,q){return new Promise((res,rej)=>cv.toBlob(async b=>{if(!b)return rej(Error('jpeg'));const jpg=new Uint8Array(await b.arrayBuffer()),w=cv.width,h=cv.height,pw=(w*.75).toFixed(2),ph=(h*.75).toFixed(2),enc=new TextEncoder(),parts=[],offs=[];let n=0;
@@ -19649,7 +19804,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
