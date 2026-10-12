@@ -1266,6 +1266,24 @@ const B={
 const LIB=[['mannequin','fa-person','Mannequin'],['cube','fa-cube','Cube'],['sphere','fa-circle','Sphere'],['cylinder','fa-database','Cylinder'],['cone','fa-ice-cream','Cone'],['pyramid','fa-play','Pyramid'],['dome','fa-cloud','Dome'],['wedge','fa-caret-up','Wedge'],['tube','fa-ring','Tube'],['torus','fa-life-ring','Donut'],['ring','fa-circle-notch','Ring'],['knot','fa-infinity','Knot'],['capsule','fa-capsules','Capsule'],['gem','fa-gem','Gem'],['heart','fa-heart','Heart'],['star','fa-star','Star'],['hex','fa-dice-d6','Hexagon'],['prism','fa-play','Prism'],['arch','fa-archway','Arch'],['roundbox','fa-square','Soft box'],['bowl','fa-bowl-food','Bowl'],['plane','fa-square-full','Plane'],
  ['house','fa-house','House'],['tree','fa-tree','Tree'],['car','fa-car','Car'],['chair','fa-chair','Chair'],['table','fa-table','Table'],['snowman','fa-snowman','Snowman'],['mug','fa-mug-hot','Mug'],['rocket','fa-rocket','Rocket'],
  ['spawn','fa-location-dot','Start'],['coin','fa-coins','Coin'],['goal','fa-flag-checkered','Goal flag'],['checkpoint','fa-flag','Checkpoint'],['spring','fa-arrows-up-to-line','Spring'],['lava','fa-fire','Lava'],['spikes','fa-triangle-exclamation','Spikes'],['platform','fa-grip-lines','Platform']];
+/* ---------- built shapes (Build tools): flat faces pushed into solids ("prisms"), all in one flat frame.
+   x = {pr:[{i:id, p:[x,y,…] outline, h:[[x,y,…]] holes, z:bottom, d:height (0 = flat face)}], e:edges 1/0} ---------- */
+const EDGE=new T.LineBasicMaterial({color:0x15171f});let skEdges=true;
+function skPoly(a){if(!Array.isArray(a))return null;const o=[];for(let i=0;i+1<a.length&&o.length<800;i+=2)o.push(r4(num(a[i],0,-500,500)),r4(num(a[i+1],0,-500,500)));return o.length>=6?o:null}
+function cleanSk(x){const pr=[],ids=new Set();(x&&Array.isArray(x.pr)?x.pr:[]).slice(0,200).forEach((q,k)=>{const p=skPoly(q&&q.p);if(!p)return;const h=(Array.isArray(q.h)?q.h:[]).slice(0,60).map(skPoly).filter(Boolean);
+ let z=num(q.z,0,-500,500),d=num(q.d,0,-500,500);if(d<0){z+=d;d=-d}let i=Math.max(0,num(q.i,k,0,1e6)|0);while(ids.has(i))i++;ids.add(i);pr.push({i,p,h,z:r4(z),d:r4(d)})});return{pr,e:x&&x.e===0?0:1}}
+function skPath(p,P){P.moveTo(p[0],p[1]);for(let i=2;i<p.length;i+=2)P.lineTo(p[i],p[i+1]);P.lineTo(p[0],p[1]);return P}
+function skGeo(q){const s=skPath(q.p,new T.Shape());q.h.forEach(h=>s.holes.push(skPath(h,new T.Path())));let g;
+ if(q.d<1e-4){g=new T.ShapeGeometry(s);g.translate(0,0,q.z+.0015)}else{g=new T.ExtrudeGeometry(s,{depth:q.d,bevelEnabled:false,curveSegments:1});g.translate(0,0,q.z)}return g}
+/* (re)builds the meshes of a built shape; meshes that are still there keep their material (paint stays), col(q) gives new ones */
+function skBuild(x,o,col){x=cleanSk(x);o=o||new T.Group();const old={};
+ o.children.slice().forEach(c=>{if(c.userData.skEdge){o.remove(c);c.geometry.dispose()}else if(c.isMesh&&c.userData.pid!=null){old[c.userData.pid]=c;o.remove(c)}});
+ x.pr.forEach(q=>{const g=skGeo(q);let m=old[q.i];if(m){m.geometry.dispose();m.geometry=g;delete old[q.i]}else{const mm=col&&col(q);m=new T.Mesh(g,mm&&mm.isMaterial?mm:std(typeof mm==='string'?mm:'#d9d4c9',{roughness:.8}));m.userData.pid=q.i}
+  m.castShadow=m.receiveShadow=true;const sd=q.d<1e-4?T.DoubleSide:T.FrontSide;if(m.material&&!Array.isArray(m.material)&&m.material.side!==sd){m.material.side=sd;m.material.needsUpdate=true}o.add(m);
+  const e=new T.LineSegments(new T.EdgesGeometry(g,25),EDGE);e.userData.outline=true;e.userData.skEdge=true;e.raycast=()=>{};e.visible=x.e!==0&&skEdges;o.add(e)});
+ Object.values(old).forEach(m=>m.geometry.dispose());o.userData.x=x;o.userData.src='sk';return o}
+const skEdgesOn=v=>{skEdges=!!v};
+
 /* which shapes are game pieces in Play mode */
 const GAME=['spawn','coin','goal','checkpoint','spring','lava','spikes','platform'];
 
@@ -1318,8 +1336,8 @@ function partOf(n,why,d){const u=n.userData||{};if(d>6){why.add('deep');return n
  return s}
 function common(n,s){s.p=n.position.toArray().map(r4);if(n.rotation.x||n.rotation.y||n.rotation.z)s.r=[deg(n.rotation.x),deg(n.rotation.y),deg(n.rotation.z)];if(n.scale.x!==1||n.scale.y!==1||n.scale.z!==1)s.k=n.scale.toArray().map(r4);
  if(n.userData.outlined)s.ol=1;const mo=cleanMotion(n.userData.motion);if(mo)s.mo=mo;if(n.name&&n.userData.src==='group')s.n=String(n.name).slice(0,60)}
-const XS=['text','draw','spin'];
-function cleanX(x,s){x=x||{};if(s==='draw'||s==='spin')return{pts:cleanPts(x.pts,240),d:num(x.d,.4,.05,3)};return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
+const XS=['text','draw','spin','sk'];
+function cleanX(x,s){x=x||{};if(s==='sk')return cleanSk(x);if(s==='draw'||s==='spin')return{pts:cleanPts(x.pts,240),d:num(x.d,.4,.05,3)};return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
 /* returns {spec, why:Set of reasons something could not be included} */
 function specOf(obj,name){const why=new Set();let parts;
  if(obj.userData.src==='group')parts=partOf(obj,why,0).parts;else{const p=partOf(obj,why,0);parts=p?[p]:[];if(p){delete p.p;p.p=[0,0,0]}}
@@ -1429,5 +1447,6 @@ F('solar','Solar system','Planets orbit a glowing sun.',[P('sphere',[0,1.2,0],{k
  G([0,1.2,0],[P('sphere',[0,0,0],{k:.3,m:[M('#d7ccc8',.6)]}),P('ring',[0,0,0],{r:[70,0,0],k:.85,m:[M('#bcaaa4',.6)]})],{mo:{t:'orbit',ax:'y',sp:.32,am:2.8}}),
  ...[1.1,1.6,2.1,2.8].map(r=>P('ring',[0,1.2,0],{r:[90,0,0],k:r*2,m:[M('#ffffff',.5,0,.25,8)]}))]);
 
-window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS,GAME,starsOf,pickOf,cfgOf,cfg:()=>CFG};
+B.sk=x=>skBuild(x);
+window.MSW={skBuild,cleanSk,skEdgesOn,REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS,GAME,starsOf,pickOf,cfgOf,cfg:()=>CFG};
 })();

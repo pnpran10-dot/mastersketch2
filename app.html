@@ -1405,9 +1405,39 @@ body.modeanim #sideB{display:none!important}
  .anzoom{bottom:8px;right:8px}
  .anside{top:104px;bottom:auto;height:min(540px,72vh);overscroll-behavior:contain}
  .anopts{min-height:48px}
-}</style></head>
+}
+/* ---------- v17: Build tools (like SketchUp) and AutoDraw ---------- */
+.skbar{position:absolute;left:12px;top:62px;z-index:6;display:flex;flex-direction:column;flex-wrap:wrap;gap:3px;padding:5px;border-radius:16px;max-height:calc(100% - 136px);align-content:flex-start}
+.skbar .b{width:38px;height:38px;border-radius:11px;font-size:15px}
+.skbar .b.on{background:var(--ac);color:#fff;box-shadow:0 4px 14px color-mix(in srgb,var(--ac) 45%,transparent)}
+.skopt{position:absolute;left:62px;top:62px;z-index:8;width:min(290px,calc(100% - 80px));max-height:calc(100% - 30px);overflow:auto;display:flex;flex-direction:column;gap:9px;padding:12px 14px;border-radius:16px;font-size:13px}
+.skoh{font-size:14px;display:flex;gap:7px;align-items:center}
+.skrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.skrow select{width:auto;min-width:96px}
+.skrow .segs{display:flex}.skrow .segs button{padding:5px 8px;font-size:12px}
+.skhelp summary{cursor:pointer;font-weight:600}
+.skhelp ol{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:5px;line-height:1.4}
+.skvcb{position:absolute;right:14px;bottom:70px;z-index:6;display:flex;align-items:center;gap:6px;padding:5px 5px 5px 12px;border-radius:14px;font-size:12px}
+.skvcb span{opacity:.75;white-space:nowrap}
+.skvcb input{width:132px;padding:6px 8px;font:600 13px/1 ui-monospace,Menlo,Consolas,monospace;text-align:right}
+.sktip{position:absolute;z-index:7;pointer-events:none;padding:3px 8px;border-radius:8px;background:#111522e6;color:#fff;font-size:12px;font-weight:600;white-space:nowrap;box-shadow:0 4px 12px #0005}
+#v3d.sk-on .s3empty{display:none}
+#v3d.tl-on .skvcb{bottom:126px}
+#v3d.tl-on .skbar{max-height:calc(100% - 190px)}
+@media(max-width:860px){.skbar{left:8px;top:58px;max-height:calc(100% - 124px)}.skbar .b{width:36px;height:36px;font-size:14px}.skopt{left:56px;top:58px}.skvcb{right:8px;bottom:62px}.skvcb input{width:104px}}
+/* AutoDraw */
+.adbar{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:31;display:flex;gap:8px;align-items:center;padding:6px 6px 6px 12px;border-radius:16px;max-width:calc(100vw - 24px)}
+.adh{display:flex;gap:6px;align-items:center;font-size:13px;white-space:nowrap}.adh i{color:var(--ac)}
+.adsug{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-height:44px;align-items:center;min-width:0}
+.adsug small{padding:0 6px;white-space:nowrap}
+.adpic{flex:none;width:46px;height:46px;padding:2px;border-radius:11px;background:var(--bg2,#fff1);border:1px solid var(--line,#8883);display:grid;place-items:center;cursor:pointer}
+.adpic:hover{border-color:var(--ac)}.adpic canvas{width:40px;height:40px}
+body.mode3d .adbar,body.modemods .adbar,body.modeplay .adbar,body.modeart .adbar,body.modeanim .adbar{display:none!important}
+body:has(#xLes:not(.hide)) .adbar,body:has(#xStampBar:not(.hide)) .adbar{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+@media (max-width:700px){.adbar{left:calc(50% + 34px);max-width:calc(100vw - 92px)}.adh b{display:none}}
+</style></head>
 <body>
-<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 6.1</div></div>
+<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 7.0</div></div>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
  <div class="brand"><span class="mark"><i class="fa-solid fa-pen-nib"></i></span><b>MasterSketch</b><small class="ver">PRO</small></div>
@@ -1642,7 +1672,38 @@ body.modeanim #sideB{display:none!important}
    <button class="b s3mob" data-s3open="s3R" title="Properties" data-i18t><i class="fa-solid fa-sliders"></i></button>
   </div>
   <div id="v3d">
-   <div id="s3Empty" class="s3empty"><i class="fa-solid fa-cube"></i><b data-i18n>Add a model to start</b><span data-i18n>Pick a shape, open the Workshop for ready-made models, or import your own .glb, .obj or .stl file.</span></div>
+   <div id="s3Empty" class="s3empty"><i class="fa-solid fa-cube"></i><b data-i18n>Add a model to start</b><span data-i18n>Draw on the floor with the Build tools on the left, pick a shape, open the Workshop for ready-made models, or import your own .glb, .obj or .stl file.</span></div>
+   <div id="skBar" class="skbar glass">
+    <button class="b" data-m3="line" title="Line (L)" data-i18t><i class="fa-solid fa-pencil"></i></button>
+    <button class="b" data-m3="rect" title="Rectangle (X)" data-i18t><i class="fa-regular fa-square"></i></button>
+    <button class="b" data-m3="circle" title="Circle (C)" data-i18t><i class="fa-regular fa-circle"></i></button>
+    <button class="b" data-m3="poly" title="Polygon (N)" data-i18t><i class="fa-solid fa-draw-polygon"></i></button>
+    <button class="b" data-m3="push" title="Push/Pull (U)" data-i18t><i class="fa-solid fa-arrows-up-to-line"></i></button>
+    <button class="b" data-m3="offset" title="Offset (O)" data-i18t><i class="fa-solid fa-clone"></i></button>
+    <button class="b" data-m3="tape" title="Tape measure (T)" data-i18t><i class="fa-solid fa-ruler"></i></button>
+    <button class="b" data-m3="erase" title="Eraser (J)" data-i18t><i class="fa-solid fa-eraser"></i></button>
+    <button class="b" data-m3="orbit" title="Orbit (H)" data-i18t><i class="fa-solid fa-hand"></i></button>
+    <button class="b" id="skPaint" title="Paint bucket (P)" data-i18t><i class="fa-solid fa-fill-drip"></i></button>
+    <button class="b" id="skOptB" title="Build settings" data-i18t><i class="fa-solid fa-gear"></i></button>
+   </div>
+   <div id="skOpt" class="skopt glass hide">
+    <b class="skoh"><i class="fa-solid fa-pen-ruler"></i> <span data-i18n>Build settings</span></b>
+    <label class="skrow"><span data-i18n>Units</span><select id="skUnit"><option value="m">m</option><option value="cm">cm</option><option value="mm">mm</option><option value="in">in</option><option value="ft">ft</option></select></label>
+    <label class="skrow"><span data-i18n>Snap to grid</span><select id="skGrid"><option value="0" data-i18n>Off</option><option value="0.01">1 cm</option><option value="0.05">5 cm</option><option value="0.1">10 cm</option><option value="0.25">25 cm</option><option value="0.5">50 cm</option><option value="1">1 m</option></select></label>
+    <div class="skrow"><span data-i18n>Style</span><div class="segs" id="skStyle"><button data-v="shaded" class="on" data-i18n>Shaded</button><button data-v="white" data-i18n>White</button><button data-v="xray" data-i18n>X-ray</button></div></div>
+    <label class="tg"><input type="checkbox" id="skEdges" checked><span data-i18n>Show edges</span></label>
+    <button class="btn" id="skStl"><i class="fa-solid fa-print"></i><span data-i18n>Export for 3D printing (.stl)</span></button>
+    <details class="skhelp"><summary data-i18n>How to build</summary><ol>
+     <li data-i18n>Pick Rectangle, Circle or Line and draw a flat shape on the floor.</li>
+     <li data-i18n>Pick Push/Pull and drag the shape up – it becomes a solid block.</li>
+     <li data-i18n>Draw on top of a block, then push the new shape down to cut a hole, or pull it up to build higher.</li>
+     <li data-i18n>Pull a side of a block to make it wider. Offset draws a border inside a face.</li>
+     <li data-i18n>While drawing or right after, type a size like 2 or 1.5,3 or 30cm and press Enter.</li>
+     <li data-i18n>Snaps: green dot = corner, blue = middle, red / green line = straight along an axis. The arrow keys lock a direction.</li>
+     <li data-i18n>Two fingers (or the right mouse button) move the view, the mouse wheel zooms.</li></ol></details>
+   </div>
+   <div id="skVcb" class="skvcb glass hide"><span id="skVcbL">Length</span><input id="skVcbIn" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" enterkeyhint="done"><button class="b sm" id="skVcbOk" title="OK" data-i18t><i class="fa-solid fa-check"></i></button></div>
+   <div id="skTip" class="sktip hide"></div>
    <div id="s3Hint" class="s3hint glass hide"></div>
    <div id="s3TL" class="s3tl glass hide">
     <button class="b" id="tlPlay3" title="Play / pause" data-i18t><i class="fa-solid fa-pause"></i></button>
@@ -1766,7 +1827,7 @@ body.modeanim #sideB{display:none!important}
    <h5 data-i18n>Animation</h5>
    <div class="acts"><button class="btn" id="s3GifB"><i class="fa-solid fa-arrows-spin"></i><span data-i18n>Turntable GIF</span></button><button class="btn" id="s3AGifB"><i class="fa-solid fa-film"></i><span data-i18n>Animation GIF</span></button><button class="btn" id="s3AVidB"><i class="fa-solid fa-video"></i><span data-i18n>Animation video</span></button><button class="btn" id="s3AFrB"><i class="fa-solid fa-layer-group"></i><span data-i18n>Frames to drawing</span></button></div>
    <h5 data-i18n>Models</h5>
-   <button class="btn" id="s3GlbB"><i class="fa-solid fa-cube"></i><span data-i18n>Export 3D model (.glb)</span></button>
+   <div class="acts"><button class="btn" id="s3GlbB"><i class="fa-solid fa-cube"></i><span data-i18n>Export 3D model (.glb)</span></button><button class="btn" id="s3StlB"><i class="fa-solid fa-print"></i><span data-i18n>Export for 3D printing (.stl)</span></button></div>
    <div class="acts"><button class="btn" id="s3SaveScene2"><i class="fa-solid fa-box-archive"></i><span data-i18n>Save scene as model</span></button><button class="btn" id="s3PubScene"><i class="fa-solid fa-share-nodes"></i><span data-i18n>Share scene</span></button></div>
    <small class="mut" data-i18n>Your 3D scene, its motions and the timeline are saved inside your project together with the drawing.</small>
   </div>
@@ -1992,6 +2053,8 @@ body.modeanim #sideB{display:none!important}
  <div class="stq">
   <button class="stqb" data-st="draw"><span class="si"><i class="fa-solid fa-pen-nib"></i></span><b data-i18n>New drawing</b><small data-i18n>Blank canvas</small></button>
   <button class="stqb" data-st="3d"><span class="si"><i class="fa-solid fa-cube"></i></span><b data-i18n>3D Studio</b><small data-i18n>Shapes, poses &amp; motion</small></button>
+  <button class="stqb" data-st="build"><span class="si"><i class="fa-solid fa-pen-ruler"></i></span><b data-i18n>Build in 3D</b><small data-i18n>Draw and push/pull like SketchUp</small></button>
+   <button class="stqb" data-st="autodraw"><span class="si"><i class="fa-solid fa-wand-magic-sparkles"></i></span><b data-i18n>AutoDraw</b><small data-i18n>Doodle, get a picture</small></button>
   <button class="stqb" data-st="anim"><span class="si"><i class="fa-solid fa-film"></i></span><b data-i18n>Animate</b><small data-i18n>Draw frame by frame</small></button>
    <button class="stqb" data-st="ws"><span class="si"><i class="fa-solid fa-store"></i></span><b data-i18n>Workshop</b><small data-i18n>Models made by everyone</small></button>
   <button class="stqb" data-st="pose"><span class="si"><i class="fa-solid fa-stopwatch"></i></span><b data-i18n>Pose practice</b><small data-i18n>Timed figure drawing</small></button>
@@ -2173,6 +2236,7 @@ body.modeanim #sideB{display:none!important}
  <label class="fbl"><span data-i18n>About it (optional)</span><textarea id="awShD" rows="2" maxlength="500"></textarea></label>
  <small class="mut" data-i18n>Your animation plays in everyone’s Gallery. Sounds stay on your device – export a video to share them. Don’t include your full name, address or school.</small>
  <div class="row"><span class="sp"></span><button class="btn" data-close><span data-i18n>Cancel</span></button><button class="btn pri" id="awShGo"><i class="fa-solid fa-share-from-square"></i><span data-i18n>Share</span></button></div></div></div>
+<div id="adBar" class="adbar glass hide"><span class="adh"><i class="fa-solid fa-wand-magic-sparkles"></i><b data-i18n>AutoDraw</b></span><div id="adSug" class="adsug"></div><button class="b sm" id="adX" title="Stop AutoDraw" data-i18t><i class="fa-solid fa-xmark"></i></button></div>
 <div id="toasts"></div>
 <script>/* three.js r147 (MIT) */
 /**
@@ -13298,6 +13362,24 @@ const B={
 const LIB=[['mannequin','fa-person','Mannequin'],['cube','fa-cube','Cube'],['sphere','fa-circle','Sphere'],['cylinder','fa-database','Cylinder'],['cone','fa-ice-cream','Cone'],['pyramid','fa-play','Pyramid'],['dome','fa-cloud','Dome'],['wedge','fa-caret-up','Wedge'],['tube','fa-ring','Tube'],['torus','fa-life-ring','Donut'],['ring','fa-circle-notch','Ring'],['knot','fa-infinity','Knot'],['capsule','fa-capsules','Capsule'],['gem','fa-gem','Gem'],['heart','fa-heart','Heart'],['star','fa-star','Star'],['hex','fa-dice-d6','Hexagon'],['prism','fa-play','Prism'],['arch','fa-archway','Arch'],['roundbox','fa-square','Soft box'],['bowl','fa-bowl-food','Bowl'],['plane','fa-square-full','Plane'],
  ['house','fa-house','House'],['tree','fa-tree','Tree'],['car','fa-car','Car'],['chair','fa-chair','Chair'],['table','fa-table','Table'],['snowman','fa-snowman','Snowman'],['mug','fa-mug-hot','Mug'],['rocket','fa-rocket','Rocket'],
  ['spawn','fa-location-dot','Start'],['coin','fa-coins','Coin'],['goal','fa-flag-checkered','Goal flag'],['checkpoint','fa-flag','Checkpoint'],['spring','fa-arrows-up-to-line','Spring'],['lava','fa-fire','Lava'],['spikes','fa-triangle-exclamation','Spikes'],['platform','fa-grip-lines','Platform']];
+/* ---------- built shapes (Build tools): flat faces pushed into solids ("prisms"), all in one flat frame.
+   x = {pr:[{i:id, p:[x,y,…] outline, h:[[x,y,…]] holes, z:bottom, d:height (0 = flat face)}], e:edges 1/0} ---------- */
+const EDGE=new T.LineBasicMaterial({color:0x15171f});let skEdges=true;
+function skPoly(a){if(!Array.isArray(a))return null;const o=[];for(let i=0;i+1<a.length&&o.length<800;i+=2)o.push(r4(num(a[i],0,-500,500)),r4(num(a[i+1],0,-500,500)));return o.length>=6?o:null}
+function cleanSk(x){const pr=[],ids=new Set();(x&&Array.isArray(x.pr)?x.pr:[]).slice(0,200).forEach((q,k)=>{const p=skPoly(q&&q.p);if(!p)return;const h=(Array.isArray(q.h)?q.h:[]).slice(0,60).map(skPoly).filter(Boolean);
+ let z=num(q.z,0,-500,500),d=num(q.d,0,-500,500);if(d<0){z+=d;d=-d}let i=Math.max(0,num(q.i,k,0,1e6)|0);while(ids.has(i))i++;ids.add(i);pr.push({i,p,h,z:r4(z),d:r4(d)})});return{pr,e:x&&x.e===0?0:1}}
+function skPath(p,P){P.moveTo(p[0],p[1]);for(let i=2;i<p.length;i+=2)P.lineTo(p[i],p[i+1]);P.lineTo(p[0],p[1]);return P}
+function skGeo(q){const s=skPath(q.p,new T.Shape());q.h.forEach(h=>s.holes.push(skPath(h,new T.Path())));let g;
+ if(q.d<1e-4){g=new T.ShapeGeometry(s);g.translate(0,0,q.z+.0015)}else{g=new T.ExtrudeGeometry(s,{depth:q.d,bevelEnabled:false,curveSegments:1});g.translate(0,0,q.z)}return g}
+/* (re)builds the meshes of a built shape; meshes that are still there keep their material (paint stays), col(q) gives new ones */
+function skBuild(x,o,col){x=cleanSk(x);o=o||new T.Group();const old={};
+ o.children.slice().forEach(c=>{if(c.userData.skEdge){o.remove(c);c.geometry.dispose()}else if(c.isMesh&&c.userData.pid!=null){old[c.userData.pid]=c;o.remove(c)}});
+ x.pr.forEach(q=>{const g=skGeo(q);let m=old[q.i];if(m){m.geometry.dispose();m.geometry=g;delete old[q.i]}else{const mm=col&&col(q);m=new T.Mesh(g,mm&&mm.isMaterial?mm:std(typeof mm==='string'?mm:'#d9d4c9',{roughness:.8}));m.userData.pid=q.i}
+  m.castShadow=m.receiveShadow=true;const sd=q.d<1e-4?T.DoubleSide:T.FrontSide;if(m.material&&!Array.isArray(m.material)&&m.material.side!==sd){m.material.side=sd;m.material.needsUpdate=true}o.add(m);
+  const e=new T.LineSegments(new T.EdgesGeometry(g,25),EDGE);e.userData.outline=true;e.userData.skEdge=true;e.raycast=()=>{};e.visible=x.e!==0&&skEdges;o.add(e)});
+ Object.values(old).forEach(m=>m.geometry.dispose());o.userData.x=x;o.userData.src='sk';return o}
+const skEdgesOn=v=>{skEdges=!!v};
+
 /* which shapes are game pieces in Play mode */
 const GAME=['spawn','coin','goal','checkpoint','spring','lava','spikes','platform'];
 
@@ -13350,8 +13432,8 @@ function partOf(n,why,d){const u=n.userData||{};if(d>6){why.add('deep');return n
  return s}
 function common(n,s){s.p=n.position.toArray().map(r4);if(n.rotation.x||n.rotation.y||n.rotation.z)s.r=[deg(n.rotation.x),deg(n.rotation.y),deg(n.rotation.z)];if(n.scale.x!==1||n.scale.y!==1||n.scale.z!==1)s.k=n.scale.toArray().map(r4);
  if(n.userData.outlined)s.ol=1;const mo=cleanMotion(n.userData.motion);if(mo)s.mo=mo;if(n.name&&n.userData.src==='group')s.n=String(n.name).slice(0,60)}
-const XS=['text','draw','spin'];
-function cleanX(x,s){x=x||{};if(s==='draw'||s==='spin')return{pts:cleanPts(x.pts,240),d:num(x.d,.4,.05,3)};return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
+const XS=['text','draw','spin','sk'];
+function cleanX(x,s){x=x||{};if(s==='sk')return cleanSk(x);if(s==='draw'||s==='spin')return{pts:cleanPts(x.pts,240),d:num(x.d,.4,.05,3)};return{tx:String(x.tx||'').slice(0,40),f:String(x.f||'').replace(/[<>;{}]/g,'').slice(0,80),d:num(x.d,.25,.02,2)}}
 /* returns {spec, why:Set of reasons something could not be included} */
 function specOf(obj,name){const why=new Set();let parts;
  if(obj.userData.src==='group')parts=partOf(obj,why,0).parts;else{const p=partOf(obj,why,0);parts=p?[p]:[];if(p){delete p.p;p.p=[0,0,0]}}
@@ -13461,7 +13543,8 @@ F('solar','Solar system','Planets orbit a glowing sun.',[P('sphere',[0,1.2,0],{k
  G([0,1.2,0],[P('sphere',[0,0,0],{k:.3,m:[M('#d7ccc8',.6)]}),P('ring',[0,0,0],{r:[70,0,0],k:.85,m:[M('#bcaaa4',.6)]})],{mo:{t:'orbit',ax:'y',sp:.32,am:2.8}}),
  ...[1.1,1.6,2.1,2.8].map(r=>P('ring',[0,1.2,0],{r:[90,0,0],k:r*2,m:[M('#ffffff',.5,0,.25,8)]}))]);
 
-window.MSW={REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS,GAME,starsOf,pickOf,cfgOf,cfg:()=>CFG};
+B.sk=x=>skBuild(x);
+window.MSW={skBuild,cleanSk,skEdgesOn,REPO,SITE,B,LIB,MOTIONS,HUMAN,FEATURED,JOINTS,std,mesh,meshesOf,outline,matSpec,setMat,motion,cleanMotion,specOf,buildModel,encode,decode,findCode,community,publishUrl,thumb,textGeometry,cleanKeys,useHit,uses,leaderboard,XS,GAME,starsOf,pickOf,cfgOf,cfg:()=>CFG};
 })();
 
 ;
@@ -15359,13 +15442,127 @@ const TR={
 'Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.':['วาดชื่อเรื่องบนเลเยอร์หน้า ลอกลายจากรูปถ่าย ใส่เส้นนำ และใช้เอฟเฟกต์กับเฟรมเดียวหรือทุกเฟรมพร้อมกัน เครื่องมือเฟรมใหม่: กลับลำดับ เด้งกลับ คัดลอกและวางเฟรม และลากเฟรมเพื่อจัดลำดับ','Dibuja títulos en la capa de delante, calca una foto, añade guías y usa efectos en un cuadro o en todos a la vez. Nuevas herramientas de cuadros: invertir, rebote, copiar y pegar cuadros, y arrastrarlos para ordenarlos.','前のレイヤーにタイトルをかいたり、写真をなぞったり、ガイドを出したり、エフェクトを1コマやすべてのコマに使ったりできます。新しいコマのツール：逆再生、バウンス、コマのコピーと貼りつけ、ドラッグで並べかえ。','在前景层上画标题，描摹照片，添加参考线，并把效果用在一帧或所有帧上。新的帧工具：反转、往返、复制和粘贴帧，还可以拖动帧来调整顺序。'],
 'Add picture':['ใส่รูป','Añadir imagen','絵を入れる','添加图片'],
 'Center':['กึ่งกลาง','Centro','中心','中心'],
-'Mod brushes':['แปรงจากม็อด','Pinceles de mods','MODのブラシ','模组画笔']
+'Mod brushes':['แปรงจากม็อด','Pinceles de mods','MODのブラシ','模组画笔'],
+'Line: tap point after point · tap the first point again to make a face · type a length and press Enter':['เส้น: แตะทีละจุด · แตะจุดแรกอีกครั้งเพื่อสร้างหน้า · พิมพ์ความยาวแล้วกด Enter','Línea: toca punto tras punto · toca otra vez el primero para hacer una cara · escribe una longitud y pulsa Enter','線：点を順にタップ・最初の点をもう一度タップすると面になる・長さを入力してEnter','直线：一个点一个点地点 · 再点第一个点就变成一个面 · 输入长度后按 Enter'],
+'Rectangle: drag from corner to corner on the floor or on a face · type 2,3 for an exact size':['สี่เหลี่ยม: ลากจากมุมถึงมุมบนพื้นหรือบนหน้าของวัตถุ · พิมพ์ 2,3 เพื่อขนาดที่แน่นอน','Rectángulo: arrastra de esquina a esquina en el suelo o en una cara · escribe 2,3 para un tamaño exacto','長方形：床や面の上で角から角へドラッグ・2,3と入力すると正確なサイズ','矩形：在地面或某个面上从一角拖到对角 · 输入 2,3 得到精确尺寸'],
+'Circle: drag from the middle outwards · type a radius, or 24s for 24 sides':['วงกลม: ลากจากตรงกลางออกไป · พิมพ์รัศมี หรือ 24s สำหรับ 24 ด้าน','Círculo: arrastra desde el centro hacia fuera · escribe un radio, o 24s para 24 lados','円：まん中から外へドラッグ・半径を入力、または24sで24辺','圆：从中心往外拖 · 输入半径，或输入 24s 表示 24 条边'],
+'Polygon: drag from the middle outwards · type a radius, or 6s for 6 sides':['รูปหลายเหลี่ยม: ลากจากตรงกลางออกไป · พิมพ์รัศมี หรือ 6s สำหรับ 6 ด้าน','Polígono: arrastra desde el centro hacia fuera · escribe un radio, o 6s para 6 lados','多角形：まん中から外へドラッグ・半径を入力、または6sで6辺','多边形：从中心往外拖 · 输入半径，或输入 6s 表示 6 条边'],
+'Push/Pull: drag a face to pull it out or push it in · type a distance · double-tap a face to repeat':['ดัน/ดึง: ลากหน้าเพื่อดึงออกหรือดันเข้า · พิมพ์ระยะ · แตะสองครั้งเพื่อทำซ้ำ','Empujar/Tirar: arrastra una cara para sacarla o meterla · escribe una distancia · toca dos veces una cara para repetir','押す/引く：面をドラッグして引き出す・押しこむ・距離を入力・ダブルタップでくり返し','推/拉：拖动一个面把它拉出或推进 · 输入距离 · 双击一个面可重复上次距离'],
+'Offset: drag on a face to make a smaller copy inside it, then push/pull that':['ออฟเซ็ต: ลากบนหน้าเพื่อสร้างสำเนาเล็กลงด้านใน แล้วดัน/ดึงมัน','Desfase: arrastra sobre una cara para hacer una copia más pequeña dentro y luego empújala o tírala','オフセット：面の上でドラッグして内側に小さなコピーをつくり、それを押す/引く','偏移：在面上拖动，在里面做一个更小的副本，然后推/拉它'],
+'Tape measure: tap two points to measure · then type a new length to resize the model':['ตลับเมตร: แตะสองจุดเพื่อวัด · แล้วพิมพ์ความยาวใหม่เพื่อปรับขนาดโมเดล','Cinta métrica: toca dos puntos para medir · luego escribe una longitud nueva para cambiar el tamaño del modelo','メジャー：2点をタップしてはかる・新しい長さを入力するとモデルの大きさが変わる','卷尺：点两个点来测量 · 然后输入新长度来缩放模型'],
+'Eraser: tap a part to erase it':['ยางลบ: แตะชิ้นส่วนเพื่อลบ','Borrador: toca una parte para borrarla','消しゴム：パーツをタップして消す','橡皮擦：点一下部件把它擦掉'],
+'Orbit: drag to look around · two fingers to zoom and pan':['หมุนมุมมอง: ลากเพื่อมองรอบ ๆ · ใช้สองนิ้วเพื่อซูมและเลื่อน','Orbitar: arrastra para mirar alrededor · dos dedos para hacer zoom y desplazar','オービット：ドラッグで見回す・2本指でズームと移動','环绕：拖动来四处看 · 双指缩放和平移'],
+'Radius':['รัศมี','Radio','半径','半径'],
+'Distance':['ระยะ','Distancia','距離','距离'],
+'Face':['หน้า','Cara','面','面'],
+'Endpoint':['จุดปลาย','Extremo','端点','端点'],
+'Midpoint':['จุดกึ่งกลาง','Punto medio','中点','中点'],
+'Origin':['จุดกำเนิด','Origen','原点','原点'],
+'On red axis':['บนแกนแดง','En el eje rojo','赤い軸の上','在红轴上'],
+'On green axis':['บนแกนเขียว','En el eje verde','緑の軸の上','在绿轴上'],
+'On blue axis':['บนแกนน้ำเงิน','En el eje azul','青い軸の上','在蓝轴上'],
+'On edge direction':['ตามแนวขอบ','En la dirección del borde','辺の向き','沿边的方向'],
+'On face':['บนหน้า','En la cara','面の上','在面上'],
+'Close the shape':['ปิดรูปทรง','Cerrar la forma','形を閉じる','闭合形状'],
+'sides':['ด้าน','lados','辺','条边'],
+'Pocket':['หลุม','Hueco','くぼみ','凹槽'],
+'Offset':['ออฟเซ็ต','Desfase','オフセット','偏移'],
+'Move inside the face':['เลื่อนเข้าไปในหน้า','Muévete dentro de la cara','面の内側に動かして','移到面的里面'],
+'Now pick Push/Pull (U) and drag the face up to make it 3D':['ต่อไปเลือก ดัน/ดึง (U) แล้วลากหน้าขึ้นเพื่อให้เป็น 3D','Ahora elige Empujar/Tirar (U) y arrastra la cara hacia arriba para hacerla 3D','次は「押す/引く」(U)をえらんで、面を上にドラッグすると立体になるよ','现在选择推/拉 (U)，把这个面往上拖，它就变成 3D 了'],
+'Offset works on the top or bottom of a built shape':['ออฟเซ็ตใช้ได้กับด้านบนหรือด้านล่างของรูปทรงที่สร้าง','El desfase funciona en la parte de arriba o de abajo de una forma construida','オフセットはつくった形の上面か下面で使えます','偏移只能用在搭建形状的顶面或底面'],
+'Push/Pull and Offset work on shapes drawn with the Build tools – draw a rectangle on the floor first':['ดัน/ดึง และออฟเซ็ตใช้ได้กับรูปทรงที่วาดด้วยเครื่องมือสร้าง – วาดสี่เหลี่ยมบนพื้นก่อน','Empujar/Tirar y Desfase funcionan con formas dibujadas con las herramientas de construcción: primero dibuja un rectángulo en el suelo','押す/引くとオフセットは、つくるツールでかいた形に使えます。まず床に長方形をかいてね','推/拉和偏移只能用在搭建工具画的形状上——先在地面上画一个矩形'],
+'This model is locked':['โมเดลนี้ถูกล็อก','Este modelo está bloqueado','このモデルはロックされています','这个模型已锁定'],
+'Measured. Type a new length and press Enter to resize this model to it':['วัดแล้ว พิมพ์ความยาวใหม่แล้วกด Enter เพื่อปรับขนาดโมเดลนี้','Medido. Escribe una longitud nueva y pulsa Enter para ajustar el modelo a ella','はかりました。新しい長さを入力してEnterを押すと、モデルがその大きさになります','测好了。输入新长度并按 Enter，模型会缩放到这个长度'],
+'Measured: ':['วัดได้: ','Medido: ','はかった長さ：','测量结果：'],
+'Model resized':['ปรับขนาดโมเดลแล้ว','Modelo redimensionado','モデルの大きさを変えました','模型已缩放'],
+'Type a number, like 2 or 1.5 or 30cm':['พิมพ์ตัวเลข เช่น 2 หรือ 1.5 หรือ 30cm','Escribe un número, como 2, 1.5 o 30cm','2、1.5、30cm のように数字を入力してね','输入数字，比如 2、1.5 或 30cm'],
+'Measure between two points of the same model to resize it':['วัดระหว่างสองจุดบนโมเดลเดียวกันเพื่อปรับขนาด','Mide entre dos puntos del mismo modelo para cambiar su tamaño','大きさを変えるには、同じモデルの2点の間をはかってね','要缩放模型，请在同一个模型的两个点之间测量'],
+'Locked to the red direction':['ล็อกทิศทางแดง','Bloqueado en la dirección roja','赤の向きに固定','锁定在红色方向'],
+'Locked to the green direction':['ล็อกทิศทางเขียว','Bloqueado en la dirección verde','緑の向きに固定','锁定在绿色方向'],
+'Direction unlocked':['ปลดล็อกทิศทางแล้ว','Dirección desbloqueada','向きの固定を解除','已解除方向锁定'],
+'Saved for 3D printing (millimetres)':['บันทึกสำหรับพิมพ์ 3 มิติแล้ว (มิลลิเมตร)','Guardado para impresión 3D (milímetros)','3Dプリント用に保存しました（ミリメートル）','已保存为 3D 打印文件（毫米）'],
+'Nothing to export':['ไม่มีอะไรให้ส่งออก','No hay nada que exportar','書き出すものがありません','没有可导出的内容'],
+'New! Build tools on the left: draw a rectangle on the floor, then push/pull it up – like SketchUp':['ใหม่! เครื่องมือสร้างทางซ้าย: วาดสี่เหลี่ยมบนพื้น แล้วดัน/ดึงขึ้น – เหมือน SketchUp','¡Nuevo! Herramientas de construcción a la izquierda: dibuja un rectángulo en el suelo y tíralo hacia arriba, como en SketchUp','新登場！左のつくるツール：床に長方形をかいて、押す/引くで持ち上げよう（SketchUpみたいに）','新功能！左边的搭建工具：在地面画一个矩形，再推/拉把它拉高——就像 SketchUp'],
+'Line (L)':['เส้น (L)','Línea (L)','線 (L)','直线 (L)'],
+'Rectangle (X)':['สี่เหลี่ยม (X)','Rectángulo (X)','長方形 (X)','矩形 (X)'],
+'Circle (C)':['วงกลม (C)','Círculo (C)','円 (C)','圆 (C)'],
+'Polygon (N)':['รูปหลายเหลี่ยม (N)','Polígono (N)','多角形 (N)','多边形 (N)'],
+'Push/Pull (U)':['ดัน/ดึง (U)','Empujar/Tirar (U)','押す/引く (U)','推/拉 (U)'],
+'Offset (O)':['ออฟเซ็ต (O)','Desfase (O)','オフセット (O)','偏移 (O)'],
+'Tape measure (T)':['ตลับเมตร (T)','Cinta métrica (T)','メジャー (T)','卷尺 (T)'],
+'Eraser (J)':['ยางลบ (J)','Borrador (J)','消しゴム (J)','橡皮擦 (J)'],
+'Orbit (H)':['หมุนมุมมอง (H)','Orbitar (H)','オービット (H)','环绕 (H)'],
+'Paint bucket (P)':['ถังสี (P)','Bote de pintura (P)','ペンキ (P)','油漆桶 (P)'],
+'Build settings':['ตั้งค่าการสร้าง','Ajustes de construcción','つくる設定','搭建设置'],
+'Units':['หน่วย','Unidades','単位','单位'],
+'Shaded':['แรเงา','Sombreado','陰影','着色'],
+'White':['ขาว','Blanco','白','白色'],
+'X-ray':['เอกซเรย์','Rayos X','X線','X 光'],
+'Show edges':['แสดงขอบ','Mostrar bordes','辺を表示','显示边线'],
+'Export for 3D printing (.stl)':['ส่งออกสำหรับพิมพ์ 3 มิติ (.stl)','Exportar para impresión 3D (.stl)','3Dプリント用に書き出す (.stl)','导出 3D 打印文件 (.stl)'],
+'How to build':['วิธีสร้าง','Cómo construir','つくりかた','怎么搭建'],
+'Pick Rectangle, Circle or Line and draw a flat shape on the floor.':['เลือกสี่เหลี่ยม วงกลม หรือเส้น แล้ววาดรูปแบนบนพื้น','Elige Rectángulo, Círculo o Línea y dibuja una forma plana en el suelo.','長方形・円・線のどれかをえらんで、床に平らな形をかこう。','选择矩形、圆或直线，在地面上画一个平面形状。'],
+'Pick Push/Pull and drag the shape up – it becomes a solid block.':['เลือก ดัน/ดึง แล้วลากรูปขึ้น – มันจะกลายเป็นก้อนทึบ','Elige Empujar/Tirar y arrastra la forma hacia arriba: se convierte en un bloque sólido.','押す/引くをえらんで形を上にドラッグすると、ブロックになるよ。','选择推/拉，把形状往上拖——它就变成一个实心块。'],
+'Draw on top of a block, then push the new shape down to cut a hole, or pull it up to build higher.':['วาดบนก้อน แล้วดันรูปใหม่ลงเพื่อเจาะรู หรือดึงขึ้นเพื่อสร้างให้สูงขึ้น','Dibuja encima de un bloque y luego empuja la forma nueva hacia abajo para hacer un agujero, o tira de ella para construir más alto.','ブロックの上にかいて、新しい形を下に押すと穴があき、上に引くと高くなるよ。','在块的顶面上画，把新形状往下推可以挖洞，往上拉可以搭得更高。'],
+'Pull a side of a block to make it wider. Offset draws a border inside a face.':['ดึงด้านข้างของก้อนเพื่อให้กว้างขึ้น ออฟเซ็ตจะวาดขอบด้านในของหน้า','Tira de un lado de un bloque para hacerlo más ancho. Desfase dibuja un borde dentro de una cara.','ブロックの横を引くと広くなるよ。オフセットは面の内側にふちをかくよ。','拉块的侧面可以让它变宽。偏移会在面里面画一圈边框。'],
+'While drawing or right after, type a size like 2 or 1.5,3 or 30cm and press Enter.':['ระหว่างวาดหรือหลังวาดเสร็จทันที พิมพ์ขนาด เช่น 2 หรือ 1.5,3 หรือ 30cm แล้วกด Enter','Mientras dibujas o justo después, escribe un tamaño como 2, 1.5,3 o 30cm y pulsa Enter.','かいている間やかいた直後に、2 や 1.5,3 や 30cm のようにサイズを入力してEnter。','画的时候或刚画完，输入尺寸，比如 2、1.5,3 或 30cm，然后按 Enter。'],
+'Snaps: green dot = corner, blue = middle, red / green line = straight along an axis. The arrow keys lock a direction.':['การจับ: จุดเขียว = มุม, น้ำเงิน = กึ่งกลาง, เส้นแดง/เขียว = ตรงตามแกน ปุ่มลูกศรใช้ล็อกทิศทาง','Ajustes: punto verde = esquina, azul = mitad, línea roja / verde = recto a lo largo de un eje. Las flechas bloquean una dirección.','スナップ：緑の点＝角、青＝まん中、赤/緑の線＝軸にまっすぐ。矢印キーで向きを固定できるよ。','吸附：绿点 = 角，蓝点 = 中点，红 / 绿线 = 沿轴笔直。方向键可以锁定方向。'],
+'Two fingers (or the right mouse button) move the view, the mouse wheel zooms.':['สองนิ้ว (หรือปุ่มเมาส์ขวา) ใช้เลื่อนมุมมอง ลูกกลิ้งเมาส์ใช้ซูม','Dos dedos (o el botón derecho del ratón) mueven la vista; la rueda del ratón hace zoom.','2本指（またはマウスの右ボタン）で視点を動かし、ホイールでズーム。','双指（或鼠标右键）移动视图，鼠标滚轮缩放。'],
+'Draw on the floor with the Build tools on the left, pick a shape, open the Workshop for ready-made models, or import your own .glb, .obj or .stl file.':['วาดบนพื้นด้วยเครื่องมือสร้างทางซ้าย เลือกรูปทรง เปิดเวิร์กช็อปเพื่อดูโมเดลสำเร็จรูป หรือนำเข้าไฟล์ .glb, .obj หรือ .stl ของคุณเอง','Dibuja en el suelo con las herramientas de construcción de la izquierda, elige una forma, abre el Taller para ver modelos ya hechos o importa tu propio archivo .glb, .obj o .stl.','左のつくるツールで床にかいたり、形をえらんだり、ワークショップで完成モデルを見たり、自分の .glb・.obj・.stl ファイルを読みこんだりできます。','用左边的搭建工具在地面上画，选择一个形状，打开工坊找现成的模型，或导入你自己的 .glb、.obj 或 .stl 文件。'],
+'Build in 3D':['สร้างแบบ 3 มิติ','Construir en 3D','3Dでつくる','3D 搭建'],
+'Draw and push/pull like SketchUp':['วาดแล้วดัน/ดึงเหมือน SketchUp','Dibuja y empuja/tira como en SketchUp','SketchUpみたいにかいて押す/引く','像 SketchUp 一样画和推/拉'],
+'Build in 3D (like SketchUp)…':['สร้างแบบ 3 มิติ (เหมือน SketchUp)…','Construir en 3D (como SketchUp)…','3Dでつくる（SketchUp風）…','3D 搭建（像 SketchUp）…'],
+'AutoDraw':['วาดอัตโนมัติ','AutoDibujo','オートドロー','自动绘画'],
+'AutoDraw (picture ideas)…':['วาดอัตโนมัติ (ไอเดียภาพ)…','AutoDibujo (ideas de dibujos)…','オートドロー（絵のアイデア）…','自动绘画（图画点子）…'],
+'Doodle, get a picture':['วาดเล่น ได้ภาพสวย','Garabatea y recibe un dibujo','らくがきすると絵になる','随手涂鸦，变成图画'],
+'Doodle something – picture ideas show up at the bottom':['วาดเล่นอะไรก็ได้ – ไอเดียภาพจะขึ้นด้านล่าง','Garabatea algo: las ideas de dibujos aparecen abajo','なにからくがきしてね。下に絵のアイデアが出てくるよ','随便涂鸦一下——下面会出现图画点子'],
+'Doodle something – picture ideas show up here':['วาดเล่นอะไรก็ได้ – ไอเดียภาพจะขึ้นตรงนี้','Garabatea algo: las ideas de dibujos aparecen aquí','なにからくがきしてね。ここに絵のアイデアが出てくるよ','随便涂鸦一下——图画点子会出现在这里'],
+'Keep drawing…':['วาดต่อเลย…','Sigue dibujando…','そのままかいてね…','继续画…'],
+'Stop AutoDraw':['หยุดวาดอัตโนมัติ','Parar AutoDibujo','オートドローをやめる','停止自动绘画'],
+'Export as SVG (layers)…':['ส่งออกเป็น SVG (เลเยอร์)…','Exportar como SVG (capas)…','SVGで書き出す（レイヤーつき）…','导出为 SVG（含图层）…'],
+'Saved as SVG with layers':['บันทึกเป็น SVG พร้อมเลเยอร์แล้ว','Guardado como SVG con capas','レイヤーつきのSVGで保存しました','已保存为含图层的 SVG'],
+'Moon':['ดวงจันทร์','Luna','月','月亮'],
+'Apple':['แอปเปิล','Manzana','りんご','苹果'],
+'Ball':['ลูกบอล','Pelota','ボール','球'],
+'Mountains':['ภูเขา','Montañas','山','山'],
+'Umbrella':['ร่ม','Paraguas','かさ','雨伞'],
+'Cup':['ถ้วย','Taza','カップ','杯子'],
+'Ice cream':['ไอศกรีม','Helado','アイスクリーム','冰淇淋'],
+'Balloon':['ลูกโป่ง','Globo','ふうせん','气球'],
+'Sailboat':['เรือใบ','Velero','ヨット','帆船'],
+'Bird':['นก','Pájaro','鳥','小鸟'],
+'Snail':['หอยทาก','Caracol','かたつむり','蜗牛'],
+'Mushroom':['เห็ด','Seta','きのこ','蘑菇'],
+'Cupcake':['คัพเค้ก','Magdalena','カップケーキ','纸杯蛋糕'],
+'Light bulb':['หลอดไฟ','Bombilla','電球','灯泡'],
+'Smiley':['หน้ายิ้ม','Carita sonriente','にこにこ顔','笑脸'],
+'Dog':['สุนัข','Perro','いぬ','小狗'],
+'Bunny':['กระต่าย','Conejito','うさぎ','小兔子'],
+'Bear':['หมี','Oso','くま','小熊'],
+'Airplane':['เครื่องบิน','Avión','ひこうき','飞机'],
+'Book':['หนังสือ','Libro','本','书'],
+'Ghost':['ผี','Fantasma','おばけ','幽灵'],
+'Turtle':['เต่า','Tortuga','かめ','乌龟'],
+'Pizza slice':['พิซซ่าชิ้น','Porción de pizza','ピザ','披萨片'],
+'Present':['ของขวัญ','Regalo','プレゼント','礼物'],
+'Ladybug':['เต่าทอง','Mariquita','てんとう虫','瓢虫'],
+'Build like SketchUp':['สร้างเหมือน SketchUp','Construye como en SketchUp','SketchUpみたいにつくる','像 SketchUp 一样搭建'],
+'New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.':['เครื่องมือสร้างใหม่ใน 3D: วาดเส้น สี่เหลี่ยม วงกลม และรูปหลายเหลี่ยมบนพื้นหรือบนหน้าใดก็ได้ แล้วดัน/ดึงให้เป็นรูปทรงทึบ เจาะรู ทำขอบออฟเซ็ต วัดด้วยตลับเมตร และพิมพ์ขนาดที่แน่นอน','Nuevas herramientas de construcción en 3D: dibuja líneas, rectángulos, círculos y polígonos en el suelo o en cualquier cara y empújalos o tira de ellos para hacer formas sólidas. Haz agujeros, bordes con desfase, mide con la cinta y escribe tamaños exactos.','3Dに新しいつくるツール：床やどの面にも線・長方形・円・多角形をかいて、押す/引くで立体にしよう。穴あけ、オフセットのふち、メジャーではかる、正確なサイズの入力もできます。','3D 新增搭建工具：在地面或任何面上画直线、矩形、圆和多边形，再推/拉成实心形状。可以挖洞、做偏移边框、用卷尺测量，还能输入精确尺寸。'],
+'Snapping and exact sizes':['การจับและขนาดที่แน่นอน','Ajustes y tamaños exactos','スナップと正確なサイズ','吸附和精确尺寸'],
+'Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.':['มุม จุดกึ่งกลาง และทิศทางแดง เขียว น้ำเงินจะจับให้ขณะวาด พิมพ์ 2,3 หรือ 30cm แล้วกด Enter เพื่อขนาดที่แน่นอน – แม้หลังวาดเสร็จทันที','Las esquinas, los puntos medios y las direcciones roja, verde y azul se ajustan mientras dibujas. Escribe 2,3 o 30cm y pulsa Enter para un tamaño exacto, incluso justo después de dibujar.','かいている間、角・まん中・赤緑青の向きにスナップします。2,3 や 30cm と入力してEnterで正確なサイズに（かいた直後でもOK）。','画的时候会吸附到角、中点以及红、绿、蓝方向。输入 2,3 或 30cm 并按 Enter 得到精确尺寸——刚画完也可以。'],
+'Ready for 3D printing':['พร้อมพิมพ์ 3 มิติ','Listo para imprimir en 3D','3Dプリントにも','可以 3D 打印'],
+'Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.':['ส่งออกโมเดลเป็นไฟล์ .stl หน่วยมิลลิเมตรสำหรับเครื่องพิมพ์ 3 มิติ สไตล์มุมมองใหม่: แรเงา ขาว และเอกซเรย์','Exporta tu modelo como archivo .stl en milímetros para impresoras 3D. Nuevos estilos de vista: Sombreado, Blanco y Rayos X.','モデルを3Dプリンター用の .stl ファイル（ミリメートル）で書き出せます。新しい見え方：陰影・白・X線。','把模型导出为毫米单位的 .stl 文件，用于 3D 打印机。新的视图样式：着色、白色和 X 光。'],
+'Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.':['วาดเล่นอะไรก็ได้ แล้ว MasterSketch จะแสดงภาพที่เสร็จแล้วให้คุณสลับแทนภาพวาดเล่น อยู่ในเมนู สนุก ▸ วาดอัตโนมัติ','Garabatea algo y MasterSketch te muestra dibujos terminados por los que puedes cambiar tu garabato. Está en Diversión ▸ AutoDibujo.','らくがきすると、MasterSketchが入れかえられる完成した絵を見せてくれます。「あそぶ ▸ オートドロー」にあります。','随手涂鸦，MasterSketch 会给你看可以替换涂鸦的完整图画。在“趣味 ▸ 自动绘画”里。'],
+'30 new pictures':['ภาพใหม่ 30 ภาพ','30 dibujos nuevos','新しい絵が30まい','30 张新图画'],
+'More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.':['หน้าระบายสีและบทเรียนทีละขั้นเพิ่มขึ้น: สัตว์ อาหาร สภาพอากาศ หุ่นยนต์ และอีกมากมาย','Más páginas para colorear y lecciones paso a paso: animales, comida, el tiempo, un robot y mucho más.','ぬりえとステップごとのレッスンがふえました：動物、食べもの、天気、ロボットなど。','更多涂色页和分步课程：动物、食物、天气、机器人等等。'],
+'SVG export':['ส่งออก SVG','Exportar SVG','SVG書き出し','SVG 导出'],
+'File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.':['ไฟล์ ▸ ส่งออกเป็น SVG จะเก็บทุกเลเยอร์แยกกันสำหรับ Inkscape, Illustrator และ Affinity','Archivo ▸ Exportar como SVG mantiene cada capa por separado para Inkscape, Illustrator y Affinity.','「ファイル ▸ SVGで書き出す」は、Inkscape・Illustrator・Affinity用にレイヤーを分けたまま保存します。','“文件 ▸ 导出为 SVG”会把每个图层分开保存，可在 Inkscape、Illustrator 和 Affinity 中使用。']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='6.1';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='7.0';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -16404,25 +16601,25 @@ function init3D(){if(S3.ready)return true;if(!window.THREE||!THREE.OrbitControls
  const dom=R3.domElement;let down=null;
  dom.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};if(S3.mode==='paint'&&e.button===0&&paintStart(e)){ORB.enabled=false;try{dom.setPointerCapture(e.pointerId)}catch(_){}}});
  dom.addEventListener('pointermove',e=>{if(S3.painting)paintMove(e)});
- const up=e=>{if(S3.painting){paintEnd();ORB.enabled=true;down=null;return}if(!down)return;const mv=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;if(mv>6||TC.dragging||TC.axis)return;if(S3.mode!=='paint')pick3(e)};
+ const up=e=>{if(S3.painting){paintEnd();ORB.enabled=true;down=null;return}if(!down)return;const mv=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;if(mv>6||TC.dragging||TC.axis)return;if(S3.mode!=='paint'&&!SKT[S3.mode])pick3(e)};
  dom.addEventListener('pointerup',up);dom.addEventListener('pointercancel',()=>{if(S3.painting){paintEnd();ORB.enabled=true}down=null});
- new ResizeObserver(resize3D).observe(host);S3.ready=true;buildLib3();set3Mode('move');ORB.autoRotateSpeed=1.6;applySky();return true}
+ new ResizeObserver(resize3D).observe(host);S3.ready=true;buildLib3();set3Mode('move');ORB.autoRotateSpeed=1.6;applySky();skInit();return true}
 function resize3D(){if(!R3)return;const h=$('#v3d'),w=Math.max(1,h.clientWidth),hh=Math.max(1,h.clientHeight);R3.setSize(w,hh,false);R3.domElement.style.width='100%';R3.domElement.style.height='100%';CAM.aspect=w/hh;CAM.updateProjectionMatrix()}
 function placeLight(){if(!LT.key)return;const a=+$('#s3Ang').value*D2R;LT.key.position.set(Math.cos(a)*7,8,Math.sin(a)*7)}
-function setMode(m){if(PG.on)pgStop();if(FLY.on)flyStop();if(m!=='anim')anLeave();const on=m==='3d';if(on&&!init3D())return;if(!on&&MOE.on)moFinish(true);closeText();closeFly();hideCtx();document.body.classList.toggle('mode3d',on);document.body.classList.toggle('modemods',m==='mods');document.body.classList.toggle('modeplay',m==='play');document.body.classList.toggle('modeart',m==='art');document.body.classList.toggle('modeanim',m==='anim');$$('#modeSw button').forEach(b=>b.classList.toggle('on',b.dataset.mode===(on?'3d':m==='mods'||m==='play'||m==='art'||m==='anim'?m:'draw')));
+function setMode(m){if(PG.on)pgStop();if(window.THREE&&SK.op)skCancel();if(FLY.on)flyStop();if(m!=='anim')anLeave();const on=m==='3d';if(on&&!init3D())return;if(!on&&MOE.on)moFinish(true);closeText();closeFly();hideCtx();document.body.classList.toggle('mode3d',on);document.body.classList.toggle('modemods',m==='mods');document.body.classList.toggle('modeplay',m==='play');document.body.classList.toggle('modeart',m==='art');document.body.classList.toggle('modeanim',m==='anim');$$('#modeSw button').forEach(b=>b.classList.toggle('on',b.dataset.mode===(on?'3d':m==='mods'||m==='play'||m==='art'||m==='anim'?m:'draw')));
  if(on){resize3D();loop3D();if(S3.pending){const p=S3.pending;S3.pending=null;loadScene3D(p)}if(S3.penv){applyEnv(S3.penv);S3.penv=null}refresh3D();tlKeysUI()}else if(m==='mods')modsRender();else if(m==='play')pgHome();else if(m==='art')artRender();else if(m==='anim')anShow();else{hb();setTimeout(()=>{if(fitted)fit();else navDraw()},30)}}
 function set3Mode(m){S3.mode=m;$$('[data-m3]').forEach(b=>b.classList.toggle('on',b.dataset.m3===m));if(!TC)return;
- const hint={move:'Drag the arrows to move · drag empty space to look around',rotate:'Drag the rings to rotate',scale:'Drag a colored handle to stretch one way, or the middle to resize',pose:'Tap an arm, leg, head or body part, then drag the rings to bend it',paint:'Tap a part to color it · drag empty space to look around'}[m];showHint3(t(hint));
- if(m==='paint'){TC.detach();if(BOX)BOX.visible=false}else{if(m!=='pose'&&S3.sel&&S3.sel.userData.joint)select3(topObj(S3.sel));else if(S3.sel)select3(S3.sel)}
- if(m==='paint'&&S3.step!=='color')setStep('color',true);else if(m!=='paint'&&S3.step==='color')setStep('shape',true)}
+ const hint={move:'Drag the arrows to move · drag empty space to look around',rotate:'Drag the rings to rotate',scale:'Drag a colored handle to stretch one way, or the middle to resize',pose:'Tap an arm, leg, head or body part, then drag the rings to bend it',paint:'Tap a part to color it · drag empty space to look around'}[m]||SKH[m];showHint3(t(hint));
+ if(m==='paint'||SKT[m]){TC.detach();if(BOX)BOX.visible=false}else{if(m!=='pose'&&S3.sel&&S3.sel.userData.joint)select3(topObj(S3.sel));else if(S3.sel)select3(S3.sel)}
+ if(m==='paint'&&S3.step!=='color')setStep('color',true);else if(m!=='paint'&&S3.step==='color')setStep('shape',true);skMode(m)}
 let hintT=0;function showHint3(s){const h=$('#s3Hint');h.textContent=s;h.classList.remove('hide');clearTimeout(hintT);hintT=setTimeout(()=>h.classList.add('hide'),3800)}
 function pick3(e){if(PG.on||FLY.on)return;const r=R3.domElement.getBoundingClientRect();PTR.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);RAY.setFromCamera(PTR,CAM);
  const hit=RAY.intersectObjects(S3.objs.filter(o=>!o.userData.locked),true).find(h=>h.object.isMesh&&!h.object.userData.outline&&h.object.visible),multi=e.shiftKey||e.ctrlKey||e.metaKey;if(!hit){if(!multi){S3.extra=[];select3(null)}return}
  if(S3.mode==='pose'){let o=hit.object;while(o&&!o.userData.joint&&o.parent!==SC)o=o.parent;if(o&&o.userData.joint)return select3(o);showHint3(t('Only the mannequin can be posed. Pick another tool to move this model.'))}
  if(multi&&S3.mode!=='pose')return toggleExtra(topObj(hit.object));S3.extra=[];select3(topObj(hit.object))}
 function select3(o){if(MOE.on&&(!o||topObj(o)!==MOE.obj))moFinish(true);S3.sel=o||null;if(BOX){SC.remove(BOX);BOX=null}
- if(o){const joint=!!o.userData.joint;TC.attach(o);TC.setMode(joint?'rotate':S3.mode==='rotate'?'rotate':S3.mode==='scale'?'scale':'translate');TC.setSpace(joint?'local':'world');TC.visible=S3.mode!=='paint';TC.enabled=S3.mode!=='paint';
-  BOX=new THREE.BoxHelper(topObj(o),0xffd23f);BOX.material.depthTest=false;BOX.material.transparent=true;BOX.material.opacity=.65;SC.add(BOX);if(topObj(o).userData.locked)TC.detach()}else TC.detach();drawExtras();refresh3D()}
+ if(o){const joint=!!o.userData.joint;TC.attach(o);TC.setMode(joint?'rotate':S3.mode==='rotate'?'rotate':S3.mode==='scale'?'scale':'translate');TC.setSpace(joint?'local':'world');TC.visible=TC.enabled=S3.mode!=='paint'&&!SKT[S3.mode];
+  BOX=new THREE.BoxHelper(topObj(o),0xffd23f);BOX.material.depthTest=false;BOX.material.transparent=true;BOX.material.opacity=.65;SC.add(BOX);if(SKT[S3.mode])BOX.visible=false;if(topObj(o).userData.locked)TC.detach()}else TC.detach();drawExtras();refresh3D()}
 function snapT(o){return{p:o.position.clone(),r:o.rotation.clone(),s:o.scale.clone()}}
 function applyT(o,t){o.position.copy(t.p);o.rotation.copy(t.r);o.scale.copy(t.s);if(BOX)BOX.update();fillTransform()}
 function push3(a){S3.undo.push(a);if(S3.undo.length>80)S3.undo.shift();S3.redo=[];upd3UndoBtns()}
@@ -16439,9 +16636,9 @@ function changed3(){dirty=true;S3.dirty3=true;clearTimeout(S3.ct);S3.ct=setTimeo
 function cache3D(){clearTimeout(S3.ct);return new Promise(res=>{if(!S3.objs.length||!THREE.GLTFExporter){S3.cache=null;S3.dirty3=false;return res()}try{new THREE.GLTFExporter().parse(S3.objs,r=>{const u=new Uint8Array(r);let s='';for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));S3.cache=btoa(s);S3.dirty3=false;res()},()=>res(),{binary:true})}catch(e){res()}})}
 const cacheNow=()=>S3.ready&&S3.dirty3?cache3D():Promise.resolve();
 function loadScene3D(b64){try{const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
- new THREE.GLTFLoader().parse(u.buffer,'',g=>{g.scene.children.slice().forEach(ch=>{ch.traverse(o=>{if(o.userData.outline&&o.parent)o.parent.remove(o)});addObj(ch,ch.userData.nm||ch.name||'Model',false,false);if(ch.userData.outlined)setOutline(ch,true)});select3(null);S3.undo=[];S3.redo=[];upd3UndoBtns();S3.cache=b64},()=>warn('Could not load the saved 3D scene'))}catch(e){warn('Could not load the saved 3D scene')}}
+ new THREE.GLTFLoader().parse(u.buffer,'',g=>{g.scene.children.slice().forEach(ch=>{{const rm=[];ch.traverse(o=>{if(o.userData.outline)rm.push(o)});rm.forEach(o=>{if(o.parent)o.parent.remove(o)})}skFix(ch);addObj(ch,ch.userData.nm||ch.name||'Model',false,false);if(ch.userData.outlined)setOutline(ch,true)});select3(null);S3.undo=[];S3.redo=[];upd3UndoBtns();S3.cache=b64},()=>warn('Could not load the saved 3D scene'))}catch(e){warn('Could not load the saved 3D scene')}}
 function refresh3D(){if(!$('#s3List'))return;$('#s3Empty').classList.toggle('hide',S3.objs.length>0);
- const L=$('#s3List');L.innerHTML='';S3.objs.forEach(o=>{const r=document.createElement('div'),u=o.userData;r.className='s3row'+(selTop()===o?' on':S3.extra.includes(o)?' on2':'');const ic=u.kind==='mannequin'?'fa-person':u.src==='group'?'fa-cubes':u.src==='text'?'fa-font':u.src==='picture'?'fa-image':'fa-cube';r.innerHTML=`<i class="fa-solid ${ic}"></i><span></span>${hasMo(o)?'<i class="fa-solid fa-person-running mo"></i>':''}<button class="b sm lk"><i class="fa-solid ${u.locked?'fa-lock':'fa-lock-open'}"></i></button><button class="b sm ey"><i class="fa-solid ${o.visible?'fa-eye':'fa-eye-slash'}"></i></button>`;r.children[1].textContent=o.name;
+ const L=$('#s3List');L.innerHTML='';S3.objs.forEach(o=>{const r=document.createElement('div'),u=o.userData;r.className='s3row'+(selTop()===o?' on':S3.extra.includes(o)?' on2':'');const ic=u.kind==='mannequin'?'fa-person':u.src==='group'?'fa-cubes':u.src==='text'?'fa-font':u.src==='picture'?'fa-image':u.src==='sk'?'fa-pen-ruler':'fa-cube';r.innerHTML=`<i class="fa-solid ${ic}"></i><span></span>${hasMo(o)?'<i class="fa-solid fa-person-running mo"></i>':''}<button class="b sm lk"><i class="fa-solid ${u.locked?'fa-lock':'fa-lock-open'}"></i></button><button class="b sm ey"><i class="fa-solid ${o.visible?'fa-eye':'fa-eye-slash'}"></i></button>`;r.children[1].textContent=o.name;
   r.onclick=e=>{if(e.shiftKey||e.ctrlKey||e.metaKey)toggleExtra(o);else{S3.extra=[];select3(o)}};r.querySelector('.ey').onclick=ev=>{ev.stopPropagation();o.visible=!o.visible;refresh3D();changed3()};r.querySelector('.lk').onclick=ev=>{ev.stopPropagation();const v=!u.locked;u.locked=v;if(v&&selTop()===o)select3(null);refresh3D();changed3()};L.appendChild(r)});
  const s=S3.sel,top=s&&topObj(s);$('#s3NoSel').classList.toggle('hide',!!s);$('#s3Obj').classList.toggle('hide',!s);$('#cNoSel').classList.toggle('hide',!!s);$('#cObj').classList.toggle('hide',!s);$('#s3Pose').classList.toggle('hide',!(top&&top.userData.kind==='mannequin'));
  if(s){$('#s3Name').value=top.name;const m=meshes(s)[0];if(m){$('#s3Opa').value=Math.round((m.material.opacity??1)*100);$('#s3OpaV').textContent=$('#s3Opa').value+'%';$('#s3Wire').checked=!!m.material.wireframe;$('#s3Glow').checked=!!(m.material.emissive&&m.material.emissive.getHex())}$('#s3Outl').checked=!!top.userData.outlined;fillTransform()}
@@ -16539,7 +16736,7 @@ $('#s3Bg').oninput=()=>{S3.env.sky='none';applySky();dirty=true};$('#s3Shadow').
 bind('s3Fov',v=>{if(CAM){CAM.fov=v;CAM.updateProjectionMatrix()}});
 $('#s3PlaceB').onclick=$('#s3PlaceTop').onclick=placeOnDrawing;$('#s3RefB').onclick=useAsRef;$('#s3PngB').onclick=savePng3;$('#s3GifB').onclick=gif3;$('#s3GlbB').onclick=glb3;
 addEventListener('keydown',e=>{if(PG.on)return pgKey(e,true);if(!in3D())return;if(FLY.on&&flyKey(e,true))return;const el=document.activeElement;if(el&&el.matches('input,select,textarea'))return;if(document.querySelector('.modal:not(.hide)'))return;
- const k=e.key.toLowerCase(),c=e.ctrlKey||e.metaKey;let h=true;
+ const k=e.key.toLowerCase(),c=e.ctrlKey||e.metaKey;let h=true;if(!c&&skKey(e,k)){e.preventDefault();e.stopImmediatePropagation();return}
  if(c&&k==='z'){e.shiftKey?redo3():undo3()}else if(c&&k==='y')redo3();else if(c&&k==='d')dup3();else if(c&&k==='a')selAll3();else if(c&&k==='g'){e.shiftKey?ungroup3():group3()}else if(c)h=false;else if(k===' ')setPlay(!S3.playing);else if(k==='k')tlAddKey();else if(k==='m')mirror3();
  else if(k==='w')set3Mode('move');else if(k==='e')set3Mode('rotate');else if(k==='r')set3Mode('scale');else if(k==='q')set3Mode('pose');else if(k==='p')set3Mode('paint');
  else if(k==='delete'||k==='backspace'){const o=S3.sel&&topObj(S3.sel);if(o)removeObj(o)}else if(k==='f')focus3();else if(k==='g')pgStart();else if(k==='v')flyStart();else if(k==='escape'){S3.extra=[];select3(null)}
@@ -16575,7 +16772,7 @@ function poseAt(t,live){const skip=live&&TC&&TC.dragging&&TC.object?topObj(TC.ob
  for(const top of S3.objs){if(!top.visible||top===skip)continue;top.traverse(o=>{const m=o.userData.motion;if(m&&!(MOE.on&&o===MOE.obj))MSW.motion(o,m,t,keep3)})}
  return BASES.size>0}
 function loop3D(){if(S3.raf)return;let last=performance.now();const tick=()=>{if(!in3D()){S3.raf=0;return}S3.raf=requestAnimationFrame(tick);const now=performance.now();S3.dt=Math.min(.05,(now-last)/1000);if(S3.playing)S3.time+=Math.min(.1,(now-last)/1000);last=now;if(S3.busy)return;
- if(FLY.on)flyStep(S3.dt);else if(!PG.on)ORB.update();const mv=poseAt(S3.time,true);if(PG.on)pgStep(S3.dt);if(mv&&BOX)BOX.update();S3.xbox.forEach(b=>b.update());R3.render(SC,CAM);unpose();if(S3.playing)tlUI()};tick()}
+ if(FLY.on)flyStep(S3.dt);else if(!PG.on)ORB.update();const mv=poseAt(S3.time,true);if(PG.on)pgStep(S3.dt);if(mv&&BOX)BOX.update();S3.xbox.forEach(b=>b.update());skRender();unpose();if(S3.playing)tlUI()};tick()}
 const r5=a=>a.map(v=>Math.round(v*1e5)/1e5);
 function snapState(){const s={};S3.objs.forEach(o=>{const e={p:r5(o.position.toArray()),q:r5(o.quaternion.toArray()),k:r5(o.scale.toArray())};if(o.userData.kind==='mannequin'){e.j={};o.traverse(j=>{if(j.userData.joint)e.j[j.name]=r5([...j.quaternion.toArray(),...j.position.toArray()])})}s[o.userData.uid]=e});return s}
 function tlCommit(t){tlApply(t,()=>{},null);if(BOX)BOX.update();fillTransform()}
@@ -18668,6 +18865,337 @@ addEventListener('keydown',e=>{const b=document.body.classList;if(!(b.contains('
 /* the new default look: violet accent for everyone who never picked one */
 (()=>{if(LS.get('msx_v6',0))return;LS.set('msx_v6',1);if(String(SET.accent).toLowerCase()==='#7c8cff'){SET.accent='#8b5cf6';try{saveSet()}catch(e){}}})();
 
+/* ---------- v17: Build tools like SketchUp – draw flat shapes on the floor or on any face, push/pull them into solids,
+   offset, measure and erase, with snapping (endpoints, midpoints, axes, grid), exact sizes typed into the measurements box,
+   holes and pockets, view styles and export for 3D printing ---------- */
+const SKT={line:1,rect:1,circle:1,poly:1,push:1,offset:1,tape:1,erase:1,orbit:1};
+const SKK={l:'line',x:'rect',c:'circle',n:'poly',u:'push',o:'offset',t:'tape',j:'erase',h:'orbit'};
+const SKH={line:'Line: tap point after point · tap the first point again to make a face · type a length and press Enter',
+ rect:'Rectangle: drag from corner to corner on the floor or on a face · type 2,3 for an exact size',
+ circle:'Circle: drag from the middle outwards · type a radius, or 24s for 24 sides',
+ poly:'Polygon: drag from the middle outwards · type a radius, or 6s for 6 sides',
+ push:'Push/Pull: drag a face to pull it out or push it in · type a distance · double-tap a face to repeat',
+ offset:'Offset: drag on a face to make a smaller copy inside it, then push/pull that',
+ tape:'Tape measure: tap two points to measure · then type a new length to resize the model',
+ erase:'Eraser: tap a part to erase it',orbit:'Orbit: drag to look around · two fingers to zoom and pan'};
+const SKL={line:'Length',rect:'Size',circle:'Radius',poly:'Radius',push:'Distance',offset:'Distance',tape:'Length'};
+const SKU={m:[1,2],cm:[100,1],mm:[1000,0],in:[39.37008,2],ft:[3.28084,2]};
+const SK={op:null,last:null,down:null,unit:'m',grid:.1,sides:{circle:32,poly:6},style:'shaded',edges:true,ptrs:new Set(),L:{},dot:null,pc:null,tape:null,mats:new WeakMap(),smat:new WeakMap(),lock:null,lastPush:null};
+{const p=LS.get('msk_prefs',null);if(p&&typeof p==='object'){if(SKU[p.unit])SK.unit=p.unit;if(typeof p.grid==='number')SK.grid=p.grid;if(p.sides&&typeof p.sides==='object')Object.assign(SK.sides,p.sides);if(p.edges===false)SK.edges=false}}
+function skPref(){LS.set('msk_prefs',{unit:SK.unit,grid:SK.grid,sides:SK.sides,edges:SK.edges})}
+const skV=(x,y,z)=>new THREE.Vector3(x,y,z);
+const skClone=x=>JSON.parse(JSON.stringify(x));
+function skFmt(v){const u=SKU[SK.unit]||SKU.m;return(v*u[0]).toFixed(u[1])+' '+SK.unit}
+function skParse(s){const m=String(s).trim().toLowerCase().match(/^(-?\d*\.?\d+)\s*(mm|cm|m|in|"|ft|')?$/);if(!m)return null;const u={'"':'in',"'":'ft'}[m[2]]||m[2]||SK.unit;const v=+m[1]/(SKU[u]||SKU.m)[0];return isFinite(v)?v:null}
+
+/* flat geometry helpers (points are [x,y]; flat lists are [x,y,x,y,…]) */
+const skArea=P=>{let s=0;for(let i=0;i<P.length;i++){const a=P[i],b=P[(i+1)%P.length];s+=a[0]*b[1]-b[0]*a[1]}return s/2};
+const skCCW=P=>skArea(P)<0?P.slice().reverse():P;
+const skFlat=P=>P.reduce((o,p)=>(o.push(p[0],p[1]),o),[]);
+const skPts2=f=>{const o=[];for(let i=0;i+1<f.length;i+=2)o.push([f[i],f[i+1]]);return o};
+const skNrm=(a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return[-dy/l,dx/l]};
+function skIn(pt,f){let c=false;const n=f.length/2;for(let i=0,j=n-1;i<n;j=i++){const xi=f[2*i],yi=f[2*i+1],xj=f[2*j],yj=f[2*j+1];if(((yi>pt[1])!==(yj>pt[1]))&&pt[0]<(xj-xi)*(pt[1]-yi)/(yj-yi)+xi)c=!c}return c}
+function skSegD(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],L=dx*dx+dy*dy;let u=L?((p[0]-a[0])*dx+(p[1]-a[1])*dy)/L:0;u=Math.max(0,Math.min(1,u));return Math.hypot(p[0]-a[0]-u*dx,p[1]-a[1]-u*dy)}
+function skLineX(p1,p2,p3,p4){const d=(p1[0]-p2[0])*(p3[1]-p4[1])-(p1[1]-p2[1])*(p3[0]-p4[0]);if(Math.abs(d)<1e-9)return null;const u=((p1[0]-p3[0])*(p3[1]-p4[1])-(p1[1]-p3[1])*(p3[0]-p4[0]))/d;return[p1[0]+u*(p2[0]-p1[0]),p1[1]+u*(p2[1]-p1[1])]}
+function skOffset(P,d){P=skCCW(P);const n=P.length,o=[];for(let i=0;i<n;i++){const a=P[(i-1+n)%n],b=P[i],c=P[(i+1)%n],n1=skNrm(a,b),n2=skNrm(b,c);let mx=n1[0]+n2[0],my=n1[1]+n2[1];const ml=Math.hypot(mx,my);if(ml<1e-9){mx=n1[0];my=n1[1]}else{mx/=ml;my/=ml}const k=d/Math.max(.25,mx*n1[0]+my*n1[1]);o.push([b[0]+mx*k,b[1]+my*k])}return o}
+function skOffValid(S,d){const o=skOffset(S,d);if(skArea(o)<1e-6)return null;const f=skFlat(S);return o.every(p=>skIn(p,f))?o:null}
+const skRectPts=(a,b)=>[[a[0],a[1]],[b[0],a[1]],[b[0],b[1]],[a[0],b[1]]];
+function skNgon(c,r,n,a0){const o=[];for(let i=0;i<n;i++){const a=a0+i/n*TAU;o.push([c[0]+Math.cos(a)*r,c[1]+Math.sin(a)*r])}return o}
+/* moves one edge of an outline along its normal; the edges next to it keep their direction (real push/pull of a side face) */
+function skEdgeMove(f,i,n2,L){const n=f.length/2,P=k=>{k=((k%n)+n)%n;return[f[2*k],f[2*k+1]]},set=(k,p)=>{k=((k%n)+n)%n;f[2*k]=p[0];f[2*k+1]=p[1]};
+ const a=P(i),b=P(i+1),a2=[a[0]+n2[0]*L,a[1]+n2[1]*L],b2=[b[0]+n2[0]*L,b[1]+n2[1]*L],lim=Math.abs(L)*6+.01,pick=(X,d)=>X&&Math.hypot(X[0]-d[0],X[1]-d[1])<lim?X:d;
+ const A=pick(skLineX(a2,b2,P(i-1),a),a2),Bp=pick(skLineX(a2,b2,b,P(i+2)),b2);set(i,A);set(i+1,Bp)}
+
+/* drawing planes: the floor, the top or bottom of a built shape (shapes join it) or any other face (a new shape) */
+function skGround(){return{n:skV(0,1,0),o:skV(0,0,0),u:skV(1,0,0),v:skV(0,0,-1),to:w=>[w.x,-w.z],from:(a,b)=>skV(a,0,-b),host:null}}
+function skFree(o,n){let u;if(Math.abs(n.y)<.9)u=skV(0,1,0).cross(n).normalize();else u=skV(1,0,0).projectOnPlane(n).normalize();const v=n.clone().cross(u).normalize();
+ return{n,o,u,v,to:w=>{const d=w.clone().sub(o);return[d.dot(u),d.dot(v)]},from:(a,b)=>o.clone().addScaledVector(u,a).addScaledVector(v,b),host:null}}
+function skHostPlane(g,q,zc,sg){g.updateMatrixWorld(true);const M=g.matrixWorld;
+ return{n:skV(0,0,sg).transformDirection(M),o:skV(0,0,zc).applyMatrix4(M),u:skV(1,0,0).transformDirection(M),v:skV(0,1,0).transformDirection(M),to:w=>{const l=g.worldToLocal(w.clone());return[l.x,l.y]},from:(a,b)=>g.localToWorld(skV(a,b,zc)),host:{g,pi:q.i,z:zc}}}
+function skRay(e){const r=R3.domElement.getBoundingClientRect();PTR.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);RAY.setFromCamera(PTR,CAM);return RAY.ray}
+function skHit(e){skRay(e);return RAY.intersectObjects(S3.objs.filter(o=>o.visible),true).find(h=>h.object.isMesh&&!h.object.userData.outline&&h.object.visible&&h.face)}
+const skOwner=m=>m&&m.parent&&m.parent.userData.src==='sk'&&m.userData.pid!=null&&m.parent.userData.x?m.parent:null;
+function skFace(h){const m=h.object,g=skOwner(m),nw=h.face.normal.clone().transformDirection(m.matrixWorld),flip=nw.dot(RAY.ray.direction)>0;if(flip)nw.negate();
+ if(!g)return{nw,g:null};const q=g.userData.x.pr.find(q=>q.i===m.userData.pid);if(!q)return{nw,g:null};
+ const ln=h.face.normal.clone();if(flip)ln.negate();g.updateMatrixWorld(true);const lp=g.worldToLocal(h.point.clone()),cap=Math.abs(ln.z)>.99?(ln.z>0?1:-1):0;
+ return{nw,g,q,ln,lp,cap,zc:cap?(q.d<1e-4?q.z:cap>0?q.z+q.d:q.z):null}}
+function skPlaneAt(e){const h=skHit(e);if(!h)return skGround();const f=skFace(h);if(f.g&&f.cap)return skHostPlane(f.g,f.q,f.zc,f.cap);return skFree(h.point.clone(),f.nw.clone().normalize())}
+
+/* snapping: endpoints and midpoints of built shapes, the red / green / blue directions and the grid */
+function skPtsC(){if(SK.pc)return SK.pc;const out=[];S3.objs.forEach(o=>{if(!o.visible)return;o.updateMatrixWorld(true);o.traverse(g=>{if(g.userData.src!=='sk'||!g.userData.x)return;const M=g.matrixWorld;
+  g.userData.x.pr.forEach(q=>{const zs=q.d>1e-4?[q.z,q.z+q.d]:[q.z];[q.p].concat(q.h).forEach(f=>{const n=f.length/2;for(let i=0;i<n&&out.length<5000;i++){const j=(i+1)%n;
+   zs.forEach(z=>{out.push({p:skV(f[2*i],f[2*i+1],z).applyMatrix4(M),k:'Endpoint',g});if(n<=16)out.push({p:skV((f[2*i]+f[2*j])/2,(f[2*i+1]+f[2*j+1])/2,z).applyMatrix4(M),k:'Midpoint',g})})}})})})});
+ out.push({p:skV(0,0,0),k:'Origin'});return SK.pc=out}
+function skNear(e,extra,skip){const r=R3.domElement.getBoundingClientRect();let best=null,bd=13;const test=c=>{if(skip&&c.g===skip)return;const v=c.p.clone().project(CAM);if(v.z>1||v.z<-1)return;const d=Math.hypot((v.x+1)/2*r.width+r.left-e.clientX,(1-v.y)/2*r.height+r.top-e.clientY);if(d<bd){bd=d;best=c}};(extra||[]).forEach(test);skPtsC().forEach(test);return best}
+function skAxisName(v){const x=Math.abs(v.x),y=Math.abs(v.y),z=Math.abs(v.z);return x>.98?'On red axis':z>.98?'On green axis':y>.98?'On blue axis':'On edge direction'}
+function skSnap(e,P,from){const r=skRay(e),near=skNear(e,SK.op&&SK.op.extra);let w,k='',ax=null;
+ if(near){w=near.p.clone().addScaledVector(P.n,-near.p.clone().sub(P.o).dot(P.n));k=near.k}else{w=r.intersectPlane(new THREE.Plane().setFromNormalAndCoplanarPoint(P.n,P.o),skV());if(!w)return null}
+ let[a,b]=P.to(w);
+ if(!near){const G=SK.grid;let lock=SK.lock;
+  if(from){const da=a-from[0],db=b-from[1];if(!lock&&Math.hypot(da,db)>1e-6){const ang=Math.abs(Math.atan2(db,da))/D2R;if(ang<4||ang>176)lock='u';else if(Math.abs(ang-90)<4)lock='v'}
+   if(lock==='u'){b=from[1];if(G)a=from[0]+Math.round(da/G)*G;ax=P.u}else if(lock==='v'){a=from[0];if(G)b=from[1]+Math.round(db/G)*G;ax=P.v}else if(G){a=Math.round(a/G)*G;b=Math.round(b/G)*G}}
+  else if(G){a=Math.round(a/G)*G;b=Math.round(b/G)*G}
+  w=P.from(a,b)}
+ if(ax)k=skAxisName(ax);return{w,a,b,k}}
+/* the drag distance along a face's normal, from where the pointer ray passes closest to that line */
+function skAlong(e,P0,N){const r=skRay(e),D=r.direction,w0=P0.clone().sub(r.origin),b=N.dot(D),d=N.dot(w0),e2=D.dot(w0),den=1-b*b;if(den<1e-3)return null;return(b*e2-d)/den}
+
+/* what you see while building: lines, the snap dot, a label at the pointer and the measurements box */
+function skL(name,col,dash){let L=SK.L[name];if(!L){const mat=dash?new THREE.LineDashedMaterial({color:col,dashSize:.08,gapSize:.06,depthTest:false,transparent:true}):new THREE.LineBasicMaterial({color:col,depthTest:false,transparent:true});
+ L=new THREE.Line(new THREE.BufferGeometry(),mat);L.renderOrder=998;L.frustumCulled=false;SC.add(L);SK.L[name]=L}return L}
+function skShow(name,pts,col,o={}){const L=skL(name,col,o.dash);L.material.color.set(col);L.geometry.setFromPoints(o.loop?pts.concat([pts[0]]):pts);if(o.dash)L.computeLineDistances();L.visible=pts.length>1}
+function skDot(w,k){if(!SK.dot){SK.dot=new THREE.Points(new THREE.BufferGeometry().setFromPoints([skV(0,0,0)]),new THREE.PointsMaterial({size:11,sizeAttenuation:false,depthTest:false,transparent:true,color:0x22c55e}));SK.dot.renderOrder=999;SK.dot.frustumCulled=false;SC.add(SK.dot)}
+ if(!w){SK.dot.visible=false;return}SK.dot.position.copy(w);SK.dot.material.color.set(k==='Midpoint'?'#06b6d4':k==='Endpoint'||k==='Origin'?'#22c55e':k==='On red axis'?'#ef4444':k==='On green axis'?'#22c55e':k==='On blue axis'?'#3b82f6':k?'#d946ef':'#ffd23f');SK.dot.visible=true}
+function skTip(e,txt){const el=$('#skTip');if(!e||!txt){el.classList.add('hide');return}const r=$('#v3d').getBoundingClientRect();el.textContent=txt;el.style.left=Math.min(r.width-150,e.clientX-r.left+16)+'px';el.style.top=(e.clientY-r.top+14)+'px';el.classList.remove('hide')}
+function skHide(all){Object.entries(SK.L).forEach(([k,L])=>{if(all||k!=='tape')L.visible=false});skDot(null);skTip(null)}
+function skVcb(label,val){if(label)$('#skVcbL').textContent=t(label);const i=$('#skVcbIn');if(val!=null&&document.activeElement!==i)i.value=val}
+const skW=(P,pts)=>pts.map(p=>P.from(p[0],p[1]));
+
+/* changing a built shape: materials stay with each part, every change can be undone */
+function skMatFn(g,from){let M=SK.mats.get(g);if(!M){M=new Map();SK.mats.set(g,M)}g.children.forEach(c=>{if(c.isMesh&&c.userData.pid!=null)M.set(c.userData.pid,c.material)});
+ return q=>M.has(q.i)?M.get(q.i):from&&from[q.i]!=null&&M.has(from[q.i])?M.get(from[q.i]).clone():null}
+function skApply(g,x,from,live){MSW.skBuild(x,g,skMatFn(g,from));g.children.forEach(c=>{if(c.userData.skEdge)c.visible=SK.edges});if(!live)SK.pc=null;if(BOX)BOX.update();S3.xbox.forEach(b=>b.update())}
+function skSet(g,before,after,from){skApply(g,after,from);const ent={after,undo:()=>{skApply(g,before);changed3()},redo:()=>{skApply(g,ent.after);changed3()}};push3(ent);changed3();return ent}
+function skNextId(g,x){const m=Math.max(-1,(g.userData.skn||0)-1,...x.pr.map(q=>q.i))+1;g.userData.skn=m+1;return m}
+function skFix(o){const L=[];o.traverse(c=>{if(c.userData.src==='sk'&&c.userData.x)L.push(c)});L.forEach(g=>{MSW.skBuild(g.userData.x,g);g.children.forEach(c=>{if(c.userData.skEdge)c.visible=SK.edges})})}
+/* a new flat face: on a built shape's top or bottom it joins that shape, anywhere else it becomes a new shape */
+function skNewShape(P,pts,name){pts=skCCW(pts);if(Math.abs(skArea(pts))<1e-6)return null;
+ if(P.host){const g=P.host.g,x0=skClone(g.userData.x),x=skClone(x0),id=skNextId(g,x);x.pr.push({i:id,p:skFlat(pts),h:[],z:P.host.z,d:0});const ent=skSet(g,x0,x,{[id]:P.host.pi});if(selTop()!==topObj(g))select3(topObj(g));return{g,pid:id,ent,toFlat:p=>skFlat(skCCW(p))}}
+ const a0=pts[0][0],b0=pts[0][1],g=new THREE.Group(),rel=p=>skFlat(skCCW(p).map(q=>[q[0]-a0,q[1]-b0]));g.position.copy(P.from(a0,b0));g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(P.u,P.v,P.n));
+ MSW.skBuild({pr:[{i:0,p:rel(pts),h:[],z:0,d:0}],e:1},g);g.userData.skn=1;g.children.forEach(c=>{if(c.userData.skEdge)c.visible=SK.edges});addObj(g,t(name),true,false);SK.pc=null;return{g,pid:0,ent:null,toFlat:rel}}
+function skReplace(res,pts){const g=res.g,x=skClone(g.userData.x),q=x.pr.find(q=>q.i===res.pid);if(!q)return;q.p=res.toFlat(pts);if(res.ent)res.ent.after=x;skApply(g,x);changed3()}
+function skDone(){haptic(10);if(!LS.get('msk_tip1',0)){LS.set('msk_tip1',1);setTimeout(()=>showHint3(t('Now pick Push/Pull (U) and drag the face up to make it 3D')),350)}}
+
+/* push / pull */
+function skPushStart(e,h,f){const q=f.q,g=f.g,op={k:'push',g,x0:skClone(g.userData.x),pi:q.i,P0:h.point.clone(),N:f.nw.clone().normalize(),dist:0,t0:performance.now()};
+ g.updateMatrixWorld(true);const M=g.matrixWorld,o0=skV(0,0,0).applyMatrix4(M);
+ if(f.cap){op.cap=f.cap;op.ks=1/(skV(0,0,1).applyMatrix4(M).sub(o0).length()||1);
+  if(q.d<1e-4){const pts=skPts2(q.p),j=op.x0.pr.find(j=>j.i!==q.i&&j.d>1e-4&&(f.cap>0?Math.abs(j.z+j.d-q.z)<1e-3:Math.abs(j.z-q.z)<1e-3)&&pts.every(p=>skIn(p,j.p)&&!j.h.some(hh=>skIn(p,hh))));if(j)op.pj=j.i}}
+ else{const lp=[f.lp.x,f.lp.y];let best=null;[q.p].concat(q.h).forEach((ring,k)=>{const n=ring.length/2;for(let i=0;i<n;i++){const j=(i+1)%n,d=skSegD(lp,[ring[2*i],ring[2*i+1]],[ring[2*j],ring[2*j+1]]);if(!best||d<best.d)best={d,k,i}}});
+  const l=Math.hypot(f.ln.x,f.ln.y)||1,n2=[f.ln.x/l,f.ln.y/l];op.side={k:best.k,i:best.i,n:n2};op.ks=1/(skV(n2[0],n2[1],0).applyMatrix4(M).sub(o0).length()||1)}
+ skPtsC();op.y0=e.clientY;skRay(e);op.scr=Math.abs(op.N.dot(RAY.ray.direction))>.96;/* looking straight at the face: drag up or down the screen instead */
+ op.s0=op.scr?0:skAlong(e,op.P0,op.N)||0;SK.op=op;skVcb('Distance',skFmt(0))}
+function skPushApply(op,dist){const x=skClone(op.x0),q=x.pr.find(q=>q.i===op.pi);if(!q)return x;const L=dist*op.ks;
+ if(op.cap){if(op.pj!=null&&L<0){/* pushed into the shape below: a pocket (or a hole when it goes all the way through) */const j=x.pr.find(j=>j.i===op.pj),dep=Math.min(-L,j.d);j.h.push(q.p.slice());q.d=j.d-dep;q.z=op.cap>0?j.z:j.z+dep;if(q.d<1e-4)x.pr.splice(x.pr.indexOf(q),1)}
+  else if(op.cap>0)q.d+=L;else{q.z-=L;q.d+=L}
+  if(q.d<0){q.z+=q.d;q.d=-q.d}}
+ else skEdgeMove(op.side.k?q.h[op.side.k-1]:q.p,op.side.i,op.side.n,L);
+ return x}
+function skPushMove(e){const op=SK.op,s=op.scr?null:skAlong(e,op.P0,op.N);let dist,k='';
+ if(s==null){const r=R3.domElement.getBoundingClientRect();dist=(op.y0-e.clientY)*CAM.position.distanceTo(op.P0)*2*Math.tan(CAM.fov*D2R/2)/r.height}else dist=s-op.s0;const near=skNear(e,null,op.g);
+ if(near){dist=near.p.clone().sub(op.P0).dot(op.N);k=near.k}else if(SK.grid)dist=Math.round(dist/SK.grid)*SK.grid;op.dist=dist;skApply(op.g,skPushApply(op,dist),null,true);
+ skShow('guide',[op.P0,op.P0.clone().addScaledVector(op.N,dist)],'#ffd23f',{dash:true});skDot(near?near.p:null,k);
+ skTip(e,(k?t(k)+' · ':'')+(op.pj!=null&&dist<0?t('Pocket')+' ':'')+skFmt(dist));skVcb('Distance',skFmt(dist))}
+/* offset: a smaller copy of a face inside it */
+function skOffStart(e,f){if(!f.cap){showHint3(t('Offset works on the top or bottom of a built shape'));return}const q=f.q;
+ SK.op={k:'offset',g:f.g,x0:skClone(f.g.userData.x),pi:q.i,zc:f.zc,P:skHostPlane(f.g,q,f.zc,f.cap),src:skCCW(skPts2(q.p)),poly:null,d:0};skOffMove(e)}
+function skOffMove(e){const op=SK.op,w=skRay(e).intersectPlane(new THREE.Plane().setFromNormalAndCoplanarPoint(op.P.n,op.P.o),skV());if(!w)return;const lp=op.P.to(w),S=op.src;let d=Infinity;
+ for(let i=0;i<S.length;i++)d=Math.min(d,skSegD(lp,S[i],S[(i+1)%S.length]));if(!skIn(lp,skFlat(S)))d=-d;if(SK.grid&&d>0)d=Math.max(SK.grid,Math.round(d/SK.grid)*SK.grid);op.d=d;op.poly=d>0?skOffValid(S,d):null;
+ if(op.poly)skShow('prev',skW(op.P,op.poly),'#ffd23f',{loop:true});else skHide();skTip(e,op.poly?t('Offset')+' '+skFmt(d):t('Move inside the face'));skVcb('Distance',op.poly?skFmt(d):'')}
+/* line, rectangle, circle and polygon */
+function skPreview(e){const op=SK.op,P=op.P;if(e)op.e={clientX:e.clientX,clientY:e.clientY};e=op.e;if(!e)return;
+ if(op.k==='line'){const last=op.pts[op.pts.length-1],s=skSnap(e,P,last);if(!s)return;op.cur=[s.a,s.b];let k=s.k;const first=op.pts[0],fv=P.from(first[0],first[1]).project(CAM),r=R3.domElement.getBoundingClientRect();
+  if(op.pts.length>2&&Math.hypot((fv.x+1)/2*r.width+r.left-e.clientX,(1-fv.y)/2*r.height+r.top-e.clientY)<16){op.cur=first.slice();k='Close the shape'}
+  skShow('prev',skW(P,op.pts.concat([op.cur])),'#ffd23f');skDot(P.from(op.cur[0],op.cur[1]),k);const L=Math.hypot(op.cur[0]-last[0],op.cur[1]-last[1]);skTip(e,(k?t(k)+' · ':'')+skFmt(L));skVcb('Length',skFmt(L));return}
+ const s=skSnap(e,P,op.k==='rect'?null:op.a);if(!s)return;op.cur=[s.a,s.b];skDot(s.w,s.k);
+ if(op.k==='rect'){const w=Math.abs(op.cur[0]-op.a[0]),h=Math.abs(op.cur[1]-op.a[1]),sq=w>1e-6&&Math.abs(w-h)<1e-6;skShow('prev',skW(P,skRectPts(op.a,op.cur)),sq?'#d946ef':'#ffd23f',{loop:true});skTip(e,(s.k?t(s.k)+' · ':sq?t('Square')+' · ':'')+skFmt(w)+' × '+skFmt(h));skVcb('Size',skFmt(w)+', '+skFmt(h));return}
+ let r=Math.hypot(op.cur[0]-op.a[0],op.cur[1]-op.a[1]);if(!s.k&&SK.grid)r=Math.round(r/SK.grid)*SK.grid;op.r=r;op.ang=Math.atan2(op.cur[1]-op.a[1],op.cur[0]-op.a[0]);const n=SK.sides[op.k];
+ skShow('prev',skW(P,skNgon(op.a,r,n,op.k==='poly'?op.ang:0)),'#ffd23f',{loop:true});skShow('guide',[P.from(op.a[0],op.a[1]),s.w],'#ffd23f',{dash:true});skTip(e,(s.k?t(s.k)+' · ':'')+t('Radius')+' '+skFmt(r)+' · '+n+' '+t('sides'));skVcb('Radius',skFmt(r))}
+function skLineTap(e,d,moved){let op=SK.op;
+ if(!op){const e0=moved?{clientX:d.x,clientY:d.y}:e,P=skPlaneAt(e0),s0=skSnap(e0,P);if(!s0)return;SK.last=null;op=SK.op={k:'line',P,pts:[[s0.a,s0.b]],cur:[s0.a,s0.b],extra:[{p:s0.w,k:'Endpoint'}]};if(!moved){skPreview(e);return}}
+ skPreview(e);const c=op.cur.slice(),first=op.pts[0],last=op.pts[op.pts.length-1];if(Math.hypot(c[0]-last[0],c[1]-last[1])<1e-4)return;
+ if(op.pts.length>2&&Math.hypot(c[0]-first[0],c[1]-first[1])<1e-4){skLineDone();return}
+ op.pts.push(c);op.extra.push({p:op.P.from(c[0],c[1]),k:'Endpoint'})}
+function skLineDone(){const op=SK.op;SK.op=null;skHide();if(!op||op.pts.length<3)return;const res=skNewShape(op.P,op.pts,'Face');if(res)skDone()}
+/* tape measure */
+function skTapePt(e){const near=skNear(e);if(near)return{w:near.p.clone(),k:near.k,o:near.g?topObj(near.g):null};const h=skHit(e);if(h)return{w:h.point.clone(),k:'On face',o:topObj(h.object)};const w=skRay(e).intersectPlane(new THREE.Plane(skV(0,1,0),0),skV());return w?{w,k:'',o:null}:null}
+function skTapeTap(e){const s=skTapePt(e);if(!s)return;const T_=SK.tape;
+ if(!T_||T_.p2){SK.tape={p1:s.w,o1:s.o,p2:null};skShow('tape',[s.w,s.w],'#f97316',{dash:true});skDot(s.w,s.k);skVcb('Length',skFmt(0));return}
+ T_.p2=s.w;T_.o=T_.o1&&T_.o1===s.o?s.o:null;const L=s.w.distanceTo(T_.p1);skShow('tape',[T_.p1,s.w],'#f97316',{dash:true});skDot(null);skVcb('Length',skFmt(L));skTip(e,skFmt(L));
+ showHint3(t(T_.o?'Measured. Type a new length and press Enter to resize this model to it':'Measured: ')+(T_.o?'':skFmt(L)))}
+function skTapeScale(v){const T_=SK.tape,L=skParse(v),cur=T_.p1.distanceTo(T_.p2);if(!L||L<=0||cur<1e-6)return false;const o=T_.o,k=L/cur,b=snapT(o);
+ o.scale.multiplyScalar(k);[T_.p1,T_.p2].forEach(p=>p.sub(o.position).multiplyScalar(k).add(o.position));const a=snapT(o);push3({undo:()=>applyT(o,b),redo:()=>applyT(o,a)});if(BOX)BOX.update();
+ skShow('tape',[T_.p1,T_.p2],'#f97316',{dash:true});changed3();toast(t('Model resized'),'fa-ruler');return true}
+/* eraser */
+function skErase(e){const h=skHit(e);if(!h)return;const m=h.object,g=skOwner(m),top=topObj(m);if(top.userData.locked){showHint3(t('This model is locked'));return}
+ if(g&&g.userData.x.pr.length>1){const x0=skClone(g.userData.x),x=skClone(x0);x.pr=x.pr.filter(q=>q.i!==m.userData.pid);skSet(g,x0,x);haptic(8);return}
+ if(g&&g!==top){const par=g.parent;par.remove(g);push3({undo:()=>{par.add(g);changed3()},redo:()=>{par.remove(g);changed3()}});changed3();haptic(8);return}
+ removeObj(top);haptic(8)}
+
+/* pointer: drag, or tap – move – tap like SketchUp; two fingers always zoom and pan */
+function skCapture(e){try{R3.domElement.setPointerCapture(e.pointerId)}catch(_){}}
+function skDown(e){if(!SKT[S3.mode]||PG.on||FLY.on)return;SK.ptrs.add(e.pointerId);if(SK.ptrs.size>1){if(SK.op&&SK.op.k!=='line')skCancel();SK.down=null;return}
+ if(e.button!==0||S3.mode==='orbit')return;SK.down={x:e.clientX,y:e.clientY};const m=S3.mode;if(SK.op&&SK.op.wait)return;
+ if(m==='rect'||m==='circle'||m==='poly'){const P=skPlaneAt(e),s=skSnap(e,P);if(!s)return;SK.last=null;SK.op={k:m,P,a:[s.a,s.b],cur:[s.a,s.b],extra:[{p:s.w,k:'Endpoint'}]};skCapture(e);skPreview(e)}
+ else if(m==='push'||m==='offset'){const h=skHit(e);if(!h)return;const f=skFace(h);
+  if(!f.g){showHint3(t('Push/Pull and Offset work on shapes drawn with the Build tools – draw a rectangle on the floor first'));return}
+  if(topObj(f.g).userData.locked){showHint3(t('This model is locked'));return}SK.last=null;if(m==='push')skPushStart(e,h,f);else skOffStart(e,f);if(SK.op)skCapture(e)}}
+function skMove(e){if(!SKT[S3.mode]||PG.on||FLY.on||SK.ptrs.size>1)return;const m=S3.mode,op=SK.op;
+ if(!op){if(m==='tape'&&SK.tape&&!SK.tape.p2){const s=skTapePt(e);if(s){skShow('tape',[SK.tape.p1,s.w],'#f97316',{dash:true});skDot(s.w,s.k);const L=s.w.distanceTo(SK.tape.p1);skTip(e,(s.k?t(s.k)+' · ':'')+skFmt(L));skVcb('Length',skFmt(L))}return}
+  if(e.pointerType==='touch'||!(m==='line'||m==='rect'||m==='circle'||m==='poly'||m==='tape'))return;const s=m==='tape'?skTapePt(e):skSnap(e,skPlaneAt(e));if(s){skDot(s.w,s.k);skTip(e,s.k?t(s.k):'')}else{skDot(null);skTip(null)}return}
+ if(op.k==='push')skPushMove(e);else if(op.k==='offset')skOffMove(e);else skPreview(e)}
+function skUp(e){SK.ptrs.delete(e.pointerId);if(!SKT[S3.mode]||PG.on||FLY.on||!SK.down)return;const d=SK.down;SK.down=null;const moved=Math.hypot(e.clientX-d.x,e.clientY-d.y)>8,m=S3.mode,op=SK.op;
+ if(m==='erase'){if(!moved)skErase(e);return}
+ if(m==='tape'){if(moved){SK.tape=null;skTapeTap({clientX:d.x,clientY:d.y})}skTapeTap(e);return}
+ if(m==='line'){skLineTap(e,d,moved);return}
+ if(!op)return;
+ if(op.k==='push'||op.k==='offset'){if(op.k==='push')skPushMove(e);else skOffMove(e);
+  if(op.wait&&!moved&&op.k==='push'&&performance.now()-op.t0<450&&SK.lastPush!=null)op.dist=SK.lastPush;/* double-tap: the same distance again */
+  if(moved||op.wait)skCommit();else op.wait=true;return}
+ skPreview(e);if(moved||op.wait)skCommit();else op.wait=true}
+function skCommit(){const op=SK.op;if(!op)return;SK.op=null;skHide();const P=op.P;
+ if(op.k==='rect'){const w=op.cur[0]-op.a[0],h=op.cur[1]-op.a[1];if(Math.abs(w)<1e-3||Math.abs(h)<1e-3)return;const res=skNewShape(P,skRectPts(op.a,op.cur),'Rectangle');if(!res)return;skDone();
+  SK.last={k:'rect',redo:v=>{const p=String(v).split(/[,;x×*]/).map(skParse);if(p.length!==2||p.some(z=>!z))return false;skReplace(res,skRectPts(op.a,[op.a[0]+Math.abs(p[0])*Math.sign(w)*Math.sign(p[0]),op.a[1]+Math.abs(p[1])*Math.sign(h)*Math.sign(p[1])]));return true}}}
+ else if(op.k==='circle'||op.k==='poly'){if(!(op.r>1e-3))return;const ang=op.k==='poly'?op.ang||0:0,res=skNewShape(P,skNgon(op.a,op.r,SK.sides[op.k],ang),op.k==='circle'?'Circle':'Polygon');if(!res)return;skDone();
+  SK.last={k:op.k,redo:v=>{const sm=String(v).trim().match(/^(\d+)\s*s$/i);if(sm){const N=clamp(+sm[1],3,96);SK.sides[op.k]=N;skPref();skReplace(res,skNgon(op.a,op.r,N,ang));return true}const r=skParse(v);if(!r||r<=0)return false;op.r=r;skReplace(res,skNgon(op.a,r,SK.sides[op.k],ang));return true}}}
+ else if(op.k==='push'){const g=op.g;if(Math.abs(op.dist)<1e-4){skApply(g,op.x0);return}const ent=skSet(g,op.x0,skPushApply(op,op.dist));SK.lastPush=op.dist;
+  SK.last={k:'push',redo:v=>{const d=skParse(v);if(d==null)return false;const x2=skPushApply(op,d);ent.after=x2;skApply(g,x2);SK.lastPush=d;changed3();return true}}}
+ else if(op.k==='offset'){if(!op.poly)return;const g=op.g,x=skClone(op.x0),id=skNextId(g,x),add=pl=>{const x2=skClone(op.x0);x2.pr.push({i:id,p:skFlat(pl),h:[],z:op.zc,d:0});return x2};const ent=skSet(g,op.x0,add(op.poly),{[id]:op.pi});void x;
+  SK.last={k:'offset',redo:v=>{const d=skParse(v);if(!d)return false;const pl=skOffValid(op.src,d);if(!pl)return false;ent.after=add(pl);skApply(g,ent.after,{[id]:op.pi});changed3();return true}}}}
+function skCancel(){const op=SK.op;SK.op=null;SK.down=null;SK.lock=null;if(op&&op.k==='push'&&op.g)skApply(op.g,op.x0);skHide()}
+/* typing a size: the measurements box */
+function skBad(){haptic(20);toast(t('Type a number, like 2 or 1.5 or 30cm'),'fa-triangle-exclamation')}
+function skEnter(v){v=String(v||'').trim();const op=SK.op;
+ if(op){
+  if(op.k==='line'){if(!v){skLineDone();return}const L=skParse(v);if(!L||L<=0)return skBad();const last=op.pts[op.pts.length-1];let dx=op.cur[0]-last[0],dy=op.cur[1]-last[1],l=Math.hypot(dx,dy);if(l<1e-6){dx=1;dy=0;l=1}
+   const p=[last[0]+dx/l*L,last[1]+dy/l*L];op.pts.push(p);op.cur=p.slice();op.extra.push({p:op.P.from(p[0],p[1]),k:'Endpoint'});skShow('prev',skW(op.P,op.pts),'#ffd23f');return}
+  if(!v)return;
+  if(op.k==='rect'){const p=v.split(/[,;x×*]/).map(skParse);if(p.length!==2||p.some(z=>!z))return skBad();const sx=Math.sign(op.cur[0]-op.a[0])||1,sy=Math.sign(op.cur[1]-op.a[1])||1;op.cur=[op.a[0]+Math.abs(p[0])*sx*Math.sign(p[0]),op.a[1]+Math.abs(p[1])*sy*Math.sign(p[1])];skCommit();return}
+  if(op.k==='circle'||op.k==='poly'){const sm=v.match(/^(\d+)\s*s$/i);if(sm){SK.sides[op.k]=clamp(+sm[1],3,96);skPref();skPreview();return}const r=skParse(v);if(!r||r<=0)return skBad();op.r=r;skCommit();return}
+  if(op.k==='push'){const d=skParse(v);if(d==null)return skBad();op.dist=d;skCommit();return}
+  if(op.k==='offset'){const d=skParse(v);if(!d)return skBad();op.poly=skOffValid(op.src,d);if(!op.poly)return skBad();skCommit();return}}
+ if(!v)return;
+ if(S3.mode==='tape'&&SK.tape&&SK.tape.p2){if(!SK.tape.o){showHint3(t('Measure between two points of the same model to resize it'));return}if(!skTapeScale(v))skBad();return}
+ if(SK.last){if(SK.last.redo(v)===false)skBad();return}
+ const sm=v.match(/^(\d+)\s*s$/i);if(sm&&(S3.mode==='circle'||S3.mode==='poly')){SK.sides[S3.mode]=clamp(+sm[1],3,96);skPref();toast(SK.sides[S3.mode]+' '+t('sides'),'fa-draw-polygon')}}
+function skKey(e,k){if(e.altKey)return false;const on=!!SKT[S3.mode];
+ if(SKK[k]&&!e.shiftKey&&!SK.op){set3Mode(SKK[k]);return true}
+ if(!on)return false;
+ if(k==='escape'){if(SK.op||SK.tape){skCancel();SK.tape=null;skHide(true);return true}return false}
+ if(k==='enter'){if(SK.op&&SK.op.k==='line'){skLineDone();return true}return false}
+ if((k==='arrowright'||k==='arrowleft')&&SK.op){const L=k==='arrowright'?'u':'v';SK.lock=SK.lock===L?null:L;toast(t(SK.lock?(L==='u'?'Locked to the red direction':'Locked to the green direction'):'Direction unlocked'),'fa-lock');skPreview();return true}
+ if(/^[0-9.\-]$/.test(e.key)&&(SK.op||SK.last||S3.mode==='circle'||S3.mode==='poly'||(S3.mode==='tape'&&SK.tape&&SK.tape.p2))){const i=$('#skVcbIn');i.value=e.key;i.focus();return true}
+ return false}
+/* switching tools */
+function skMode(m){if(!ORB)return;const on=!!SKT[m];if(SK.op)skCancel();SK.last=null;SK.lock=null;if(m!=='tape')SK.tape=null;skHide(m!=='tape');
+ ORB.mouseButtons.LEFT=on&&m!=='orbit'?null:THREE.MOUSE.ROTATE;ORB.mouseButtons.MIDDLE=on?THREE.MOUSE.ROTATE:THREE.MOUSE.DOLLY;ORB.touches.ONE=on&&m!=='orbit'?null:THREE.TOUCH.ROTATE;
+ $('#skVcb').classList.toggle('hide',!SKL[m]);if(SKL[m])skVcb(SKL[m],'');R3.domElement.style.cursor=on&&m!=='orbit'?'crosshair':'';$('#v3d').classList.toggle('sk-on',on)}
+/* view styles: shaded, white (like a paper model) and X-ray */
+function skStyleMat(M){let k=SK.smat.get(M);if(k&&k.userData.st===SK.style)return k;
+ k=SK.style==='white'?new THREE.MeshStandardMaterial({color:'#f4f3ef',roughness:.92,side:M.side}):new THREE.MeshStandardMaterial({color:M.color?M.color.clone():new THREE.Color('#cccccc'),roughness:.6,transparent:true,opacity:.35,depthWrite:false,side:THREE.DoubleSide});k.userData.st=SK.style;SK.smat.set(M,k);return k}
+function skRender(){if(SK.style==='shaded'){R3.render(SC,CAM);return}const sw=[];
+ S3.objs.forEach(o=>{if(o.visible)o.traverse(m=>{if(m.isMesh&&!m.userData.outline&&m.material&&!Array.isArray(m.material)){sw.push([m,m.material]);m.material=skStyleMat(m.material)}})});R3.render(SC,CAM);sw.forEach(([m,M])=>m.material=M)}
+/* export for 3D printing: binary STL in millimetres, Z up */
+function skStl(){if(!needObjs())return;const tri=[],a=skV(),b=skV(),c=skV();
+ S3.objs.forEach(o=>{if(!o.visible)return;o.updateMatrixWorld(true);o.traverse(m=>{if(!m.isMesh||m.userData.outline||!m.visible||!m.geometry||!m.geometry.attributes.position)return;if(m.userData.pid!=null&&m.geometry.type==='ShapeGeometry')return;
+  const P=m.geometry.attributes.position,I=m.geometry.index,n=I?I.count:P.count,M=m.matrixWorld,neg=M.determinant()<0;
+  for(let i=0;i+2<n;i+=3){const ia=I?I.getX(i):i,ib=I?I.getX(i+1):i+1,ic=I?I.getX(i+2):i+2;a.fromBufferAttribute(P,ia).applyMatrix4(M);b.fromBufferAttribute(P,neg?ic:ib).applyMatrix4(M);c.fromBufferAttribute(P,neg?ib:ic).applyMatrix4(M);tri.push(a.x,a.y,a.z,b.x,b.y,b.z,c.x,c.y,c.z)}})});
+ const N=tri.length/9;if(!N)return warn('Nothing to export');const buf=new ArrayBuffer(84+N*50),dv=new DataView(buf),hdr='MasterSketch Studio STL, millimetres';for(let i=0;i<hdr.length;i++)dv.setUint8(i,hdr.charCodeAt(i));dv.setUint32(80,N,true);
+ let off=84;const V=i=>[tri[i]*1000,-tri[i+2]*1000,tri[i+1]*1000],f32=x=>{dv.setFloat32(off,x,true);off+=4};
+ for(let f=0;f<N;f++){const p=[V(f*9),V(f*9+3),V(f*9+6)],ux=p[1][0]-p[0][0],uy=p[1][1]-p[0][1],uz=p[1][2]-p[0][2],wx=p[2][0]-p[0][0],wy=p[2][1]-p[0][1],wz=p[2][2]-p[0][2];let nx=uy*wz-uz*wy,ny=uz*wx-ux*wz,nz=ux*wy-uy*wx;const l=Math.hypot(nx,ny,nz)||1;
+  [nx/l,ny/l,nz/l].concat(p[0],p[1],p[2]).forEach(f32);dv.setUint16(off,0,true);off+=2}
+ download(new Blob([buf],{type:'model/stl'}),safeName($('#pname').value||'model')+'.stl');toast(t('Saved for 3D printing (millimetres)'),'fa-print')}
+function skInit(){const dom=R3.domElement;dom.addEventListener('pointerdown',skDown);dom.addEventListener('pointermove',skMove);dom.addEventListener('pointerup',skUp);
+ dom.addEventListener('pointercancel',e=>{SK.ptrs.delete(e.pointerId);SK.down=null});dom.addEventListener('pointerleave',()=>{if(!SK.op){skDot(null);skTip(null)}});
+ MSW.skEdgesOn(SK.edges);if(!LS.get('msk_tip0',0)){LS.set('msk_tip0',1);setTimeout(()=>showHint3(t('New! Build tools on the left: draw a rectangle on the floor, then push/pull it up – like SketchUp')),900)}}
+/* wiring */
+$('#skPaint').onclick=()=>set3Mode('paint');
+$('#skOptB').onclick=e=>{e.stopPropagation();$('#skOpt').classList.toggle('hide')};
+document.addEventListener('pointerdown',e=>{const o=$('#skOpt');if(!o.classList.contains('hide')&&!e.target.closest('#skOpt,#skOptB'))o.classList.add('hide')});
+$('#skUnit').value=SK.unit;$('#skUnit').onchange=e=>{SK.unit=e.target.value;skPref()};
+$('#skGrid').value=String(SK.grid);if($('#skGrid').value!==String(SK.grid))$('#skGrid').value='0.1';$('#skGrid').onchange=e=>{SK.grid=+e.target.value;skPref()};
+segs('skStyle','_skst',()=>{SK.style=S._skst});
+$('#skEdges').checked=SK.edges;$('#skEdges').onchange=e=>{SK.edges=e.target.checked;skPref();if(window.MSW&&MSW.skEdgesOn)MSW.skEdgesOn(SK.edges);S3.objs.forEach(o=>o.traverse(c=>{if(c.userData.skEdge)c.visible=SK.edges}))};
+$('#skStl').onclick=$('#s3StlB').onclick=skStl;
+$('#skVcbOk').onclick=()=>skEnter($('#skVcbIn').value);
+$('#skVcbIn').addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();e.target.blur();skEnter(e.target.value)}else if(e.key==='Escape'){e.target.value='';e.target.blur();skCancel()}});
+$$('#skVcbIn,#skUnit,#skGrid').forEach(i=>i.addEventListener('keyup',e=>e.stopPropagation()));
+
+/* ---------- v17: AutoDraw – doodle something and MasterSketch shows finished pictures to swap the doodle for,
+   30 more pictures (also new coloring pages and lessons) and SVG export with layers ---------- */
+XPICS.push(
+ ['heart','Heart',['M50 84C20 64 10 46 14 32C18 18 38 14 50 30C62 14 82 18 86 32C90 46 80 64 50 84Z','M26 34Q28 26 36 25']],
+ ['star','Star',['M50 10L61 37L90 38L67 56L75 85L50 68L25 85L33 56L10 38L39 37Z','M43 50a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M53 50a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M44 59Q50 64 56 59']],
+ ['sun','Sun',['M30 50a20 20 0 1 0 40 0a20 20 0 1 0 -40 0','M50 10v13M50 77v13M10 50h13M77 50h13M22 22l9 9M69 69l9 9M78 22l-9 9M31 69l-9 9','M41 46a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M54 46a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M42 56Q50 63 58 56']],
+ ['moon','Moon',['M58 12A38 38 0 1 0 88 64A30 30 0 0 1 58 12Z','M40 46a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M36 58Q42 63 48 58','M80 18l2 6l6 2l-6 2l-2 6l-2 -6l-6 -2l6 -2Z']],
+ ['cloud','Cloud',['M24 68Q10 68 12 55Q14 44 27 46Q28 30 44 30Q56 22 66 34Q84 30 86 48Q96 52 92 63Q90 68 80 68Z','M38 52a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M58 52a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M46 58Q50 62 54 58','M30 78l-4 9M50 78l-4 9M70 78l-4 9']],
+ ['bolt','Lightning',['M58 6L24 54L47 54L38 94L78 40L55 40Z']],
+ ['apple','Apple',['M50 30Q36 22 26 30Q12 42 20 64Q30 90 50 82Q70 90 80 64Q88 42 74 30Q64 22 50 30Z','M50 30Q50 18 56 11','M53 22Q64 11 75 17Q65 28 53 22Z','M32 44Q28 52 30 60']],
+ ['ball','Ball',['M18 50a32 32 0 1 0 64 0a32 32 0 1 0 -64 0','M50 18Q32 50 50 82','M50 18Q68 50 50 82','M18 50Q50 40 82 50']],
+ ['mountain','Mountains',['M6 84L36 30L56 64L66 48L94 84Z','M28 44L36 30L44 44L40 48L36 42L32 48Z','M60 58L66 48L72 58','M72 22a8 8 0 1 0 16 0a8 8 0 1 0 -16 0']],
+ ['umbrella','Umbrella',['M12 50Q14 16 50 15Q86 16 88 50Q81 44 75 50Q69 44 63 50Q56 44 50 50Q44 44 37 50Q31 44 25 50Q19 44 12 50Z','M50 50L50 80Q50 88 42 88Q36 88 36 82','M50 15Q38 28 37 50M50 15Q62 28 63 50','M50 9v6']],
+ ['cup','Cup',['M22 32L28 84Q29 90 36 90L60 90Q67 90 68 84L74 32Z','M72 44Q88 44 86 57Q84 69 70 67','M36 24Q32 16 38 9M48 24Q44 16 50 9M60 24Q56 16 62 9','M18 32h60']],
+ ['icecream','Ice cream',['M30 46L50 94L70 46','M37 54L59 68M43 68L63 54','M28 46Q20 32 35 28Q36 14 51 16Q66 12 67 28Q81 32 72 46Z','M58 10a5 5 0 1 0 10 0a5 5 0 1 0 -10 0']],
+ ['balloon','Balloon',['M50 10Q76 10 76 39Q76 61 50 71Q24 61 24 39Q24 10 50 10Z','M46 71L50 77L54 71Z','M50 77Q42 85 50 94','M35 30Q37 21 45 19']],
+ ['boat','Sailboat',['M14 66L86 66L74 82L26 82Z','M50 66L50 12','M52 14L80 58L52 58','M48 22L24 58L48 58','M6 90Q14 86 22 90T38 90T54 90T70 90T86 90T100 90']],
+ ['bird','Bird',['M24 56Q24 34 46 34Q62 34 66 46L86 38L73 54Q70 74 46 74Q24 74 24 56Z','M44 52Q56 40 64 56Q52 64 44 52Z','M31 46a3 3 0 1 0 6 0a3 3 0 1 0 -6 0','M24 50L11 53L24 57','M42 74L38 86M54 74L56 86']],
+ ['snail','Snail',['M58 70a20 20 0 1 1 0 -40a14 14 0 1 1 0 28a8 8 0 1 1 0 -16','M18 70L88 70Q93 71 90 77Q88 81 80 81L22 81Q12 81 13 72Q13 61 20 56','M19 56L13 40M24 56L27 40','M11 38a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M25 38a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0']],
+ ['mushroom','Mushroom',['M14 52Q14 16 50 16Q86 16 86 52Z','M36 52L34 84Q34 90 42 90L58 90Q66 90 66 84L64 52','M28 34a6 6 0 1 0 12 0a6 6 0 1 0 -12 0M55 26a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M66 42a4 4 0 1 0 8 0a4 4 0 1 0 -8 0','M42 68a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M53 68a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M44 77Q50 81 56 77']],
+ ['cupcake','Cupcake',['M26 56L32 88L68 88L74 56Z','M38 56L40 88M50 56L50 88M62 56L60 88','M22 56Q15 44 30 40Q30 26 50 26Q70 26 70 40Q85 44 78 56Z','M46 22a4 4 0 1 0 8 0a4 4 0 1 0 -8 0','M36 44l3 -3M58 46l3 2M46 38l-2 -3']],
+ ['crown','Crown',['M16 76L12 30L34 52L50 22L66 52L88 30L84 76Z','M16 86L84 86L84 76L16 76Z','M8 28a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M46 18a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M84 28a4 4 0 1 0 8 0a4 4 0 1 0 -8 0','M30 64a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M46 64a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M62 64a4 4 0 1 0 8 0a4 4 0 1 0 -8 0']],
+ ['bulb','Light bulb',['M50 10Q76 10 76 38Q76 52 62 62L62 72L38 72L38 62Q24 52 24 38Q24 10 50 10Z','M38 78L62 78M40 84L60 84M44 90L56 90','M44 62L44 44L50 50L56 44L56 62','M12 18l7 5M88 18l-7 5M6 40h8M94 40h-8']],
+ ['smile','Smiley',['M14 50a36 36 0 1 0 72 0a36 36 0 1 0 -72 0','M34 40a4 5 0 1 0 8 0a4 5 0 1 0 -8 0M58 40a4 5 0 1 0 8 0a4 5 0 1 0 -8 0','M31 57Q50 77 69 57']],
+ ['dog','Dog',['M28 40Q28 20 50 20Q72 20 72 40L72 62Q72 82 50 82Q28 82 28 62Z','M28 34Q12 30 14 52Q16 66 26 60M72 34Q88 30 86 52Q84 66 74 60','M38 44a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M56 44a3 3 0 1 0 6 0a3 3 0 1 0 -6 0','M44 57Q50 51 56 57Q50 63 44 57Z','M50 61L50 67M42 69Q50 75 58 69','M47 71Q49 81 55 77L54 71']],
+ ['bunny','Bunny',['M30 62a20 20 0 1 0 40 0a20 20 0 1 0 -40 0','M39 46Q30 10 38 7Q46 7 46 43M61 46Q70 10 62 7Q54 7 54 43','M40 58a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M55 58a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0','M47 66L53 66L50 70Z','M50 70Q46 76 42 74M50 70Q54 76 58 74','M38 68L25 66M38 72L25 75M62 68L75 66M62 72L75 75']],
+ ['bear','Bear',['M22 54a28 28 0 1 0 56 0a28 28 0 1 0 -56 0','M27 33a9 9 0 1 1 13 -8M73 33a9 9 0 1 0 -13 -8','M38 48a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M56 48a3 3 0 1 0 6 0a3 3 0 1 0 -6 0','M40 64a10 8 0 1 0 20 0a10 8 0 1 0 -20 0','M46 60L54 60L50 64Z','M50 64L50 68']],
+ ['plane','Airplane',['M10 50Q10 44 18 44L80 44Q92 44 92 50Q92 56 80 56L18 56Q10 56 10 50Z','M46 44L30 17L40 17L62 44M46 56L30 83L40 83L62 56','M18 44L12 29L20 29L28 44','M44 50a2 2 0 1 0 4 0a2 2 0 1 0 -4 0M54 50a2 2 0 1 0 4 0a2 2 0 1 0 -4 0M64 50a2 2 0 1 0 4 0a2 2 0 1 0 -4 0','M82 46Q88 47 89 50']],
+ ['book','Book',['M50 26Q34 16 12 20L12 80Q34 76 50 86Q66 76 88 80L88 20Q66 16 50 26Z','M50 26L50 86','M20 32Q32 30 42 36M20 44Q32 42 42 48M20 56Q32 54 42 60M58 36Q68 30 80 32M58 48Q68 42 80 44M58 60Q68 54 80 56']],
+ ['leaf','Leaf',['M16 84Q12 30 84 16Q88 70 16 84Z','M16 84Q46 56 72 28','M36 62L33 46M47 52L47 36M58 42L60 28M40 58L55 61M51 48L66 51']],
+ ['rainbow2','Rainbow',['M10 74A40 40 0 0 1 90 74','M20 74A30 30 0 0 1 80 74','M30 74A20 20 0 0 1 70 74','M4 74Q4 64 14 64Q18 56 26 62Q33 64 31 74Z','M69 74Q67 64 75 62Q82 56 88 64Q96 64 96 74Z']],
+ ['ghost','Ghost',['M24 86L24 44Q24 14 50 14Q76 14 76 44L76 86L67 78L59 86L50 78L41 86L33 78Z','M37 44a4 6 0 1 0 8 0a4 6 0 1 0 -8 0M55 44a4 6 0 1 0 8 0a4 6 0 1 0 -8 0','M44 62a6 6 0 1 0 12 0a6 6 0 1 0 -12 0']],
+ ['turtle','Turtle',['M22 64Q22 30 52 30Q82 30 82 64Z','M36 64L44 44L60 44L68 64M44 44L52 30M60 44L52 30','M82 56Q96 50 94 62Q92 70 82 64','M88 58a2 2 0 1 0 4 0a2 2 0 1 0 -4 0','M28 64L24 76L36 76L36 64M66 64L66 76L78 76L76 64','M22 62L11 66L22 67']],
+ ['pizza','Pizza slice',['M50 92L14 22Q50 6 86 22Z','M18 30Q50 16 82 30','M38 40a5 5 0 1 0 10 0a5 5 0 1 0 -10 0M55 50a5 5 0 1 0 10 0a5 5 0 1 0 -10 0M43 64a4 4 0 1 0 8 0a4 4 0 1 0 -8 0','M60 32l4 6M32 50l4 4']],
+ ['robot','Robot',['M28 30h44v34h-44z','M36 40h8v8h-8zM56 40h8v8h-8z','M40 56h20','M50 30v-12M46 14a4 4 0 1 0 8 0a4 4 0 1 0 -8 0','M34 64v20h32v-20M20 40h8M72 40h8M20 34v12M80 34v12','M40 84v8M60 84v8']],
+ ['gift','Present',['M18 42h64v44h-64z','M14 30h72v12h-72z','M50 30v56','M50 30Q34 10 26 20Q22 30 50 30Q78 30 74 20Q66 10 50 30']],
+ ['ladybug','Ladybug',['M20 58a30 28 0 1 0 60 0a30 28 0 1 0 -60 0','M50 30L50 86','M36 32Q34 19 50 19Q66 19 64 32','M41 20L34 9M59 20L66 9','M29 52a5 5 0 1 0 10 0a5 5 0 1 0 -10 0M61 52a5 5 0 1 0 10 0a5 5 0 1 0 -10 0M33 70a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M59 70a4 4 0 1 0 8 0a4 4 0 1 0 -8 0']]);
+
+/* AutoDraw: the doodle is whatever changed on the layer since AutoDraw started (or since the last swap). It is drawn small
+   (48 × 48) and compared with every picture by how far each line is from the other one's lines (a distance map). */
+const AD={on:false,L:null,base:null,tm:0,box:null,tpl:null},ADN=48;
+function adGrid(src,sx,sy,sw,sh){const c=mkC(ADN,ADN),x=c.getContext('2d'),k=40/Math.max(sw,sh,1),dw=sw*k,dh=sh*k;x.drawImage(src,sx,sy,sw,sh,(ADN-dw)/2,(ADN-dh)/2,dw,dh);
+ const d=x.getImageData(0,0,ADN,ADN).data,g=new Uint8Array(ADN*ADN);for(let i=0;i<g.length;i++)g[i]=d[i*4+3]>40?1:0;return g}
+function adDT(g){const N=ADN,D=new Float32Array(N*N),R=1.414;for(let i=0;i<D.length;i++)D[i]=g[i]?0:1e9;
+ for(let y=0;y<N;y++)for(let x=0;x<N;x++){const i=y*N+x;let v=D[i];if(x>0)v=Math.min(v,D[i-1]+1);if(y>0){v=Math.min(v,D[i-N]+1);if(x>0)v=Math.min(v,D[i-N-1]+R);if(x<N-1)v=Math.min(v,D[i-N+1]+R)}D[i]=v}
+ for(let y=N-1;y>=0;y--)for(let x=N-1;x>=0;x--){const i=y*N+x;let v=D[i];if(x<N-1)v=Math.min(v,D[i+1]+1);if(y<N-1){v=Math.min(v,D[i+N]+1);if(x<N-1)v=Math.min(v,D[i+N+1]+R);if(x>0)v=Math.min(v,D[i+N-1]+R)}D[i]=v}return D}
+function adScore(a,Da,b,Db){let s1=0,n1=0,s2=0,n2=0;for(let i=0;i<a.length;i++){if(a[i]){s1+=Math.min(Db[i],12);n1++}if(b[i]){s2+=Math.min(Da[i],12);n2++}}return .65*(n1?s1/n1:12)+.35*(n2?s2/n2:12)}
+function adBBox(d,w,h,on){let x0=w,y0=h,x1=-1,y1=-1;for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(on(d,(y*w+x)*4)){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}return x1<0?null:{x:x0,y:y0,w:x1-x0+1,h:y1-y0+1}}
+function adTpl(){if(AD.tpl)return AD.tpl;AD.tpl=XPICS.map(p=>{const c=mkC(200,200),x=c.getContext('2d');x.strokeStyle='#000';xPicStroke(x,p[2],2,0,0,4);const d=x.getImageData(0,0,200,200).data,b=adBBox(d,200,200,(d,i)=>d[i+3]>40)||{x:0,y:0,w:200,h:200};
+ const g=adGrid(c,b.x,b.y,b.w,b.h);return{p,g,D:adDT(g),bb:{x:b.x/2,y:b.y/2,w:b.w/2,h:b.h/2},ar:b.w/b.h}});return AD.tpl}
+function adStart(){if(in3D()||document.body.className.match(/mode(mods|play|art|anim)/))setMode('draw');const L=layers[ai];if(!editable(L))return;
+ AD.on=true;AD.L=L;AD.base=copyC(L.canvas);AD.box=null;if(!FREE.includes(S.tool)||S.tool==='eraser'||S.tool==='smudge')setTool('pen');adBar([]);$('#adBar').classList.remove('hide');toast(t('Doodle something – picture ideas show up at the bottom'),'fa-wand-magic-sparkles')}
+function adStop(){AD.on=false;AD.base=null;AD.box=null;$('#adBar').classList.add('hide')}
+function adReset(){if(!AD.on)return;AD.L=layers[ai];AD.base=copyC(AD.L.canvas);AD.box=null;adBar([])}
+function adSoon(){clearTimeout(AD.tm);AD.tm=setTimeout(adRun,450)}
+function adRun(){if(!AD.on)return;const L=AD.L;if(!layers.includes(L)||AD.base.width!==W||AD.base.height!==H){adReset();return}
+ const s=Math.max(1,Math.floor(Math.max(W,H)/700)),w=Math.ceil(W/s),h=Math.ceil(H/s),sm=c=>{const k=mkC(w,h);k.getContext('2d').drawImage(c,0,0,w,h);return k.getContext('2d').getImageData(0,0,w,h).data};
+ const cur=sm(L.canvas),bs=sm(AD.base),m=mkC(w,h),mx=m.getContext('2d'),md=mx.createImageData(w,h);
+ for(let i=0;i<cur.length;i+=4){const da=Math.abs(cur[i+3]-bs[i+3]),dc=Math.abs(cur[i]-bs[i])+Math.abs(cur[i+1]-bs[i+1])+Math.abs(cur[i+2]-bs[i+2]);if(da>30||(cur[i+3]>40&&dc>60))md.data[i+3]=255}
+ mx.putImageData(md,0,0);const b=adBBox(md.data,w,h,(d,i)=>d[i+3]);if(!b||b.w*b.h<9){AD.box=null;adBar([]);return}
+ AD.box=clipR({x:b.x*s-2,y:b.y*s-2,w:b.w*s+4,h:b.h*s+4});const g=adGrid(m,b.x,b.y,b.w,b.h),D=adDT(g),ar=b.w/b.h;
+ const r=adTpl().map(T_=>({T:T_,sc:adScore(g,D,T_.g,T_.D)+Math.abs(Math.log(ar/T_.ar))*.9})).sort((x,y)=>x.sc-y.sc);adBar(r.slice(0,8).map(x=>x.T))}
+function adBar(list){const B_=$('#adSug');B_.innerHTML='';if(!list.length){const s=document.createElement('small');s.className='mut';s.textContent=t(AD.box===null?'Doodle something – picture ideas show up here':'Keep drawing…');B_.appendChild(s);return}
+ const col=getComputedStyle(document.body).color||'#888';list.forEach(T_=>{const b=document.createElement('button');b.className='adpic';b.title=t(T_.p[1]);const c=mkC(64,64),x=c.getContext('2d');x.strokeStyle=col;const k=Math.min(54/T_.bb.w,54/T_.bb.h);xPicStroke(x,T_.p[2],k,32-(T_.bb.x+T_.bb.w/2)*k,32-(T_.bb.y+T_.bb.h/2)*k,2);b.appendChild(c);b.onclick=()=>adUse(T_);B_.appendChild(b)})}
+function adUse(T_){const L=AD.L,b=AD.box;if(!b||!layers.includes(L)||!editable(L))return;const lw=Math.max(2,S.size*.8),pad=Math.ceil(lw)+4,r=clipR({x:b.x-pad,y:b.y-pad,w:b.w+pad*2,h:b.h+pad*2}),before=copyC(L.canvas,r),c=L.ctx;
+ c.save();c.globalAlpha=1;c.globalCompositeOperation='source-over';c.clearRect(b.x,b.y,b.w,b.h);c.drawImage(AD.base,b.x,b.y,b.w,b.h,b.x,b.y,b.w,b.h);
+ const k=Math.min(b.w/T_.bb.w,b.h/T_.bb.h);c.strokeStyle=S.color;xPicStroke(c,T_.p[2],k,b.x+(b.w-T_.bb.w*k)/2-T_.bb.x*k,b.y+(b.h-T_.bb.h*k)/2-T_.bb.y*k,lw);c.restore();
+ const e={data:before,apply(){const cur=copyC(L.canvas,r),x=L.ctx;x.save();x.globalAlpha=1;x.globalCompositeOperation='source-over';x.clearRect(r.x,r.y,r.w,r.h);x.drawImage(this.data,r.x,r.y);x.restore();this.data=cur;renderLayers();if(AD.on&&L===AD.L)AD.base=copyC(L.canvas)}};
+ pushH(e,'AutoDraw');renderLayers();AD.base=copyC(L.canvas);AD.box=null;adBar([]);haptic(10);toast(t(T_.p[1]),'fa-wand-magic-sparkles')}
+{const _p=pushH;pushH=function(e,label){_p(e,label);if(AD.on&&label!=='AutoDraw')adSoon()}}
+{const _u=undo,_r=redo;undo=function(){_u();if(AD.on)adSoon()};redo=function(){_r();if(AD.on)adSoon()}}
+$('#adX').onclick=adStop;
+
+/* SVG export: every visible layer as its own layer (Inkscape, Illustrator and Affinity open them as layers) */
+function xSvgExport(){const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+ let s=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">\n<title>${esc($('#pname').value||'MasterSketch')}</title>\n`;
+ if(typeof bgc!=='undefined'&&bgc&&bgc.width)s+=`<g inkscape:groupmode="layer" inkscape:label="${esc(t('Background'))}" id="bg"><image width="${W}" height="${H}" xlink:href="${bgc.toDataURL('image/png')}"/></g>\n`;
+ layers.forEach((L,i)=>{if(!L.visible)return;s+=`<g inkscape:groupmode="layer" inkscape:label="${esc(L.name)}" id="layer${i+1}" opacity="${L.opacity}"${L.blend!=='source-over'?` style="mix-blend-mode:${L.blend}"`:''}><image width="${W}" height="${H}" xlink:href="${L.canvas.toDataURL('image/png')}"/></g>\n`});
+ download(new Blob([s+'</svg>\n'],{type:'image/svg+xml'}),safeName($('#pname').value||'artwork')+'.svg');toast(t('Saved as SVG with layers'),'fa-bezier-curve')}
+
+Object.assign(CMD,{xAuto:['AutoDraw (picture ideas)…','',adStart],xSvg:['Export as SVG (layers)…','',xSvgExport],build3d:['Build in 3D (like SketchUp)…','',()=>{if(init3D()){setMode('3d');set3Mode('rect')}}]});
+Object.assign(CMD_IC,{xAuto:'fa-wand-magic-sparkles',xSvg:'fa-bezier-curve',build3d:'fa-pen-ruler'});
+{const f=MENUS.find(m=>m[0]==='Fun');if(f)f[1].unshift('xAuto','-');const fi=MENUS.find(m=>m[0]==='File');if(fi)fi[1].splice(fi[1].indexOf('export')+1,0,'xSvg');const d3=MENUS.find(m=>m[0]==='3D');if(d3)d3[1].splice(1,0,'build3d')}
+HOME.splice(HOME.indexOf('xDaily'),0,'xAuto','build3d');
+
 /* ---------- v8: drawing additions ---------- */
 /* PDF export (one page, the picture as a high-quality JPEG) */
 function pdfBlob(cv,q){return new Promise((res,rej)=>cv.toBlob(async b=>{if(!b)return rej(Error('jpeg'));const jpg=new Uint8Array(await b.arrayBuffer()),w=cv.width,h=cv.height,pw=(w*.75).toFixed(2),ph=(h*.75).toFixed(2),enc=new TextEncoder(),parts=[],offs=[];let n=0;
@@ -18729,7 +19257,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
@@ -18737,7 +19265,7 @@ $('#newOk').onclick=()=>{show('#newM',false);LS.set('msu8_seen',VERSION)};$('#ne
 
 /* start screen quick actions */
 $$('[data-st]').forEach(b=>b.onclick=async()=>{const k=b.dataset.st;if(k==='draw'){if(dirty&&!await dlg('Start a new project? Unsaved changes will be lost.'))return;makeDoc(1200,900);return}show('#startM',false);
- if(k==='play')setMode('play');else if(k==='art')setMode('art');else if(k==='anim')setMode('anim');else if(k==='daily'){setMode('draw');xDaily()}else if(k==='3d'){if(init3D())setMode('3d')}else if(k==='ws'){if(init3D()){setMode('3d');s3LeftTab('ws')}}else if(k==='pose')ppStart();else if(k==='code')codeOpen()});
+ if(k==='play')setMode('play');else if(k==='art')setMode('art');else if(k==='anim')setMode('anim');else if(k==='daily'){setMode('draw');xDaily()}else if(k==='autodraw'){setMode('draw');adStart()}else if(k==='build'){if(init3D()){setMode('3d');set3Mode('rect')}}else if(k==='3d'){if(init3D())setMode('3d')}else if(k==='ws'){if(init3D()){setMode('3d');s3LeftTab('ws')}}else if(k==='pose')ppStart();else if(k==='code')codeOpen()});
 $('#stInspR').onclick=()=>{$('#stInspT').textContent=inspNew()};$('#stInspT').onclick=()=>{show('#startM',false);$('#pname').value=$('#stInspT').textContent.replace(/[.。]$/,'').slice(0,60)};
 
 /* ---------- App & mobile glue ---------- */
