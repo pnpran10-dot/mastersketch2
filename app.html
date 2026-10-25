@@ -1829,9 +1829,76 @@ body.rm .msopen,body.rm .msclose,body.rm .msin,body.rm .msmode{animation:none!im
 html[data-ms=light] #side:after,html[data-ms=light] .gmside:after{opacity:.5}
 body.rm .gmhero:before{animation:none}
 @media (prefers-reduced-motion:reduce){.gmhero:before{animation:none}}
+
+/* ---------- v24: "Verse" look – deep navy, blue-violet accent, a sidebar and a Home page ---------- */
+:root,html[data-ms=dark]{--bg:#090c18;--p:#0f1325;--p2:#151a31;--p3:#1d2342;--ln:#ffffff0d;--ln2:#a5b4fc1f;--tx:#eef1ff;--mu:#8f97b8;--dot:#161b33;--glass:rgba(15,19,37,.78);
+ --grad:linear-gradient(135deg,#5b8cff,var(--ac) 45%,#a855f7);--glow:0 8px 26px color-mix(in srgb,var(--ac) 40%,transparent);--sh:0 20px 50px rgba(2,4,14,.6)}
+body{background:radial-gradient(900px 500px at 15% -10%,#3b2a8a33,transparent 60%),radial-gradient(800px 500px at 100% 110%,#1d4ed822,transparent 60%),var(--bg)}
+html[data-ms=light] body{background:var(--bg)}
+/* sidebar */
+.sidenav{display:none}
+@media (min-width:1000px){
+ body{padding-left:calc(232px + env(safe-area-inset-left))}
+ .sidenav{display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;width:232px;padding:16px 12px;gap:6px;z-index:35;background:linear-gradient(180deg,color-mix(in srgb,var(--p) 92%,transparent),var(--bg));border-right:1px solid var(--ln2)}
+ header .modeSw,header>.brand{display:none!important}
+ body.gmplaying,body.scuon,body.s3show,body.focus{padding-left:0}body.gmplaying .sidenav,body.scuon .sidenav,body.s3show .sidenav,body.focus .sidenav{display:none}
+}
+@media (min-width:1000px) and (max-width:1279px){body{padding-left:84px}.sidenav{width:84px;align-items:center}.snlogo div,.snlist span,.snart,.snme div{display:none!important}.snlist button{justify-content:center;width:56px}}
+.snlogo{display:flex;align-items:center;gap:10px;padding:4px 8px 16px}.snlogo b{font-size:19px;font-weight:800;letter-spacing:-.02em;display:block}.snlogo small{font-size:10.5px;color:var(--mu);letter-spacing:.06em}
+.snmark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#ffffff08;border:1px solid var(--ln2)}
+.snlist{display:flex;flex-direction:column;gap:4px;overflow:auto}
+.snlist button{display:flex;align-items:center;gap:13px;padding:11px 14px;border-radius:14px;color:var(--mu);font-weight:600;font-size:13.5px;text-align:left;transition:background .15s,color .15s,transform .15s}
+.snlist button i{width:20px;text-align:center;font-size:15px}
+.snlist button:hover{background:var(--p3);color:var(--tx);transform:translateX(2px)}
+.snlist button.on{background:var(--grad);color:#fff;box-shadow:var(--glow)}
+.snsep{height:1px;background:var(--ln2);margin:8px 6px}
+.snart{margin-top:auto;position:relative;padding:8px 10px 4px}.snart svg{position:absolute;left:-10px;top:-20px;width:200px;opacity:.9}
+.snart p{position:relative;font:italic 600 21px/1.15 "Segoe Script","Brush Script MT","Comic Sans MS",cursive;color:#e9e4ff;transform:rotate(-6deg);margin:6px 0 2px}
+.snswoosh{display:block;position:relative;width:70px;height:5px;border-radius:5px;background:linear-gradient(90deg,#8b5cf6,#60a5fa);transform:rotate(-8deg);margin-left:54px}
+.snme{display:flex;align-items:center;gap:10px;padding:9px;border-radius:14px;background:var(--p2);border:1px solid var(--ln2);text-align:left;margin-top:12px}
+.snme .meav{width:34px;height:34px;flex:none}.snme b{display:block;font-size:13px}.snme small{font-size:11px;color:var(--mu)}.snme div{min-width:0}.snme b,.snme small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.snme:hover{border-color:var(--ac)}
+/* home page */
+#homePage{display:none;flex:1;min-height:0;overflow:auto;order:2}
+body.modehome #homePage{display:block}
+body.modehome main,body.modehome #optbar,body.modehome footer,body.modehome #sideB,body.modehome .xsb,body.modehome .xles,body.modehome #xgT,body.modehome .autobar,body.modehome .probar,body.modehome #ppBar,body.modehome #refWin,body.modehome #flyout,body.modehome #navBox,body.modehome #zoomPill{display:none!important}
+.hmwrap{max-width:1180px;margin:0 auto;padding:18px clamp(14px,3vw,28px) 40px;display:flex;flex-direction:column;gap:14px}
+.hmhero{position:relative;border-radius:26px;overflow:hidden;min-height:250px;border:1px solid var(--ln2);box-shadow:var(--sh);display:flex;align-items:center}
+.hmart{position:absolute;inset:0;width:100%;height:100%}
+.hmsun{animation:hmGlow 5s ease-in-out infinite}@keyframes hmGlow{50%{opacity:.75}}
+.hmtext{position:relative;padding:32px clamp(20px,4vw,44px);max-width:560px}
+.hmhi{font-size:clamp(20px,2.6vw,28px);font-weight:700;color:#fff}
+.hmtext h1{font-size:clamp(38px,5.6vw,62px);line-height:1.02;font-weight:800;letter-spacing:-.03em;background:linear-gradient(90deg,#c4b5fd,#a78bfa 40%,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent;margin:2px 0 8px}
+.hmtext p{color:#dfe3ff;font-size:16px;margin-bottom:20px}
+.hmbtns{display:flex;flex-wrap:wrap;gap:10px}
+.hmgo{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--grad);color:#fff;font-weight:700;font-size:15px;box-shadow:var(--glow);transition:transform .15s,filter .15s}.hmgo:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.hmghost{display:inline-flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:#ffffff14;color:#fff;font-weight:600;border:1px solid #ffffff2a;backdrop-filter:blur(8px)}.hmghost:hover{background:#ffffff22}
+.hmscript{position:absolute;right:28px;bottom:22px;font:italic 600 19px/1.05 "Segoe Script","Brush Script MT","Comic Sans MS",cursive;color:#fff;transform:rotate(-12deg);text-align:right;opacity:.92}
+.hmsec{display:flex;flex-direction:column;gap:2px;margin-top:10px}.hmsec h3{display:flex;align-items:center;gap:10px;font-size:19px}.hmsec h3 i{color:#a78bfa}.hmsec small{font-size:12.5px}
+.hmsecr{flex-direction:row;align-items:flex-end;justify-content:space-between}
+.hmall{display:inline-flex;align-items:center;gap:6px;color:#a5b4fc;font-weight:700;font-size:13px}.hmall:hover{color:#fff}
+.hmquick{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.hmq{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:18px 16px 16px;border-radius:18px;text-align:left;min-height:140px;
+ background:linear-gradient(160deg,color-mix(in srgb,var(--q) 14%,var(--p)),var(--p) 70%);border:1px solid color-mix(in srgb,var(--q) 55%,transparent);box-shadow:inset 0 1px 0 #ffffff0d;transition:transform .18s cubic-bezier(.2,1.3,.4,1),box-shadow .18s}
+.hmq:hover{transform:translateY(-4px);box-shadow:0 14px 34px color-mix(in srgb,var(--q) 30%,transparent)}
+.hmq>i{font-size:30px;color:var(--q);margin-bottom:auto;filter:drop-shadow(0 4px 12px color-mix(in srgb,var(--q) 50%,transparent))}
+.hmq b{font-size:14.5px;margin-top:14px}.hmq small{font-size:11.5px;color:var(--mu)}.hmq em{position:absolute;right:14px;bottom:14px;color:var(--q);font-size:13px}
+.hmfeat{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.hmart0,.hmart1{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--p2);border:1px solid var(--ln2)}
+.hmart0{animation:hmPulse 1.4s ease-in-out infinite}@keyframes hmPulse{50%{opacity:.5}}
+.hmart1 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.hmart1:hover img{transform:scale(1.06)}
+.hmcap{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(transparent,#000c);display:flex;flex-direction:column;text-align:left;opacity:0;transition:opacity .2s}.hmart1:hover .hmcap{opacity:1}
+.hmcap b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hmcap small{font-size:11px;color:#cbd5ff}
+.hmart1 .anbadge{position:absolute;top:8px;right:8px}
+@media (max-width:640px){.hmhero{min-height:300px;align-items:flex-end}.hmscript{display:none}.hmquick{grid-template-columns:1fr 1fr}.hmq{min-height:118px;padding:14px}.hmq>i{font-size:24px}.hmfeat{grid-template-columns:1fr 1fr}}
+/* top bar sits beside the sidebar */
+.cmdtx{display:none}
+@media (min-width:1000px){header{margin-left:12px}
+ header>#cmdB{order:1;min-width:min(320px,26vw);justify-content:flex-start;gap:10px;padding:0 16px;border-radius:999px;background:var(--p2);border:1px solid var(--ln2);color:var(--mu);margin:0 auto}
+ header>#cmdB .cmdtx{display:inline;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>#cmdB:hover{border-color:var(--ac);color:var(--tx)}}
 </style></head>
 <body>
-<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 9.1</div></div>
+<div id="boot"><div class="dots"></div><div class="bm"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M9 35c5-9 9-17 15-17s2 14 9 14 8-9 10-13" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1>MasterSketch <span>Studio</span></h1><div class="bar"><i id="bootBar"></i></div><small id="bootMsg">Loading…</small><div class="ver">PRO 9.2</div></div>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
  <div class="brand"><span class="mark"><i class="fa-solid fa-pen-nib"></i></span><b>MasterSketch</b><small class="ver">PRO</small></div>
@@ -2871,6 +2938,67 @@ body.rm .gmhero:before{animation:none}
   </div>
  </div>
 </div>
+<nav id="sideNav" class="sidenav">
+ <div class="snlogo"><span class="snmark"><svg viewBox="0 0 40 40" width="34" height="34"><defs><linearGradient id="snG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset=".55" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><path d="M30 4c3 1 5 3 6 6-6 3-11 8-15 14l-5-5C22 13 26 8 30 4z" fill="url(#snG)"/><path d="M14 21l5 5c-1 5-5 9-12 9 2-3 1-6 2-9 1-3 3-5 5-5z" fill="url(#snG)" opacity=".85"/></svg></span><div><b>MasterSketch</b><small data-i18n>Create · Draw · Be you</small></div></div>
+ <div class="snlist">
+  <button data-mode="home"><i class="fa-solid fa-house"></i><span data-i18n>Home</span></button>
+  <button data-mode="draw"><i class="fa-solid fa-pen-nib"></i><span data-i18n>Draw</span></button>
+  <button data-mode="3d"><i class="fa-solid fa-cube"></i><span data-i18n>3D Studio</span></button>
+  <button data-mode="anim"><i class="fa-solid fa-film"></i><span data-i18n>Animate</span></button>
+  <button data-mode="play"><i class="fa-solid fa-gamepad"></i><span data-i18n>Game Studio</span></button>
+  <button data-mode="art"><i class="fa-solid fa-image"></i><span data-i18n>Gallery</span></button>
+  <button data-mode="mods"><i class="fa-solid fa-puzzle-piece"></i><span data-i18n>Mods</span></button>
+  <i class="snsep"></i>
+  <button data-act="projects"><i class="fa-solid fa-folder-open"></i><span data-i18n>My artworks</span></button>
+  <button data-act="templates"><i class="fa-solid fa-table-cells-large"></i><span data-i18n>Templates</span></button>
+  <button data-act="settings"><i class="fa-solid fa-gear"></i><span data-i18n>Settings</span></button>
+ </div>
+ <div class="snart"><svg viewBox="0 0 200 120" aria-hidden="true"><defs><radialGradient id="snS" cx=".3" cy=".4" r=".7"><stop offset="0" stop-color="#7c3aed" stop-opacity=".9"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient></defs><path d="M10 70c10-40 50-60 80-40s30 50 70 30c-20 40-80 60-120 45S2 95 10 70z" fill="url(#snS)"/><circle cx="40" cy="30" r="4" fill="#a78bfa" opacity=".6"/><circle cx="62" cy="18" r="2.5" fill="#a78bfa" opacity=".5"/></svg><p data-i18n>Turn your ideas into art</p><i class="snswoosh"></i></div>
+ <button class="snme" id="snMe"><span class="meav" id="snAv"></span><div><b id="snName"></b><small id="snSub"></small></div></button>
+</nav>
+<section id="homePage">
+ <div class="hmwrap">
+  <div class="hmhero">
+   <svg class="hmart" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+     <linearGradient id="hmSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e1b4b"/><stop offset=".35" stop-color="#5b21b6"/><stop offset=".6" stop-color="#db2777"/><stop offset=".78" stop-color="#fb923c"/><stop offset="1" stop-color="#fdba74"/></linearGradient>
+     <radialGradient id="hmSun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff7d6"/><stop offset=".45" stop-color="#fde68a"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></radialGradient>
+     <linearGradient id="hmLake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f472b6"/><stop offset=".4" stop-color="#7c3aed"/><stop offset="1" stop-color="#1e1b4b"/></linearGradient>
+     <linearGradient id="hmFade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d1124" stop-opacity=".95"/><stop offset=".45" stop-color="#0d1124" stop-opacity=".55"/><stop offset=".75" stop-color="#0d1124" stop-opacity="0"/></linearGradient>
+    </defs>
+    <rect width="800" height="300" fill="url(#hmSky)"/>
+    <g fill="#fff" opacity=".75"><circle cx="90" cy="30" r="1.2"/><circle cx="210" cy="55" r="1"/><circle cx="330" cy="22" r="1.4"/><circle cx="460" cy="40" r="1"/><circle cx="620" cy="18" r="1.3"/><circle cx="720" cy="48" r="1"/><circle cx="540" cy="70" r=".9"/><circle cx="160" cy="80" r=".8"/></g>
+    <circle class="hmsun" cx="560" cy="178" r="90" fill="url(#hmSun)"/><circle cx="560" cy="178" r="30" fill="#fff3c4"/>
+    <path d="M0 190 L70 140 L120 165 L190 110 L260 160 L330 125 L400 170 L470 130 L540 175 L620 120 L700 160 L760 135 L800 150 V215 H0Z" fill="#6d28d9" opacity=".75"/>
+    <path d="M0 205 L60 170 L140 195 L220 150 L300 192 L380 160 L460 198 L560 168 L650 196 L730 165 L800 185 V220 H0Z" fill="#4c1d95"/>
+    <path d="M0 215 L90 196 L180 210 L270 190 L380 212 L480 194 L600 214 L700 198 L800 210 V225 H0Z" fill="#2e1065"/>
+    <rect y="222" width="800" height="78" fill="url(#hmLake)"/>
+    <g stroke="#fde68a" stroke-linecap="round" opacity=".7"><path d="M520 232h80" stroke-width="3"/><path d="M530 244h60" stroke-width="2.5"/><path d="M538 256h44" stroke-width="2"/><path d="M546 268h28" stroke-width="1.6"/><path d="M552 280h16" stroke-width="1.2"/></g>
+    <g stroke="#ffffff" opacity=".18"><path d="M40 250h120M240 262h90M380 240h70M660 252h110M120 284h80M420 288h60"/></g>
+    <path d="M700 300 L712 250 L724 300Z M730 300 L745 236 L760 300Z M760 300 L772 258 L784 300Z" fill="#0f0a2e"/>
+    <rect width="800" height="300" fill="url(#hmFade)"/>
+   </svg>
+   <div class="hmtext">
+    <span class="hmhi" data-i18n>Welcome to</span>
+    <h1>MasterSketch</h1>
+    <p data-i18n>Your canvas. Your rules.</p>
+    <div class="hmbtns"><button class="hmgo" id="hmStart"><span data-i18n>Start painting</span><i class="fa-solid fa-arrow-right"></i></button><button class="hmghost" id="hmCont"><i class="fa-solid fa-clock-rotate-left"></i><span data-i18n>Continue my drawing</span></button></div>
+   </div>
+   <div class="hmscript" aria-hidden="true">Good<br>art<br>takes<br>time ☺</div>
+  </div>
+  <div class="hmsec"><h3><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n>Quick start</span></h3><small class="mut" data-i18n>Jump in with a template or start from scratch.</small></div>
+  <div class="hmquick">
+   <button class="hmq" data-q="new" style="--q:#8b5cf6"><i class="fa-solid fa-paintbrush"></i><b data-i18n>New canvas</b><small data-i18n>Start from zero</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="templates" style="--q:#3b82f6"><i class="fa-solid fa-image"></i><b data-i18n>Templates</b><small data-i18n>Ready-made sizes and coloring pages</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="open" style="--q:#14b8a6"><i class="fa-solid fa-folder-open"></i><b data-i18n>Open file</b><small data-i18n>Upload your work</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="anim" style="--q:#ec4899"><i class="fa-solid fa-film"></i><b data-i18n>Animate</b><small data-i18n>Make a cartoon, frame by frame</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="sculpt" style="--q:#f59e0b"><i class="fa-solid fa-hill-rockslide"></i><b data-i18n>Sculpt in 3D</b><small data-i18n>Shape clay with brushes</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="game" style="--q:#22c55e"><i class="fa-solid fa-gamepad"></i><b data-i18n>Make a game</b><small data-i18n>Build it, then play it</small><em class="fa-solid fa-arrow-right"></em></button>
+  </div>
+  <div class="hmsec hmsecr"><div><h3><i class="fa-solid fa-star"></i><span data-i18n>Featured artworks</span></h3><small class="mut" data-i18n>Explore amazing creations from our community.</small></div><button class="hmall" id="hmAll"><span data-i18n>View all</span><i class="fa-solid fa-arrow-right"></i></button></div>
+  <div class="hmfeat" id="hmFeat"></div>
+ </div>
+</section>
 <div id="toasts"></div>
 <script>/* three.js r147 (MIT) */
 /**
@@ -16707,13 +16835,39 @@ const TR={
 'Hide layer':['ซ่อนเลเยอร์','Ocultar capa','レイヤーを隠す','隐藏图层'],
 'Show layer':['แสดงเลเยอร์','Mostrar capa','レイヤーを表示','显示图层'],
 'Camera move added – press play to watch it':['เพิ่มการเคลื่อนกล้องแล้ว – กดเล่นเพื่อดู','Movimiento de cámara añadido: pulsa reproducir para verlo','カメラワークを追加しました – 再生して見てね','镜头移动已添加 – 点击播放观看'],
-'Camera removed':['เอากล้องออกแล้ว','Cámara quitada','カメラワークを外しました','镜头已移除']
+'Camera removed':['เอากล้องออกแล้ว','Cámara quitada','カメラワークを外しました','镜头已移除'],
+'Create · Draw · Be you':['สร้าง · วาด · เป็นตัวเอง','Crea · Dibuja · Sé tú','つくる・描く・自分らしく','创作 · 绘画 · 做自己'],
+'My artworks':['ผลงานของฉัน','Mis obras','マイ作品','我的作品'],
+'Templates':['เทมเพลต','Plantillas','テンプレート','模板'],
+'Turn your ideas into art':['เปลี่ยนไอเดียให้เป็นศิลปะ','Convierte tus ideas en arte','アイデアをアートに','把想法变成艺术'],
+'Welcome to':['ยินดีต้อนรับสู่','Bienvenido a','ようこそ','欢迎来到'],
+'Your canvas. Your rules.':['ผืนผ้าใบของคุณ กติกาของคุณ','Tu lienzo. Tus reglas.','あなたのキャンバス。あなたのルール。','你的画布，你做主。'],
+'Continue my drawing':['วาดต่อจากเดิม','Seguir mi dibujo','続きを描く','继续我的画'],
+'Quick start':['เริ่มต้นด่วน','Inicio rápido','クイックスタート','快速开始'],
+'Jump in with a template or start from scratch.':['เริ่มจากเทมเพลตหรือเริ่มจากศูนย์ก็ได้','Empieza con una plantilla o desde cero.','テンプレートから、またはゼロから始めよう。','从模板开始，或者从零开始。'],
+'Start from zero':['เริ่มจากศูนย์','Empieza de cero','ゼロから始める','从零开始'],
+'Ready-made sizes and coloring pages':['ขนาดสำเร็จรูปและภาพระบายสี','Tamaños listos y dibujos para colorear','定番サイズとぬりえ','现成尺寸和填色页'],
+'Upload your work':['อัปโหลดงานของคุณ','Sube tu trabajo','作品をアップロード','上传你的作品'],
+'Make a cartoon, frame by frame':['ทำการ์ตูนทีละเฟรม','Haz una caricatura, fotograma a fotograma','1コマずつアニメを作ろう','一帧一帧做动画'],
+'Shape clay with brushes':['ปั้นดินด้วยแปรง','Da forma a la arcilla con pinceles','ブラシで粘土をこねよう','用笔刷捏粘土'],
+'Make a game':['สร้างเกม','Crea un juego','ゲームを作る','做一个游戏'],
+'Build it, then play it':['สร้างแล้วเล่นเลย','Créalo y juégalo','作って、遊ぼう','做好就能玩'],
+'Featured artworks':['ผลงานแนะนำ','Obras destacadas','注目の作品','精选作品'],
+'Explore amazing creations from our community.':['ชมผลงานสุดเจ๋งจากทุกคน','Descubre creaciones increíbles de la comunidad.','みんなのすてきな作品を見てみよう。','看看大家的精彩作品。'],
+'View all':['ดูทั้งหมด','Ver todo','すべて見る','查看全部'],
+'Save your work to your account':['เก็บงานไว้ในบัญชีของคุณ','Guarda tu trabajo en tu cuenta','作品をアカウントに保存','把作品保存到你的账户'],
+'Search tools and commands…':['ค้นหาเครื่องมือและคำสั่ง…','Buscar herramientas y comandos…','ツールとコマンドを検索…','搜索工具和命令…'],
+'A new Home':['หน้าแรกใหม่','Un nuevo Inicio','新しいホーム','全新首页'],
+'MasterSketch opens on a Home page with quick start buttons and art from everyone, and a sidebar takes you to every studio. New deep-blue look.':['MasterSketch เปิดมาที่หน้าแรกพร้อมปุ่มเริ่มต้นด่วนและผลงานจากทุกคน แถบด้านข้างพาไปทุกสตูดิโอ และโฉมใหม่โทนน้ำเงินเข้ม','MasterSketch se abre en una página de Inicio con botones de inicio rápido y arte de todos, y una barra lateral te lleva a cada estudio. Nuevo aspecto azul oscuro.','MasterSketchはホーム画面から始まります。クイックスタートやみんなの作品があり、サイドバーからどのスタジオにも行けます。深い青の新デザイン。','MasterSketch 现在从首页打开，有快速开始按钮和大家的作品，侧边栏可以进入每个工作室。全新深蓝外观。'],
+'Stay signed in':['อยู่ในระบบต่อ','Sigue con tu sesión','ログインしたまま','保持登录'],
+'Your browser can save your player password, and MasterSketch signs you back in by itself when you come back.':['เบราว์เซอร์จะบันทึกรหัสผ่านผู้เล่นให้ได้ และ MasterSketch จะพาคุณเข้าสู่ระบบเองเมื่อกลับมา','Tu navegador puede guardar tu contraseña y MasterSketch vuelve a iniciar tu sesión solo cuando regresas.','ブラウザがパスワードを保存でき、戻ってきたらMasterSketchが自動でログインします。','浏览器可以保存你的玩家密码，你回来时 MasterSketch 会自动帮你登录。'],
+'Forgot it? Log in with your admin player account (like Pran) and type /admin in the menu search – no password needed. Or open the MasterSketch Google Sheet, go to the config tab and type a new password next to “newPassword”, then sign in here with it.':['ลืมรหัสใช่ไหม? เข้าสู่ระบบด้วยบัญชีผู้เล่นที่เป็นแอดมิน (เช่น Pran) แล้วพิมพ์ /admin ในช่องค้นหาของเมนู – ไม่ต้องใช้รหัสผ่าน หรือเปิด Google Sheet ของ MasterSketch ไปที่แท็บ config แล้วพิมพ์รหัสใหม่ข้าง “newPassword” จากนั้นเข้าสู่ระบบที่นี่ด้วยรหัสนั้น','¿La olvidaste? Inicia sesión con tu cuenta de jugador administradora (como Pran) y escribe /admin en la búsqueda del menú: no hace falta contraseña. O abre la hoja de Google de MasterSketch, ve a la pestaña config y escribe una contraseña nueva junto a “newPassword”, luego inicia sesión aquí con ella.','忘れた？管理者のプレイヤーアカウント（Pranなど）でログインして、メニューの検索に /admin と入力すればパスワード不要です。またはMasterSketchのGoogleスプレッドシートのconfigタブで「newPassword」の横に新しいパスワードを書き、ここでそのパスワードでサインインしてください。','忘记了？用管理员玩家账户（比如 Pran）登录，在菜单搜索里输入 /admin，不需要密码。或者打开 MasterSketch 的 Google 表格，在 config 标签里 “newPassword” 旁边写一个新密码，然后在这里用它登录。']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='9.1';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='9.2';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -18662,11 +18816,11 @@ async function admSignin(B){B.innerHTML='<div class="adsign"><span class="adlogo
  try{ping=await MSC.get({a:'ping'})}catch(e){P.textContent=t(e.code==='setup'?'The MasterSketch cloud is not connected yet.':'Could not reach the MasterSketch cloud. Check your internet connection.');R.appendChild(icoBtn('fa-rotate','Try again',()=>admGo('signin')));return}
  const setup=!ping.admin;H.textContent=t(setup?'Create your admin password':'Admin sign-in');
  P.textContent=t(setup?'This is the first time. Choose a password only you know – you use it to open the admin panel on any device.':'The admin panel is only for the owner of MasterSketch. Type your admin password.');
- const inp=ph=>{const l=ae('label','adtok');l.innerHTML='<i class="fa-solid fa-key"></i><input type="password" autocomplete="off" spellcheck="false"><button class="b sm adeye" type="button"><i class="fa-solid fa-eye"></i></button>';const i=l.querySelector('input');i.placeholder=t(ph);noKeys(i);
+ const inp=ph=>{const l=ae('label','adtok');l.innerHTML='<i class="fa-solid fa-key"></i><input type="password" autocomplete="current-password" spellcheck="false"><button class="b sm adeye" type="button"><i class="fa-solid fa-eye"></i></button>';const i=l.querySelector('input');i.placeholder=t(ph);noKeys(i);
   l.querySelector('.adeye').onclick=()=>{i.type=i.type==='password'?'text':'password';l.querySelector('.adeye i').className='fa-solid '+(i.type==='password'?'fa-eye':'fa-eye-slash')};W.appendChild(l);return i};
  const p1=inp(setup?'New password (at least 6 letters)':'Password'),p2=setup?inp('Type the password again'):null;
  const go=icoBtn(setup?'fa-check':'fa-right-to-bracket',setup?'Create password and sign in':'Sign in',null,'pri');R.appendChild(go);
- F.textContent=t(setup?'Tip: use a password you don’t use anywhere else, and don’t tell anyone. You can change it later in Admin settings.':'Forgot it? Open the MasterSketch Google Sheet, go to the config tab and type a new password next to “newPassword”. Then sign in here with that new password.');
+ F.textContent=t(setup?'Tip: use a password you don’t use anywhere else, and don’t tell anyone. You can change it later in Admin settings.':'Forgot it? Log in with your admin player account (like Pran) and type /admin in the menu search – no password needed. Or open the MasterSketch Google Sheet, go to the config tab and type a new password next to “newPassword”, then sign in here with it.');
  const err=m=>{E.textContent=m;E.classList.remove('hide')};
  const run=async()=>{E.classList.add('hide');const v=p1.value;if(!v)return p1.focus();if(setup&&v.length<6)return err(t('Use at least 6 letters or numbers.'));if(setup&&v!==p2.value)return err(t('The two passwords are not the same.'));
   go.disabled=true;try{const r=await MSC.post({a:'login',pw:v,setup});ADM.tok=r.tok;LS.set('msa_ctok',r.tok);ADM.items=null;p1.value='';if(p2)p2.value='';admNav();toast(t(r.created?'Admin password created – welcome!':'Welcome back'),'fa-shield-halved');admGo('home')}
@@ -21737,6 +21891,47 @@ function moFlyIn(cam,target,k,ms){if(moOff()||!cam||!target)return;const end=cam
 function moBump(el){if(!el||moOff())return;el.classList.remove('msbump');void el.offsetWidth;el.classList.add('msbump')}
 {const gh=gmHud;let last=null;gmHud=function(){gh();const c=$('#gmHC');if(c&&last!==null&&c.textContent!==last)moBump(c.parentNode);last=c?c.textContent:null}}
 
+/* ---------- v24: MasterSketch 9.2 – a Home page (welcome banner, quick start, featured art), a sidebar to move
+   between studios, a deep-blue "Verse" look, and staying signed in: the browser can save your player password and
+   MasterSketch signs you back in by itself when you come back. ---------- */
+const HM={feat:null};
+function navSync(m){$$('#sideNav [data-mode],#modeSw button').forEach(b=>b.classList.toggle('on',b.dataset.mode===m))}
+{const sm=setMode;setMode=function(m){if(m==='home'){const was=document.body.classList.contains('modehome');if(!document.body.classList.contains('modehome'))sm('draw');document.body.classList.add('modehome');navSync('home');
+  if(!was){const p=$('#homePage');p.classList.remove('msmode');void p.offsetWidth;p.classList.add('msmode')}homeRender();requestAnimationFrame(()=>{try{msInd()}catch(e){}});return}
+ document.body.classList.remove('modehome');sm(m);navSync(m==='3d'||m==='anim'||m==='mods'||m==='art'||m==='play'?m:'draw')}}
+function homeRender(){const n=ACC&&ACC.name;$('#hmCont').classList.toggle('hide',!dirty&&!(layers&&layers.length>1));homeFeat();snMe()}
+async function homeFeat(){const F=$('#hmFeat');if(!F)return;if(!HM.feat){F.innerHTML='';for(let i=0;i<6;i++)F.appendChild(ae('div','hmart0'))}
+ try{if(!HM.feat){const r=await MSC.list('art');HM.feat=(r.items||[]).filter(it=>it.th).slice(0,12)}}catch(e){HM.feat=HM.feat||[]}
+ F.innerHTML='';if(!HM.feat.length){F.appendChild(ae('div','gmnote',t('No paintings yet – be the first to share one!')));return}
+ HM.feat.slice(0,6).forEach(it=>{const b=ae('button','hmart1');const i=ae('img');i.src=it.th;i.alt='';i.loading='lazy';b.appendChild(i);const c=ae('span','hmcap');c.appendChild(ae('b','',it.t));c.appendChild(ae('small','',t('by')+' '+it.a));b.appendChild(c);
+  if(typeof gmMeta==='function'&&gmMeta(it.th))b.appendChild(gmBadge());else if(anMeta(it.th))b.appendChild(anBadge());b.onclick=()=>{setMode('art');setTimeout(()=>{try{artView(it)}catch(e){}},60)};F.appendChild(b)})}
+function snMe(){const av=$('#snAv');if(!av)return;const on=!!(ACC&&ACC.tok);try{avFill(av,on?ACC.name:'?',on?ACC.pic:'')}catch(e){}$('#snName').textContent=on?ACC.name:t('Sign in');$('#snSub').textContent=on?t('My profile'):t('Save your work to your account')}
+function homeAct(q){if(q==='new'){setMode('draw');newProject()}else if(q==='templates'){setMode('draw');openStart(null)}else if(q==='open'){setMode('draw');$('#fileIn').click()}
+ else if(q==='anim')setMode('anim');else if(q==='sculpt'){setMode('3d');setTimeout(()=>scuOpen(),120)}else if(q==='game'){setMode('play');GM.tab='create';pgHome()}
+ else if(q==='projects'){setMode('draw');openProjects()}else if(q==='settings')$('#setB').click()}
+{
+ $$('#sideNav [data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));$('#sideNav [data-act="projects"]').onclick=()=>homeAct('projects');$('#sideNav [data-act="templates"]').onclick=()=>homeAct('templates');$('#sideNav [data-act="settings"]').onclick=()=>homeAct('settings');
+ $$('#homePage [data-q]').forEach(b=>b.onclick=()=>homeAct(b.dataset.q));$('#hmStart').onclick=()=>homeAct('new');$('#hmCont').onclick=()=>setMode('draw');$('#hmAll').onclick=()=>setMode('art');
+ $('#snMe').onclick=()=>{if(ACC&&ACC.tok)prfOpen();else accOpen('in')};
+ const hb=ae('button');hb.dataset.mode='home';hb.innerHTML='<i class="fa-solid fa-house"></i><span></span>';hb.lastChild.textContent=t('Home');hb.lastChild.setAttribute('data-i18n','');hb.onclick=()=>setMode('home');$('#modeSw').prepend(hb);
+}
+{const cb=$('#cmdB');if(cb){const s=ae('span','cmdtx');s.textContent=t('Search tools and commands…');cb.appendChild(s)}}
+{const sv=accSave;accSave=function(){sv();snMe()}}
+{const al=applyLang;applyLang=function(){al();try{snMe();const hb=$('#modeSw [data-mode="home"] span');if(hb)hb.textContent=t('Home')}catch(e){}}}
+
+/* ---------- staying signed in ---------- */
+const CRED=!!(window.PasswordCredential&&navigator.credentials);
+/* the browser only offers to fill in a password when the box says what it is */
+{const am=accMode;accMode=function(m){am(m);const w=$('#accW');if(w)w.autocomplete=m==='in'?'current-password':'new-password';const n=$('#accN');if(n)n.autocomplete=m==='fg'?'email':'username'}}
+/* after a good log-in, ask the browser to remember the name and password (the browser asks you first) */
+{const as=accSubmit;accSubmit=async function(){const mode=ACC.mode,name=$('#accN').value.replace(/\s+/g,' ').trim(),pw=$('#accW').value,before=ACC.tok;await as();
+ if(CRED&&(mode==='in'||mode==='new')&&ACC.tok&&ACC.tok!==before&&pw){try{await navigator.credentials.store(new PasswordCredential({id:ACC.name||name,password:pw,name:ACC.name||name}))}catch(e){}}}}
+/* coming back: if the saved log-in has run out, use the password the browser saved and sign in again by itself */
+async function accAuto(){if(!CRED)return false;try{const c=await navigator.credentials.get({password:true,mediation:'silent'});if(!c||!c.password)return false;
+ const r=await accCall('signin',{name:c.id,pw:c.password});ACC.name=r.name;ACC.tok=r.tok;accSave();show('#accM',false);toast(t('Welcome back, {n}!').replace('{n}',r.name),'fa-user-check');return true}catch(e){return false}}
+{const ac=accCheck;accCheck=async function(){if(window.MSK_NOACC)return;if(!ACC.tok){if(await accAuto())return;return ac()}
+ await ac();if(!ACC.tok&&!$('#accM').classList.contains('hide')){if(await accAuto())prfSync&&prfSync()}}}
+
 /* ---------- v8: drawing additions ---------- */
 /* PDF export (one page, the picture as a high-quality JPEG) */
 function pdfBlob(cv,q){return new Promise((res,rej)=>cv.toBlob(async b=>{if(!b)return rej(Error('jpeg'));const jpg=new Uint8Array(await b.arrayBuffer()),w=cv.width,h=cv.height,pw=(w*.75).toFixed(2),ph=(h*.75).toFixed(2),enc=new TextEncoder(),parts=[],offs=[];let n=0;
@@ -21798,7 +21993,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-wand-magic-sparkles','Everything moves','Windows, menus and panels open and close with smooth animations, lists slide in one by one, pages glide when you switch modes and 3D views fly in. Turn it off with Reduce motion in Settings.'],['fa-gamepad','Game Studio','Game is its own mode now: build games with a toolbox, explorer, properties and scripts like a real game studio, then press Play and run around with your avatar.'],['fa-film','Animation layers','Every frame has layers now, plus tweens that draw the in-between frames for you, camera moves and turning a video into frames.'],['fa-cube','Sculpt in 3D','The 3D Studio is for 3D art: sculpt clay with brushes, show your model in different render styles and pin notes on it.'],['fa-id-badge','Player profiles','Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.'],['fa-envelope','Forgot your password?','Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.'],['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-house','A new Home','MasterSketch opens on a Home page with quick start buttons and art from everyone, and a sidebar takes you to every studio. New deep-blue look.'],['fa-key','Stay signed in','Your browser can save your player password, and MasterSketch signs you back in by itself when you come back.'],['fa-wand-magic-sparkles','Everything moves','Windows, menus and panels open and close with smooth animations, lists slide in one by one, pages glide when you switch modes and 3D views fly in. Turn it off with Reduce motion in Settings.'],['fa-gamepad','Game Studio','Game is its own mode now: build games with a toolbox, explorer, properties and scripts like a real game studio, then press Play and run around with your avatar.'],['fa-film','Animation layers','Every frame has layers now, plus tweens that draw the in-between frames for you, camera moves and turning a video into frames.'],['fa-cube','Sculpt in 3D','The 3D Studio is for 3D art: sculpt clay with brushes, show your model in different render styles and pin notes on it.'],['fa-id-badge','Player profiles','Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.'],['fa-envelope','Forgot your password?','Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.'],['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
@@ -21830,7 +22025,7 @@ async function bootDone(){boot(100,'Ready');const el=document.getElementById('bo
 boot(15,'Loading brushes…');
 buildDock();setDims(1200,900);layers=[newLayer('Layer 1')];sync();renderLayers();setColor(S.color,1);setColor(S.color2,2);selectSlot(1);
 applySet();openPane(SET.tab||'layers');if(innerWidth<=860)$('#side').classList.remove('open');updRef();hb();
-requestAnimationFrame(fit);
+requestAnimationFrame(fit);if(!/^#(model|mod)=/.test(location.hash))setTimeout(()=>setMode('home'),60);
 (async()=>{boot(55,'Preparing canvas…');await sleep(220);boot(80,'Restoring your workspace…');await migrate();const a=await store.get('autosave'),auto=a&&a.data?a:null;await bootDone();
  const hashM=/^#model=/.test(location.hash)?location.hash.slice(7):null,hashD=/^#mod=/.test(location.hash)?location.hash.slice(5):null;if(hashM||hashD){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
  if(LS.get('msu8_seen','')!==VERSION&&!hashM&&!hashD)openNews();
