@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MasterSketch Studio 8 – draw, animate and build in 3D</title>
-<meta name="description" content="MasterSketch Studio is a free creative studio for kids and everyone: drawing, a frame-by-frame Animation Workshop with sounds, a 3D Studio you can fly through, 13 game levels, a Gallery and Mods. Android, iPad, Windows, Mac and the web.">
+<title>MasterSketch Studio 9 – draw, animate, sculpt in 3D and make games</title>
+<meta name="description" content="MasterSketch Studio is a free creative studio for kids and everyone: painting with 100+ brushes, animation with layers, 3D sculpting, a Game Studio to build and play your own games, a Gallery and Mods. Android, iPad, Windows, Mac and the web.">
 <!-- seo -->
 <link rel="canonical" href="https://mastersketch.pages.dev/">
 <meta name="robots" content="index,follow">
@@ -13,178 +13,136 @@
 <meta property="og:site_name" content="MasterSketch Studio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="drawing app, animation app, flipbook, 3D for kids, 3D modeling like SketchUp, free paint app, Photoshop alternative, PSD editor, Procreate alternative, โปรแกรมวาดรูป, แอปวาดภาพ, ทำแอนิเมชัน">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MasterSketch Studio","alternateName":"MasterSketch","url":"https://mastersketch.pages.dev/","image":"https://mastersketch.pages.dev/shot80-pro.jpg","applicationCategory":"DesignApplication","operatingSystem":"Android, Windows, macOS, iPadOS, Web","softwareVersion":"9.3","inLanguage":["en","th","es","ja","zh"],"description":"Free drawing, painting, animation and 3D building studio for kids and artists - pro tools like clipping masks, liquify, perspective guides, curves and Photoshop PSD files, build like SketchUp, 3D printing. Works in the browser and on Android, Windows and Mac.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MasterSketch Studio","alternateName":"MasterSketch","url":"https://mastersketch.pages.dev/","image":"https://mastersketch.pages.dev/shot80-pro.jpg","applicationCategory":"DesignApplication","operatingSystem":"Android, Windows, macOS, iPadOS, Web","softwareVersion":"9.4","inLanguage":["en","th","es","ja","zh"],"description":"Free drawing, painting, animation and 3D building studio for kids and artists - pro tools like clipping masks, liquify, perspective guides, curves and Photoshop PSD files, build like SketchUp, 3D printing. Works in the browser and on Android, Windows and Mac.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <!-- /seo -->
-<meta name="theme-color" content="#0a0816">
-<meta property="og:title" content="MasterSketch Studio 9.3">
-<meta property="og:description" content="Draw it. Animate it. Build it in 3D. Free on every device.">
+<meta name="theme-color" content="#090c18">
+<meta property="og:title" content="MasterSketch Studio 9.4">
+<meta property="og:description" content="Your canvas. Your rules. Draw, animate, sculpt and make games – free on every device.">
 <meta property="og:image" content="https://mastersketch.pages.dev/shot80-pro.jpg">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#0a0816;--bg2:#120f22;--ink:#f4f1ff;--mu:#aaa3c7;--mu2:#7d7699;--line:#c4b5fd1f;--line2:#c4b5fd33;--card:#ffffff08;--card2:#ffffff0d;
- --v:#8b5cf6;--p:#ec4899;--o:#fb923c;--c:#22d3ee;--g:#34d399;--y:#facc15;--b:#3b82f6;
- --grad:linear-gradient(120deg,#a78bfa,#ec4899 55%,#fb923c);--gradb:linear-gradient(135deg,#8b5cf6,#ec4899);
- --fh:"Outfit","Noto Sans Thai",system-ui,sans-serif;--fb:"Plus Jakarta Sans","Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;--r:24px}
-html[data-lang=th]{--fh:"Noto Sans Thai","Outfit",system-ui,sans-serif;--fb:"Noto Sans Thai","Plus Jakarta Sans",system-ui,sans-serif}
-html[data-lang=en] [lang=th],html[data-lang=th] [lang=en]{display:none!important}
+:root{--bg:#090c18;--bg2:#0f1325;--card:#121731;--card2:#1a2042;--line:#a5b4fc1a;--line2:#a5b4fc2e;--ink:#eef1ff;--mu:#9aa3c4;--ac:#7c6cff;--grad:linear-gradient(135deg,#5b8cff,#7c6cff 45%,#a855f7);--gradb:linear-gradient(135deg,#5b8cff,#a855f7);--glow:0 10px 30px #7c6cff55}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font:16px/1.6 var(--fb);color:var(--ink);background:var(--bg);overflow-x:hidden;min-height:100vh}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
- radial-gradient(900px 600px at 8% -10%,#8b5cf640,transparent 60%),radial-gradient(800px 560px at 100% 10%,#ec489930,transparent 60%),
- radial-gradient(900px 700px at 50% 120%,#22d3ee1c,transparent 60%),var(--bg)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:radial-gradient(#ffffff22 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 Inter,"Noto Sans Thai","Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1000px 600px at 10% -10%,#3b2a8a40,transparent 60%),radial-gradient(900px 600px at 100% 20%,#1d4ed826,transparent 60%),var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html[data-lang=en] [lang=th],html[data-lang=th] [lang=en]{display:none!important}
+html[data-lang=th] body{font-family:"Noto Sans Thai",Inter,system-ui,sans-serif}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-svg{width:18px;height:18px;flex:none}
-.wrap{width:min(1180px,100% - 40px);margin:0 auto}
-h1,h2,h3{font-family:var(--fh);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
-html[data-lang=th] h1,html[data-lang=th] h2,html[data-lang=th] h3{line-height:1.3;letter-spacing:0}
-.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid var(--line2);background:var(--card2);backdrop-filter:blur(10px);transition:transform .2s,box-shadow .2s,border-color .2s;white-space:nowrap;cursor:pointer;color:var(--ink);font-family:inherit}
-.btn:hover{transform:translateY(-2px);border-color:#c4b5fd66}
-.btn.pri{background:var(--gradb);border-color:transparent;box-shadow:0 10px 34px #8b5cf666,inset 0 1px 0 #ffffff40}
-.btn.pri:hover{box-shadow:0 14px 44px #ec489966}
-.btn.sm{padding:9px 16px;font-size:14px}
-.kicker{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd}
-html[data-lang=th] .kicker{letter-spacing:.02em}
-.sub{color:var(--mu);font-size:18px;max-width:640px}
-section{padding:96px 0;scroll-margin-top:70px}
-.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px}
-.sec-head h2{font-size:clamp(34px,5vw,56px)}
-.center{text-align:center;align-items:center}.center .sub{margin:0 auto}
+svg{width:1em;height:1em;flex:none}
+.wrap{width:min(1200px,100% - 32px);margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;background:#ffffff10;border:1px solid var(--line2);color:var(--ink);transition:transform .15s,background .15s,box-shadow .15s;cursor:pointer;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);background:#ffffff1a}
+.btn.pri{background:var(--grad);border-color:transparent;color:#fff;box-shadow:var(--glow)}
+.btn.pri:hover{filter:brightness(1.08)}
+.btn.sm{padding:9px 16px;font-size:13.5px}
+.btn svg{width:18px;height:18px}
 /* nav */
-nav.top{position:sticky;top:0;z-index:40;padding:14px 0;transition:background .2s,backdrop-filter .2s}
-nav.top.solid{background:#0a0816c4;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font:800 20px var(--fh);letter-spacing:-.02em}
-.brand img{width:36px;height:36px;border-radius:11px;box-shadow:0 6px 20px #8b5cf666}
-.brand small{font:800 10px var(--fb);padding:3px 7px;border-radius:99px;background:var(--gradb);letter-spacing:.06em}
-.links{display:flex;gap:4px;margin-left:auto}
-.links a{padding:8px 13px;border-radius:99px;font-weight:600;font-size:14.5px;color:var(--mu);transition:.15s}
-.links a:hover{color:var(--ink);background:var(--card2)}
-.lang{display:flex;padding:3px;border-radius:99px;border:1px solid var(--line2);background:var(--card)}
-.lang button{border:0;background:none;color:var(--mu);font:700 12.5px var(--fb);padding:6px 11px;border-radius:99px;cursor:pointer}
-.lang button.on{background:var(--gradb);color:#fff}
-@media(max-width:980px){.links{display:none}.navinstall{margin-left:auto}}
-@media(max-width:520px){.navinstall{display:none}.lang{margin-left:auto}}
+.top{position:fixed;inset:0 0 auto 0;z-index:50;padding:12px 0;transition:background .2s,box-shadow .2s}
+.top.solid{background:#090c18d9;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+.brand img{width:36px;height:36px;border-radius:11px}
+.brand small{font-size:11px;font-weight:700;color:#c4b5fd;border:1px solid #7c6cff66;border-radius:6px;padding:0 5px}
+.links{display:flex;gap:4px;margin:0 auto}
+.links a{padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--mu);transition:color .15s,background .15s}
+.links a:hover{color:var(--ink);background:#ffffff0d}
+.lang{display:flex;padding:3px;border-radius:999px;background:#ffffff0d;border:1px solid var(--line)}
+.lang button{border:0;background:none;color:var(--mu);font:700 12.5px Inter,sans-serif;padding:6px 11px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--grad);color:#fff}
 /* hero */
-.hero{padding:56px 0 40px;position:relative}
-.hero .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:48px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;border:1px solid var(--line2);background:var(--card2);font-size:14px;color:var(--mu);font-weight:600;max-width:100%}
-.eyebrow b{padding:4px 10px;border-radius:99px;background:var(--gradb);color:#fff;font-size:12px;letter-spacing:.04em;flex:none}
-.eyebrow>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hero h1{font-size:clamp(46px,7.2vw,88px);font-weight:900;margin:22px 0 18px}
-.hero .lead{font-size:19px;color:var(--mu);max-width:560px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 14px}
-.hint{color:var(--mu2);font-size:14px;font-weight:600}
-.stage{position:relative;aspect-ratio:1.16;min-width:0}
-.win{position:absolute;inset:4% 12% 14% 0;border-radius:22px;overflow:hidden;border:1px solid var(--line2);background:var(--bg2);box-shadow:0 40px 120px #000c,0 0 0 1px #ffffff0a,0 0 120px #8b5cf633;transform:perspective(1400px) rotateY(-9deg) rotateX(3deg);transform-origin:left center}
-.win .bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#ffffff08;border-bottom:1px solid var(--line)}
-.win .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.win .bar i:nth-child(2){background:#febc2e}.win .bar i:nth-child(3){background:#28c840}
-.win img{width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top left}
-.phone{position:absolute;right:0;bottom:0;width:31%;aspect-ratio:390/844;border-radius:30px;padding:7px;background:#16122a;border:1px solid var(--line2);box-shadow:0 30px 80px #000d,0 0 60px #ec489933;transform:rotate(4deg)}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px}
-.chip{position:absolute;display:flex;align-items:center;gap:9px;padding:9px 14px 9px 9px;border-radius:16px;background:#1a1530e6;border:1px solid var(--line2);backdrop-filter:blur(12px);font-weight:700;font-size:13.5px;box-shadow:0 14px 40px #0009;animation:bob 6s ease-in-out infinite}
-.chip i{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:17px;background:var(--gradb)}
-.chip.c1{left:-4%;top:58%}.chip.c2{left:30%;top:-3%;animation-delay:-2s}.chip.c2 i{background:linear-gradient(135deg,#22d3ee,#3b82f6)}.chip.c3{right:24%;bottom:-2%;animation-delay:-4s}.chip.c3 i{background:linear-gradient(135deg,#facc15,#fb923c)}
-@keyframes bob{50%{transform:translateY(-8px)}}
-.plats{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.plats span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-size:13.5px;font-weight:600;color:var(--mu)}
-@media(max-width:980px){.hero .wrap{grid-template-columns:1fr}.stage{max-width:640px;width:100%;margin:10px auto 0}}
-@media(max-width:560px){.chip{display:none}.hero{padding-top:28px}}
-/* marquee of modes */
-.strip{border-block:1px solid var(--line);background:#ffffff05;overflow:hidden;padding:16px 0}
-.strip .row{display:flex;gap:46px;width:max-content;animation:slide 40s linear infinite}
-.strip span{font:800 22px var(--fh);color:var(--mu2);display:inline-flex;gap:12px;align-items:center;white-space:nowrap}
-.strip span b{color:var(--ink)}
-@keyframes slide{to{transform:translateX(-50%)}}
+.hero{position:relative;padding:130px 0 40px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:#ffffff0d;border:1px solid var(--line2);font-size:13.5px;color:#d7dcf5;margin-bottom:22px}
+.eyebrow b{padding:3px 10px;border-radius:999px;background:var(--grad);color:#fff;font-size:12px}
+.hi{font-size:clamp(22px,2.4vw,30px);font-weight:700}
+h1.word{font-size:clamp(42px,5vw,74px);line-height:.98;font-weight:900;letter-spacing:-.04em;background:linear-gradient(90deg,#c4b5fd,#a78bfa 40%,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent;margin:4px 0 10px}
+.tag{font-size:clamp(19px,2vw,24px);font-weight:600;color:#e3e7ff;margin-bottom:14px}
+.lead{color:var(--mu);font-size:17px;max-width:560px;margin-bottom:26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hint{margin-top:14px;font-size:13.5px;color:var(--mu)}
+.stage{position:relative}
+.win{border-radius:20px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 40px 100px #000a,0 0 0 1px #ffffff08;background:var(--bg2);transform:perspective(1600px) rotateY(-6deg) rotateX(2deg);transition:transform .6s}
+.win:hover{transform:none}
+.win .bar{display:flex;gap:6px;padding:10px 12px;background:#0d1124;border-bottom:1px solid var(--line)}
+.win .bar i{width:10px;height:10px;border-radius:50%;background:#ffffff26}
+.phone{position:absolute;right:-18px;bottom:-34px;width:150px;border-radius:26px;overflow:hidden;border:6px solid #1a1f3a;box-shadow:0 30px 60px #000c}
+.script{position:absolute;left:-26px;top:-38px;font:700 30px Caveat,cursive;color:#f5d0fe;transform:rotate(-10deg);text-shadow:0 4px 20px #000}
+.sky{position:absolute;inset:auto 0 0 0;width:100%;height:340px;z-index:-1;opacity:.55;-webkit-mask:linear-gradient(transparent,#000 40%);mask:linear-gradient(transparent,#000 40%)}
+.plats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:64px}
+.plats>span{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#ffffff0a;border:1px solid var(--line);font-weight:600;font-size:14px;color:#d7dcf5}
+.plats>span>svg{width:18px;height:18px}
+/* sections */
+section{padding:90px 0 20px}
+.head{text-align:center;max-width:720px;margin:0 auto 40px}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a5b4fc;margin-bottom:12px}
+h2{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:800}
+.grad{background:linear-gradient(90deg,#93c5fd,#a78bfa,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mu);font-size:17px;margin-top:12px}
 /* studios */
-.studios{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.studio{position:relative;padding:26px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(160deg,#ffffff0d,#ffffff03);overflow:hidden;transition:transform .25s,border-color .25s}
-.studio:hover{transform:translateY(-4px);border-color:var(--line2)}
-.studio::after{content:"";position:absolute;width:240px;height:240px;right:-90px;top:-110px;border-radius:50%;background:var(--glow,#8b5cf6);opacity:.16;filter:blur(30px)}
-.studio .ic{position:relative;z-index:1;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:var(--ig,var(--gradb));box-shadow:0 10px 26px #0006;margin-bottom:18px}
-.studio h3{font-size:24px;margin-bottom:8px}.studio p{color:var(--mu);font-size:15px}
-.studio .tag{position:absolute;top:22px;right:22px;font:800 11px var(--fb);letter-spacing:.08em;padding:4px 9px;border-radius:99px;background:var(--gradb)}
-@media(max-width:900px){.studios{grid-template-columns:1fr 1fr}}@media(max-width:600px){.studios{grid-template-columns:1fr}}
-/* spotlight */
-.spot{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center}
-.spot.rev{grid-template-columns:1fr 1.25fr}.spot.rev .shot{order:2}
-.shot{border-radius:22px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 40px 100px #000b,0 0 100px #8b5cf622;background:var(--bg2)}
-.shot img{width:100%;height:auto}
-.spot h2{font-size:clamp(32px,4.4vw,52px);margin:14px 0}
-.ticks{list-style:none;display:grid;gap:12px;margin:24px 0 30px}
-.ticks li{display:flex;gap:12px;align-items:flex-start;color:var(--mu)}
-.ticks li b{color:var(--ink)}
-.ticks i{flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-size:15px;background:var(--card2);border:1px solid var(--line2)}
-@media(max-width:900px){.spot,.spot.rev{grid-template-columns:1fr}.spot.rev .shot{order:0}}
-/* sounds row */
-.snds{display:flex;flex-wrap:wrap;gap:8px;margin-top:-8px}
-.snds span{padding:7px 12px;border-radius:12px;background:var(--card2);border:1px solid var(--line);font-size:13.5px;font-weight:700}
-/* levels */
-.lvls{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
-.lv{padding:16px;border-radius:18px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:8px}
-.lv i{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-style:normal;font-size:21px;background:var(--lg)}
-.lv b{font:800 16px var(--fh)}.lv small{color:var(--mu2);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
-@media(max-width:900px){.lvls{grid-template-columns:repeat(2,1fr)}}
-/* keys */
-.keys{display:grid;grid-template-columns:repeat(3,46px);gap:6px;margin:6px 0 20px}
-.keys kbd{display:grid;place-items:center;height:46px;border-radius:12px;background:#ffffff10;border:1px solid var(--line2);border-bottom-width:4px;font:800 16px var(--fh)}
-.keys kbd.e{grid-column:2}.keys kbd:nth-child(2){grid-column:1;grid-row:2}.keys kbd:nth-child(3){grid-column:2;grid-row:2}.keys kbd:nth-child(4){grid-column:3;grid-row:2}
-/* verified */
-.verified{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:34px;border-radius:30px;border:1px solid var(--line2);background:linear-gradient(135deg,#3b82f61f,#22d3ee12 50%,#ffffff05)}
-.vbadge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px 10px 12px;border-radius:99px;background:linear-gradient(135deg,#3b82f6,#06b6d4);font-weight:800;box-shadow:0 12px 34px #3b82f666;font-size:18px}
-.vbadge svg{width:22px;height:22px}
-.verified h3{font-size:30px;margin-bottom:6px}.verified p{color:var(--mu)}
-@media(max-width:700px){.verified{grid-template-columns:1fr}}
-/* workshop band */
-.wsband{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;padding:36px;border-radius:32px;border:1px solid var(--line);background:linear-gradient(160deg,#ffffff0a,#ffffff02)}
-.wsband h2{font-size:clamp(30px,4vw,46px);margin:12px 0}
-.wsband p{color:var(--mu);margin-bottom:22px}
-.wsgal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.wsgal a{aspect-ratio:4/3;border-radius:18px;background:radial-gradient(circle at 50% 40%,#ffffff14,#ffffff05);border:1px solid var(--line);display:grid;place-items:center;font-size:40px;overflow:hidden;transition:transform .2s}
-.wsgal a:hover{transform:scale(1.04)}.wsgal img{width:100%;height:100%;object-fit:cover}.lv b,.lv small{position:relative}
-@media(max-width:900px){.wsband{grid-template-columns:1fr;padding:22px}}
-/* more */
-.more{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.more div{padding:18px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
-.more b{display:block;font:800 16px var(--fh);margin:8px 0 4px}.more p{color:var(--mu);font-size:14px}.more em{font-style:normal;font-size:24px}
-@media(max-width:900px){.more{grid-template-columns:1fr 1fr}}@media(max-width:480px){.more{grid-template-columns:1fr}}
+.studios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.st{--q:#8b5cf6;position:relative;padding:24px;border-radius:22px;background:linear-gradient(160deg,color-mix(in srgb,var(--q) 16%,var(--card)),var(--card) 70%);border:1px solid color-mix(in srgb,var(--q) 50%,transparent);transition:transform .2s cubic-bezier(.2,1.3,.4,1),box-shadow .2s}
+.st:hover{transform:translateY(-6px);box-shadow:0 20px 50px color-mix(in srgb,var(--q) 28%,transparent)}
+.st .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--q) 22%,transparent);color:var(--q);margin-bottom:16px}
+.st .ic svg{width:26px;height:26px}
+.st h3{font-size:20px;margin-bottom:6px}.st p{color:var(--mu);font-size:15px}
+.st .new{position:absolute;right:16px;top:16px;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:var(--q);color:#fff}
+/* spotlights */
+.spot{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;align-items:center;margin-bottom:90px}
+.spot.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}.spot.flip .shot{order:2}
+.shot{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 80px #0009}
+.shot .mini{position:absolute;right:16px;bottom:16px;width:38%;border-radius:12px;overflow:hidden;border:2px solid #ffffff30;box-shadow:0 20px 40px #000a}
+.spot h3{font-size:clamp(26px,3vw,36px);line-height:1.12;letter-spacing:-.02em;margin:10px 0 12px}
+.spot p{color:var(--mu);font-size:16.5px}
+.ticks{list-style:none;display:grid;gap:10px;margin-top:18px}
+.ticks li{display:flex;gap:10px;align-items:flex-start;color:#d7dcf5}
+.ticks li:before{content:"✓";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;display:grid;place-items:center;background:var(--gradb);color:#fff;font-size:12px;font-weight:900}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:999px;background:#7c6cff26;color:#c4b5fd;border:1px solid #7c6cff55}
+/* themes */
+.themes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:8px}
+.th{border-radius:18px;overflow:hidden;border:1px solid var(--line2);background:var(--card)}
+.th .pv{height:96px;position:relative;background:var(--b)}
+.th .pv i{position:absolute;border-radius:6px}
+.th .pv .s{left:0;top:0;bottom:0;width:22%;background:var(--p);border-radius:0}
+.th .pv .h{left:30%;top:14px;width:46%;height:10px;background:var(--a)}
+.th .pv .c1{left:30%;top:34px;width:28%;height:40px;background:var(--p)}
+.th .pv .c2{left:62%;top:34px;width:28%;height:40px;background:var(--p)}
+.th b{display:block;padding:10px 12px;font-size:14px}
+.custom{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.custom span{padding:8px 14px;border-radius:999px;background:#ffffff0a;border:1px solid var(--line);font-size:14px;color:#d7dcf5;font-weight:600}
 /* download */
-.dl{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:var(--r);border:1px solid var(--line);background:var(--card)}
-.card .pi{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#ffffff10;border:1px solid var(--line2)}.card .pi svg{width:26px;height:26px}
-.card h3{font-size:21px}.card p{color:var(--mu);font-size:14px;flex:1}
-.card .btn{width:100%}
-.card.you{border-color:#c4b5fd88;background:linear-gradient(160deg,#8b5cf62a,#ec489914);box-shadow:0 20px 60px #8b5cf633}
-.card.you::before{content:attr(data-you);position:absolute;top:-11px;left:20px;padding:3px 10px;border-radius:99px;background:var(--gradb);font:800 11px var(--fb);letter-spacing:.06em}
-.webrow{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 22px;border-radius:20px;border:1px dashed var(--line2);color:var(--mu)}
-.webrow b{color:var(--ink)}
-@media(max-width:980px){.dl{grid-template-columns:1fr 1fr}}@media(max-width:520px){.dl{grid-template-columns:1fr}}
+.dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:22px;background:var(--card);border:1px solid var(--line2);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#7c6cff88}
+.card.you{border-color:#7c6cff;box-shadow:0 0 0 3px #7c6cff33,0 20px 50px #7c6cff33}
+.card.you:after{content:attr(data-you);position:absolute;top:-11px;left:22px;font-size:11px;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:999px;background:var(--grad);color:#fff}
+.card .pi{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#ffffff0d}
+.card .pi svg{width:26px;height:26px}
+.card h3{font-size:19px}.card p{color:var(--mu);font-size:14.5px;flex:1}
+.webrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px;padding:18px 22px;border-radius:20px;background:var(--card);border:1px solid var(--line2)}
+.webrow svg{width:22px;height:22px}
 /* faq */
-.faq{display:grid;gap:10px;max-width:820px;margin:0 auto}
-.faq details{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:4px 20px}
-.faq summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:400 24px var(--fh);color:#c4b5fd;line-height:1;transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq p{color:var(--mu);padding:0 0 16px}
-/* cta band */
-.final{text-align:center;padding:64px 28px;border-radius:36px;background:radial-gradient(600px 300px at 50% 0%,#ec489944,transparent 70%),linear-gradient(160deg,#8b5cf633,#ffffff05);border:1px solid var(--line2)}
-.final h2{font-size:clamp(34px,5vw,60px);margin-bottom:14px}
-.final .cta{justify-content:center}
-footer{padding:44px 0 60px;color:var(--mu2);font-size:14px}
-footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-footer .fl{display:flex;gap:18px;flex-wrap:wrap}footer a:hover{color:var(--ink)}
+.faq{max-width:820px;margin:0 auto;display:grid;gap:10px}
+details{border-radius:16px;background:var(--card);border:1px solid var(--line2);padding:4px 20px}
+summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:700;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:22px;line-height:1;color:#a5b4fc;transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--mu);padding:0 0 16px}
+.final{position:relative;text-align:center;padding:64px 24px;border-radius:30px;overflow:hidden;border:1px solid var(--line2);background:radial-gradient(600px 300px at 50% 0%,#7c3aed55,transparent 70%),var(--card)}
+.final .cta{justify-content:center;margin-top:26px}
+footer{padding:48px 0 60px;color:var(--mu);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px}
+footer .fl{display:flex;flex-wrap:wrap;gap:18px}footer a:hover{color:var(--ink)}
 /* reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .7s,transform .7s cubic-bezier(.2,1,.3,1),filter .7s}
+.reveal.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}.win{transform:none}}
 /* install sheet */
 .im{position:fixed;inset:0;z-index:100;background:#05030dcc;backdrop-filter:blur(10px);display:grid;place-items:center;padding:20px}
 .im[hidden]{display:none}
@@ -193,13 +151,13 @@ footer .fl{display:flex;gap:18px;flex-wrap:wrap}footer a:hover{color:var(--ink)}
 .im-ic{width:64px;height:64px;border-radius:18px;margin-bottom:14px;box-shadow:0 10px 30px #8b5cf666}
 .im-card h3{font-size:24px;margin-bottom:14px}
 .im-steps ol{list-style:none;display:grid;gap:14px}
-.im-steps li{display:flex;gap:12px;align-items:flex-start;color:var(--mu)}.im-steps li b{color:var(--ink)}
+.im-steps li{display:flex;gap:12px;align-items:flex-start;color:var(--mu)}
+.im-steps li b{color:var(--ink)}
 .im-n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gradb);color:#fff;font-weight:800;font-size:14px}
 .im-share{vertical-align:middle;color:#60a5fa}.im-plus{font-weight:800;color:#60a5fa}
 .im-note{margin-top:16px;padding:12px 14px;border-radius:14px;background:var(--card2);color:var(--mu);font-size:14px}
-#instToast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:120;padding:12px 18px;border-radius:16px;background:#1a1530;border:1px solid var(--line2);box-shadow:0 20px 60px #000c;font-weight:600;max-width:calc(100% - 32px)}
-#instToast[hidden]{display:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.chip,.strip .row{animation:none}}
+@media (max-width:980px){.hero .wrap,.spot,.spot.flip{grid-template-columns:1fr}.spot.flip .shot{order:0}.studios{grid-template-columns:repeat(2,minmax(0,1fr))}.dl{grid-template-columns:repeat(2,minmax(0,1fr))}.themes{grid-template-columns:repeat(3,minmax(0,1fr))}.links{display:none}.top .wrap{justify-content:space-between}.win{transform:none}.phone{right:8px;width:110px}.script{left:6px}}
+@media (max-width:560px){.studios,.dl{grid-template-columns:1fr}.themes{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:104px}.navopen{display:none}.phone{display:none}}
 </style>
 </head>
 <body>
@@ -213,210 +171,128 @@ footer .fl{display:flex;gap:18px;flex-wrap:wrap}footer a:hover{color:var(--ink)}
  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 001.5.9l10.4-6.5a1 1 0 000-1.8L9.5 4.6A1 1 0 008 5.5z"/></symbol>
  <symbol id="i-cube" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.8l8 4.4v9.6l-8 4.4-8-4.4V7.2zM4 7.2l8 4.4 8-4.4M12 11.6V21"/></symbol>
 </svg>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.2l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></symbol>
-</svg>
-
 <nav class="top" id="nav"><div class="wrap">
- <a class="brand" href="#"><img src="icon-192.png" alt="">MasterSketch <small>9.3</small></a>
+ <a class="brand" href="#"><img src="icon-192.png" alt="">MasterSketch <small>9.4</small></a>
  <div class="links">
-  <a href="#animate"><span lang="en">Animate</span><span lang="th">แอนิเมชัน</span></a>
-  <a href="#play"><span lang="en">3D &amp; Play</span><span lang="th">3D และเกม</span></a>
-  <a href="workshop.html"><span lang="en">Workshop</span><span lang="th">เวิร์กช็อป</span></a>
-  <a href="mods.html"><span lang="en">Mods</span><span lang="th">ม็อด</span></a>
+  <a href="#studios"><span lang="en">Studios</span><span lang="th">สตูดิโอ</span></a>
+  <a href="#draw"><span lang="en">Draw</span><span lang="th">วาดภาพ</span></a>
+  <a href="#game"><span lang="en">Game Studio</span><span lang="th">สตูดิโอเกม</span></a>
+  <a href="#themes"><span lang="en">Themes</span><span lang="th">ธีม</span></a>
   <a href="#download"><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a>
   <a href="#faq">FAQ</a>
  </div>
- <a class="btn sm install navinstall" href="#" data-install><span lang="en">Install</span><span lang="th">ติดตั้ง</span></a>
  <div class="lang" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="th">ไทย</button></div>
+ <a class="btn sm pri navopen" href="app.html"><span lang="en">Open app</span><span lang="th">เปิดแอป</span></a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
- <div>
-  <span class="eyebrow"><b>NEW 9.3</b><span><span lang="en">New Draw page · 14 themes · Make it look your way</span><span lang="th">หน้าวาดภาพใหม่ · 14 ธีม · ปรับหน้าตาได้ตามใจ</span></span></span>
-  <h1><span lang="en">Draw it.<br>Animate it.<br><span class="grad">Build it in 3D.</span></span><span lang="th">วาดเลย<br>ทำให้เคลื่อนไหว<br><span class="grad">สร้างในโลก 3D</span></span></h1>
-  <p class="lead"><span lang="en">MasterSketch Studio is a free creative studio for every device. Paint with 100+ brushes, make cartoons frame by frame with your own sounds, build 3D worlds you can fly through and play – and share it all with everyone.</span><span lang="th">MasterSketch Studio คือสตูดิโอสร้างสรรค์ฟรีสำหรับทุกอุปกรณ์ วาดด้วยแปรงกว่า 100 แบบ ทำการ์ตูนทีละเฟรมพร้อมเสียงของคุณเอง สร้างโลก 3D ที่บินเที่ยวและเล่นเกมได้ แล้วแชร์ให้ทุกคนดู</span></p>
-  <div class="cta">
-   <a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open MasterSketch</span><span lang="th">เปิด MasterSketch</span></a>
-   <a class="btn" id="mainBtn" href="#download"><svg><use href="#i-down"/></svg><span id="mainLabel"><span lang="en">Download for your device</span><span lang="th">ดาวน์โหลดสำหรับอุปกรณ์ของคุณ</span></span></a>
+<header class="hero">
+ <svg class="sky" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b21b6" stop-opacity="0"/><stop offset=".5" stop-color="#db2777" stop-opacity=".5"/><stop offset="1" stop-color="#fb923c" stop-opacity=".6"/></linearGradient></defs><rect width="1200" height="340" fill="url(#sk1)"/><path d="M0 250 L120 180 L220 220 L360 140 L480 210 L600 160 L740 220 L860 150 L1000 210 L1100 170 L1200 200 V340 H0Z" fill="#4c1d95"/><path d="M0 290 L160 230 L300 270 L460 220 L620 280 L800 230 L960 280 L1200 240 V340 H0Z" fill="#2e1065"/></svg>
+ <div class="wrap">
+  <div>
+   <span class="eyebrow"><b>NEW 9.4</b><span><span lang="en">New website · New loading screen · New Draw page</span><span lang="th">เว็บไซต์ใหม่ · หน้าโหลดใหม่ · หน้าวาดภาพใหม่</span></span></span>
+   <div class="hi"><span lang="en">Welcome to</span><span lang="th">ยินดีต้อนรับสู่</span></div>
+   <h1 class="word">MasterSketch</h1>
+   <p class="tag"><span lang="en">Your canvas. Your rules.</span><span lang="th">ผืนผ้าใบของคุณ กติกาของคุณ</span></p>
+   <p class="lead"><span lang="en">A free creative studio for every device. Paint with 100+ brushes, animate frame by frame with layers, sculpt clay in 3D and build your own games – then share them with everyone.</span><span lang="th">สตูดิโอสร้างสรรค์ฟรีสำหรับทุกอุปกรณ์ วาดด้วยแปรงกว่า 100 แบบ ทำแอนิเมชันทีละเฟรมพร้อมเลเยอร์ ปั้นดินแบบ 3D และสร้างเกมของคุณเอง แล้วแชร์ให้ทุกคน</span></p>
+   <div class="cta">
+    <a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Start painting</span><span lang="th">เริ่มวาดเลย</span></a>
+    <a class="btn" id="mainBtn" href="#download"><svg><use href="#i-down"/></svg><span id="mainLabel"><span lang="en">Download for your device</span><span lang="th">ดาวน์โหลดสำหรับอุปกรณ์ของคุณ</span></span></a>
+   </div>
+   <p class="hint" id="detectHint"><span lang="en">Free · no ads · works offline</span><span lang="th">ฟรี · ไม่มีโฆษณา · ใช้ออฟไลน์ได้</span></p>
   </div>
-  <p class="hint" id="detectHint"><span lang="en">Free · no account · works offline</span><span lang="th">ฟรี · ไม่ต้องสมัคร · ใช้ออฟไลน์ได้</span></p>
+  <div class="stage">
+   <div class="script" aria-hidden="true">Good art takes time ☺</div>
+   <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shot94-home.jpg" width="1440" height="900" alt="The MasterSketch Home page with a sunset banner, quick start cards and a sidebar"></div>
+   <div class="phone"><img src="shot94-phone.jpg" width="390" height="844" alt="Painting a sunset on a phone"></div>
+  </div>
  </div>
- <div class="stage">
-  <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shot80-pro.jpg" width="1440" height="900" alt="MasterSketch 8.0: a building drawn with the 2-point perspective guide, with shading and windows on clipping masks"></div>
-  <div class="phone"><img src="shot80-pro-th.jpg" width="780" height="1688" alt="The perspective guide on a phone, in Thai"></div>
-  <div class="chip c1"><i>🎬</i><span><span lang="en">Animation Workshop</span><span lang="th">เวิร์กช็อปแอนิเมชัน</span></span></div>
-  <div class="chip c2"><i>✈️</i><span><span lang="en">Fly with W A S D</span><span lang="th">บินด้วย W A S D</span></span></div>
-  <div class="chip c3"><i>🏁</i><span><span lang="en">13 game levels</span><span lang="th">เกม 13 ด่าน</span></span></div>
- </div>
-</div>
-<div class="wrap"><div class="plats">
- <span><svg><use href="#i-android"/></svg>Android</span><span><svg><use href="#i-ipad"/></svg>iPad &amp; iPhone</span><span><svg><use href="#i-win"/></svg>Windows</span><span><svg><use href="#i-apple"/></svg>Mac</span><span><svg><use href="#i-globe"/></svg><span lang="en">Any web browser</span><span lang="th">ทุกเบราว์เซอร์</span></span>
-</div></div>
+ <div class="wrap"><div class="plats">
+  <span><svg><use href="#i-android"/></svg>Android</span><span><svg><use href="#i-ipad"/></svg>iPad &amp; iPhone</span><span><svg><use href="#i-win"/></svg>Windows</span><span><svg><use href="#i-apple"/></svg>Mac</span><span><svg><use href="#i-globe"/></svg><span lang="en">Any web browser</span><span lang="th">ทุกเบราว์เซอร์</span></span>
+ </div></div>
 </header>
 
-<div class="strip" aria-hidden="true"><div class="row">
- <span>✏️ <b lang="en">Draw</b><b lang="th">วาด</b></span><span>🎬 <b lang="en">Animate</b><b lang="th">แอนิเมชัน</b></span><span>🧊 <b>3D</b></span><span>✈️ <b lang="en">Fly</b><b lang="th">บิน</b></span><span>🎮 <b lang="en">Play</b><b lang="th">เล่นเกม</b></span><span>🖼️ <b lang="en">Gallery</b><b lang="th">แกลเลอรี</b></span><span>🧩 <b lang="en">Mods</b><b lang="th">ม็อด</b></span><span>🎵 <b>Boom Box</b></span>
- <span>✏️ <b lang="en">Draw</b><b lang="th">วาด</b></span><span>🎬 <b lang="en">Animate</b><b lang="th">แอนิเมชัน</b></span><span>🧊 <b>3D</b></span><span>✈️ <b lang="en">Fly</b><b lang="th">บิน</b></span><span>🎮 <b lang="en">Play</b><b lang="th">เล่นเกม</b></span><span>🖼️ <b lang="en">Gallery</b><b lang="th">แกลเลอรี</b></span><span>🧩 <b lang="en">Mods</b><b lang="th">ม็อด</b></span><span>🎵 <b>Boom Box</b></span>
-</div></div>
-
 <section id="studios"><div class="wrap">
- <div class="sec-head reveal"><span class="kicker">✦ <span lang="en">Everything in one app</span><span lang="th">ครบในแอปเดียว</span></span>
-  <h2><span lang="en">Six studios. <span class="grad">One place to create.</span></span><span lang="th">6 สตูดิโอ <span class="grad">ในที่เดียว</span></span></h2></div>
+ <div class="head reveal"><span class="kick"><span lang="en">Six studios · one app</span><span lang="th">6 สตูดิโอ · แอปเดียว</span></span><h2><span lang="en">Everything you need to <span class="grad">create</span></span><span lang="th">ทุกอย่างที่ต้องใช้เพื่อ<span class="grad">สร้างสรรค์</span></span></h2></div>
  <div class="studios">
-  <div class="studio reveal" style="--glow:#8b5cf6"><div class="ic">✏️</div><h3><span lang="en">Draw</span><span lang="th">วาดภาพ</span></h3><p><span lang="en">Layers with clipping masks, 100+ brushes, liquify, curves, perspective guides, Photoshop files, coloring pages and lessons.</span><span lang="th">เลเยอร์และคลิปปิ้งมาสก์ แปรงกว่า 100 แบบ ทำให้เหลว เคิร์ฟ เส้นนำเพอร์สเปกทีฟ ไฟล์ Photoshop หน้าระบายสี และบทเรียน</span></p></div>
-  <div class="studio reveal" style="--glow:#ec4899;--ig:linear-gradient(135deg,#f472b6,#fb923c)"><span class="tag">NEW</span><div class="ic">🎬</div><h3><span lang="en">Animate</span><span lang="th">แอนิเมชัน</span></h3><p><span lang="en">Draw frame by frame with layers and onion skin. Tweens draw the in-between frames, add camera moves, trace a video, add sounds and export a video or GIF.</span><span lang="th">วาดทีละเฟรมพร้อมเลเยอร์และออนเนียนสกิน ทวีนช่วยวาดเฟรมระหว่างกลาง ใส่การเคลื่อนกล้อง วาดทับวิดีโอ ใส่เสียง แล้วส่งออกเป็นวิดีโอหรือ GIF</span></p></div>
-  <div class="studio reveal" style="--glow:#22d3ee;--ig:linear-gradient(135deg,#22d3ee,#3b82f6)"><div class="ic">🧊</div><h3><span lang="en">3D Studio</span><span lang="th">สตูดิโอ 3D</span></h3><p><span lang="en">Sculpt clay with brushes, build models from shapes, pose figures and make them move. Show them off in render styles with notes pinned on them.</span><span lang="th">ปั้นดินด้วยแปรง สร้างโมเดลจากรูปทรง จัดท่าและทำให้เคลื่อนไหว แล้วโชว์ผลงานด้วยรูปแบบการแสดงผลต่างๆ พร้อมปักโน้ตบนโมเดล</span></p></div>
-  <div class="studio reveal" style="--glow:#facc15;--ig:linear-gradient(135deg,#facc15,#fb923c)"><span class="tag">NEW</span><div class="ic">🎮</div><h3><span lang="en">Game Studio</span><span lang="th">สตูดิโอเกม</span></h3><p><span lang="en">Build your own games with a toolbox, explorer, properties and simple scripts – kill bricks, jump pads, coins, checkpoints. Press Play and run with your avatar, then publish it for everyone.</span><span lang="th">สร้างเกมของคุณเองด้วยกล่องเครื่องมือ เอ็กซ์พลอเรอร์ คุณสมบัติ และสคริปต์ง่ายๆ – บล็อกอันตราย แท่นกระโดด เหรียญ จุดเซฟ กดเล่นแล้ววิ่งด้วยอวตารของคุณ แล้วเผยแพร่ให้ทุกคนเล่น</span></p></div>
-  <div class="studio reveal" style="--glow:#34d399;--ig:linear-gradient(135deg,#34d399,#0ea5e9)"><div class="ic">🖼️</div><h3><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></h3><p><span lang="en">Share paintings and animations with everyone – no account needed. Like your favorites and trace over them.</span><span lang="th">แชร์ภาพวาดและแอนิเมชันให้ทุกคนดูได้โดยไม่ต้องมีบัญชี กดถูกใจและวาดทับเพื่อฝึกได้</span></p></div>
-  <div class="studio reveal" style="--glow:#a855f7;--ig:linear-gradient(135deg,#a855f7,#6366f1)"><div class="ic">🧩</div><h3><span lang="en">Mods</span><span lang="th">ม็อด</span></h3><p><span lang="en">Make your own brushes, palettes and 3D model packs, then install the ones other people made.</span><span lang="th">สร้างแปรง ชุดสี และชุดโมเดล 3D ของคุณเอง แล้วติดตั้งม็อดที่คนอื่นสร้าง</span></p></div>
+  <div class="st reveal" style="--q:#8b5cf6"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3l3 3-9.5 9.5-4-1 1-4z"/><path d="M7.5 14.5C5 14.5 4 16 4 18s-1 3-2 3c4 0 7-1 7-4.5"/></svg></div><h3><span lang="en">Draw &amp; paint</span><span lang="th">วาดและระบายสี</span></h3><p><span lang="en">100+ brushes, layers, clipping masks, liquify, perspective guides, curves and Photoshop files.</span><span lang="th">แปรงกว่า 100 แบบ เลเยอร์ คลิปปิ้งมาสก์ ทำให้เหลว เส้นนำเพอร์สเปกทีฟ เคิร์ฟ และไฟล์ Photoshop</span></p></div>
+  <div class="st reveal" style="--q:#ec4899"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M17 9h4M3 15h4M17 15h4"/></svg></div><h3><span lang="en">Animate</span><span lang="th">แอนิเมชัน</span></h3><p><span lang="en">Frame by frame with onion skin and layers. Tweens, camera moves, your own sounds, video and GIF.</span><span lang="th">วาดทีละเฟรมพร้อมออนเนียนสกินและเลเยอร์ ทวีน การเคลื่อนกล้อง เสียงของคุณเอง วิดีโอและ GIF</span></p></div>
+  <div class="st reveal" style="--q:#f59e0b"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg></div><h3><span lang="en">3D Studio</span><span lang="th">สตูดิโอ 3D</span></h3><p><span lang="en">Sculpt clay with brushes, build like SketchUp, pose figures, pin notes and show off in render styles.</span><span lang="th">ปั้นดินด้วยแปรง สร้างแบบ SketchUp จัดท่าตัวละคร ปักโน้ต และโชว์ด้วยรูปแบบการแสดงผลต่างๆ</span></p></div>
+  <div class="st reveal" style="--q:#22c55e"><span class="new">NEW</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r=".8"/><circle cx="18" cy="13.5" r=".8"/></svg></div><h3><span lang="en">Game Studio</span><span lang="th">สตูดิโอเกม</span></h3><p><span lang="en">Build games with a toolbox, explorer and simple scripts, then run, jump and collect coins with your avatar.</span><span lang="th">สร้างเกมด้วยกล่องเครื่องมือ เอ็กซ์พลอเรอร์ และสคริปต์ง่ายๆ แล้ววิ่ง กระโดด เก็บเหรียญด้วยอวตารของคุณ</span></p></div>
+  <div class="st reveal" style="--q:#3b82f6"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></div><h3><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></h3><p><span lang="en">Share paintings, animations and games with everyone. Like your favourites and trace over them.</span><span lang="th">แชร์ภาพวาด แอนิเมชัน และเกมให้ทุกคน กดถูกใจผลงานที่ชอบและวาดทับได้</span></p></div>
+  <div class="st reveal" style="--q:#14b8a6"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v3a2 2 0 104 0V3h3v7h-3a2 2 0 100 4h3v7h-7v-3a2 2 0 10-4 0v3H3V3h7z"/></svg></div><h3><span lang="en">Mods</span><span lang="th">ม็อด</span></h3><p><span lang="en">Add brushes, palettes and 3D models made by everyone – or make your own and publish it.</span><span lang="th">เพิ่มแปรง จานสี และโมเดล 3D ที่ทุกคนทำ หรือทำของคุณเองแล้วเผยแพร่</span></p></div>
  </div>
 </div></section>
 
-<section id="pro" style="padding-top:20px"><div class="wrap spot">
- <div class="shot reveal"><img src="shot80-pro.jpg" width="1440" height="900" loading="lazy" alt="MasterSketch 8.0 Pro tools: perspective guide, clipping masks and the layer panel"></div>
- <div class="reveal">
-  <span class="kicker">🎨 <span lang="en">New in 8.0</span><span lang="th">ใหม่ในเวอร์ชัน 8.0</span></span>
-  <h2><span lang="en">Pro tools, <span class="grad">free for everyone</span></span><span lang="th">เครื่องมือมืออาชีพ <span class="grad">ฟรีสำหรับทุกคน</span></span></h2>
-  <p class="sub"><span lang="en">The tools artists know from Photoshop, Procreate and Clip Studio Paint – in a free app that runs on any device.</span><span lang="th">เครื่องมือที่ศิลปินคุ้นเคยจาก Photoshop, Procreate และ Clip Studio Paint ในแอปฟรีที่ใช้ได้ทุกอุปกรณ์</span></p>
-  <ul class="ticks">
-   <li><i>🧷</i><span><span lang="en"><b>Clipping masks</b> – shade and color on a layer clipped to your drawing, so nothing goes outside the lines.</span><span lang="th"><b>คลิปปิ้งมาสก์</b> – ลงแสงเงาและสีบนเลเยอร์ที่ตัดตามภาพวาด สีจึงไม่ล้นออกนอกเส้น</span></span></li>
-   <li><i>🫠</i><span><span lang="en"><b>Liquify, Distort and Warp</b> – push, twirl, pinch and bloat, put a picture in perspective or bend it with a warp grid.</span><span lang="th"><b>ทำให้เหลว บิดมุมมอง และบิดโค้ง</b> – ดัน หมุนวน บีบ พอง วางภาพในมุมเพอร์สเปกทีฟ หรือดัดด้วยกริด</span></span></li>
-   <li><i>🛣️</i><span><span lang="en"><b>Perspective guides</b> – 1-, 2- and 3-point with movable vanishing points. Your lines snap to them.</span><span lang="th"><b>เส้นนำเพอร์สเปกทีฟ</b> – 1, 2 และ 3 จุด ย้ายจุดรวมสายตาได้ เส้นที่วาดจะจับตามเส้นนำ</span></span></li>
-   <li><i>📈</i><span><span lang="en"><b>Curves &amp; Levels</b> – live color correction for RGB, red, green and blue, plus motion and zoom blur.</span><span lang="th"><b>เคิร์ฟและเลเวล</b> – ปรับสีแบบเห็นผลทันทีสำหรับ RGB แดง เขียว น้ำเงิน พร้อมเบลอแบบเคลื่อนไหวและแบบซูม</span></span></li>
-   <li><i>🗂️</i><span><span lang="en"><b>Photoshop files</b> – open .psd files with their layers and export layered .psd for Photoshop, Photopea, Krita and Procreate.</span><span lang="th"><b>ไฟล์ Photoshop</b> – เปิด .psd พร้อมเลเยอร์ และส่งออก .psd แบบมีเลเยอร์สำหรับ Photoshop, Photopea, Krita และ Procreate</span></span></li>
-   <li><i>🪣</i><span><span lang="en"><b>Close-gap fill and pull-string stabilizer</b> – the fill bucket stays inside line art with small gaps, and lines come out silky smooth.</span><span lang="th"><b>เติมสีแบบปิดช่องว่างและกันสั่นแบบเชือกดึง</b> – ถังเทสีไม่ล้นแม้ลายเส้นมีช่องเล็ก ๆ และเส้นเนียนกริบ</span></span></li>
-  </ul>
+<section id="draw"><div class="wrap">
+ <div class="spot reveal">
+  <div class="shot"><img src="shot94-draw.jpg" width="1440" height="900" alt="The new Draw page: a sunset painting with Brushes and Colors cards on the right" loading="lazy"></div>
+  <div><span class="pill"><span lang="en">NEW Draw page</span><span lang="th">หน้าวาดภาพใหม่</span></span>
+   <h3><span lang="en">Brushes, colors and layers – all in one place</span><span lang="th">แปรง สี และเลเยอร์ อยู่รวมในที่เดียว</span></h3>
+   <p><span lang="en">Your favourite brushes sit as big tiles next to the color picker and your layers, so you spend less time searching and more time painting.</span><span lang="th">แปรงโปรดเป็นปุ่มใหญ่อยู่ข้างตัวเลือกสีและเลเยอร์ ใช้เวลาหาน้อยลง วาดได้มากขึ้น</span></p>
+   <ul class="ticks"><li><span lang="en">Pen pressure, stabilizer and symmetry</span><span lang="th">แรงกดปากกา ตัวช่วยเส้นนิ่ง และสมมาตร</span></li><li><span lang="en">Clipping masks, liquify, warp and curves</span><span lang="th">คลิปปิ้งมาสก์ ทำให้เหลว บิดภาพ และเคิร์ฟ</span></li><li><span lang="en">Open and save Photoshop .psd files</span><span lang="th">เปิดและบันทึกไฟล์ Photoshop .psd</span></li></ul></div>
  </div>
-</div></section>
-<section id="build" style="padding-top:20px"><div class="wrap spot">
- <div class="shot reveal"><img src="shot70-build.jpg" width="1440" height="900" loading="lazy" alt="Building in 3D with MasterSketch: blocks, a cylinder and a roof terrace made with push/pull"></div>
- <div class="reveal">
-  <span class="kicker">📐 <span lang="en">Build in 3D</span><span lang="th">สร้างใน 3D</span></span>
-  <h2><span lang="en">Build like <span class="grad">SketchUp</span></span><span lang="th">สร้างแบบ <span class="grad">SketchUp</span></span></h2>
-  <p class="sub"><span lang="en">Draw a flat shape on the floor, then push/pull it into 3D. Houses, furniture, towers – anything made of blocks.</span><span lang="th">วาดรูปแบนบนพื้น แล้วดัน/ดึงให้เป็น 3 มิติ บ้าน เฟอร์นิเจอร์ ตึก – อะไรก็ได้ที่ทำจากบล็อก</span></p>
-  <ul class="ticks">
-   <li><i>✏️</i><span><span lang="en"><b>Line, rectangle, circle and polygon</b> – draw on the floor or right on top of any face.</span><span lang="th"><b>เส้น สี่เหลี่ยม วงกลม และรูปหลายเหลี่ยม</b> – วาดบนพื้นหรือบนหน้าไหนก็ได้</span></span></li>
-   <li><i>⬆️</i><span><span lang="en"><b>Push/Pull</b> faces into solids, pull a side to make it wider, push a shape down to cut a hole or a pocket.</span><span lang="th"><b>ดัน/ดึง</b> หน้าให้เป็นรูปทรงทึบ ดึงด้านข้างให้กว้างขึ้น ดันรูปลงเพื่อเจาะรูหรือหลุม</span></span></li>
-   <li><i>📏</i><span><span lang="en"><b>Exact sizes</b> – type 2,3 or 30cm. Snaps to corners, middles and the red, green and blue axes. Tape measure and offset too.</span><span lang="th"><b>ขนาดที่แน่นอน</b> – พิมพ์ 2,3 หรือ 30cm จับมุม จุดกึ่งกลาง และแกนแดง เขียว น้ำเงิน มีตลับเมตรและออฟเซ็ตด้วย</span></span></li>
-   <li><i>🖨️</i><span><span lang="en"><b>Ready for 3D printing</b> – export an .stl file in millimetres. Shaded, White and X-ray views.</span><span lang="th"><b>พร้อมพิมพ์ 3 มิติ</b> – ส่งออกไฟล์ .stl หน่วยมิลลิเมตร มีมุมมองแรเงา ขาว และเอกซเรย์</span></span></li>
-   <li><i>🪄</i><span><span lang="en"><b>AutoDraw</b> for drawing – doodle something and swap it for a finished picture. Plus 30 new coloring pages and SVG export with layers.</span><span lang="th"><b>วาดอัตโนมัติ</b> – วาดเล่นแล้วสลับเป็นภาพสวยที่เสร็จแล้ว พร้อมหน้าระบายสีใหม่ 30 แบบ และส่งออก SVG พร้อมเลเยอร์</span></span></li>
-  </ul>
+ <div class="spot flip reveal" id="game">
+  <div class="shot"><img src="shot94-game.jpg" width="1440" height="900" alt="Game Studio with the toolbox, a 3D obstacle course and the explorer" loading="lazy"><div class="mini"><img src="shot94-gplay.jpg" width="1440" height="900" alt="Playing a city game with a blocky avatar" loading="lazy"></div></div>
+  <div><span class="pill" style="background:#22c55e22;color:#86efac;border-color:#22c55e55"><span lang="en">Game Studio</span><span lang="th">สตูดิโอเกม</span></span>
+   <h3><span lang="en">Build a game. Press Play. Run around in it.</span><span lang="th">สร้างเกม กดเล่น แล้ววิ่งเล่นในนั้นได้เลย</span></h3>
+   <p><span lang="en">Drop in kill bricks, jump pads, coins, checkpoints, moving platforms and talking NPCs. Make things happen with one-line scripts like <b>when touched: coins 5</b>.</span><span lang="th">วางบล็อกอันตราย แท่นกระโดด เหรียญ จุดเซฟ แท่นเคลื่อนที่ และ NPC ที่พูดได้ สั่งให้สิ่งต่างๆ เกิดขึ้นด้วยสคริปต์บรรทัดเดียว เช่น <b>when touched: coins 5</b></span></p>
+   <ul class="ticks"><li><span lang="en">13 adventure levels to play or remix</span><span lang="th">ด่านผจญภัย 13 ด่าน เล่นหรือรีมิกซ์ได้</span></li><li><span lang="en">Customize your avatar</span><span lang="th">แต่งตัวอวตารของคุณ</span></li><li><span lang="en">Publish your game for everyone to play</span><span lang="th">เผยแพร่เกมให้ทุกคนเล่น</span></li></ul></div>
  </div>
-</div></section>
-<section id="animate" style="padding-top:20px"><div class="wrap spot">
- <div class="shot reveal"><img src="shot61-anim.jpg" width="1440" height="900" loading="lazy" alt="Animation Workshop with the brush picker, onion skin and a title on the front layer"></div>
- <div class="reveal">
-  <span class="kicker">🎬 <span lang="en">Animation</span><span lang="th">แอนิเมชัน</span></span>
-  <h2><span lang="en">The <span class="grad">Animation Workshop 2.0</span></span><span lang="th"><span class="grad">เวิร์กช็อปแอนิเมชัน 2.0</span></span></h2>
-  <p class="sub"><span lang="en">Make your own cartoon, one frame at a time – now with every brush and tool from the drawing canvas.</span><span lang="th">ทำการ์ตูนของคุณเองทีละเฟรม – ตอนนี้มีแปรงและเครื่องมือครบเหมือนผืนผ้าใบวาดภาพ</span></p>
-  <ul class="ticks">
-   <li><i>🖌️</i><span><span lang="en"><b>Every brush and tool</b> from the drawing canvas – fun brushes, stamps, shapes, gradient, text, smudge and symmetry.</span><span lang="th"><b>แปรงและเครื่องมือครบทุกแบบ</b> จากผืนผ้าใบวาดภาพ – แปรงสนุก ๆ ตัวปั๊ม รูปทรง การไล่สี ข้อความ นิ้วเกลี่ย และสมมาตร</span></span></li>
-   <li><i>✂️</i><span><span lang="en"><b>Select and move</b> part of a drawing – resize, turn or flip it, then carry it to the next frame for cut-out animation.</span><span lang="th"><b>เลือกแล้วเลื่อน</b> ส่วนหนึ่งของภาพ – ย่อขยาย หมุน หรือพลิก แล้วถือไปเฟรมถัดไปเพื่อทำแอนิเมชันแบบตัดแปะ</span></span></li>
-   <li><i>🧱</i><span><span lang="en"><b>A front layer</b> for titles, a tracing picture, guides, zoom, and effects on one frame or all of them.</span><span lang="th"><b>เลเยอร์หน้า</b> สำหรับชื่อเรื่อง ภาพลอกลาย เส้นนำ การซูม และเอฟเฟกต์กับเฟรมเดียวหรือทุกเฟรม</span></span></li>
-   <li><i>🧅</i><span><span lang="en"><b>Onion skin</b> shows the frame before in red and the next in green, so you know where to draw.</span><span lang="th"><b>ออนเนียนสกิน</b> แสดงเฟรมก่อนหน้าเป็นสีแดงและเฟรมถัดไปเป็นสีเขียว จะได้รู้ว่าต้องวาดตรงไหน</span></span></li>
-   <li><i>🔊</i><span><span lang="en"><b>Sounds on any frame</b> – 12 effects, record your own voice or upload a sound, plus background music.</span><span lang="th"><b>ใส่เสียงในเฟรมไหนก็ได้</b> – เสียงเอฟเฟกต์ 12 แบบ อัดเสียงตัวเอง หรืออัปโหลดเสียง พร้อมเพลงประกอบ</span></span></li>
-   <li><i>🎞️</i><span><span lang="en"><b>Export a video with sound</b>, a GIF or a sprite sheet – or share it in the Gallery.</span><span lang="th"><b>ส่งออกเป็นวิดีโอพร้อมเสียง</b> GIF หรือสไปรต์ชีต – หรือแชร์ในแกลเลอรี</span></span></li>
-  </ul>
-  <div class="snds"><span>💥 Pop</span><span>🦘 Boing</span><span>💨 Whoosh</span><span>🔔 Ding</span><span>🥁 Drum</span><span>👏 Clap</span><span>⚡ Laser</span><span>🪙 Coin</span><span>🎉 Ta-da!</span></div>
+ <div class="spot reveal">
+  <div class="shot"><img src="shot94-anim.jpg" width="1440" height="900" alt="The Animation Workshop with a bouncing ball, onion skin and layers" loading="lazy"><div class="mini"><img src="shot94-sculpt.jpg" width="1440" height="900" alt="Sculpting clay in 3D" loading="lazy"></div></div>
+  <div><span class="pill" style="background:#ec489922;color:#f9a8d4;border-color:#ec489955"><span lang="en">Animate &amp; sculpt</span><span lang="th">แอนิเมชันและปั้น 3D</span></span>
+   <h3><span lang="en">Bring it to life – in 2D and 3D</span><span lang="th">ทำให้มีชีวิต ทั้งแบบ 2D และ 3D</span></h3>
+   <p><span lang="en">Animate with layers in every frame, let tweens draw the in-between frames, add camera moves and sounds. Then sculpt a character from clay in 3D.</span><span lang="th">ทำแอนิเมชันด้วยเลเยอร์ในทุกเฟรม ให้ทวีนวาดเฟรมระหว่างกลางให้ ใส่การเคลื่อนกล้องและเสียง แล้วปั้นตัวละครจากดินแบบ 3D</span></p>
+   <ul class="ticks"><li><span lang="en">Turn a video into frames and trace it</span><span lang="th">แปลงวิดีโอเป็นเฟรมแล้ววาดทับ</span></li><li><span lang="en">9 sculpt brushes with mirror mode</span><span lang="th">แปรงปั้น 9 แบบ พร้อมโหมดสะท้อน</span></li><li><span lang="en">Export video, GIF and 3D models</span><span lang="th">ส่งออกวิดีโอ GIF และโมเดล 3D</span></li></ul></div>
  </div>
 </div></section>
 
-<section id="play"><div class="wrap">
- <div class="spot rev">
-  <div class="shot reveal"><img src="shot60-finale.jpg" width="1440" height="900" loading="lazy" alt="Playing the Rainbow finale level in MasterSketch"></div>
-  <div class="reveal">
-   <span class="kicker">✈️ <span lang="en">3D Studio</span><span lang="th">สตูดิโอ 3D</span></span>
-   <h2><span lang="en">Fly anywhere. <span class="grad">Play everything.</span></span><span lang="th">บินไปได้ทุกที่ <span class="grad">เล่นได้ทุกอย่าง</span></span></h2>
-   <p class="sub"><span lang="en">Press the plane button and fly freely around your 3D world – then jump into 10 brand-new levels.</span><span lang="th">กดปุ่มเครื่องบินแล้วบินอิสระรอบโลก 3D ของคุณ – แล้วกระโดดเข้าไปเล่น 10 ด่านใหม่</span></p>
-   <div class="keys" aria-label="W A S D"><kbd class="e">W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
-   <ul class="ticks" style="margin-top:0">
-    <li><i>⬆️</i><span><span lang="en"><b>E</b> or <b>Space</b> flies up, <b>Q</b> goes down, <b>Shift</b> goes faster and the mouse wheel sets the speed.</span><span lang="th"><b>E</b> หรือ <b>Space</b> บินขึ้น <b>Q</b> บินลง <b>Shift</b> เร็วขึ้น และลูกกลิ้งเมาส์ปรับความเร็ว</span></span></li>
-    <li><i>📱</i><span><span lang="en">On phones and tablets: a joystick and up/down buttons.</span><span lang="th">บนมือถือและแท็บเล็ต: มีจอยสติ๊กและปุ่มขึ้นลง</span></span></li>
-   </ul>
-  </div>
+<section id="themes"><div class="wrap">
+ <div class="head reveal"><span class="kick"><span lang="en">Make it yours</span><span lang="th">ปรับให้เป็นแบบของคุณ</span></span><h2><span lang="en">14 themes. <span class="grad">Your style.</span></span><span lang="th">14 ธีม <span class="grad">สไตล์ของคุณ</span></span></h2><p class="sub"><span lang="en">Pick a theme and accent color, then change corners, fonts, backgrounds, glow and where everything sits.</span><span lang="th">เลือกธีมและสีเน้น แล้วปรับมุม ฟอนต์ พื้นหลัง แสงเรือง และตำแหน่งของทุกอย่างได้</span></p></div>
+ <div class="themes reveal">
+  <div class="th" style="--b:#090c18;--p:#151a31;--a:#7c6cff"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b>Verse</b></div>
+  <div class="th" style="--b:#03141b;--p:#0b2733;--a:#06b6d4"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b><span lang="en">Ocean</span><span lang="th">มหาสมุทร</span></b></div>
+  <div class="th" style="--b:#1a0a14;--p:#2e1424;--a:#f472b6"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b><span lang="en">Sunset</span><span lang="th">พระอาทิตย์ตก</span></b></div>
+  <div class="th" style="--b:#07130b;--p:#13261a;--a:#22c55e"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b><span lang="en">Forest</span><span lang="th">ป่า</span></b></div>
+  <div class="th" style="--b:#fbf2ff;--p:#ffffff;--a:#ec4899"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b><span lang="en">Candy</span><span lang="th">ลูกกวาด</span></b></div>
+  <div class="th" style="--b:#f5f1e8;--p:#fffdf8;--a:#f59e0b"><div class="pv"><i class="s"></i><i class="h"></i><i class="c1"></i><i class="c2"></i></div><b><span lang="en">Paper</span><span lang="th">กระดาษ</span></b></div>
  </div>
- <div class="lvls">
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#f9a8d4,#c4b5fd)"><i>🍬</i><small lang="en">Easy</small><small lang="th">ง่าย</small><b><span lang="en">Candy garden</span><span lang="th">สวนขนมหวาน</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#67e8f9,#3b82f6)"><i>🌉</i><small lang="en">Easy</small><small lang="th">ง่าย</small><b><span lang="en">Wobbly bridge</span><span lang="th">สะพานโยกเยก</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#fb923c,#db2777)"><i>🏙️</i><small lang="en">Medium</small><small lang="th">ปานกลาง</small><b><span lang="en">Spring city</span><span lang="th">เมืองสปริง</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#6366f1,#0f172a)"><i>🪐</i><small lang="en">Medium</small><small lang="th">ปานกลาง</small><b><span lang="en">Planet hop</span><span lang="th">กระโดดดาวเคราะห์</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#f87171,#7c2d12)"><i>⚠️</i><small lang="en">Medium</small><small lang="th">ปานกลาง</small><b><span lang="en">Spike alley</span><span lang="th">ตรอกหนาม</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#4ade80,#166534)"><i>🌳</i><small lang="en">Medium</small><small lang="th">ปานกลาง</small><b><span lang="en">Forest climb</span><span lang="th">ปีนป่า</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#7dd3fc,#0369a1)"><i>🛗</i><small lang="en">Hard</small><small lang="th">ยาก</small><b><span lang="en">Sky elevators</span><span lang="th">ลิฟต์ลอยฟ้า</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#fde68a,#f472b6)"><i>🧭</i><small lang="en">Medium</small><small lang="th">ปานกลาง</small><b><span lang="en">Coin maze</span><span lang="th">เขาวงกตเหรียญ</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#475569,#020617)"><i>🌙</i><small lang="en">Hard</small><small lang="th">ยาก</small><b><span lang="en">Moon run</span><span lang="th">วิ่งบนดวงจันทร์</span></b></div>
-  <div class="lv reveal" style="--lg:linear-gradient(135deg,#ef4444,#f59e0b,#22c55e,#3b82f6,#a855f7)"><i>🌈</i><small lang="en">Expert</small><small lang="th">ผู้เชี่ยวชาญ</small><b><span lang="en">Rainbow finale</span><span lang="th">ด่านสายรุ้งสุดท้าย</span></b></div>
- </div>
-</div></section>
-
-<section id="verified" style="padding-top:10px"><div class="wrap">
- <div class="verified reveal">
-  <span class="vbadge"><svg><use href="#i-check"/></svg><span lang="en">Verified</span><span lang="th">ยืนยันแล้ว</span></span>
-  <div><h3><span lang="en">Verified creations</span><span lang="th">ผลงานที่ยืนยันแล้ว</span></h3><p><span lang="en">Every painting, animation, model and mod shared in MasterSketch is checked by the team first. The best ones get a blue Verified badge and rise to the top.</span><span lang="th">ภาพวาด แอนิเมชัน โมเดล และม็อดทุกชิ้นที่แชร์ใน MasterSketch จะถูกทีมงานตรวจก่อน ผลงานเยี่ยม ๆ จะได้ป้ายยืนยันสีฟ้าและขึ้นไปอยู่ด้านบน</span></p></div>
- </div>
-</div></section>
-
-<section id="workshop" style="padding-top:10px"><div class="wrap">
- <div class="wsband reveal">
-  <div>
-   <span class="kicker">🧊 <span lang="en">3D Workshop</span><span lang="th">เวิร์กช็อป 3D</span></span>
-   <h2><span lang="en">Models made by everyone</span><span lang="th">โมเดลที่ทุกคนสร้าง</span></h2>
-   <p><span lang="en">Spin them, try them, add them to your own world. The most-used models climb the Top models board.</span><span lang="th">หมุนดู ลองเล่น แล้วเพิ่มลงในโลกของคุณ โมเดลที่ถูกใช้มากที่สุดจะขึ้นอันดับยอดนิยม</span></p>
-   <div class="cta" style="margin:0"><a class="btn pri" href="workshop.html"><svg><use href="#i-cube"/></svg><span lang="en">Open the Workshop</span><span lang="th">เปิดเวิร์กช็อป</span></a><a class="btn" href="mods.html"><span lang="en">🧩 Mods</span><span lang="th">🧩 ม็อด</span></a></div>
-  </div>
-  <div class="wsgal" id="wsgal"><a href="workshop.html#windmill"><span>🌬️</span></a><a href="workshop.html#helicopter"><span>🚁</span></a><a href="workshop.html#robot"><span>🤖</span></a><a href="workshop.html#ufo"><span>🛸</span></a><a href="workshop.html#ferris"><span>🎡</span></a><a href="workshop.html#castle"><span>🏰</span></a></div>
- </div>
-</div></section>
-
-<section id="more" style="padding-top:20px"><div class="wrap">
- <div class="sec-head reveal"><span class="kicker">✦ <span lang="en">And so much more</span><span lang="th">และอีกมากมาย</span></span><h2><span lang="en">Little things kids love</span><span lang="th">ของเล็ก ๆ ที่เด็ก ๆ ชอบ</span></h2></div>
- <div class="more">
-  <div class="reveal"><em>🌈</em><b><span lang="en">12 fun brushes</span><span lang="th">แปรงสนุก 12 แบบ</span></b><p><span lang="en">Hearts, confetti, lightning, washi tape, drippy paint…</span><span lang="th">หัวใจ กระดาษสี สายฟ้า เทปวาชิ สีไหลหยด…</span></p></div>
-  <div class="reveal"><em>🐾</em><b><span lang="en">Stamps</span><span lang="th">ตัวปั๊ม</span></b><p><span lang="en">Googly eyes, crowns, sunglasses and paw prints.</span><span lang="th">ตาโปน มงกุฎ แว่นกันแดด และรอยเท้าสัตว์</span></p></div>
-  <div class="reveal"><em>🖍️</em><b><span lang="en">Coloring &amp; lessons</span><span lang="th">ระบายสีและบทเรียน</span></b><p><span lang="en">Color pictures or learn to draw them part by part.</span><span lang="th">ระบายสีภาพ หรือฝึกวาดทีละส่วน</span></p></div>
-  <div class="reveal"><em>🔥</em><b><span lang="en">Daily challenge</span><span lang="th">ภารกิจประจำวัน</span></b><p><span lang="en">A new drawing idea every day – keep your streak.</span><span lang="th">ไอเดียวาดภาพใหม่ทุกวัน รักษาสถิติไว้ให้ได้</span></p></div>
-  <div class="reveal"><em>🎨</em><b><span lang="en">Draw &amp; guess</span><span lang="th">วาดแล้วทาย</span></b><p><span lang="en">A party game for friends and family.</span><span lang="th">เกมปาร์ตี้สำหรับเพื่อนและครอบครัว</span></p></div>
-  <div class="reveal"><em>🎵</em><b>Boom Box</b><p><span lang="en">Play music from YouTube while you draw.</span><span lang="th">เปิดเพลงจาก YouTube ระหว่างวาดรูป</span></p></div>
-  <div class="reveal"><em>💬</em><b><span lang="en">Talk to the team</span><span lang="th">คุยกับทีมงาน</span></b><p><span lang="en">Send bugs and ideas, and read the team's answers.</span><span lang="th">ส่งปัญหาและไอเดีย แล้วอ่านคำตอบจากทีมงาน</span></p></div>
-  <div class="reveal"><em>🌏</em><b><span lang="en">5 languages</span><span lang="th">5 ภาษา</span></b><p><span lang="en">English, Thai, Spanish, Japanese and Chinese.</span><span lang="th">อังกฤษ ไทย สเปน ญี่ปุ่น และจีน</span></p></div>
- </div>
+ <div class="custom reveal"><span><span lang="en">Sharp · Soft · Round corners</span><span lang="th">มุมเหลี่ยม · มน · กลม</span></span><span><span lang="en">Modern · Rounded · Playful fonts</span><span lang="th">ฟอนต์ทันสมัย · ตัวมน · สนุกสนาน</span></span><span><span lang="en">Glow · Stars · Aurora backgrounds</span><span lang="th">พื้นหลังเรืองแสง · ดวงดาว · ออโรรา</span></span><span><span lang="en">Sidebar: full, icons or hidden</span><span lang="th">แถบด้านข้าง: เต็ม ไอคอน หรือซ่อน</span></span></div>
+ <div class="spot reveal" style="margin:48px 0 0"><div class="shot"><img src="shot94-candy.jpg" width="1440" height="900" alt="The Draw page in the light Candy theme with round corners" loading="lazy"></div>
+  <div><h3><span lang="en">Light or dark – you decide</span><span lang="th">สว่างหรือมืด คุณเลือกเอง</span></h3><p><span lang="en">Here is the Candy theme with round corners and a rounded font. Every change shows up instantly and is remembered.</span><span lang="th">นี่คือธีมลูกกวาดกับมุมกลมและฟอนต์ตัวมน ทุกการเปลี่ยนแปลงเห็นผลทันทีและจำไว้ให้</span></p></div></div>
 </div></section>
 
 <section id="download"><div class="wrap">
- <div class="sec-head center reveal"><span class="kicker">⬇ <span lang="en">Free download</span><span lang="th">ดาวน์โหลดฟรี</span></span>
-  <h2><span lang="en">Get MasterSketch 9.3</span><span lang="th">ดาวน์โหลด MasterSketch 9.3</span></h2>
-  <p class="sub"><span lang="en">Free on every device. No account, no ads.</span><span lang="th">ฟรีทุกอุปกรณ์ ไม่ต้องสมัคร ไม่มีโฆษณา</span></p></div>
+ <div class="head reveal"><span class="kick"><span lang="en">Free download</span><span lang="th">ดาวน์โหลดฟรี</span></span><h2><span lang="en">Get MasterSketch 9.4</span><span lang="th">ดาวน์โหลด MasterSketch 9.4</span></h2><p class="sub"><span lang="en">Free on every device. No ads.</span><span lang="th">ฟรีทุกอุปกรณ์ ไม่มีโฆษณา</span></p></div>
  <div class="dl">
-  <div class="card reveal" data-os="android" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-android"/></svg></span><h3>Android</h3><p><span lang="en">Phones and tablets · Android 7 or newer · 1017 KB</span><span lang="th">มือถือและแท็บเล็ต · Android 7 ขึ้นไป · 1017 KB</span></p><a class="btn pri" href="MasterSketch-Studio-9.3.apk" download><svg><use href="#i-down"/></svg><span lang="en">Download APK</span><span lang="th">ดาวน์โหลด APK</span></a></div>
+  <div class="card reveal" data-os="android" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-android"/></svg></span><h3>Android</h3><p><span lang="en">Phones and tablets · Android 7 or newer · 1017 KB</span><span lang="th">มือถือและแท็บเล็ต · Android 7 ขึ้นไป · 1017 KB</span></p><a class="btn pri" href="MasterSketch-Studio-9.4.apk" download><svg><use href="#i-down"/></svg><span lang="en">Download APK</span><span lang="th">ดาวน์โหลด APK</span></a></div>
   <div class="card reveal" data-os="ios" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-ipad"/></svg></span><h3>iPad &amp; iPhone</h3><p><span lang="en">Install from Safari: Share → Add to Home Screen. Works offline.</span><span lang="th">ติดตั้งจาก Safari: แชร์ → เพิ่มไปยังหน้าจอโฮม ใช้ออฟไลน์ได้</span></p><a class="btn pri" href="#" data-install><svg><use href="#i-down"/></svg><span lang="en">How to install</span><span lang="th">วิธีติดตั้ง</span></a></div>
-  <div class="card reveal" data-os="windows" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-win"/></svg></span><h3>Windows</h3><p><span lang="en">Windows 10 &amp; 11 · 9.6 MB · just open it, nothing to install</span><span lang="th">Windows 10 และ 11 · 9.6 MB · เปิดใช้ได้เลยไม่ต้องติดตั้ง</span></p><a class="btn pri" href="MasterSketch-Studio-9.3-Windows.exe" download><svg><use href="#i-down"/></svg><span lang="en">Download for Windows</span><span lang="th">ดาวน์โหลดสำหรับ Windows</span></a></div>
-  <div class="card reveal" data-os="mac" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-apple"/></svg></span><h3>Mac</h3><p><span lang="en">macOS 10.13 or newer · 1.2 MB · unzip, then right-click → Open the first time</span><span lang="th">macOS 10.13 ขึ้นไป · 1.2 MB · แตกไฟล์ แล้วคลิกขวา → เปิด ในครั้งแรก</span></p><a class="btn pri" href="MasterSketch-Studio-9.3-mac.zip" download><svg><use href="#i-down"/></svg><span lang="en">Download for Mac</span><span lang="th">ดาวน์โหลดสำหรับ Mac</span></a></div>
+  <div class="card reveal" data-os="windows" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-win"/></svg></span><h3>Windows</h3><p><span lang="en">Windows 10 &amp; 11 · 9.6 MB · just open it, nothing to install</span><span lang="th">Windows 10 และ 11 · 9.6 MB · เปิดใช้ได้เลยไม่ต้องติดตั้ง</span></p><a class="btn pri" href="MasterSketch-Studio-9.4-Windows.exe" download><svg><use href="#i-down"/></svg><span lang="en">Download for Windows</span><span lang="th">ดาวน์โหลดสำหรับ Windows</span></a></div>
+  <div class="card reveal" data-os="mac" data-you="YOUR DEVICE"><span class="pi"><svg><use href="#i-apple"/></svg></span><h3>Mac</h3><p><span lang="en">macOS 10.13 or newer · 1.2 MB · unzip, then right-click → Open the first time</span><span lang="th">macOS 10.13 ขึ้นไป · 1.2 MB · แตกไฟล์ แล้วคลิกขวา → เปิด ในครั้งแรก</span></p><a class="btn pri" href="MasterSketch-Studio-9.4-mac.zip" download><svg><use href="#i-down"/></svg><span lang="en">Download for Mac</span><span lang="th">ดาวน์โหลดสำหรับ Mac</span></a></div>
  </div>
- <div class="webrow reveal"><svg><use href="#i-globe"/></svg><span><b><span lang="en">No download needed:</span><span lang="th">ไม่ต้องดาวน์โหลดก็ได้:</span></b> <span lang="en">MasterSketch runs in any modern browser.</span><span lang="th">MasterSketch ใช้งานได้ในทุกเบราว์เซอร์สมัยใหม่</span></span><span style="flex:1"></span><a class="btn sm" href="app.html"><span lang="en">Open in browser</span><span lang="th">เปิดในเบราว์เซอร์</span></a><a class="btn sm" href="MasterSketch-Studio-9.3-Web.html" download="MasterSketch-Studio-9.3-Web.html"><span lang="en">Single-file version · 2.9 MB</span><span lang="th">ไฟล์เดียวแบบออฟไลน์ · 2.9 MB</span></a><a class="btn sm install" href="#" data-install><span lang="en">Install app</span><span lang="th">ติดตั้งแอป</span></a></div>
+ <div class="webrow reveal"><svg><use href="#i-globe"/></svg><span><b><span lang="en">No download needed:</span><span lang="th">ไม่ต้องดาวน์โหลดก็ได้:</span></b> <span lang="en">MasterSketch runs in any modern browser.</span><span lang="th">MasterSketch ใช้งานได้ในทุกเบราว์เซอร์สมัยใหม่</span></span><span style="flex:1"></span><a class="btn sm" href="app.html"><span lang="en">Open in browser</span><span lang="th">เปิดในเบราว์เซอร์</span></a><a class="btn sm" href="MasterSketch-Studio-9.4-Web.html" download="MasterSketch-Studio-9.4-Web.html"><span lang="en">Single-file version · 2.9 MB</span><span lang="th">ไฟล์เดียวแบบออฟไลน์ · 2.9 MB</span></a><a class="btn sm" href="#" data-install><span lang="en">Install app</span><span lang="th">ติดตั้งแอป</span></a></div>
 </div></section>
 
-<section id="faq" style="padding-top:40px"><div class="wrap">
- <div class="sec-head center reveal"><span class="kicker">FAQ</span><h2><span lang="en">Questions people ask</span><span lang="th">คำถามที่พบบ่อย</span></h2></div>
+<section id="faq"><div class="wrap">
+ <div class="head reveal"><span class="kick">FAQ</span><h2><span lang="en">Questions people ask</span><span lang="th">คำถามที่พบบ่อย</span></h2></div>
  <div class="faq">
-  <details><summary><span lang="en">Is it really free?</span><span lang="th">ฟรีจริงไหม?</span></summary><p><span lang="en">Yes. No account, no ads, no subscription.</span><span lang="th">ฟรีจริง ไม่ต้องสมัครสมาชิก ไม่มีโฆษณา ไม่มีค่ารายเดือน</span></p></details>
-  <details><summary><span lang="en">How do I make an animation?</span><span lang="th">ทำแอนิเมชันอย่างไร?</span></summary><p><span lang="en">Tap Animate at the top. Draw on frame 1, press + to add the next frame and draw it a little different – the faded red picture shows the frame before. Press play to watch it move.</span><span lang="th">แตะ แอนิเมชัน ที่ด้านบน วาดบนเฟรมที่ 1 กด + เพื่อเพิ่มเฟรมถัดไปแล้ววาดให้ต่างไปนิดหน่อย ภาพสีแดงจาง ๆ คือเฟรมก่อนหน้า กดเล่นเพื่อดูภาพเคลื่อนไหว</span></p></details>
-  <details><summary><span lang="en">Can I add my own sounds?</span><span lang="th">ใส่เสียงของตัวเองได้ไหม?</span></summary><p><span lang="en">Yes. Pick a frame and tap a sound effect, press Record to use your voice, or upload a sound file. Add music too – export a video to keep all the sounds.</span><span lang="th">ได้ เลือกเฟรมแล้วแตะเสียงเอฟเฟกต์ กด อัดเสียง เพื่อใช้เสียงของคุณ หรืออัปโหลดไฟล์เสียง ใส่เพลงก็ได้ แล้วส่งออกเป็นวิดีโอเพื่อเก็บเสียงทั้งหมดไว้</span></p></details>
-  <details><summary><span lang="en">How do I fly in 3D?</span><span lang="th">บินในโลก 3D อย่างไร?</span></summary><p><span lang="en">In the 3D Studio press the plane button (or V). Use W A S D to fly, E or Space to go up, Q to go down and Shift to go faster. Drag to look around and press Esc to stop.</span><span lang="th">ในสตูดิโอ 3D กดปุ่มเครื่องบิน (หรือ V) ใช้ W A S D เพื่อบิน E หรือ Space เพื่อขึ้น Q เพื่อลง และ Shift เพื่อเร็วขึ้น ลากเพื่อมองรอบ ๆ และกด Esc เพื่อหยุด</span></p></details>
-  <details><summary><span lang="en">What does the blue Verified badge mean?</span><span lang="th">ป้ายยืนยันสีฟ้าหมายความว่าอะไร?</span></summary><p><span lang="en">The MasterSketch team looked at it and liked it. Verified creations are shown first in the Gallery, the Workshop and Mods.</span><span lang="th">ทีม MasterSketch ตรวจดูแล้วและชอบผลงานนี้ ผลงานที่ยืนยันแล้วจะแสดงก่อนในแกลเลอรี เวิร์กช็อป และม็อด</span></p></details>
+  <details><summary><span lang="en">Is it really free?</span><span lang="th">ฟรีจริงไหม?</span></summary><p><span lang="en">Yes. No ads and no subscription.</span><span lang="th">ฟรีจริง ไม่มีโฆษณา ไม่มีค่ารายเดือน</span></p></details>
+  <details><summary><span lang="en">Do I need an account?</span><span lang="th">ต้องมีบัญชีไหม?</span></summary><p><span lang="en">Pick a player name (not your real name) and a password. Your browser can save the password, and MasterSketch signs you back in by itself when you come back.</span><span lang="th">ตั้งชื่อผู้เล่น (ไม่ใช่ชื่อจริง) และรหัสผ่าน เบราว์เซอร์จะบันทึกรหัสผ่านให้ได้ และ MasterSketch จะพาคุณเข้าสู่ระบบเองเมื่อกลับมา</span></p></details>
+  <details><summary><span lang="en">How do I make a game?</span><span lang="th">สร้างเกมอย่างไร?</span></summary><p><span lang="en">Open Game Studio, pick Create and start from an obby or a city. Add parts from the Toolbox, change them in Properties, then press the green Play button.</span><span lang="th">เปิดสตูดิโอเกม เลือก สร้าง แล้วเริ่มจากด่านกระโดดหรือเมือง เพิ่มชิ้นส่วนจากกล่องเครื่องมือ ปรับในคุณสมบัติ แล้วกดปุ่มเล่นสีเขียว</span></p></details>
+  <details><summary><span lang="en">How do I change the look?</span><span lang="th">เปลี่ยนหน้าตาอย่างไร?</span></summary><p><span lang="en">Open Settings ▸ Appearance for themes, colors, corners, fonts and backgrounds, and Settings ▸ Layout for the sidebar and the Draw page panel.</span><span lang="th">เปิด การตั้งค่า ▸ รูปลักษณ์ เพื่อเปลี่ยนธีม สี มุม ฟอนต์ และพื้นหลัง และ การตั้งค่า ▸ เค้าโครง เพื่อปรับแถบด้านข้างและแผงหน้าวาดภาพ</span></p></details>
   <details><summary><span lang="en">Where are my drawings saved?</span><span lang="th">ภาพวาดของฉันถูกบันทึกไว้ที่ไหน?</span></summary><p><span lang="en">On your own device, inside the app. Use Projects → Download project file to keep a backup or move work to another device.</span><span lang="th">บันทึกไว้ในเครื่องของคุณภายในแอป ใช้ โปรเจกต์ → ดาวน์โหลดไฟล์โปรเจกต์ เพื่อสำรองหรือย้ายไปเครื่องอื่น</span></p></details>
   <details><summary><span lang="en">Who can see what I share?</span><span lang="th">ใครเห็นสิ่งที่ฉันแชร์บ้าง?</span></summary><p><span lang="en">Everyone – after the MasterSketch team checks it. Use a nickname, not your real name, and never share your address or school.</span><span lang="th">ทุกคน หลังจากทีม MasterSketch ตรวจแล้ว ใช้ชื่อเล่นแทนชื่อจริง และอย่าบอกที่อยู่หรือชื่อโรงเรียน</span></p></details>
-  <details><summary><span lang="en">Do my old projects still open?</span><span lang="th">โปรเจกต์เก่ายังเปิดได้ไหม?</span></summary><p><span lang="en">Yes. 9.3 opens every project and animation from earlier versions – and Photoshop .psd files too.</span><span lang="th">ได้ เวอร์ชัน 9.3 เปิดโปรเจกต์และแอนิเมชันจากทุกเวอร์ชันก่อนหน้าได้ รวมถึงไฟล์ Photoshop .psd ด้วย</span></p></details>
+  <details><summary><span lang="en">Do my old projects still open?</span><span lang="th">โปรเจกต์เก่ายังเปิดได้ไหม?</span></summary><p><span lang="en">Yes. 9.4 opens every project and animation from earlier versions – and Photoshop .psd files too.</span><span lang="th">ได้ เวอร์ชัน 9.4 เปิดโปรเจกต์และแอนิเมชันจากทุกเวอร์ชันก่อนหน้าได้ รวมถึงไฟล์ Photoshop .psd ด้วย</span></p></details>
  </div>
 </div></section>
 
-<section style="padding-top:20px"><div class="wrap">
- <div class="final reveal"><h2><span lang="en">Ready to make <span class="grad">something amazing?</span></span><span lang="th">พร้อมสร้าง<span class="grad">ผลงานสุดเจ๋ง</span>แล้วหรือยัง?</span></h2><p class="sub" style="margin:0 auto"><span lang="en">Open it in your browser right now – it's free.</span><span lang="th">เปิดในเบราว์เซอร์ได้เลยตอนนี้ – ฟรี</span></p>
-  <div class="cta"><a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Open MasterSketch</span><span lang="th">เปิด MasterSketch</span></a><a class="btn" href="#download"><svg><use href="#i-down"/></svg><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a></div></div>
+<section><div class="wrap">
+ <div class="final reveal"><h2><span lang="en">Ready to make <span class="grad">something amazing?</span></span><span lang="th">พร้อมสร้าง<span class="grad">ผลงานสุดเจ๋ง</span>แล้วหรือยัง?</span></h2><p class="sub"><span lang="en">Open it in your browser right now – it's free.</span><span lang="th">เปิดในเบราว์เซอร์ได้เลยตอนนี้ – ฟรี</span></p>
+  <div class="cta"><a class="btn pri" href="app.html"><svg><use href="#i-play"/></svg><span lang="en">Start painting</span><span lang="th">เริ่มวาดเลย</span></a><a class="btn" href="#download"><svg><use href="#i-down"/></svg><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a></div></div>
 </div></section>
 
 <footer><div class="wrap">
- <span>© 2026 MasterSketch Studio · v9.3</span>
+ <span>© 2026 MasterSketch Studio · v9.4</span>
  <div class="fl"><a href="app.html"><span lang="en">Open app</span><span lang="th">เปิดแอป</span></a><a href="workshop.html"><span lang="en">3D Workshop</span><span lang="th">เวิร์กช็อป 3D</span></a><a href="mods.html"><span lang="en">Mods</span><span lang="th">ม็อด</span></a><a href="boombox.html">Boom Box</a><a href="#download"><span lang="en">Download</span><span lang="th">ดาวน์โหลด</span></a></div>
 </div></footer>
 
@@ -438,10 +314,6 @@ footer .fl{display:flex;gap:18px;flex-wrap:wrap}footer a:hover{color:var(--ink)}
   document.getElementById('detectHint').innerHTML=`<span lang="en">${hint[0]}</span><span lang="th">${hint[1]}</span>`}
  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'}):null;
  document.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));
- const gal=document.getElementById('wsgal');let loaded=false;
- const load=()=>{if(loaded)return;loaded=true;const s=document.createElement('script');s.src='ms3d.js';s.onload=()=>{if(!window.MSW)return;const ids=['windmill','helicopter','robot','ufo','ferris','castle'];
-  gal.querySelectorAll('a').forEach((a,i)=>{const f=MSW.FEATURED.find(x=>x.id===ids[i]);if(!f)return;setTimeout(()=>{const o=MSW.buildModel(f.spec),u=o&&MSW.thumb(o,320,240);if(u){a.innerHTML='';const im=new Image();im.src=u;im.alt=f.n;a.appendChild(im)}},i*60)})};document.head.appendChild(s)};
- if('IntersectionObserver' in window){const o2=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){load();o2.disconnect()}},{rootMargin:'400px'});o2.observe(gal)}else load();
 })();
 </script>
 <div id="instM" class="im" hidden>
