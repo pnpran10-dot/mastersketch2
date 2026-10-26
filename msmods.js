@@ -50,12 +50,14 @@ const str=(s,n)=>String(s==null?'':s).replace(/[\u0000-\u001f<>]/g,'').trim().sl
 /* ---------- brushes ---------- */
 const TIPS=[['round','fa-circle','Round'],['soft','fa-cloud','Soft'],['square','fa-square','Square'],['star','fa-star','Star'],['heart','fa-heart','Heart'],['leaf','fa-leaf','Leaf'],['drop','fa-droplet','Drop'],['line','fa-grip-lines-vertical','Line'],['ring','fa-circle-notch','Ring'],['spark','fa-wand-magic-sparkles','Sparkle'],['custom','fa-pen-nib','Draw your own']];
 const ICONS=['fa-paintbrush','fa-brush','fa-pen','fa-pen-fancy','fa-star','fa-heart','fa-leaf','fa-seedling','fa-feather','fa-bolt','fa-fire','fa-snowflake','fa-cloud','fa-droplet','fa-wand-magic-sparkles','fa-spray-can','fa-palette','fa-moon','fa-sun','fa-gem','fa-ghost','fa-candy-cane','fa-shapes','fa-splotch'];
-const COLM=[['color','Brush color'],['two','Mix both colors'],['rainbow','Rainbow'],['random','Random colors']];
+const COLM=[['color','Brush color'],['two','Mix both colors'],['rainbow','Rainbow'],['random','Random colors'],['own','Always this color'],['own2','Mix my two colors'],['fade','Fade between my colors']];
 const BLEND=[['normal','Normal'],['add','Glowing (add)']];
 const BDEF={n:'My brush',ic:'fa-paintbrush',tip:'round',hard:70,size:1,sp:.15,sc:0,cnt:1,sj:0,rj:0,dir:0,op:1,oj:0,hj:0,lj:0,cm:'color',glow:0,bl:'normal'};
 function cleanBrush(b){b=b&&typeof b==='object'?b:{};
  const o={n:str(b.n,40)||'Brush',ic:ICONS.includes(b.ic)?b.ic:'fa-paintbrush',tip:TIPS.some(x=>x[0]===b.tip)?b.tip:'round',hard:num(b.hard,70,0,100),size:num(b.size,1,.2,4),sp:num(b.sp,.15,.02,3),sc:num(b.sc,0,0,4),
   cnt:Math.round(num(b.cnt,1,1,10)),sj:num(b.sj,0,0,1),rj:num(b.rj,0,0,1),dir:b.dir?1:0,op:num(b.op,1,.03,1),oj:num(b.oj,0,0,1),hj:num(b.hj,0,0,180),lj:num(b.lj,0,0,1),cm:COLM.some(x=>x[0]===b.cm)?b.cm:'color',glow:num(b.glow,0,0,3),bl:b.bl==='add'?'add':'normal'};
+ /* a brush can keep its own colors (used by the "own", "own2" and "fade" color modes) */
+ if(hex(b.c1))o.c1=hex(b.c1);if(hex(b.c2))o.c2=hex(b.c2);
  if(o.tip==='custom'){if(typeof b.tx==='string'&&/^[A-Za-z0-9_-]{600,700}$/.test(b.tx))o.tx=b.tx;else o.tip='round'}
  return o}
 /* custom tips: 32×32 pixels, 16 levels of opacity, packed two pixels per byte */
@@ -94,7 +96,7 @@ function tinted(tip,col){if(!tip.__id)tip.__id=Math.random().toString(36).slice(
 /* one "dab" of a brush: st is the stroke state (st.hd = distance drawn so far) */
 function dab(c,b,x,y,ang,w,st,col1,col2,pa){const tip=tipCanvas(b);for(let i=0;i<b.cnt;i++){const sz=w*b.size*(1-b.sj*Math.random());if(sz<.4)continue;
   const r=b.sc*w*Math.sqrt(Math.random()),g=Math.random()*TAU,px=x+(r?Math.cos(g)*r:0),py=y+(r?Math.sin(g)*r:0);
-  let col=b.cm==='rainbow'?hsl2hex((st.hd||0)*.7,.92,.58):b.cm==='two'?mix(col1,col2||col1,Math.random()):b.cm==='random'?hsl2hex(Math.random()*360,.85,.6):col1;
+  let col=b.cm==='rainbow'?hsl2hex((st.hd||0)*.7,.92,.58):b.cm==='two'?mix(col1,col2||col1,Math.random()):b.cm==='random'?hsl2hex(Math.random()*360,.85,.6):b.cm==='own'?(b.c1||col1):b.cm==='own2'?mix(b.c1||col1,b.c2||col2||col1,Math.random()):b.cm==='fade'?mix(b.c1||col1,b.c2||col2||col1,(1-Math.cos((st.hd||0)*.012))/2):col1;
   if(b.hj||b.lj){const[H,S,L]=hex2hsl(col);col=hsl2hex(H+(Math.random()-.5)*2*b.hj,S,Math.max(0,Math.min(1,L+(Math.random()-.5)*b.lj)))}
   col=q8(col);const rot=(b.dir?ang:0)+(b.rj?(Math.random()-.5)*TAU*b.rj:0);
   c.save();c.globalAlpha=Math.max(0,Math.min(1,pa*b.op*(1-b.oj*Math.random())));if(b.bl==='add')c.globalCompositeOperation='lighter';if(b.glow){c.shadowColor=col;c.shadowBlur=w*b.glow*.6}
