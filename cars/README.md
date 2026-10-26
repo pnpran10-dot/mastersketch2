@@ -1,28 +1,45 @@
-# MasterDrive – rent or buy cars
+# LocalSold – rent or buy cars
 
-A web app where customers browse cars in 3D (outside and from the driver's seat), see real photos, then rent by the day or buy. It runs on phones, Mac and PC in any modern browser and can be installed as an app. It comes in 15 languages, and currencies switch automatically.
+On LocalSold, customers create an account, browse cars in 3D, see real photos, then rent by the day or buy. Their bookings and orders show up straight away in the owner/admin **Orders** inbox, with a sound and an optional desktop notification. It works on phones, Mac and PC, it installs like an app, and it speaks 15 languages. Each person can change its colours.
 
-Open it at `/cars/` on the site, for example `https://mastersketch.pages.dev/cars/`.
+## Put it online at localsold.pages.dev (one time, about 10 minutes)
 
-## Owner setup (do this first)
+1. **Create the site.** In the Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**, choose this repository.
+   - Project name: `localsold`. This gives you `localsold.pages.dev`. If the name is taken, Cloudflare adds a few letters.
+   - Production branch: the branch that holds this folder (for example `claude/car-rental-sales-app-wfisse`, or `main` after merging).
+   - Framework preset: **None**. Build command: leave it empty.
+   - Root directory: `cars`. Build output directory: `/`.
+2. **Add the database.** Go to **Workers & Pages** → **KV** → **Create namespace**, named for example `localsold-data`.
+   Then in your Pages project → **Settings** → **Bindings** → **Add** → **KV namespace**, set the variable name to `STORE` and pick `localsold-data`.
+3. **Set your owner password.** In the project → **Settings** → **Variables and secrets** → **Add**, choose type **Secret**, name it `OWNER_SETUP_CODE`, and enter a long code only you know.
+4. **Redeploy.** Go to **Deployments** → **Retry deployment**, or push any change.
 
-1. Open **Owner** (the lock icon) → **Claim ownership**. Enter your name and a passphrase of at least 10 characters.
-2. Create a GitHub **fine-grained token** for this repository only, with **Contents: Read and write** permission.
-3. In **Publishing**, paste the token and press **Publish**. Your owner account is now locked into `catalog.json`. After that, the claim screen no longer appears on any device, and only your passphrase opens the owner dashboard.
+## Becoming the owner
 
-Do step 3 right away. Until you publish, the ownership exists only on your own device.
+1. Open the site and **Create account** with your own email and password.
+2. A banner says the store has no owner yet. Press **Claim ownership** and enter your `OWNER_SETUP_CODE`.
+3. You're the owner. The code works only once: after someone owns the store, nobody else can claim it.
 
-## Managing the store
+## Running the store
 
-- **Upload real photos:** press the camera button on a car, or **Add car**. Photos are resized automatically. The star button picks the cover photo.
-- **Give someone admin:** this is for the owner only. Under **Team**, enter their name and a passphrase, then share the passphrase with them privately. Admins can add and edit cars and upload photos, but they can't manage the team. **Remove** takes the access away.
-- Edits are saved on your device as a draft until you press **Publish**. Publishing commits the photos to `cars/photos/` and the catalog to `cars/catalog.json`, and the live site updates after it redeploys.
-- **Export JSON** and **Import JSON** let you back up the catalog or move it between devices without a token.
+- **Orders inbox:** the **Admin** tab shows every new rental and purchase.
+  - It checks for new orders every 20 seconds, plays a chime and shows a pop-up.
+  - Press **Turn on alerts** to also get desktop or phone notifications while the tab is open.
+  - Confirm, mark done or cancel each order. The customer sees the new status in **My orders**.
+- **Give someone admin:** in **Admin → Team**, the owner taps **Make admin** next to anyone who has an account.
+  - Admins handle orders, edit cars and upload photos.
+  - Only the owner sees the Team tab.
+- **Real photos:** in **Admin → Cars**, tap the camera next to a car and choose or drop photos. They're resized automatically and stored in your Cloudflare database.
+- **Colours:** the palette button changes the accent colour (lime, blue, pink and more) and the background (dark, navy, light and more), or you can pick any colour. Each person's choice is saved on their own device.
+- **Get the app:** your account menu has a **Get the app** page. It shows a QR code and the install steps for iPhone, Android, Mac and Windows.
 
 ## Good to know
 
-- **3D models** are representative: sports cars use a Ferrari 458 Italia model (by vicent091036, CC BY) and every other car uses the Khronos Car Concept model (Eric Chadwick / DGG, CC BY 4.0). Upload real photos to show the actual car. Brand logos come from Simple Icons (CC0); the brands themselves are trademarks of their owners.
-
-- **Payments are a demo.** Checkout records the booking on the customer's device and collects no card details. To take real money, connect a provider such as Stripe or Omise behind a small server.
-- **Customer bookings stay on the customer's device.** There is no server yet, so the owner doesn't see orders. That needs a backend, which can be added later.
-- The owner check runs in the browser. What really protects the store is that **publishing needs your GitHub token**: nobody can change the live catalog without write access to this repository.
+- **Payments are a demo.** No card details are collected, and checkout records the order for you to follow up. To take real money, add a payment provider such as Stripe or Omise.
+- **Prices are worked out on the server** from your catalog, so nobody can change the price from their browser.
+- **Passwords** are stored as salted PBKDF2 hashes, never as plain text.
+- **3D models are stand-ins** until you add your own:
+  - Sports cars show a Ferrari 458 Italia (by vicent091036, CC BY).
+  - Every other car shows the Khronos Car Concept (Eric Chadwick / DGG, CC BY 4.0).
+  - Brand logos come from Simple Icons (CC0). The brands are trademarks of their owners.
+- **To test it locally:** run `npx wrangler pages dev cars --kv STORE --binding OWNER_SETUP_CODE=test-code`.
