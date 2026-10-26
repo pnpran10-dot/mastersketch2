@@ -1965,6 +1965,89 @@ body.stackp #side>#tabs{padding:5px}
 .lkb.on{background:color-mix(in srgb,var(--ac) 20%,var(--p2));border:1.5px solid var(--ac);color:var(--tx)}
 #dock .b.on{background:var(--ac)!important}
 .snlist button{transition:background .15s,transform .15s}
+
+/* ---------- v27: easier Brush Maker + Pixel Art Studio ---------- */
+#beBox{display:flex;flex-direction:column;gap:12px}
+.bknm{margin-bottom:-6px}
+.bkintro{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:color-mix(in srgb,var(--ac) 14%,var(--p2));border:1px solid color-mix(in srgb,var(--ac) 35%,transparent);font-size:13px}
+.bkintro i{color:var(--ac2,var(--ac));font-size:16px}
+.bktryh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.bktryh b{font-size:14px}
+.betry .row{flex-wrap:wrap;gap:8px;align-items:center}
+.bkuse{margin-left:auto}
+.bkstep{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:16px;background:var(--p2);border:1px solid var(--ln)}
+.bkh{display:flex;align-items:center;gap:12px}.bkh>div{display:flex;flex-direction:column;gap:1px;min-width:0}.bkh b{font-size:15px}
+.bkn{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--grad,var(--ac));box-shadow:0 6px 18px color-mix(in srgb,var(--ac) 40%,transparent)}
+.bkpre{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.bkp{display:flex;flex-direction:column;gap:4px;padding:6px 6px 8px;border-radius:12px;background:var(--p3);border:1.5px solid transparent;transition:border-color .15s,transform .15s;min-width:0}
+.bkp canvas{width:100%;height:36px;border-radius:8px;background:#0c0f17}
+.bkp>span{display:flex;align-items:center;gap:6px;font-size:12px;padding:0 2px;min-width:0}.bkp>span b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bkp:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--ac) 50%,transparent)}.bkp.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 16%,var(--p3))}
+.bkcm{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.bkc{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;text-align:left;padding:10px 12px;border-radius:12px;background:var(--p3);border:1.5px solid transparent;min-width:0}
+.bkc i{grid-row:1/3;font-size:18px;color:var(--ac2,var(--ac))}.bkc b{font-size:13px}.bkc small{font-size:11px;color:var(--mu);line-height:1.3}
+.bkc.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 18%,var(--p3))}
+.bkown,.bkpick{display:flex;flex-direction:column;gap:10px}
+.bkslots{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bkslot{position:relative;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:14px;background:var(--p3);border:2px solid transparent;font-weight:600}
+.bkslot i{width:44px;height:44px;border-radius:10px;box-shadow:inset 0 0 0 1px #ffffff30}
+.bkslot.on{border-color:var(--ac)}.bkslot input{position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.bksw{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+.bksw button{aspect-ratio:1;border-radius:8px;box-shadow:inset 0 0 0 1px #ffffff26;transition:transform .12s}
+.bksw button:hover{transform:scale(1.12)}.bksw button.on{outline:2.5px solid var(--tx);outline-offset:2px}
+.bkrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bkmore{border-top:1px solid var(--ln);padding-top:8px}.bkmore summary{cursor:pointer;color:var(--mu);font-size:13px;padding:4px 0}.bkmore[open] summary{color:var(--tx);margin-bottom:6px}
+@media (max-width:640px){.bksw{grid-template-columns:repeat(8,minmax(0,1fr))}.bkpre{grid-template-columns:repeat(2,minmax(0,1fr))}.bkcm{grid-template-columns:1fr 1fr}}
+.lkb.lknew{grid-column:1/-1;flex-direction:row;height:40px;gap:8px;border-style:dashed;color:var(--tx);font-size:12px}
+.lkb.lknew i{font-size:14px;color:var(--ac2,var(--ac))}
+.lkb.lkmine i{color:var(--ac2,var(--ac))}
+
+/* Pixel Art Studio */
+.pxm{position:fixed;inset:0;z-index:88;display:grid;grid-template-rows:auto 1fr auto;background:var(--bg);color:var(--tx);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+body.pxon .modal{z-index:95}body.pxon #toasts{z-index:96}
+.pxbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--ln);background:var(--p);flex-wrap:wrap}
+.pxt{display:flex;align-items:center;gap:8px;font-size:15px}.pxt i{color:var(--ac2,var(--ac))}.pxinfo{font-variant-numeric:tabular-nums}
+.pxexpw{position:relative}
+.pxbar{position:relative;z-index:3}
+.pxmenu{position:absolute;right:0;top:calc(100% + 8px);z-index:5;background:var(--p);width:290px;display:flex;flex-direction:column;gap:4px;padding:10px;border-radius:16px;border:1px solid var(--ln2,var(--ln));box-shadow:var(--sh)}
+.pxmenu>button{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:10px;text-align:left}.pxmenu>button:hover{background:var(--p3)}
+.pxmenu>button i{width:20px;text-align:center;color:var(--ac2,var(--ac))}.pxmenu>button span{display:flex;flex-direction:column}.pxmenu small{color:var(--mu);font-size:11px}
+.pxmain{display:grid;grid-template-columns:auto 1fr 250px;min-height:0}
+.pxtools{display:flex;flex-direction:column;gap:4px;padding:10px 8px;border-right:1px solid var(--ln);background:var(--p);overflow:auto;width:150px}
+.pxtb{position:relative;display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:10px;color:var(--mu);font-size:12.5px;text-align:left}
+.pxtb i{width:18px;text-align:center;font-size:15px;color:var(--tx)}.pxtb kbd{margin-left:auto;font:10px/1 inherit;opacity:.5}
+.pxtb:hover{background:var(--p2);color:var(--tx)}.pxtb.on{background:color-mix(in srgb,var(--ac) 22%,var(--p2));color:var(--tx);box-shadow:inset 0 0 0 1.5px var(--ac)}
+.pxsep{height:1px;background:var(--ln);margin:6px 2px}
+.pxbs{display:flex;flex-direction:column;gap:5px;padding:6px 4px}.pxbs .segs{display:flex}.pxbs .segs button{flex:1;padding:4px 0}
+.pxso{padding:4px;font-size:12px}
+.pxstage{position:relative;overflow:hidden;background:radial-gradient(700px 500px at 50% 40%,var(--p3),var(--bg));touch-action:none;min-width:0}
+#pxCv{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.pxzoom{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:2px;padding:4px;border-radius:12px;font-size:12px;font-variant-numeric:tabular-nums}
+.pxzoom button{width:30px;height:30px;border-radius:8px}.pxzoom button:hover{background:var(--p3)}.pxzoom span{min-width:46px;text-align:center}
+.pxhelp{position:absolute;right:12px;bottom:14px;max-width:46%;text-align:right;font-size:11px;pointer-events:none}
+.pxside{display:flex;flex-direction:column;gap:10px;padding:10px;border-left:1px solid var(--ln);background:var(--p);overflow:auto}
+.pxcard{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:14px;background:var(--p2);border:1px solid var(--ln)}
+.pxh{display:flex;align-items:center;gap:8px;font-size:13px}.pxh i{color:var(--ac2,var(--ac))}
+.pxcur{display:flex;align-items:center;gap:8px;position:relative}
+#pxC1,#pxC2{width:44px;height:44px;border-radius:10px;box-shadow:inset 0 0 0 1px #ffffff30,0 0 0 2px var(--p2),0 0 0 3.5px var(--ac)}#pxC2{width:32px;height:32px;box-shadow:inset 0 0 0 1px #ffffff30}
+#pxPick{position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.pxsw{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px}
+.pxsw button{aspect-ratio:1;border-radius:5px;box-shadow:inset 0 0 0 1px #ffffff1f}.pxsw button.on{outline:2px solid var(--tx);outline-offset:1px}.pxsw button.on2{box-shadow:inset 0 0 0 2px var(--bg),inset 0 0 0 3.5px var(--tx)}
+.pxsw small{grid-column:1/-1}
+#pxPrev{width:100%;aspect-ratio:1;border-radius:10px;image-rendering:pixelated;background:repeating-conic-gradient(#d9dce6 0 25%,#b7bccb 0 50%) 0 0/16px 16px}
+.pxacts{display:flex;gap:6px;flex-wrap:wrap}
+.pxframes{border-top:1px solid var(--ln);background:var(--p);padding:8px 14px 10px}
+.pxfh{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;font-size:13px}
+.pxfrow{display:flex;align-items:center;gap:10px}
+.pxfl{flex:1;display:flex;gap:6px;overflow-x:auto;padding:3px 2px;min-width:0}
+.pxf{position:relative;flex:none;width:64px;height:64px;padding:3px;border-radius:10px;background:repeating-conic-gradient(#d9dce6 0 25%,#b7bccb 0 50%) 0 0/12px 12px;border:2px solid transparent}
+.pxf canvas{width:100%;height:100%;image-rendering:pixelated}.pxf small{position:absolute;left:4px;top:2px;font-size:10px;font-weight:700;color:#111;text-shadow:0 0 3px #fff}
+.pxf.on{border-color:var(--ac)}.pxf.play{border-color:#f59e0b}
+.pxfb{display:flex;gap:4px;flex-wrap:wrap}
+.gmtbi.pxgi img{width:28px;height:28px;object-fit:contain;image-rendering:pixelated}
+@media (max-width:900px){.pxmain{grid-template-columns:1fr;grid-template-rows:auto 1fr auto}
+ .pxtools{flex-direction:row;width:auto;border-right:0;border-bottom:1px solid var(--ln);overflow-x:auto;padding:6px}.pxtb span,.pxtb kbd{display:none}.pxtb{flex:none;padding:9px}.pxsep{width:1px;height:auto;margin:2px 4px}.pxbs small{display:none}.pxbs{flex-direction:row;padding:0 4px}.pxso span{display:none}
+ .pxside{flex-direction:row;border-left:0;border-top:1px solid var(--ln);overflow-x:auto;max-height:200px}.pxcard{flex:none;width:240px}.pxhelp{display:none}
+ .pxbar .btn span{display:none}.pxbar .btn.pri span{display:inline}}
 </style></head>
 <body>
 <div id="boot"><div class="stars"></div>
@@ -1977,7 +2060,7 @@ body.stackp #side>#tabs{padding:5px}
 <div class="bm"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3l3 3-9.5 9.5-4-1 1-4z"/><path d="M7.5 14.5C5 14.5 4 16 4 18s-1 3-2 3c4 0 7-1 7-4.5"/></svg></div>
 <h1>MasterSketch <span>Studio</span></h1><div class="tag" id="bootTag">Create · Draw · Be you</div>
 <div class="bar"><i id="bootBar"></i></div><div class="row"><small id="bootMsg">Loading…</small><b id="bootPct">0%</b></div>
-<div class="tip" id="bootTip"></div><div class="ver">PRO 9.4</div></div>
+<div class="tip" id="bootTip"></div><div class="ver">PRO 9.5</div></div>
 <script>try{var bTh=(JSON.parse(localStorage.getItem('msu4_settings')||'{}').lang==='th'),bTips=bTh?['เคล็ดลับ: กด Ctrl+K เพื่อค้นหาเครื่องมือทุกอย่าง','เคล็ดลับ: เปลี่ยนธีมได้ที่ การตั้งค่า ▸ รูปลักษณ์','เคล็ดลับ: กด Play ในสตูดิโอเกมเพื่อลองเล่นเกมของคุณ','เคล็ดลับ: ทวีนช่วยวาดเฟรมระหว่างกลางให้ในแอนิเมชัน','เคล็ดลับ: กด [ และ ] เพื่อเปลี่ยนขนาดแปรง']:['Tip: press Ctrl+K to search every tool','Tip: change the theme in Settings ▸ Appearance','Tip: press Play in Game Studio to try your game','Tip: tweens draw the in-between frames for you in Animate','Tip: press [ and ] to change the brush size','Tip: sculpt clay in the 3D Studio with the Sculpt button'];document.getElementById('bootTip').textContent=bTips[Math.floor(Math.random()*bTips.length)];if(bTh)document.getElementById('bootTag').textContent='สร้าง · วาด · เป็นตัวเอง'}catch(e){}</script>
 <script>try{var bs=JSON.parse(localStorage.getItem('msu4_settings')||'{}'),be=document.getElementById('boot');if(bs.splash===false)be.style.display='none';if(bs.accent)be.style.setProperty('--ba',bs.accent)}catch(e){}</script>
 <header>
@@ -3025,6 +3108,7 @@ body.stackp #side>#tabs{padding:5px}
   <button data-mode="draw"><i class="fa-solid fa-pen-nib"></i><span data-i18n>Draw</span></button>
   <button data-mode="3d"><i class="fa-solid fa-cube"></i><span data-i18n>3D Studio</span></button>
   <button data-mode="anim"><i class="fa-solid fa-film"></i><span data-i18n>Animate</span></button>
+  <button data-act="pixel"><i class="fa-solid fa-chess-board"></i><span data-i18n>Pixel Art</span></button>
   <button data-mode="play"><i class="fa-solid fa-gamepad"></i><span data-i18n>Game Studio</span></button>
   <button data-mode="art"><i class="fa-solid fa-image"></i><span data-i18n>Gallery</span></button>
   <button data-mode="mods"><i class="fa-solid fa-puzzle-piece"></i><span data-i18n>Mods</span></button>
@@ -3074,11 +3158,63 @@ body.stackp #side>#tabs{padding:5px}
    <button class="hmq" data-q="anim" style="--q:#ec4899"><i class="fa-solid fa-film"></i><b data-i18n>Animate</b><small data-i18n>Make a cartoon, frame by frame</small><em class="fa-solid fa-arrow-right"></em></button>
    <button class="hmq" data-q="sculpt" style="--q:#f59e0b"><i class="fa-solid fa-hill-rockslide"></i><b data-i18n>Sculpt in 3D</b><small data-i18n>Shape clay with brushes</small><em class="fa-solid fa-arrow-right"></em></button>
    <button class="hmq" data-q="game" style="--q:#22c55e"><i class="fa-solid fa-gamepad"></i><b data-i18n>Make a game</b><small data-i18n>Build it, then play it</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="pixel" style="--q:#06b6d4"><i class="fa-solid fa-chess-board"></i><b data-i18n>Pixel art</b><small data-i18n>Retro sprites, pixel by pixel</small><em class="fa-solid fa-arrow-right"></em></button>
+   <button class="hmq" data-q="brush" style="--q:#f43f5e"><i class="fa-solid fa-paintbrush"></i><b data-i18n>Make a brush</b><small data-i18n>Your own shape and colors</small><em class="fa-solid fa-arrow-right"></em></button>
   </div>
   <div class="hmsec hmsecr"><div><h3><i class="fa-solid fa-star"></i><span data-i18n>Featured artworks</span></h3><small class="mut" data-i18n>Explore amazing creations from our community.</small></div><button class="hmall" id="hmAll"><span data-i18n>View all</span><i class="fa-solid fa-arrow-right"></i></button></div>
   <div class="hmfeat" id="hmFeat"></div>
  </div>
 </section>
+<div id="pxM" class="pxm hide">
+ <div class="pxbar">
+  <button class="btn" id="pxBack"><i class="fa-solid fa-arrow-left"></i><span data-i18n>Back</span></button>
+  <b class="pxt"><i class="fa-solid fa-chess-board"></i><span data-i18n>Pixel Art Studio</span></b>
+  <small class="mut pxinfo" id="pxInfo"></small>
+  <span class="sp"></span>
+  <button class="btn mini" id="pxUndo" title="Undo" data-i18t><i class="fa-solid fa-rotate-left"></i></button>
+  <button class="btn mini" id="pxRedo" title="Redo" data-i18t><i class="fa-solid fa-rotate-right"></i></button>
+  <button class="btn" id="pxNew"><i class="fa-solid fa-file-circle-plus"></i><span data-i18n>New</span></button>
+  <button class="btn" id="pxFromDraw"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n>Pixelate my drawing</span></button>
+  <div class="pxexpw"><button class="btn pri" id="pxExp"><i class="fa-solid fa-share-from-square"></i><span data-i18n>Save &amp; use</span></button>
+   <div class="pxmenu hide" id="pxMenu">
+    <label class="fld"><span data-i18n>Picture size</span><select id="pxScale"><option value="1">× 1</option><option value="2">× 2</option><option value="4">× 4</option><option value="8" selected>× 8</option><option value="16">× 16</option><option value="32">× 32</option></select></label>
+    <button data-a="png"><i class="fa-solid fa-image"></i><span><b data-i18n>Save as a picture</b><small data-i18n>PNG of this frame</small></span></button>
+    <button data-a="gif"><i class="fa-solid fa-film"></i><span><b data-i18n>Save as a GIF</b><small data-i18n>All frames as an animation</small></span></button>
+    <button data-a="sheet"><i class="fa-solid fa-table-cells"></i><span><b data-i18n>Save a sprite sheet</b><small data-i18n>All frames side by side</small></span></button>
+    <button data-a="draw"><i class="fa-solid fa-layer-group"></i><span><b data-i18n>Put it in my drawing</b><small data-i18n>As a new layer, sharp and big</small></span></button>
+    <button data-a="game"><i class="fa-solid fa-gamepad"></i><span><b data-i18n>Use it in Game Studio</b><small data-i18n>As a sprite in your games</small></span></button>
+   </div></div>
+ </div>
+ <div class="pxmain">
+  <div class="pxtools" id="pxTools"></div>
+  <div class="pxstage" id="pxStage"><canvas id="pxCv"></canvas>
+   <div class="pxzoom glass"><button id="pxZo" title="Zoom out" data-i18t><i class="fa-solid fa-minus"></i></button><span id="pxZv">100%</span><button id="pxZi" title="Zoom in" data-i18t><i class="fa-solid fa-plus"></i></button><button id="pxFit" title="Fit to screen" data-i18t><i class="fa-solid fa-expand"></i></button></div>
+   <small class="pxhelp mut" data-i18n>Left click: color 1 · Right click: color 2 · Space + drag or two fingers: move around</small>
+  </div>
+  <div class="pxside">
+   <div class="pxcard">
+    <div class="pxh"><i class="fa-solid fa-palette"></i><b data-i18n>Colors</b></div>
+    <div class="pxcur"><button id="pxC1" title="Color 1" data-i18t></button><button id="pxC2" title="Color 2" data-i18t></button><button class="btn mini" id="pxSwap" title="Swap colors (X)" data-i18t><i class="fa-solid fa-right-left"></i></button><button class="btn mini" id="pxAddC" title="Add a color" data-i18t><i class="fa-solid fa-plus"></i></button><input type="color" id="pxPick" tabindex="-1"></div>
+    <select id="pxPal"></select>
+    <div class="pxsw" id="pxSw"></div>
+   </div>
+   <div class="pxcard">
+    <div class="pxh"><i class="fa-solid fa-eye"></i><b data-i18n>Preview</b></div>
+    <canvas id="pxPrev" width="160" height="160"></canvas>
+    <div class="row"><button class="btn" id="pxPlay"><i class="fa-solid fa-play"></i><span data-i18n>Play</span></button><div data-r="pxFps:Speed:1:24:8:fps" style="flex:1"></div></div>
+   </div>
+   <div class="pxcard">
+    <div class="pxh"><i class="fa-solid fa-wand-sparkles"></i><b data-i18n>This frame</b></div>
+    <div class="pxacts"><button class="btn mini" id="pxFlipH"><i class="fa-solid fa-left-right"></i><span data-i18n>Mirror</span></button><button class="btn mini" id="pxFlipV"><i class="fa-solid fa-up-down"></i><span data-i18n>Upside down</span></button><button class="btn mini danger" id="pxClear"><i class="fa-solid fa-trash-can"></i><span data-i18n>Clear</span></button></div>
+   </div>
+  </div>
+ </div>
+ <div class="pxframes">
+  <div class="pxfh"><b data-i18n>Frames</b><small class="mut" data-i18n>Make your sprite move: add frames and change each one a little.</small></div>
+  <div class="pxfrow"><div class="pxfl" id="pxFl"></div>
+   <div class="pxfb"><button class="btn mini" id="pxFAdd" title="New frame" data-i18t><i class="fa-solid fa-plus"></i></button><button class="btn mini" id="pxFDup" title="Copy this frame" data-i18t><i class="fa-solid fa-clone"></i></button><button class="btn mini" id="pxFL" title="Move left" data-i18t><i class="fa-solid fa-chevron-left"></i></button><button class="btn mini" id="pxFR" title="Move right" data-i18t><i class="fa-solid fa-chevron-right"></i></button><button class="btn mini danger" id="pxFDel" title="Delete frame" data-i18t><i class="fa-solid fa-trash"></i></button></div></div>
+ </div>
+</div>
 <div id="toasts"></div>
 <script>/* three.js r147 (MIT) */
 /**
@@ -14402,12 +14538,14 @@ const str=(s,n)=>String(s==null?'':s).replace(/[\u0000-\u001f<>]/g,'').trim().sl
 /* ---------- brushes ---------- */
 const TIPS=[['round','fa-circle','Round'],['soft','fa-cloud','Soft'],['square','fa-square','Square'],['star','fa-star','Star'],['heart','fa-heart','Heart'],['leaf','fa-leaf','Leaf'],['drop','fa-droplet','Drop'],['line','fa-grip-lines-vertical','Line'],['ring','fa-circle-notch','Ring'],['spark','fa-wand-magic-sparkles','Sparkle'],['custom','fa-pen-nib','Draw your own']];
 const ICONS=['fa-paintbrush','fa-brush','fa-pen','fa-pen-fancy','fa-star','fa-heart','fa-leaf','fa-seedling','fa-feather','fa-bolt','fa-fire','fa-snowflake','fa-cloud','fa-droplet','fa-wand-magic-sparkles','fa-spray-can','fa-palette','fa-moon','fa-sun','fa-gem','fa-ghost','fa-candy-cane','fa-shapes','fa-splotch'];
-const COLM=[['color','Brush color'],['two','Mix both colors'],['rainbow','Rainbow'],['random','Random colors']];
+const COLM=[['color','Brush color'],['two','Mix both colors'],['rainbow','Rainbow'],['random','Random colors'],['own','Always this color'],['own2','Mix my two colors'],['fade','Fade between my colors']];
 const BLEND=[['normal','Normal'],['add','Glowing (add)']];
 const BDEF={n:'My brush',ic:'fa-paintbrush',tip:'round',hard:70,size:1,sp:.15,sc:0,cnt:1,sj:0,rj:0,dir:0,op:1,oj:0,hj:0,lj:0,cm:'color',glow:0,bl:'normal'};
 function cleanBrush(b){b=b&&typeof b==='object'?b:{};
  const o={n:str(b.n,40)||'Brush',ic:ICONS.includes(b.ic)?b.ic:'fa-paintbrush',tip:TIPS.some(x=>x[0]===b.tip)?b.tip:'round',hard:num(b.hard,70,0,100),size:num(b.size,1,.2,4),sp:num(b.sp,.15,.02,3),sc:num(b.sc,0,0,4),
   cnt:Math.round(num(b.cnt,1,1,10)),sj:num(b.sj,0,0,1),rj:num(b.rj,0,0,1),dir:b.dir?1:0,op:num(b.op,1,.03,1),oj:num(b.oj,0,0,1),hj:num(b.hj,0,0,180),lj:num(b.lj,0,0,1),cm:COLM.some(x=>x[0]===b.cm)?b.cm:'color',glow:num(b.glow,0,0,3),bl:b.bl==='add'?'add':'normal'};
+ /* a brush can keep its own colors (used by the "own", "own2" and "fade" color modes) */
+ if(hex(b.c1))o.c1=hex(b.c1);if(hex(b.c2))o.c2=hex(b.c2);
  if(o.tip==='custom'){if(typeof b.tx==='string'&&/^[A-Za-z0-9_-]{600,700}$/.test(b.tx))o.tx=b.tx;else o.tip='round'}
  return o}
 /* custom tips: 32×32 pixels, 16 levels of opacity, packed two pixels per byte */
@@ -14446,7 +14584,7 @@ function tinted(tip,col){if(!tip.__id)tip.__id=Math.random().toString(36).slice(
 /* one "dab" of a brush: st is the stroke state (st.hd = distance drawn so far) */
 function dab(c,b,x,y,ang,w,st,col1,col2,pa){const tip=tipCanvas(b);for(let i=0;i<b.cnt;i++){const sz=w*b.size*(1-b.sj*Math.random());if(sz<.4)continue;
   const r=b.sc*w*Math.sqrt(Math.random()),g=Math.random()*TAU,px=x+(r?Math.cos(g)*r:0),py=y+(r?Math.sin(g)*r:0);
-  let col=b.cm==='rainbow'?hsl2hex((st.hd||0)*.7,.92,.58):b.cm==='two'?mix(col1,col2||col1,Math.random()):b.cm==='random'?hsl2hex(Math.random()*360,.85,.6):col1;
+  let col=b.cm==='rainbow'?hsl2hex((st.hd||0)*.7,.92,.58):b.cm==='two'?mix(col1,col2||col1,Math.random()):b.cm==='random'?hsl2hex(Math.random()*360,.85,.6):b.cm==='own'?(b.c1||col1):b.cm==='own2'?mix(b.c1||col1,b.c2||col2||col1,Math.random()):b.cm==='fade'?mix(b.c1||col1,b.c2||col2||col1,(1-Math.cos((st.hd||0)*.012))/2):col1;
   if(b.hj||b.lj){const[H,S,L]=hex2hsl(col);col=hsl2hex(H+(Math.random()-.5)*2*b.hj,S,Math.max(0,Math.min(1,L+(Math.random()-.5)*b.lj)))}
   col=q8(col);const rot=(b.dir?ang:0)+(b.rj?(Math.random()-.5)*TAU*b.rj:0);
   c.save();c.globalAlpha=Math.max(0,Math.min(1,pa*b.op*(1-b.oj*Math.random())));if(b.bl==='add')c.globalCompositeOperation='lighter';if(b.glow){c.shadowColor=col;c.shadowBlur=w*b.glow*.6}
@@ -16962,13 +17100,120 @@ const TR={
 'Make it yours':['ปรับแต่งเป็นแบบของคุณ','Hazlo tuyo','自分好みに','打造你的风格'],
 'Settings ▸ Appearance has new themes (Verse, Ocean, Sunset, Forest, Candy, Paper), corner styles, fonts, backgrounds and glow. Settings ▸ Layout changes the sidebar and the Draw page panel.':['การตั้งค่า ▸ รูปลักษณ์ มีธีมใหม่ (เวิร์ส มหาสมุทร พระอาทิตย์ตก ป่า ลูกกวาด กระดาษ) รูปแบบมุม ฟอนต์ พื้นหลัง และแสงเรือง ส่วน การตั้งค่า ▸ เค้าโครง เปลี่ยนแถบด้านข้างและแผงหน้าวาดภาพได้','Ajustes ▸ Apariencia tiene temas nuevos (Verse, Océano, Atardecer, Bosque, Caramelo, Papel), esquinas, fuentes, fondos y brillo. Ajustes ▸ Diseño cambia la barra lateral y el panel de dibujo.','設定 ▸ 外観に新しいテーマ（ヴァース・オーシャン・夕焼け・フォレスト・キャンディ・ペーパー）、角の形、フォント、背景、グローが追加。設定 ▸ レイアウトでサイドバーと描画パネルを変えられます。','设置 ▸ 外观里有新主题（星域、海洋、日落、森林、糖果、纸张）、圆角样式、字体、背景和光晕。设置 ▸ 布局可以改变侧边栏和绘画页面板。'],
 'New Draw page':['หน้าวาดภาพใหม่','Nueva página de dibujo','新しい描画ページ','全新绘画页'],
-'Brushes, colors and layers sit together as cards on the right, so everything you need is in one place.':['แปรง สี และเลเยอร์อยู่รวมกันเป็นการ์ดทางขวา ทุกอย่างที่ต้องใช้อยู่ในที่เดียว','Pinceles, colores y capas están juntos en tarjetas a la derecha: todo lo que necesitas en un lugar.','ブラシ・色・レイヤーが右側にカードで並び、必要なものが一か所にまとまりました。','笔刷、颜色和图层以卡片形式放在右侧，需要的东西都在一起。']
+'Brushes, colors and layers sit together as cards on the right, so everything you need is in one place.':['แปรง สี และเลเยอร์อยู่รวมกันเป็นการ์ดทางขวา ทุกอย่างที่ต้องใช้อยู่ในที่เดียว','Pinceles, colores y capas están juntos en tarjetas a la derecha: todo lo que necesitas en un lugar.','ブラシ・色・レイヤーが右側にカードで並び、必要なものが一か所にまとまりました。','笔刷、颜色和图层以卡片形式放在右侧，需要的东西都在一起。'],
+'Airbrush':['แอร์บรัช','Aerógrafo','エアブラシ','喷枪'],
+'Spray paint':['สีสเปรย์','Pintura en spray','スプレー','喷漆'],
+'Chalk':['ชอล์ก','Tiza','チョーク','粉笔'],
+'Leaves':['ใบไม้','Hojas','葉っぱ','树叶'],
+'Sparkles':['ประกายวิบวับ','Destellos','キラキラ','闪光'],
+'Fire':['ไฟ','Fuego','炎','火焰'],
+'Snow':['หิมะ','Nieve','雪','雪花'],
+'Candy stripe':['ลายลูกกวาด','Rayas de caramelo','キャンディ柄','糖果条纹'],
+'The color I pick':['สีที่ฉันเลือก','El color que elijo','選んだ色','我选的颜色'],
+'Paints with the color you choose while drawing':['ระบายด้วยสีที่คุณเลือกตอนวาด','Pinta con el color que eliges al dibujar','描くときに選んだ色で塗ります','用你画画时选的颜色上色'],
+'Always this color':['สีนี้ตลอด','Siempre este color','いつもこの色','固定这个颜色'],
+'The brush keeps one color of its own':['แปรงมีสีของตัวเองหนึ่งสี','El pincel tiene un color propio','ブラシが自分の色を1つ持ちます','笔刷有自己的一种颜色'],
+'Two colors mixed':['ผสมสองสี','Dos colores mezclados','2色ミックス','两色混合'],
+'Every dab is a mix of two colors':['ทุกจุดสีเป็นการผสมของสองสี','Cada toque mezcla dos colores','ひと塗りごとに2色が混ざります','每一笔都是两种颜色的混合'],
+'Fade between colors':['ไล่สีระหว่างสองสี','Degradado entre colores','2色のグラデーション','颜色渐变'],
+'Slowly changes from one color to the other':['ค่อยๆ เปลี่ยนจากสีหนึ่งไปอีกสี','Cambia poco a poco de un color al otro','少しずつ別の色に変わります','从一种颜色慢慢变成另一种'],
+'Goes through every color':['ไล่ผ่านทุกสี','Pasa por todos los colores','すべての色を通ります','经过所有颜色'],
+'A surprise color for every dab':['ทุกจุดได้สีเซอร์ไพรส์','Un color sorpresa en cada toque','ひと塗りごとにサプライズの色','每一笔都是惊喜颜色'],
+'Mix my two colors':['ผสมสองสีของฉัน','Mezclar mis dos colores','自分の2色をミックス','混合我的两种颜色'],
+'Fade between my colors':['ไล่สีระหว่างสีของฉัน','Degradado entre mis colores','自分の色でグラデーション','在我的颜色之间渐变'],
+'Sharp edges':['ขอบคม','Bordes nítidos','くっきりした縁','边缘清晰度'],
+'Gap between dabs':['ระยะห่างระหว่างจุด','Espacio entre toques','ひと塗りの間隔','笔触间距'],
+'Spread out':['กระจายออก','Dispersión','ちらばり','散开'],
+'Dabs at a time':['จำนวนจุดต่อครั้ง','Toques a la vez','一度に塗る数','每次笔触数'],
+'Make your brush in 4 easy steps. Try it on the box any time!':['สร้างแปรงของคุณใน 4 ขั้นง่ายๆ ลองวาดในกล่องได้ทุกเมื่อ!','Crea tu pincel en 4 pasos fáciles. ¡Pruébalo en el recuadro cuando quieras!','4つのかんたんなステップでブラシを作ろう。いつでもボックスで試せます！','4 个简单步骤做出你的笔刷。随时可以在框里试画！'],
+'Paint with this brush':['วาดด้วยแปรงนี้','Pintar con este pincel','このブラシで描く','用这支笔刷画画'],
+'Try it here':['ลองที่นี่','Pruébalo aquí','ここで試す','在这里试试'],
+'Draw on the box with your mouse or finger.':['วาดในกล่องด้วยเมาส์หรือนิ้ว','Dibuja en el recuadro con el ratón o el dedo.','マウスか指でボックスに描いてみよう。','用鼠标或手指在框里画画。'],
+'Start from a brush like…':['เริ่มจากแปรงแบบ…','Empieza con un pincel como…','こんなブラシから始めよう…','从这样的笔刷开始…'],
+'Pick one, then change anything you like.':['เลือกหนึ่งอัน แล้วเปลี่ยนอะไรก็ได้ตามใจ','Elige uno y cambia lo que quieras.','1つ選んで、好きなように変えよう。','选一个，然后随意修改。'],
+'Pick the shape':['เลือกรูปทรง','Elige la forma','形を選ぶ','选择形状'],
+'Every dab of paint has this shape.':['ทุกจุดสีจะเป็นรูปทรงนี้','Cada toque de pintura tiene esta forma.','ひと塗りごとにこの形になります。','每一笔都是这个形状。'],
+'Pick the colors':['เลือกสี','Elige los colores','色を選ぶ','选择颜色'],
+'Choose how your brush gets its color.':['เลือกว่าแปรงจะได้สีมาอย่างไร','Elige de dónde saca el color tu pincel.','ブラシの色の決め方を選ぼう。','选择笔刷怎样获得颜色。'],
+'Tap Color 1 or Color 2, then tap a color below.':['แตะสี 1 หรือสี 2 แล้วแตะสีด้านล่าง','Toca Color 1 o Color 2 y luego un color de abajo.','色 1 か色 2 をタップしてから、下の色をタップ。','点颜色 1 或颜色 2，再点下面的颜色。'],
+'Use my drawing color':['ใช้สีที่ฉันใช้วาด','Usar mi color de dibujo','今の描画色を使う','使用我的绘画颜色'],
+'More colors…':['สีเพิ่มเติม…','Más colores…','ほかの色…','更多颜色…'],
+'Your brush will use the color you pick in the Colors card. Try it with:':['แปรงจะใช้สีที่คุณเลือกในการ์ดสี ลองกับสี:','Tu pincel usará el color que elijas en la tarjeta Colores. Pruébalo con:','ブラシは「色」カードで選んだ色を使います。試す色：','笔刷会使用你在颜色卡片里选的颜色。试试：'],
+'Paint mixing':['การผสมสี','Mezcla de pintura','色の重なり方','颜色叠加'],
+'How it feels':['ความรู้สึกของแปรง','Cómo se siente','描き心地','手感'],
+'Slide these to change your brush.':['เลื่อนแถบเหล่านี้เพื่อเปลี่ยนแปรง','Desliza para cambiar tu pincel.','スライドしてブラシを変えよう。','拖动这些来改变笔刷。'],
+'More options':['ตัวเลือกเพิ่มเติม','Más opciones','その他の設定','更多选项'],
+'Brush name and icon':['ชื่อและไอคอนแปรง','Nombre e icono del pincel','ブラシの名前とアイコン','笔刷名称和图标'],
+'My brushes':['แปรงของฉัน','Mis pinceles','マイブラシ','我的笔刷'],
+'My brush':['แปรงของฉัน','Mi pincel','マイブラシ','我的笔刷'],
+'Make my own brush':['สร้างแปรงของฉันเอง','Crear mi propio pincel','自分のブラシを作る','制作我的笔刷'],
+'Make a brush':['สร้างแปรง','Crear un pincel','ブラシを作る','制作笔刷'],
+'Your own shape and colors':['รูปทรงและสีของคุณเอง','Tu propia forma y colores','自分だけの形と色','你自己的形状和颜色'],
+'Easier Brush Maker':['ตัวสร้างแปรงที่ง่ายขึ้น','Creador de pinceles más fácil','もっとかんたんなブラシメーカー','更简单的笔刷制作器'],
+'Start from a ready brush, give your brush its own colors, and change how it feels in 4 easy steps. Find it in the Brushes card: Make my own brush.':['เริ่มจากแปรงสำเร็จรูป ใส่สีของแปรงเอง และปรับความรู้สึกใน 4 ขั้นง่ายๆ อยู่ในการ์ดแปรง: สร้างแปรงของฉันเอง','Empieza con un pincel listo, dale sus propios colores y cambia cómo se siente en 4 pasos fáciles. Está en la tarjeta Pinceles: Crear mi propio pincel.','できあがったブラシから始めて、自分の色をつけ、描き心地を4ステップで変えられます。ブラシカードの「自分のブラシを作る」から。','从现成笔刷开始，给它自己的颜色，并在 4 个简单步骤里调整手感。在笔刷卡片里：制作我的笔刷。'],
+'Pixel Art Studio':['สตูดิโอพิกเซลอาร์ต','Estudio de pixel art','ピクセルアートスタジオ','像素画工作室'],
+'Pixel Art':['พิกเซลอาร์ต','Pixel art','ピクセルアート','像素画'],
+'Retro sprites, pixel by pixel':['สไปรต์ย้อนยุค ทีละพิกเซล','Sprites retro, píxel a píxel','レトロなスプライトを1ピクセルずつ','复古角色，一个像素一个像素画'],
+'Classic 32':['คลาสสิก 32','Clásica 32','クラシック32','经典 32 色'],
+'Game Boy':['เกมบอย','Game Boy','ゲームボーイ','Game Boy'],
+'Retro console':['เครื่องเกมย้อนยุค','Consola retro','レトロゲーム機','复古游戏机'],
+'Skin & hair':['ผิวและผม','Piel y pelo','肌と髪','皮肤和头发'],
+'Grays':['เทา','Grises','グレー','灰色'],
+'Pick a color':['ดูดสี','Elegir un color','色を拾う','取色'],
+'Checker pencil':['ดินสอลายตาราง','Lápiz de cuadros','市松模様えんぴつ','棋盘格铅笔'],
+'Lighter / darker':['สว่างขึ้น / มืดลง','Más claro / más oscuro','明るく / 暗く','变亮 / 变暗'],
+'Move pixels':['ย้ายพิกเซล','Mover píxeles','ピクセルを動かす','移动像素'],
+'Mirror left–right':['กระจกซ้าย–ขวา','Espejo izquierda–derecha','左右ミラー','左右镜像'],
+'Mirror up–down':['กระจกบน–ล่าง','Espejo arriba–abajo','上下ミラー','上下镜像'],
+'Pencil size':['ขนาดดินสอ','Tamaño del lápiz','えんぴつの太さ','铅笔大小'],
+'Filled shapes':['รูปทรงทึบ','Formas rellenas','塗りつぶした形','实心形状'],
+'Add colors with the + button.':['เพิ่มสีด้วยปุ่ม +','Añade colores con el botón +.','＋ボタンで色を追加しよう。','用 + 按钮添加颜色。'],
+'New pixel art':['พิกเซลอาร์ตใหม่','Nuevo pixel art','新しいピクセルアート','新建像素画'],
+'tiny sprite':['สไปรต์จิ๋ว','sprite diminuto','小さいスプライト','迷你角色'],
+'character':['ตัวละคร','personaje','キャラクター','角色'],
+'big sprite':['สไปรต์ใหญ่','sprite grande','大きいスプライト','大角色'],
+'wide':['แนวกว้าง','ancho','横長','宽'],
+'tall':['แนวสูง','alto','縦長','高'],
+'picture':['รูปภาพ','imagen','絵','图片'],
+'Pixelate my drawing':['เปลี่ยนภาพวาดเป็นพิกเซล','Pixelar mi dibujo','絵をピクセルにする','把我的画变成像素'],
+'pixels':['พิกเซล','píxeles','ピクセル','像素'],
+'Use the colors of this palette':['ใช้สีจากชุดสีนี้','Usar los colores de esta paleta','このパレットの色を使う','使用这个调色板的颜色'],
+'Keep the colors of my drawing':['ใช้สีเดิมของภาพวาด','Mantener los colores de mi dibujo','絵の色のままにする','保留我画中的颜色'],
+'Your drawing is now pixel art!':['ภาพวาดของคุณกลายเป็นพิกเซลอาร์ตแล้ว!','¡Tu dibujo ahora es pixel art!','絵がピクセルアートになりました！','你的画变成像素画了！'],
+'Added to your drawing as a new layer':['เพิ่มลงในภาพวาดเป็นเลเยอร์ใหม่แล้ว','Añadido a tu dibujo como una capa nueva','新しいレイヤーとして絵に追加しました','已作为新图层加入你的画'],
+'This sprite is too big for a game – use 64 × 64 or smaller':['สไปรต์นี้ใหญ่เกินไปสำหรับเกม – ใช้ 64 × 64 หรือเล็กกว่า','Este sprite es muy grande para un juego: usa 64 × 64 o menos','このスプライトはゲームには大きすぎます – 64 × 64 以下にしてね','这个角色对游戏来说太大了——请用 64 × 64 或更小'],
+'Your sprite is in your game!':['สไปรต์อยู่ในเกมของคุณแล้ว!','¡Tu sprite está en tu juego!','スプライトがゲームに入りました！','你的角色已经放进游戏了！'],
+'Saved! Open a game and find it in the Toolbox under My pixel art':['บันทึกแล้ว! เปิดเกมแล้วหาได้ในกล่องเครื่องมือ หัวข้อ พิกเซลอาร์ตของฉัน','¡Guardado! Abre un juego y búscalo en la Caja de herramientas, en Mi pixel art','保存しました！ゲームを開いて、ツールボックスの「マイピクセルアート」から使えます','已保存！打开一个游戏，在工具箱的“我的像素画”里找到它'],
+'My pixel art':['พิกเซลอาร์ตของฉัน','Mi pixel art','マイピクセルアート','我的像素画'],
+'Make pixel art':['สร้างพิกเซลอาร์ต','Crear pixel art','ピクセルアートを作る','制作像素画'],
+'Save & use':['บันทึกและใช้งาน','Guardar y usar','保存して使う','保存并使用'],
+'Picture size':['ขนาดภาพ','Tamaño de la imagen','画像の大きさ','图片大小'],
+'Save as a picture':['บันทึกเป็นรูปภาพ','Guardar como imagen','画像として保存','保存为图片'],
+'PNG of this frame':['PNG ของเฟรมนี้','PNG de este fotograma','このフレームのPNG','这一帧的 PNG'],
+'Save as a GIF':['บันทึกเป็น GIF','Guardar como GIF','GIFとして保存','保存为 GIF'],
+'All frames as an animation':['ทุกเฟรมเป็นแอนิเมชัน','Todos los fotogramas como animación','全フレームをアニメーションに','所有帧做成动画'],
+'Save a sprite sheet':['บันทึกสไปรต์ชีต','Guardar una hoja de sprites','スプライトシートを保存','保存精灵图表'],
+'All frames side by side':['ทุกเฟรมเรียงต่อกัน','Todos los fotogramas en fila','全フレームを横に並べて','所有帧并排'],
+'Put it in my drawing':['ใส่ลงในภาพวาดของฉัน','Ponerlo en mi dibujo','絵に入れる','放进我的画'],
+'As a new layer, sharp and big':['เป็นเลเยอร์ใหม่ คมชัดและใหญ่','Como capa nueva, nítida y grande','くっきり大きく新しいレイヤーに','作为清晰的大图新图层'],
+'Use it in Game Studio':['ใช้ในสตูดิโอเกม','Usarlo en el Estudio de juegos','ゲームスタジオで使う','在游戏工作室中使用'],
+'As a sprite in your games':['เป็นสไปรต์ในเกมของคุณ','Como sprite en tus juegos','ゲームのスプライトとして','作为你游戏里的角色'],
+'Left click: color 1 · Right click: color 2 · Space + drag or two fingers: move around':['คลิกซ้าย: สี 1 · คลิกขวา: สี 2 · Space + ลาก หรือสองนิ้ว: เลื่อนดู','Clic izquierdo: color 1 · Clic derecho: color 2 · Espacio + arrastrar o dos dedos: moverse','左クリック：色1 · 右クリック：色2 · スペース＋ドラッグか2本指：移動','左键：颜色 1 · 右键：颜色 2 · 空格 + 拖动或双指：移动画面'],
+'Add a color':['เพิ่มสี','Añadir un color','色を追加','添加颜色'],
+'Upside down':['กลับหัว','Al revés','上下反転','上下翻转'],
+'Make your sprite move: add frames and change each one a little.':['ทำให้สไปรต์ขยับ: เพิ่มเฟรมแล้วเปลี่ยนแต่ละเฟรมทีละนิด','Haz que tu sprite se mueva: añade fotogramas y cambia cada uno un poco.','スプライトを動かそう：フレームを足して、少しずつ変えます。','让角色动起来：添加帧，每一帧改一点点。'],
+'New frame':['เฟรมใหม่','Fotograma nuevo','新しいフレーム','新帧'],
+'Copy this frame':['คัดลอกเฟรมนี้','Copiar este fotograma','このフレームをコピー','复制这一帧'],
+'Move left':['ย้ายไปซ้าย','Mover a la izquierda','左へ移動','左移'],
+'Move right':['ย้ายไปขวา','Mover a la derecha','右へ移動','右移'],
+'Delete frame':['ลบเฟรม','Eliminar fotograma','フレームを削除','删除帧'],
+'Draw pixel by pixel with retro palettes, mirror drawing and frames. Save it as PNG or GIF, put it in your drawing, or use it as a sprite in Game Studio.':['วาดทีละพิกเซลด้วยชุดสีย้อนยุค วาดแบบกระจก และเฟรม บันทึกเป็น PNG หรือ GIF ใส่ลงในภาพวาด หรือใช้เป็นสไปรต์ในสตูดิโอเกม','Dibuja píxel a píxel con paletas retro, dibujo en espejo y fotogramas. Guárdalo como PNG o GIF, ponlo en tu dibujo o úsalo como sprite en el Estudio de juegos.','レトロなパレット、ミラー描き、フレームで1ピクセルずつ描こう。PNGやGIFで保存したり、絵に入れたり、ゲームスタジオのスプライトにできます。','用复古调色板、镜像绘画和帧一个像素一个像素地画。可保存为 PNG 或 GIF、放进你的画，或在游戏工作室中当角色使用。']
 };
 const LI={th:0,es:1,ja:2,zh:3};
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let W=1200,H=900,MAXH=60;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='9.4';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),TAU=Math.PI*2,VERSION='9.5';
 const S={tool:'pen',color:'#6c7bff',color2:'#ffffff',size:6,opa:100,smooth:20,hard:40,tol:32,sym:'off',symLast:'v',symN:8,shapeMode:'stroke',radius:0,sides:5,selShape:'rect',grad:'linear',tsize:36,font:'system-ui, sans-serif',bg:'#ffffff',bgT:false,pat:'none',gsize:50};
 const view=$('#view'),stage=$('#stage'),paper=$('#paper'),fx=$('#fx'),fxc=fx.getContext('2d'),refC=$('#ref'),refX=refC.getContext('2d'),bgc=$('#bgc'),bgx=bgc.getContext('2d'),ov=$('#ov'),ovc=ov.getContext('2d'),ring=$('#cur');
 let layers=[],ai=0,lc=1,hist=[],redoS=[],dirty=false,curId=null,refImg=false,refOn=true,refName='',st=null,gest=null,pan=null,space=false,fitted=true,fmt='png',recent=[],pal=[],sel=null,clip=null,lastPt=null,tl=[],antsOff=0,slot=1,HSV=[234,.58,1],capture=null;
@@ -22066,6 +22311,303 @@ function lookBrushes(){let C=$('#lkBr');if(!C){const sd=$('#side');if(!sd)return
 
 /* ---------- v26: loading screen shows the percentage ---------- */
 {const b0=boot;boot=function(p,m){b0(p,m);const e=document.getElementById('bootPct');if(e)e.textContent=Math.round(p)+'%'}}
+/* ---------- v27: an easier Brush Maker – 1 start from a ready brush, 2 pick the shape, 3 pick the colors (a brush can
+   keep its own colors now), 4 change how it feels. "Make my own brush" sits in the Draw page's Brushes card, and your
+   own brushes show up right there. ---------- */
+const BKP=[
+ ['Pencil','fa-pencil',{tip:'round',hard:92,size:.55,sp:.08,op:.9,oj:.35}],
+ ['Marker','fa-marker',{tip:'square',hard:85,size:1,sp:.06,op:.55,dir:1}],
+ ['Airbrush','fa-spray-can',{tip:'soft',hard:15,size:2.2,sp:.1,op:.16}],
+ ['Spray paint','fa-spray-can-sparkles',{tip:'round',hard:100,size:.12,sp:.04,sc:1.6,cnt:8,sj:.6,op:.85}],
+ ['Watercolor','fa-droplet',{tip:'soft',hard:40,size:1.7,sp:.18,sc:.15,sj:.4,op:.12,oj:.5,lj:.12}],
+ ['Chalk','fa-chalkboard',{tip:'round',hard:100,size:.22,sp:.05,sc:.55,cnt:5,sj:.5,op:.75,oj:.6}],
+ ['Stars','fa-star',{tip:'star',size:.9,sp:1.4,sc:1.2,sj:.6,rj:1,cm:'own2',c1:'#ffd84d',c2:'#ff8fd6'}],
+ ['Hearts','fa-heart',{tip:'heart',size:.9,sp:1.5,sc:.8,sj:.5,rj:.3,cm:'own2',c1:'#ff5d8f',c2:'#ffb3d1'}],
+ ['Leaves','fa-leaf',{tip:'leaf',size:1.1,sp:.9,sc:.9,sj:.5,rj:1,lj:.2,cm:'own2',c1:'#2fae55',c2:'#a3e05d'}],
+ ['Rainbow','fa-rainbow',{tip:'round',hard:85,size:1,sp:.08,cm:'rainbow'}],
+ ['Neon','fa-bolt',{tip:'round',hard:95,size:.5,sp:.06,glow:1.6,bl:'add',cm:'own',c1:'#3df5ff'}],
+ ['Sparkles','fa-wand-magic-sparkles',{tip:'spark',size:1,sp:1.2,sc:1.4,sj:.7,rj:.4,glow:.8,bl:'add',cm:'own2',c1:'#fff6b0',c2:'#a78bfa'}],
+ ['Bubbles','fa-circle-notch',{tip:'ring',size:1,sp:1.3,sc:1,sj:.7,op:.85,cm:'own2',c1:'#7dd3fc',c2:'#c4b5fd'}],
+ ['Fire','fa-fire',{tip:'drop',hard:60,size:1.2,sp:.25,sc:.4,sj:.5,rj:.15,dir:1,glow:.6,cm:'fade',c1:'#ffd23f',c2:'#ff3d2e'}],
+ ['Snow','fa-snowflake',{tip:'soft',hard:50,size:.4,sp:.9,sc:2,cnt:3,sj:.8,op:.9,cm:'own',c1:'#ffffff'}],
+ ['Candy stripe','fa-candy-cane',{tip:'round',hard:95,size:1,sp:.06,cm:'fade',c1:'#ff4d6d',c2:'#ffffff'}]];
+const BKC=[['color','fa-hand-pointer','The color I pick','Paints with the color you choose while drawing'],['own','fa-droplet','Always this color','The brush keeps one color of its own'],
+ ['own2','fa-shuffle','Two colors mixed','Every dab is a mix of two colors'],['fade','fa-arrow-right-arrow-left','Fade between colors','Slowly changes from one color to the other'],
+ ['rainbow','fa-rainbow','Rainbow','Goes through every color'],['random','fa-dice','Random colors','A surprise color for every dab']];
+const BKS=['#000000','#ffffff','#9ca3af','#4b5563','#ef4444','#f97316','#facc15','#84cc16','#22c55e','#14b8a6','#06b6d4','#3b82f6','#6366f1','#8b5cf6','#d946ef','#ec4899','#f43f5e','#7c2d12','#a16207','#fde68a','#bbf7d0','#bae6fd','#ddd6fe','#fbcfe8'];
+const BK={slot:1};
+const bkL=(el,k)=>{el.dataset.i18n=k;el.textContent=t(k);return el};
+const bkOwn=b=>b&&['own','own2','fade'].includes(b.cm);
+function bkStep(n,title,sub){const d=ae('section','bkstep');const h=ae('div','bkh');h.appendChild(ae('span','bkn',String(n)));const tx=ae('div');tx.appendChild(bkL(ae('b'),title));if(sub)tx.appendChild(bkL(ae('small','mut'),sub));h.appendChild(tx);d.appendChild(h);return d}
+/* rebuild the brush editor as four steps (the old controls are moved, so everything they do keeps working) */
+function bkBuild(){const box=$('#beBox');if(!box||box.dataset.bk)return;box.dataset.bk=1;
+ const rng=id=>$('#'+id).closest('.rng'),nameRow=$('#beName').parentElement,tryB=box.querySelector('.betry'),acts=$('#beDup').parentElement;
+ const relabel=(id,k)=>{const s=rng(id).querySelector('label span');if(s)bkL(s,k)};
+ relabel('beHard','Sharp edges');relabel('beSp','Gap between dabs');relabel('beSc','Spread out');relabel('beOp','Strength');relabel('beCnt','Dabs at a time');
+ const tips=$('#beTips'),cust=$('#beCustom'),cm=$('#beCm'),bl=$('#beBl'),dir=$('#beDir').closest('label');
+ box.querySelectorAll(':scope>h5').forEach(h=>h.remove());
+ const intro=ae('div','bkintro');intro.innerHTML='<i class="fa-solid fa-wand-magic-sparkles"></i><span></span>';bkL(intro.lastChild,'Make your brush in 4 easy steps. Try it on the box any time!');
+ /* try box: bigger buttons */
+ const use=ae('button','btn pri bkuse');use.innerHTML='<i class="fa-solid fa-paintbrush"></i><span></span>';bkL(use.lastChild,'Paint with this brush');use.onclick=()=>{const w=+$('#beW').value||24;$('#mkTest').click();setTimeout(()=>{try{if(String(S.tool).startsWith('mb_')&&S.size<w)setR('size',w)}catch(e){}},900)};
+ const tr=tryB.querySelector('.row');tr.appendChild(use);
+ const tl=ae('div','bktryh');tl.appendChild(bkL(ae('b'),'Try it here'));tl.appendChild(bkL(ae('small','mut'),'Draw on the box with your mouse or finger.'));tryB.prepend(tl);
+ const sm=tryB.querySelector(':scope>small');if(sm)sm.remove();
+ /* 1 – ready brushes */
+ const s1=bkStep(1,'Start from a brush like…','Pick one, then change anything you like.'),pg=ae('div','bkpre');pg.id='bkPre';s1.appendChild(pg);
+ BKP.forEach(([n,ic,v])=>{const b=ae('button','bkp');b.innerHTML=`<canvas width="150" height="40"></canvas><span><i class="fa-solid ${ic}"></i><b></b></span>`;bkL(b.querySelector('b'),n);b.onclick=()=>bkPreset(n,ic,v,b);pg.appendChild(b);
+  const pb=MSM.cleanBrush(Object.assign({},MSM.BDEF,v));MSM.preview(b.querySelector('canvas'),pb,'#7c8cff','#ff8fd6',11)});
+ /* 2 – shape */
+ const s2=bkStep(2,'Pick the shape','Every dab of paint has this shape.');s2.appendChild(tips);s2.appendChild(cust);
+ /* 3 – colors */
+ const s3=bkStep(3,'Pick the colors','Choose how your brush gets its color.'),cg=ae('div','bkcm');cg.id='bkCm';
+ BKC.forEach(([v,ic,n,d])=>{const b=ae('button','bkc');b.dataset.v=v;b.innerHTML=`<i class="fa-solid ${ic}"></i><b></b><small></small>`;bkL(b.querySelector('b'),n);bkL(b.querySelector('small'),d);b.onclick=()=>bkMode(v);cg.appendChild(b)});
+ s3.appendChild(cg);
+ const own=ae('div','bkown');own.id='bkOwn';own.innerHTML='<div class="bkslots"><button class="bkslot" data-s="1"><i></i><span></span><input type="color" tabindex="-1"></button><button class="bkslot" data-s="2"><i></i><span></span><input type="color" tabindex="-1"></button><button class="btn mini" id="bkSwap"><i class="fa-solid fa-right-left"></i></button></div><small class="mut bkhint"></small><div class="bksw" id="bkSw"></div><div class="row"><button class="btn mini" id="bkCur"><i class="fa-solid fa-eye-dropper"></i><span></span></button><button class="btn mini" id="bkMore"><i class="fa-solid fa-palette"></i><span></span></button></div>';
+ bkL(own.querySelector('[data-s="1"] span'),'Color 1');bkL(own.querySelector('[data-s="2"] span'),'Color 2');bkL(own.querySelector('.bkhint'),'Tap Color 1 or Color 2, then tap a color below.');
+ bkL(own.querySelector('#bkCur span'),'Use my drawing color');bkL(own.querySelector('#bkMore span'),'More colors…');s3.appendChild(own);
+ const pick=ae('div','bkpick');pick.id='bkPick';pick.appendChild(bkL(ae('small','mut'),'Your brush will use the color you pick in the Colors card. Try it with:'));const ps=ae('div','bksw');ps.id='bkTrySw';pick.appendChild(ps);s3.appendChild(pick);
+ BKS.forEach(c=>{const b=ae('button');b.style.background=c;b.title=c;b.onclick=()=>bkSet(c);own.querySelector('#bkSw').appendChild(b);
+  const b2=ae('button');b2.style.background=c;b2.title=c;b2.onclick=()=>{$('#beC1').value=c;beDemo();mkRender()};ps.appendChild(b2)});
+ own.querySelectorAll('.bkslot').forEach(s=>{s.onclick=e=>{if(e.target.tagName==='INPUT')return;const n=+s.dataset.s;if(BK.slot===n){s.querySelector('input').click();return}BK.slot=n;bkSync()};
+  s.querySelector('input').oninput=e=>{BK.slot=+s.dataset.s;bkSet(e.target.value,true)}});
+ own.querySelector('#bkSwap').onclick=()=>{const b=curB();if(!b)return;const a=b.c1||'#7c8cff';b.c1=b.c2||'#ff8fd6';b.c2=a;bkApply()};
+ own.querySelector('#bkCur').onclick=()=>bkSet(S.color);own.querySelector('#bkMore').onclick=()=>{const i=own.querySelector(`[data-s="${BK.slot}"] input`);i.click()};
+ const bls=ae('div','bkrow');bls.appendChild(bkL(ae('small','mut'),'Paint mixing'));bls.appendChild(bl);s3.appendChild(bls);cm.classList.add('hide');s3.appendChild(cm);
+ /* 4 – feel */
+ const s4=bkStep(4,'How it feels','Slide these to change your brush.');['beSize','beHard','beSp','beSc','beOp','beGlow'].forEach(id=>s4.appendChild(rng(id)));
+ const more=ae('details','bkmore');const su=ae('summary');su.innerHTML='<i class="fa-solid fa-sliders"></i> <span></span>';bkL(su.lastChild,'More options');more.appendChild(su);
+ ['beCnt','beSj','beRj','beOj','beHj','beLj'].forEach(id=>more.appendChild(rng(id)));more.appendChild(dir);s4.appendChild(more);
+ box.innerHTML='';[nameRow,intro,tryB,s1,s2,s3,s4,acts].forEach(e=>box.appendChild(e));
+ /* naming: say what each part is */
+ const nl=ae('label','bknm');nl.appendChild(bkL(ae('small','mut'),'Brush name and icon'));box.insertBefore(nl,nameRow)}
+/* apply a ready brush (keeps the name if you already changed it) */
+function bkPreset(n,ic,v,btn){const b=curB();if(!b)return;const auto=[t('My brush'),t('Brush'),'My brush','Brush'].some(w=>b.n===w||new RegExp('^'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+' \\d+$').test(b.n)),keep=b.n&&!auto&&!BKP.some(p=>t(p[0])===b.n||p[0]===b.n);
+ Object.assign(b,MSM.BDEF,{c1:undefined,c2:undefined},v,{n:keep?b.n:t(n),ic:MSM.ICONS.includes(ic)?ic:b.ic||'fa-paintbrush'});delete b.c1;delete b.c2;if(v.c1)b.c1=v.c1;if(v.c2)b.c2=v.c2;delete b.tx;
+ Object.assign(b,MSM.cleanBrush(b));if(b.c1)$('#beC1').value=b.c1;if(b.c2)$('#beC2').value=b.c2;beLoad();mkRender();$('#beTry').getContext('2d').clearRect(0,0,9999,9999);beDemo();
+ $$('#bkPre .bkp').forEach(x=>x.classList.toggle('on',x===btn));haptic(6)}
+function bkMode(v){const b=curB();if(!b)return;b.cm=v;if(bkOwn(b)){if(!b.c1)b.c1=$('#beC1').value||S.color;if(!b.c2)b.c2=$('#beC2').value||'#ff8fd6'}
+ $$('#beCm button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));bkApply()}
+function bkSet(c,keep){const b=curB();if(!b)return;if(!bkOwn(b))b.cm='own';if(b.cm==='own')BK.slot=1;b['c'+BK.slot]=c;if(!keep&&b.cm!=='own'&&BK.slot===1&&!b.c2)b.c2='#ff8fd6';bkApply()}
+function bkApply(){const b=curB();if(!b)return;if(b.c1)$('#beC1').value=b.c1;if(b.c2)$('#beC2').value=b.c2;beChanged();mkRender();bkSync()}
+function bkSync(){const b=curB();if(!b||!$('#bkCm'))return;$$('#bkCm .bkc').forEach(x=>x.classList.toggle('on',x.dataset.v===(b.cm||'color')));
+ const own=bkOwn(b);$('#bkOwn').classList.toggle('hide',!own);$('#bkPick').classList.toggle('hide',b.cm!=='color');if(b.cm==='own')BK.slot=1;
+ $$('#bkOwn .bkslot').forEach(s=>{const n=+s.dataset.s,c=b['c'+n]||(n===1?'#7c8cff':'#ff8fd6');s.querySelector('i').style.background=c;s.querySelector('input').value=c;s.classList.toggle('on',BK.slot===n);s.classList.toggle('hide',n===2&&b.cm==='own')});
+ $('#bkSwap').classList.toggle('hide',b.cm==='own');$$('#bkSw button').forEach(x=>x.classList.toggle('on',x.title===(b['c'+BK.slot]||'')))}
+{const bl=beLoad;beLoad=function(){bkBuild();bl();bkSync()}}
+/* the maker's previews use the brush's own colors */
+{const mp=MSM.preview;MSM.preview=function(cv,b,c1,c2,w){return mp(cv,b,b&&bkOwn(b)&&b.c1?b.c1:c1,b&&bkOwn(b)&&b.c2?b.c2:c2,w)}}
+
+/* ---------- "Make my own brush" from the Draw page ---------- */
+async function bkNew(){await draftsLoad();let rec=MODS.drafts.find(r=>r.mine);
+ if(!rec){rec={id:'d'+Date.now(),mine:1,mod:{n:t('My brushes'),d:'',brushes:[],palettes:[],models:[]}};MODS.drafts.unshift(rec);await store.set('moddrafts',MODS.drafts)}
+ mkOpen(rec);const m=MODS.draft.mod;if(m.brushes.length<12){$('#mkAddB').click();const p=BKP[0];bkPreset(p[0],p[1],p[2],null);const b=curB();if(b)b.n=t('My brush')+' '+m.brushes.length;beLoad();mkRender()}
+ setTimeout(()=>{const e=$('#beBox');if(e)e.scrollIntoView({behavior:'smooth',block:'start'})},120)}
+{const lb=lookBrushes;lookBrushes=function(){lb();const G=$('#lkGrid');if(!G)return;
+ Object.keys(MODB).filter(id=>String(MODB[id].mod).startsWith('mod-mine-')).slice(0,8).forEach(id=>{const x=ae('button','lkb lkmine'+(S.tool===id?' on':''));x.dataset.t=id;x.title=t(TN[id]);x.innerHTML=`<i class="${TI[id]||'fa-solid fa-paintbrush'}"></i><span></span>`;x.lastChild.textContent=TN[id];x.onclick=()=>setTool(id);G.appendChild(x)});
+ const mk=ae('button','lkb lknew');mk.innerHTML='<i class="fa-solid fa-plus"></i><span></span>';mk.lastChild.textContent=t('Make my own brush');mk.title=t('Make my own brush');mk.onclick=()=>bkNew();G.appendChild(mk)}}
+{const ma=modsApply;modsApply=function(){const r=ma.apply(this,arguments);try{if($('#lkBr'))lookBrushes()}catch(e){}return r}}
+/* the app loads installed mods once at start with the old modsApply, so refresh the card after that too */
+setTimeout(()=>{(async()=>{for(let i=0;i<20&&!MODS.list;i++)await sleep(250);try{if($('#lkBr'))lookBrushes()}catch(e){}})()},0);
+
+/* ---------- v27: Pixel Art Studio – pixel-perfect drawing on a small grid, palettes from classic game consoles, mirror
+   drawing, sprite frames with onion skin, and saving as PNG / GIF / sprite sheet, into your drawing, or as a sprite you
+   can place in Game Studio. ---------- */
+const PXP=[
+ ['Classic 32',['#000000','#222034','#45283c','#663931','#8f563b','#df7126','#d9a066','#eec39a','#fbf236','#99e550','#6abe30','#37946e','#4b692f','#524b24','#323c39','#3f3f74','#306082','#5b6ee1','#639bff','#5fcde4','#cbdbfc','#ffffff','#9badb7','#847e87','#696a6a','#595652','#76428a','#ac3232','#d95763','#d77bba','#8f974a','#8a6f30']],
+ ['PICO-8',['#000000','#1d2b53','#7e2553','#008751','#ab5236','#5f574f','#c2c3c7','#fff1e8','#ff004d','#ffa300','#ffec27','#00e436','#29adff','#83769c','#ff77a8','#ffccaa']],
+ ['Game Boy',['#0f380f','#306230','#8bac0f','#9bbc0f']],
+ ['Retro console',['#000000','#fcfcfc','#bcbcbc','#7c7c7c','#a4e4fc','#3cbcfc','#0078f8','#0000fc','#b8b8f8','#6888fc','#0058f8','#d8b8f8','#9878f8','#6844fc','#f8b8f8','#f878f8','#d800cc','#f8a4c0','#f85898','#e40058','#f0d0b0','#f87858','#f83800','#a81000','#fce0a8','#fca044','#e45c10','#881400','#f8d878','#f8b800','#ac7c00','#503000','#d8f878','#b8f818','#00b800','#007800','#b8f8b8','#58d854','#00a800','#006800','#00fcfc','#00e8d8','#008888','#004058']],
+ ['Pastel',['#ffd1dc','#ffb3c6','#ff8fab','#fbc4ab','#ffdab9','#fff1a8','#e2f0cb','#b5ead7','#a0e7e5','#c7ceea','#b4a7d6','#e0bbe4','#ffffff','#f1f1f1','#d6d6d6','#7d7d7d']],
+ ['Skin & hair',['#ffe0bd','#ffcd94','#eac086','#e0ac69','#c68642','#8d5524','#5c3a1e','#3b2219','#f5d76e','#e6a23c','#b5651d','#2b1b17','#d63c3c','#6b4226']],
+ ['Grays',['#000000','#242424','#494949','#6d6d6d','#929292','#b6b6b6','#dbdbdb','#ffffff']]];
+const PXT=[['pen','fa-pencil','Pencil','B'],['eraser','fa-eraser','Eraser','E'],['fill','fa-fill-drip','Fill','G'],['pick','fa-eye-dropper','Pick a color','I'],['line','fa-slash','Line','L'],
+ ['rect','fa-vector-square','Rectangle','R'],['oval','fa-circle','Circle','O'],['dither','fa-chess-board','Checker pencil','D'],['shade','fa-circle-half-stroke','Lighter / darker','S'],['move','fa-up-down-left-right','Move pixels','M']];
+const PXZ=[1,2,3,4,5,6,8,10,12,14,16,20,24,28,32,40,48,56,64];
+const PX={on:false,w:32,h:32,fr:[],fi:0,tool:'pen',c1:'#000000',c2:'#ffffff',z:12,ox:0,oy:0,grid:true,onion:true,mirX:false,mirY:false,fillS:false,bs:1,fps:8,
+ play:0,pf:0,undo:[],redo:[],pal:0,mine:[],hov:null,dr:null,ptr:new Map(),space:false,exp:8,built:false,st:0};
+let PXS=[];store.get('pxsprites').then(v=>{PXS=Array.isArray(v)?v:[]}).catch(()=>{});
+const pxRGB=h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16),255];
+const pxHex=(r,g,b)=>'#'+[r,g,b].map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join('');
+const pxBlank=()=>new Uint8ClampedArray(PX.w*PX.h*4);
+const pxCur=()=>PX.fr[PX.fi];
+
+/* ---------- drawing on the pixel grid ---------- */
+function pxSet(d,x,y,c){if(x<0||y<0||x>=PX.w||y>=PX.h)return;const i=(y*PX.w+x)*4;d[i]=c[0];d[i+1]=c[1];d[i+2]=c[2];d[i+3]=c[3]}
+function pxGet(d,x,y){if(x<0||y<0||x>=PX.w||y>=PX.h)return null;const i=(y*PX.w+x)*4;return[d[i],d[i+1],d[i+2],d[i+3]]}
+/* every point a tool touches: brush size, then mirrors */
+function pxPts(x,y,fn){const s=PX.bs,o=Math.floor((s-1)/2);for(let j=0;j<s;j++)for(let i=0;i<s;i++){const a=x-o+i,b=y-o+j;fn(a,b);if(PX.mirX)fn(PX.w-1-a,b);if(PX.mirY)fn(a,PX.h-1-b);if(PX.mirX&&PX.mirY)fn(PX.w-1-a,PX.h-1-b)}}
+function pxLine(x0,y0,x1,y1,fn){const dx=Math.abs(x1-x0),dy=-Math.abs(y1-y0),sx=x0<x1?1:-1,sy=y0<y1?1:-1;let e=dx+dy;for(let n=0;n<4096;n++){fn(x0,y0);if(x0===x1&&y0===y1)break;const e2=2*e;if(e2>=dy){e+=dy;x0+=sx}if(e2<=dx){e+=dx;y0+=sy}}}
+function pxShape(d,t,a,b,c){const x0=Math.min(a.x,b.x),x1=Math.max(a.x,b.x),y0=Math.min(a.y,b.y),y1=Math.max(a.y,b.y),put=(x,y)=>pxPts(x,y,(p,q)=>pxSet(d,p,q,c));
+ if(t==='line')return pxLine(a.x,a.y,b.x,b.y,put);
+ if(t==='rect'){for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(PX.fillS||x===x0||x===x1||y===y0||y===y1)put(x,y);return}
+ const cx=(x0+x1)/2,cy=(y0+y1)/2,rx=(x1-x0)/2+.5,ry=(y1-y0)/2+.5,inn=(x,y)=>((x-cx)/rx)**2+((y-cy)/ry)**2<=1;
+ for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(inn(x,y)&&(PX.fillS||!inn(x-1,y)||!inn(x+1,y)||!inn(x,y-1)||!inn(x,y+1)))put(x,y)}
+function pxFlood(d,x,y,c){const s=pxGet(d,x,y);if(!s||s.every((v,i)=>v===c[i]))return;const W=PX.w,H=PX.h,same=i=>d[i]===s[0]&&d[i+1]===s[1]&&d[i+2]===s[2]&&d[i+3]===s[3],st=[[x,y]];
+ while(st.length){const[px,py]=st.pop();if(px<0||py<0||px>=W||py>=H)continue;const i=(py*W+px)*4;if(!same(i))continue;d[i]=c[0];d[i+1]=c[1];d[i+2]=c[2];d[i+3]=c[3];st.push([px+1,py],[px-1,py],[px,py+1],[px,py-1])}}
+function pxShade(d,x,y,up,seen){const k=y*PX.w+x;if(seen.has(k))return;seen.add(k);const c=pxGet(d,x,y);if(!c||!c[3])return;const f=up?1.18:.82,a=up?18:0;pxSet(d,x,y,[c[0]*f+a,c[1]*f+a,c[2]*f+a,c[3]])}
+function pxMoved(src,dx,dy){const o=pxBlank(),W=PX.w,H=PX.h;for(let y=0;y<H;y++)for(let x=0;x<W;x++){const sx=x-dx,sy=y-dy;if(sx<0||sy<0||sx>=W||sy>=H)continue;const i=(y*W+x)*4,j=(sy*W+sx)*4;o[i]=src[j];o[i+1]=src[j+1];o[i+2]=src[j+2];o[i+3]=src[j+3]}return o}
+
+/* ---------- undo ---------- */
+function pxSnap(){return{w:PX.w,h:PX.h,fi:PX.fi,fr:PX.fr.map(a=>a.slice())}}
+function pxPush(){PX.undo.push(pxSnap());if(PX.undo.length>50)PX.undo.shift();PX.redo=[]}
+function pxRestore(s){PX.w=s.w;PX.h=s.h;PX.fr=s.fr;PX.fi=Math.min(s.fi,s.fr.length-1);PX.oc=null;pxChanged(true)}
+function pxUndo(){if(!PX.undo.length)return;PX.redo.push(pxSnap());pxRestore(PX.undo.pop())}
+function pxRedo(){if(!PX.redo.length)return;PX.undo.push(pxSnap());pxRestore(PX.redo.pop())}
+
+/* ---------- the view ---------- */
+let pxChk=null;
+function pxDraw(){if(!PX.on)return;const cv=$('#pxCv'),st=$('#pxStage'),r=devicePixelRatio||1,W2=st.clientWidth,H2=st.clientHeight;
+ if(cv.width!==Math.round(W2*r)||cv.height!==Math.round(H2*r)){cv.width=Math.round(W2*r);cv.height=Math.round(H2*r)}
+ const x=cv.getContext('2d');x.setTransform(r,0,0,r,0,0);x.clearRect(0,0,W2,H2);x.imageSmoothingEnabled=false;
+ const z=PX.z,ox=Math.round(PX.ox),oy=Math.round(PX.oy),w=PX.w*z,h=PX.h*z;
+ if(!pxChk){const c=mkC(16,16),g=c.getContext('2d');g.fillStyle='#d9dce6';g.fillRect(0,0,16,16);g.fillStyle='#b7bccb';g.fillRect(0,0,8,8);g.fillRect(8,8,8,8);pxChk=c}
+ x.save();x.translate(ox,oy);x.fillStyle=x.createPattern(pxChk,'repeat');x.fillRect(0,0,w,h);x.restore();
+ const draw=(d,a)=>{if(!PX.oc||PX.oc.width!==PX.w||PX.oc.height!==PX.h){PX.oc=mkC(PX.w,PX.h)}const g=PX.oc.getContext('2d');g.putImageData(new ImageData(d,PX.w,PX.h),0,0);x.globalAlpha=a;x.drawImage(PX.oc,ox,oy,w,h);x.globalAlpha=1};
+ if(PX.onion&&PX.fi>0)draw(PX.fr[PX.fi-1],.28);
+ draw(PX.view||pxCur(),1);
+ if(PX.grid&&z>=6){x.beginPath();for(let i=1;i<PX.w;i++){x.moveTo(ox+i*z+.5,oy);x.lineTo(ox+i*z+.5,oy+h)}for(let j=1;j<PX.h;j++){x.moveTo(ox,oy+j*z+.5);x.lineTo(ox+w,oy+j*z+.5)}x.strokeStyle='rgba(20,24,40,.16)';x.lineWidth=1;x.stroke();
+  x.beginPath();for(let i=8;i<PX.w;i+=8){x.moveTo(ox+i*z+.5,oy);x.lineTo(ox+i*z+.5,oy+h)}for(let j=8;j<PX.h;j+=8){x.moveTo(ox,oy+j*z+.5);x.lineTo(ox+w,oy+j*z+.5)}x.strokeStyle='rgba(20,24,40,.32)';x.stroke()}
+ x.strokeStyle='rgba(255,255,255,.35)';x.strokeRect(ox-.5,oy-.5,w+1,h+1);
+ x.setLineDash([5,4]);x.strokeStyle='#a78bfa';if(PX.mirX){x.beginPath();x.moveTo(ox+w/2,oy-8);x.lineTo(ox+w/2,oy+h+8);x.stroke()}if(PX.mirY){x.beginPath();x.moveTo(ox-8,oy+h/2);x.lineTo(ox+w+8,oy+h/2);x.stroke()}x.setLineDash([]);
+ if(PX.hov&&!PX.dr&&['pen','eraser','dither','shade','line','rect','oval'].includes(PX.tool)){const o=Math.floor((PX.bs-1)/2);x.strokeStyle='#ffffff';x.lineWidth=1.5;x.strokeRect(ox+(PX.hov.x-o)*z+.5,oy+(PX.hov.y-o)*z+.5,PX.bs*z-1,PX.bs*z-1);x.strokeStyle='#000000';x.lineWidth=1;x.strokeRect(ox+(PX.hov.x-o)*z-.5,oy+(PX.hov.y-o)*z-.5,PX.bs*z+1,PX.bs*z+1)}
+ $('#pxZv').textContent='×'+z;$('#pxInfo').textContent=PX.w+' × '+PX.h+(PX.hov?'  ·  '+(PX.hov.x+1)+', '+(PX.hov.y+1):'')}
+function pxFit(){const st=$('#pxStage');if(!st.clientWidth)return;const k=Math.min((st.clientWidth-48)/PX.w,(st.clientHeight-48)/PX.h);let z=PXZ[0];PXZ.forEach(v=>{if(v<=k)z=v});PX.z=z;PX.ox=(st.clientWidth-PX.w*z)/2;PX.oy=(st.clientHeight-PX.h*z)/2;PX.af=true;pxDraw()}
+function pxZoom(d,cx,cy){const st=$('#pxStage');if(cx==null){cx=st.clientWidth/2;cy=st.clientHeight/2}let i=PXZ.indexOf(PX.z);if(i<0)i=PXZ.findIndex(v=>v>PX.z)-1;const nz=PXZ[Math.max(0,Math.min(PXZ.length-1,i+d))];if(nz===PX.z)return;
+ PX.ox=cx-(cx-PX.ox)*nz/PX.z;PX.oy=cy-(cy-PX.oy)*nz/PX.z;PX.z=nz;PX.af=false;pxDraw()}
+function pxThumb(cv,d){const g=cv.getContext('2d');g.imageSmoothingEnabled=false;g.clearRect(0,0,cv.width,cv.height);if(!PX.tc||PX.tc.width!==PX.w||PX.tc.height!==PX.h)PX.tc=mkC(PX.w,PX.h);PX.tc.getContext('2d').putImageData(new ImageData(d,PX.w,PX.h),0,0);
+ const k=Math.min(cv.width/PX.w,cv.height/PX.h),w=PX.w*k,h=PX.h*k;g.drawImage(PX.tc,(cv.width-w)/2,(cv.height-h)/2,w,h)}
+function pxFrames(){const L=$('#pxFl');L.innerHTML='';PX.fr.forEach((d,i)=>{const b=ae('button','pxf'+(i===PX.fi?' on':''));const c=mkC(56,56);b.appendChild(c);b.appendChild(ae('small','',String(i+1)));pxThumb(c,d);b.onclick=()=>{PX.fi=i;pxChanged(true)};L.appendChild(b)});
+ const on=L.querySelector('.on');if(on)on.scrollIntoView({block:'nearest',inline:'nearest'});$('#pxFDel').disabled=PX.fr.length<2;$('#pxPlay').disabled=PX.fr.length<2}
+function pxPrev(){const c=$('#pxPrev');pxThumb(c,PX.play?PX.fr[PX.pf%PX.fr.length]:(PX.view||pxCur()))}
+function pxThumbNow(){const b=$$('#pxFl .pxf')[PX.fi];if(b)pxThumb(b.querySelector('canvas'),pxCur())}
+let pxT=0;function pxChanged(all){if(all)pxFrames();else pxThumbNow();pxPrev();pxDraw();$('#pxUndo').disabled=!PX.undo.length;$('#pxRedo').disabled=!PX.redo.length;clearTimeout(pxT);pxT=setTimeout(pxSave,700)}
+function pxSave(){store.set('pixeldoc',{w:PX.w,h:PX.h,fps:PX.fps,fr:PX.fr,fi:PX.fi,pal:PX.pal,c1:PX.c1,c2:PX.c2,mine:PX.mine}).catch(()=>{})}
+
+/* ---------- tools, colors, frames ---------- */
+function pxTool(t){PX.tool=t;$$('#pxTools [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));$('#pxCv').style.cursor=t==='move'?'move':t==='pick'?'copy':'crosshair';$('#pxShapeOpt').classList.toggle('hide',!['rect','oval'].includes(t));pxDraw()}
+function pxColors(){$('#pxC1').style.background=PX.c1;$('#pxC2').style.background=PX.c2;$$('#pxSw button').forEach(b=>{b.classList.toggle('on',b.dataset.c===PX.c1);b.classList.toggle('on2',b.dataset.c===PX.c2)})}
+function pxPal(){const S2=$('#pxSw');S2.innerHTML='';const list=PX.pal===-1?PX.mine:PXP[PX.pal][1];
+ list.forEach(c=>{const b=ae('button');b.dataset.c=c;b.style.background=c;b.title=c;b.onclick=()=>{PX.c1=c;pxColors()};b.oncontextmenu=e=>{e.preventDefault();PX.c2=c;pxColors()};S2.appendChild(b)});
+ if(PX.pal===-1&&!list.length)S2.appendChild(bkL(ae('small','mut'),'Add colors with the + button.'));pxColors()}
+function pxAddColor(c){if(!PX.mine.includes(c)){PX.mine.push(c);if(PX.mine.length>48)PX.mine.shift()}PX.c1=c;if(PX.pal===-1)pxPal();else pxColors();pxSave()}
+function pxFrame(k){pxPush();if(k==='add'){PX.fr.splice(PX.fi+1,0,pxBlank());PX.fi++}else if(k==='dup'){PX.fr.splice(PX.fi+1,0,pxCur().slice());PX.fi++}
+ else if(k==='del'){if(PX.fr.length<2){PX.undo.pop();return}PX.fr.splice(PX.fi,1);PX.fi=Math.min(PX.fi,PX.fr.length-1)}
+ else if(k==='l'||k==='r'){const j=PX.fi+(k==='l'?-1:1);if(j<0||j>=PX.fr.length){PX.undo.pop();return}const a=PX.fr[PX.fi];PX.fr[PX.fi]=PX.fr[j];PX.fr[j]=a;PX.fi=j}
+ else if(k==='clear'){PX.fr[PX.fi]=pxBlank()}
+ else if(k==='flipH'||k==='flipV'){const d=pxCur(),o=pxBlank();for(let y=0;y<PX.h;y++)for(let x=0;x<PX.w;x++){const c=pxGet(d,x,y);pxSet(o,k==='flipH'?PX.w-1-x:x,k==='flipV'?PX.h-1-y:y,c)}PX.fr[PX.fi]=o}
+ pxChanged(true)}
+function pxPlay(on){if(on==null)on=!PX.play;clearInterval(PX.play);PX.play=0;if(on&&PX.fr.length>1){PX.pf=PX.fi;PX.play=setInterval(()=>{PX.pf=(PX.pf+1)%PX.fr.length;pxPrev();$$('#pxFl .pxf').forEach((b,i)=>b.classList.toggle('play',i===PX.pf))},1000/PX.fps)}
+ else $$('#pxFl .pxf').forEach(b=>b.classList.remove('play'));$('#pxPlay').innerHTML=`<i class="fa-solid fa-${PX.play?'stop':'play'}"></i><span></span>`;bkL($('#pxPlay span'),PX.play?'Stop':'Play');pxPrev()}
+
+/* ---------- pointer ---------- */
+function pxAt(e){const r=$('#pxCv').getBoundingClientRect();return{sx:e.clientX-r.left,sy:e.clientY-r.top,x:Math.floor((e.clientX-r.left-PX.ox)/PX.z),y:Math.floor((e.clientY-r.top-PX.oy)/PX.z)}}
+function pxDown(e){const cv=$('#pxCv');PX.ptr.set(e.pointerId,{x:e.clientX,y:e.clientY});try{cv.setPointerCapture(e.pointerId)}catch(_){}
+ if(PX.ptr.size===2){if(PX.dr&&PX.dr.snap){PX.fr[PX.fi]=PX.dr.snap;PX.undo.pop()}PX.view=null;const[a,b]=[...PX.ptr.values()];PX.dr={pinch:1,d:Math.hypot(a.x-b.x,a.y-b.y),cx:(a.x+b.x)/2,cy:(a.y+b.y)/2};pxDraw();return}
+ if(PX.ptr.size>2)return;const p=pxAt(e);
+ if(e.button===1||PX.space||(e.button===2&&PX.tool==='move')){PX.dr={pan:1,sx:e.clientX,sy:e.clientY,ox:PX.ox,oy:PX.oy};return}
+ const alt=e.button===2,col=pxRGB(alt?PX.c2:PX.c1),T=PX.tool,d=pxCur();
+ if(T==='pick'){const c=pxGet(d,p.x,p.y);if(c&&c[3]){const h=pxHex(c[0],c[1],c[2]);if(alt)PX.c2=h;else PX.c1=h;pxColors();pxTool(PX.last||'pen')}return}
+ pxPush();const snap=d.slice();
+ if(T==='fill'){pxFlood(d,p.x,p.y,col);pxChanged();PX.dr=null;return}
+ PX.dr={t:T,a:p,last:p,col,alt,snap,seen:new Set()};pxMove(e)}
+function pxPaint(d,p){const D=PX.dr,T=D.t;pxPts(p.x,p.y,(x,y)=>{if(T==='pen')pxSet(d,x,y,D.col);else if(T==='eraser')pxSet(d,x,y,[0,0,0,0]);else if(T==='dither'){if((x+y)%2===0)pxSet(d,x,y,D.col)}else if(T==='shade')pxShade(d,x,y,!D.alt,D.seen)})}
+function pxMove(e){const p=pxAt(e);if(PX.ptr.has(e.pointerId))PX.ptr.set(e.pointerId,{x:e.clientX,y:e.clientY});const D=PX.dr;
+ PX.hov=p.x>=0&&p.y>=0&&p.x<PX.w&&p.y<PX.h?{x:p.x,y:p.y}:null;
+ if(!D){pxDraw();return}
+ if(D.pinch){if(PX.ptr.size<2)return;const[a,b]=[...PX.ptr.values()],dd=Math.hypot(a.x-b.x,a.y-b.y),cx=(a.x+b.x)/2,cy=(a.y+b.y)/2;PX.ox+=cx-D.cx;PX.oy+=cy-D.cy;D.cx=cx;D.cy=cy;
+  if(dd/D.d>1.25||dd/D.d<.8){const r=$('#pxCv').getBoundingClientRect();pxZoom(dd>D.d?1:-1,cx-r.left,cy-r.top);D.d=dd}pxDraw();return}
+ if(D.pan){PX.ox=D.ox+e.clientX-D.sx;PX.oy=D.oy+e.clientY-D.sy;PX.af=false;pxDraw();return}
+ const d=pxCur();
+ if(['pen','eraser','dither','shade'].includes(D.t)){pxLine(D.last.x,D.last.y,p.x,p.y,(x,y)=>pxPaint(d,{x,y}));D.last=p;pxThumbNow();pxPrev();pxDraw();return}
+ if(D.t==='move'){const v=pxMoved(D.snap,p.x-D.a.x,p.y-D.a.y);PX.fr[PX.fi]=v;pxDraw();return}
+ const v=D.snap.slice();pxShape(v,D.t,D.a,p,D.col);PX.fr[PX.fi]=v;pxDraw()}
+function pxUp(e){PX.ptr.delete(e.pointerId);const D=PX.dr;if(!D)return;if(D.pinch){if(PX.ptr.size===0)PX.dr=null;return}PX.dr=null;if(D.pan)return;pxChanged()}
+
+/* ---------- new / pixelate / save & use ---------- */
+async function pxNew(){const v=await form(t('New pixel art'),[{id:'s',label:t('Size'),type:'select',value:PX.w+'x'+PX.h,options:[['8x8','8 × 8'],['16x16','16 × 16 – '+t('tiny sprite')],['24x24','24 × 24'],['32x32','32 × 32 – '+t('character')],['48x48','48 × 48'],['64x64','64 × 64 – '+t('big sprite')],['64x32','64 × 32 – '+t('wide')],['32x64','32 × 64 – '+t('tall')],['96x96','96 × 96'],['128x128','128 × 128 – '+t('picture')]]}]);
+ if(!v)return;const[w,h]=v.s.split('x').map(Number);pxPush();PX.w=w;PX.h=h;PX.fr=[pxBlank()];PX.fi=0;PX.oc=null;pxPlay(false);pxChanged(true);pxFit()}
+async function pxPixelate(){const v=await form(t('Pixelate my drawing'),[{id:'s',label:t('Size'),type:'select',value:String(Math.max(PX.w,PX.h)),options:[['16','16'],['24','24'],['32','32'],['48','48'],['64','64'],['96','96'],['128','128']].map(([a,b])=>[a,b+' '+t('pixels')])},
+ {id:'p',label:t('Colors'),type:'select',value:'pal',options:[['pal',t('Use the colors of this palette')],['keep',t('Keep the colors of my drawing')]]}]);if(!v)return;
+ const src=flat({}),n=+v.s,k=n/Math.max(W,H),w=Math.max(1,Math.round(W*k)),h=Math.max(1,Math.round(H*k)),c=mkC(w,h),g=c.getContext('2d',{willReadFrequently:true});g.imageSmoothingEnabled=true;g.imageSmoothingQuality='high';g.drawImage(src,0,0,w,h);
+ const d=g.getImageData(0,0,w,h).data,pal=(PX.pal===-1?PX.mine:PXP[PX.pal][1]).map(pxRGB);
+ for(let i=0;i<d.length;i+=4){if(d[i+3]<128){d[i]=d[i+1]=d[i+2]=d[i+3]=0;continue}d[i+3]=255;if(v.p==='pal'&&pal.length){let best=0,bd=1e9;pal.forEach((q,j)=>{const dr=d[i]-q[0],dg=d[i+1]-q[1],db=d[i+2]-q[2],e2=dr*dr*.3+dg*dg*.59+db*db*.11;if(e2<bd){bd=e2;best=j}});d[i]=pal[best][0];d[i+1]=pal[best][1];d[i+2]=pal[best][2]}}
+ pxPush();PX.w=w;PX.h=h;PX.fr=[new Uint8ClampedArray(d)];PX.fi=0;PX.oc=null;pxPlay(false);pxChanged(true);pxFit();toast(t('Your drawing is now pixel art!'),'fa-chess-board')}
+function pxCanvas(d,k,bg){const c=mkC(PX.w*k,PX.h*k),g=c.getContext('2d');g.imageSmoothingEnabled=false;if(bg){g.fillStyle=bg;g.fillRect(0,0,c.width,c.height)}const o=mkC(PX.w,PX.h);o.getContext('2d').putImageData(new ImageData(d,PX.w,PX.h),0,0);g.drawImage(o,0,0,c.width,c.height);return c}
+const pxK=()=>Math.max(1,Math.min(PX.exp,Math.floor(4096/Math.max(PX.w,PX.h))));
+const pxName=()=>safeName(($('#pname')&&$('#pname').value)||'pixel-art');
+const pxBlob=c=>new Promise(r=>c.toBlob(r,'image/png'));
+async function pxDo(a){$('#pxMenu').classList.add('hide');const k=pxK();
+ if(a==='png'){download(await pxBlob(pxCanvas(pxCur(),k)),pxName()+'.png')}
+ else if(a==='sheet'){const c=mkC(PX.w*k*PX.fr.length,PX.h*k),g=c.getContext('2d');g.imageSmoothingEnabled=false;PX.fr.forEach((d,i)=>g.drawImage(pxCanvas(d,k),i*PX.w*k,0));download(await pxBlob(c),pxName()+'-sheet.png')}
+ else if(a==='gif'){const kk=Math.max(1,Math.min(k,Math.floor(1024/Math.max(PX.w,PX.h)))),w=PX.w*kk,h=PX.h*kk;toast(t('Creating GIF…'),'fa-film');await sleep(30);
+  const fr=PX.fr.map(d=>pxCanvas(d,kk,'#ffffff').getContext('2d').getImageData(0,0,w,h).data);download(new Blob([gifEncode(fr,w,h,Math.max(2,Math.round(100/PX.fps)),true)],{type:'image/gif'}),pxName()+'.gif')}
+ else if(a==='draw'){const kk=Math.max(1,Math.floor(Math.min(W,H)*.7/Math.max(PX.w,PX.h)));pxClose();setMode('draw');setTimeout(()=>{placeImage(pxCanvas(pxCur(),kk),t('Pixel art'));toast(t('Added to your drawing as a new layer'),'fa-layer-group')},80)}
+ else if(a==='game'){const url=pxCanvas(pxCur(),1).toDataURL('image/png');if(url.length>60000)return warn('This sprite is too big for a game – use 64 × 64 or smaller');
+  const n=t('Pixel art')+' '+(PXS.length+1);PXS.unshift({id:'s'+Date.now().toString(36),n,url,w:PX.w,h:PX.h});PXS=PXS.slice(0,24);await store.set('pxsprites',PXS);
+  try{if(typeof gmToolbox==='function'&&$('#gmTb'))gmToolbox()}catch(e){}
+  const ins=typeof GM!=='undefined'&&GM.game&&typeof gmInsert==='function';pxClose();setMode('play');
+  setTimeout(()=>{if(ins&&GM.game){try{gmInsert(pxPart(PXS[0]));toast(t('Your sprite is in your game!'),'fa-gamepad');return}catch(e){}}toast(t('Saved! Open a game and find it in the Toolbox under My pixel art'),'fa-gamepad')},250)}}
+const pxPart=s=>({name:s.n,k:'part',px:s.url,s:[+(s.w*.3125).toFixed(2),+(s.h*.3125).toFixed(2),.5],c:'#ffffff',m:'plastic',cc:0,tr:0});
+
+/* ---------- open / close ---------- */
+function pxBuild(){if(PX.built)return;PX.built=true;const T=$('#pxTools');
+ PXT.forEach(([id,ic,n,k])=>{const b=ae('button','pxtb');b.dataset.t=id;b.innerHTML=`<i class="fa-solid ${ic}"></i><span></span><kbd>${k}</kbd>`;bkL(b.querySelector('span'),n);b.title=t(n)+' ('+k+')';b.onclick=()=>{if(id==='pick'&&PX.tool!=='pick')PX.last=PX.tool;pxTool(id)};T.appendChild(b)});
+ T.appendChild(ae('i','pxsep'));
+ const tg=(id,ic,n,key)=>{const b=ae('button','pxtb pxtg');b.id=id;b.innerHTML=`<i class="fa-solid ${ic}"></i><span></span>`;bkL(b.querySelector('span'),n);b.title=t(n);b.onclick=()=>{PX[key]=!PX[key];b.classList.toggle('on',PX[key]);pxDraw()};b.classList.toggle('on',!!PX[key]);T.appendChild(b)};
+ tg('pxMirX','fa-arrows-left-right','Mirror left–right','mirX');tg('pxMirY','fa-arrows-up-down','Mirror up–down','mirY');tg('pxGrid','fa-border-all','Grid','grid');tg('pxOnion','fa-clone','Onion skin','onion');
+ const bs=ae('div','pxbs');bs.appendChild(bkL(ae('small','mut'),'Pencil size'));const bg=ae('div','segs');[1,2,3,4].forEach(n=>{const b=ae('button',n===PX.bs?'on':'',String(n));b.onclick=()=>{PX.bs=n;$$('.pxbs button').forEach(x=>x.classList.toggle('on',x===b));pxDraw()};bg.appendChild(b)});bs.appendChild(bg);T.appendChild(bs);
+ const so=ae('label','chk pxso');so.id='pxShapeOpt';so.innerHTML='<input type="checkbox" id="pxFillS"> <span></span>';bkL(so.lastChild,'Filled shapes');T.appendChild(so);$('#pxFillS').onchange=e=>{PX.fillS=e.target.checked};
+ const ps=$('#pxPal');PXP.forEach(([n],i)=>ps.add(new Option(t(n),String(i))));ps.add(new Option(t('My colors'),'-1'));ps.onchange=()=>{PX.pal=+ps.value;pxPal();pxSave()};
+ $('#pxC1').onclick=()=>{$('#pxPick').dataset.s='1';$('#pxPick').value=PX.c1;$('#pxPick').click()};$('#pxC2').onclick=()=>{$('#pxPick').dataset.s='2';$('#pxPick').value=PX.c2;$('#pxPick').click()};
+ $('#pxPick').onchange=e=>{const c=e.target.value;if(e.target.dataset.s==='2'){PX.c2=c;pxColors()}else pxAddColor(c);e.target.dataset.s='1'};
+ $('#pxAddC').onclick=()=>{$('#pxPick').dataset.s='1';$('#pxPick').value=PX.c1;$('#pxPick').click()};
+ $('#pxSwap').onclick=()=>{const a=PX.c1;PX.c1=PX.c2;PX.c2=a;pxColors()};
+ const cv=$('#pxCv');cv.addEventListener('pointerdown',pxDown);cv.addEventListener('pointermove',pxMove);cv.addEventListener('pointerup',pxUp);cv.addEventListener('pointercancel',pxUp);
+ cv.addEventListener('pointerleave',()=>{if(!PX.dr){PX.hov=null;pxDraw()}});cv.addEventListener('contextmenu',e=>e.preventDefault());
+ cv.addEventListener('wheel',e=>{e.preventDefault();const r=cv.getBoundingClientRect();if(e.ctrlKey||Math.abs(e.deltaY)>=Math.abs(e.deltaX))pxZoom(e.deltaY<0?1:-1,e.clientX-r.left,e.clientY-r.top);else{PX.ox-=e.deltaX;pxDraw()}},{passive:false});
+ $('#pxZi').onclick=()=>pxZoom(1);$('#pxZo').onclick=()=>pxZoom(-1);$('#pxFit').onclick=pxFit;$('#pxUndo').onclick=pxUndo;$('#pxRedo').onclick=pxRedo;
+ $('#pxBack').onclick=()=>pxClose();$('#pxNew').onclick=pxNew;$('#pxFromDraw').onclick=pxPixelate;
+ $('#pxExp').onclick=e=>{e.stopPropagation();$('#pxMenu').classList.toggle('hide')};$$('#pxMenu [data-a]').forEach(b=>b.onclick=()=>pxDo(b.dataset.a));
+ document.addEventListener('pointerdown',e=>{const m=$('#pxMenu');if(m&&!m.classList.contains('hide')&&!m.contains(e.target)&&e.target!==$('#pxExp')&&!$('#pxExp').contains(e.target))m.classList.add('hide')});
+ $('#pxScale').onchange=e=>{PX.exp=+e.target.value};
+ $('#pxFAdd').onclick=()=>pxFrame('add');$('#pxFDup').onclick=()=>pxFrame('dup');$('#pxFDel').onclick=()=>pxFrame('del');$('#pxFL').onclick=()=>pxFrame('l');$('#pxFR').onclick=()=>pxFrame('r');
+ $('#pxFlipH').onclick=()=>pxFrame('flipH');$('#pxFlipV').onclick=()=>pxFrame('flipV');$('#pxClear').onclick=()=>pxFrame('clear');
+ $('#pxPlay').onclick=()=>pxPlay();bind('pxFps',v=>{PX.fps=v;if(PX.play)pxPlay(true);pxSave()});
+ if(window.ResizeObserver)new ResizeObserver(()=>{if(PX.on){if(PX.af)pxFit();else pxDraw()}}).observe($('#pxStage'))}
+async function pxOpen(){pxBuild();if(!PX.fr.length){let doc=null;try{doc=await store.get('pixeldoc')}catch(e){}
+  if(doc&&Array.isArray(doc.fr)&&doc.fr.length&&doc.w&&doc.h&&doc.fr.every(a=>a&&a.length===doc.w*doc.h*4)){Object.assign(PX,{w:doc.w,h:doc.h,fr:doc.fr.map(a=>new Uint8ClampedArray(a)),fi:Math.min(doc.fi||0,doc.fr.length-1),fps:doc.fps||8,pal:doc.pal??0,c1:doc.c1||PX.c1,c2:doc.c2||PX.c2,mine:Array.isArray(doc.mine)?doc.mine:[]})}
+  else{PX.w=PX.h=32;PX.fr=[pxBlank()];PX.fi=0}}
+ if(PX.pal>=PXP.length)PX.pal=0;$('#pxPal').value=String(PX.pal);setR('pxFps',PX.fps);
+ PX.on=true;show('#pxM');document.body.classList.add('pxon');pxTool(PX.tool);pxPal();pxChanged(true);requestAnimationFrame(pxFit)}
+function pxClose(){if(!PX.on)return;PX.on=false;pxPlay(false);pxSave();show('#pxM',false);document.body.classList.remove('pxon');$('#pxMenu').classList.add('hide')}
+/* keys inside the studio (they never reach the drawing behind it) */
+addEventListener('keydown',e=>{if(!PX.on)return;const el=document.activeElement;if(document.querySelector('.modal:not(.hide)'))return;if(el&&el.matches('input[type=text],input[type=number],select,textarea'))return;
+ const k=e.key.toLowerCase(),c=e.ctrlKey||e.metaKey;e.stopImmediatePropagation();
+ if(c&&k==='z'){e.preventDefault();e.shiftKey?pxRedo():pxUndo();return}if(c&&k==='y'){e.preventDefault();pxRedo();return}if(c)return;
+ if(k===' '){e.preventDefault();PX.space=true;return}if(k==='escape'){if(!$('#pxMenu').classList.contains('hide'))$('#pxMenu').classList.add('hide');else pxClose();return}
+ const tl=PXT.find(x=>x[3].toLowerCase()===k);if(tl){if(tl[0]==='pick'&&PX.tool!=='pick')PX.last=PX.tool;pxTool(tl[0]);return}
+ if(k==='p')return pxTool('pen');if(k==='c')return pxTool('oval');if(k==='x'){$('#pxSwap').click();return}if(k==='+'||k==='=')return pxZoom(1);if(k==='-')return pxZoom(-1);if(k==='0')return pxFit();
+ if(k==='arrowleft'||k===','){e.preventDefault();PX.fi=Math.max(0,PX.fi-1);return pxChanged(true)}if(k==='arrowright'||k==='.'){e.preventDefault();PX.fi=Math.min(PX.fr.length-1,PX.fi+1);return pxChanged(true)}
+ if(k==='enter')return pxPlay();if(k==='n'&&e.shiftKey)return pxFrame('add')},true);
+addEventListener('keyup',e=>{if(!PX.on)return;if(e.key===' ')PX.space=false},true);
+
+/* ---------- ways in: sidebar, Home and the command palette ---------- */
+{const ha=homeAct;homeAct=function(q){if(q==='pixel')return pxOpen();if(q==='brush')return bkNew();return ha(q)}}
+{const b=$('#sideNav [data-act="pixel"]');if(b)b.onclick=()=>pxOpen()}
+
+/* ---------- pixel sprites in Game Studio ---------- */
+const PXTX=new Map();
+function pxTex(url){if(PXTX.has(url))return PXTX.get(url);const im=new Image(),tx=new THREE.Texture(im);tx.magFilter=THREE.NearestFilter;tx.minFilter=THREE.NearestFilter;tx.generateMipmaps=false;tx.encoding=THREE.sRGBEncoding;
+ im.onload=()=>{tx.needsUpdate=true};im.src=url;if(PXTX.size>60)PXTX.clear();PXTX.set(url,tx);return tx}
+if(typeof gmMesh==='function'){const gm=gmMesh;gmMesh=function(p){if(!p||typeof p.px!=='string'||!p.px.startsWith('data:image/'))return gm(p);const s=p.s||[5,5,.5];
+ const mat=new THREE.MeshStandardMaterial({map:pxTex(p.px),transparent:true,alphaTest:.5,side:THREE.DoubleSide,roughness:.85,opacity:1-(p.tr||0)});
+ const o=new THREE.Mesh(new THREE.PlaneGeometry(1,1),mat);o.scale.set(s[0],s[1],s[2]);o.castShadow=true;o.receiveShadow=false;
+ const r=p.r||[0,0,0];o.position.set(...(p.p||[0,0,0]));o.rotation.set(r[0]*D2R,r[1]*D2R,r[2]*D2R);o.userData.part=p;o.userData.gp=p;return o}}
+if(typeof gmToolbox==='function'){const tb=gmToolbox;gmToolbox=function(){tb();const L=$('#gmTb');if(!L)return;const q=((GM&&GM.tbq)||'').trim().toLowerCase(),nm=t('My pixel art');
+ if(q&&!nm.toLowerCase().includes(q)&&!'my pixel art'.includes(q))return;const h=ae('div','gmtbh');h.innerHTML='<i class="fa-solid fa-chess-board"></i><span></span>';h.lastChild.textContent=nm;L.appendChild(h);
+ const G=ae('div','gmtbg');PXS.forEach(s=>{const b=ae('button','gmtbi pxgi');const im=ae('img');im.src=s.url;im.alt='';b.appendChild(im);b.appendChild(ae('span','',s.n));b.title=s.n;b.onclick=()=>gmInsert(pxPart(s));G.appendChild(b)});
+ const mk=ae('button','gmtbi');mk.innerHTML='<i class="fa-solid fa-plus"></i><span></span>';mk.lastChild.textContent=t('Make pixel art');mk.onclick=()=>pxOpen();G.appendChild(mk);L.appendChild(G)}}
+
 /* ---------- v8: drawing additions ---------- */
 /* PDF export (one page, the picture as a high-quality JPEG) */
 function pdfBlob(cv,q){return new Promise((res,rej)=>cv.toBlob(async b=>{if(!b)return rej(Error('jpeg'));const jpg=new Uint8Array(await b.arrayBuffer()),w=cv.width,h=cv.height,pw=(w*.75).toFixed(2),ph=(h*.75).toFixed(2),enc=new TextEncoder(),parts=[],offs=[];let n=0;
@@ -22127,7 +22669,7 @@ $('#palFromPhoto').onclick=()=>$('#palIn').click();
 $('#palIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const i=await readImg(f),cols=palExtract(i);let added=0;cols.forEach(hx=>{if(!pal.includes(hx)){pal.push(hx);added++}});LS.set('msu3_pal',pal);renderPal();openPane('color');toast(t('Added to My palette')+': '+added,'fa-palette')}catch(_){warn('Could not read that image')}};
 
 /* what's new */
-const NEWS=[['fa-hourglass-half','New loading screen','A starry sunset sky, the logo drawing itself and a glowing progress bar with tips while MasterSketch opens.'],['fa-palette','Make it yours','Settings ▸ Appearance has new themes (Verse, Ocean, Sunset, Forest, Candy, Paper), corner styles, fonts, backgrounds and glow. Settings ▸ Layout changes the sidebar and the Draw page panel.'],['fa-paintbrush','New Draw page','Brushes, colors and layers sit together as cards on the right, so everything you need is in one place.'],['fa-house','A new Home','MasterSketch opens on a Home page with quick start buttons and art from everyone, and a sidebar takes you to every studio. New deep-blue look.'],['fa-key','Stay signed in','Your browser can save your player password, and MasterSketch signs you back in by itself when you come back.'],['fa-wand-magic-sparkles','Everything moves','Windows, menus and panels open and close with smooth animations, lists slide in one by one, pages glide when you switch modes and 3D views fly in. Turn it off with Reduce motion in Settings.'],['fa-gamepad','Game Studio','Game is its own mode now: build games with a toolbox, explorer, properties and scripts like a real game studio, then press Play and run around with your avatar.'],['fa-film','Animation layers','Every frame has layers now, plus tweens that draw the in-between frames for you, camera moves and turning a video into frames.'],['fa-cube','Sculpt in 3D','The 3D Studio is for 3D art: sculpt clay with brushes, show your model in different render styles and pin notes on it.'],['fa-id-badge','Player profiles','Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.'],['fa-envelope','Forgot your password?','Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.'],['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
+const NEWS=[['fa-chess-board','Pixel Art Studio','Draw pixel by pixel with retro palettes, mirror drawing and frames. Save it as PNG or GIF, put it in your drawing, or use it as a sprite in Game Studio.'],['fa-paintbrush','Easier Brush Maker','Start from a ready brush, give your brush its own colors, and change how it feels in 4 easy steps. Find it in the Brushes card: Make my own brush.'],['fa-hourglass-half','New loading screen','A starry sunset sky, the logo drawing itself and a glowing progress bar with tips while MasterSketch opens.'],['fa-palette','Make it yours','Settings ▸ Appearance has new themes (Verse, Ocean, Sunset, Forest, Candy, Paper), corner styles, fonts, backgrounds and glow. Settings ▸ Layout changes the sidebar and the Draw page panel.'],['fa-paintbrush','New Draw page','Brushes, colors and layers sit together as cards on the right, so everything you need is in one place.'],['fa-house','A new Home','MasterSketch opens on a Home page with quick start buttons and art from everyone, and a sidebar takes you to every studio. New deep-blue look.'],['fa-key','Stay signed in','Your browser can save your player password, and MasterSketch signs you back in by itself when you come back.'],['fa-wand-magic-sparkles','Everything moves','Windows, menus and panels open and close with smooth animations, lists slide in one by one, pages glide when you switch modes and 3D views fly in. Turn it off with Reduce motion in Settings.'],['fa-gamepad','Game Studio','Game is its own mode now: build games with a toolbox, explorer, properties and scripts like a real game studio, then press Play and run around with your avatar.'],['fa-film','Animation layers','Every frame has layers now, plus tweens that draw the in-between frames for you, camera moves and turning a video into frames.'],['fa-cube','Sculpt in 3D','The 3D Studio is for 3D art: sculpt clay with brushes, show your model in different render styles and pin notes on it.'],['fa-id-badge','Player profiles','Tap your picture at the top right: change your name, password and profile picture, write about yourself and pick what you like to draw.'],['fa-envelope','Forgot your password?','Add your Gmail in My profile. If you forget your password, MasterSketch e-mails you a code to make a new one.'],['fa-id-card','Player accounts','Pick a player name (not your real name) and a password. Log in on any device with the same name. Help ▸ My account to log out.'],['fa-chart-column','Admin stats fixed','The charts on the Stats page show correctly again.'],['fa-turn-down','Clipping masks','Clip a layer to the layer below: shading and color stay inside your drawing. Right-click a layer ▸ Clipping mask, or press Ctrl+Alt+G.'],['fa-water','Liquify','Push, twirl, pinch and bloat your picture like warm wax – then Restore any part. Filter ▸ Liquify or Shift+L.'],['fa-vector-square','Distort and Warp','Drag the four corners to put a picture in perspective, or bend it with a 4×4 warp grid. Find them on the selection bar and in the Layer menu.'],['fa-road','Perspective guide','1-, 2- and 3-point perspective with movable vanishing points. Lines you draw snap to the guide.'],['fa-chart-line','Curves & Levels','Pro color correction with a live curve for RGB, red, green and blue, plus levels and Auto. Ctrl+M.'],['fa-file-image','Photoshop files','Open .psd files with their layers and export your art as a layered .psd for Photoshop, Photopea, Krita and Procreate.'],['fa-fill-drip','Close-gap fill','The fill bucket can close small gaps in your line art, so the color stays inside. Pull string stabilizer for very smooth lines.'],['fa-wind','Motion and zoom blur','Two new blur filters for speed and action.'],['fa-pen-ruler','Build like SketchUp','New Build tools in 3D: draw lines, rectangles, circles and polygons on the floor or on any face, then push/pull them into solid shapes. Cut holes, offset borders, measure with the tape and type exact sizes.'],['fa-ruler-combined','Snapping and exact sizes','Corners, middles and the red, green and blue directions snap while you draw. Type 2,3 or 30cm and press Enter for an exact size – even right after drawing.'],['fa-print','Ready for 3D printing','Export your model as an .stl file in millimetres for 3D printers. New view styles: Shaded, White and X-ray.'],['fa-wand-magic-sparkles','AutoDraw','Doodle something and MasterSketch shows finished pictures you can swap your doodle for. Find it in Fun ▸ AutoDraw.'],['fa-book-open','30 new pictures','More coloring pages and step-by-step lessons: animals, food, weather, a robot, a rocket ship and more.'],['fa-bezier-curve','SVG export','File ▸ Export as SVG keeps every layer as its own layer for Inkscape, Illustrator and Affinity.'],['fa-paintbrush','Animation Workshop 2.0','Every brush from the drawing canvas is now in the Animation Workshop – plus shapes, gradient, text, smudge, symmetry, zoom and a selection you can move, resize, turn and flip.'],['fa-layer-group','Front layer, tracing and effects','Draw titles on the front layer, trace over a photo, add guides, and use effects on one frame or every frame at once. New frame tools: reverse, bounce, copy and paste frames, and drag frames to reorder them.'],['fa-film','Animation Workshop','Draw frame by frame with onion skin, press play, add sound effects, your own voice or music, then export a video or GIF – or share it in the Gallery.'],['fa-plane-up','Fly through 3D','Press the plane button (or V) in 3D and fly anywhere with W A S D. E goes up, Q goes down, Shift goes faster.'],['fa-flag-checkered','10 new levels','Candy garden, Wobbly bridge, Spring city, Planet hop, Spike alley, Forest climb, Sky elevators, Coin maze, Moon run and the Rainbow finale.'],['fa-circle-check','Verified creations','Paintings, models and mods checked by the MasterSketch team get a blue Verified badge.'],['fa-wand-magic-sparkles','A brand-new look','MasterSketch 6 has a fresh design with softer panels and a new violet glow.'],['fa-wand-magic-sparkles','12 fun brushes','Hearts, confetti, ribbon, dotted line, fur & grass, bubbles, lightning, washi tape, paint splat, flowers, drippy paint and a two-color fade – find them under the new Fun brushes button.'],['fa-stamp','Stamps','Googly eyes, happy faces, crowns, sunglasses, paw prints and more. Pick the Stamps tool and tap to stamp.'],['fa-book-open','Coloring pages & drawing lessons','Fun ▸ Coloring pages gives you pictures to color with the Fill bucket. Fun ▸ Learn to draw shows you a picture part by part.'],['fa-calendar-day','Daily drawing challenge','A new idea every day. Draw it and grow your 🔥 streak.'],['fa-wand-magic-sparkles','Magic color, frames and paint mixing','Magic color fills every closed shape of your drawing at once. Add a wood, gold or neon frame, and mix colors like real paint.'],['fa-users','Draw & guess','A party game: one person draws the secret word, everyone else guesses before the time runs out.'],['fa-child-reaching','Share without an account','Paintings, 3D models, mods and bug reports now go straight from the app to the MasterSketch team – no account and no extra website needed.'],['fa-music','Boom Box','Settings ▸ Boom Box: paste a YouTube link and listen to music while you draw. It keeps playing in a little player.'],['fa-reply','Answers from the team','Settings ▸ Feedback shows the messages you sent, what the team is doing about them and their answers.'],['fa-users','Same idea? It counts more','When lots of people report the same thing, their messages are put together – the most reported problems get fixed first.'],['fa-flag','Report button','See something in the Gallery or Community that is not OK? Report it and the team will check it.'],['fa-image','Gallery: share your paintings','The new Gallery tab shows paintings from everyone. Share yours, like the ones you love and trace over any painting.'],['fa-gamepad','Play your 3D world','Add a Start, coins, springs, lava, spikes and a Goal flag, then walk, run and jump through the world you built.'],['fa-flag-checkered','3 ready-made levels','Sky steps, Lava run and Tower climb – beat your best time and get 3 stars.'],['fa-medal','XP, levels and badges','Earn XP by finishing levels, level up and collect badges.'],['fa-comment-dots','Report bugs and suggest changes','Settings ▸ Feedback sends your bug report or idea straight to the MasterSketch team.'],['fa-award','Rated leaderboards','Mods and models are now rated by the team – the best ones and staff picks rise to the top.'],['fa-puzzle-piece','Mods','A new Mods tab: install brushes, palettes and 3D models made by everyone, and see the Top mods.'],['fa-hammer','Make your own mods','Design brushes with your own tip, scatter, jitter, glow and rainbow colors, add palettes and 3D models, then publish your mod.'],['fa-shapes','Build in 4 easy steps','Shape, Color, Motion and Share are now separate steps, so building a model is clear and simple.'],['fa-draw-polygon','Draw your own shapes','Draw any outline and it becomes a 3D part, or spin a profile into vases, bottles and towers. Plus 5 new shapes.'],
  ['fa-up-right-and-down-left-from-center','Stretch any way you like','Change width, height and depth separately with the handles or the number boxes, or keep the proportions.'],['fa-fill-drip','Tap to color','Pick a color and tap each part to color it. The dropper picks a color from your model.'],
  ['fa-wand-magic-sparkles','Create your own motion','Pose a part a few times and it moves through your poses – smooth or snappy, once round or back and forth.'],['fa-trophy','Top models leaderboard','The Workshop now shows the most used models from everyone.']];
 function openNews(){const L=$('#newL');L.innerHTML='';NEWS.forEach(([ic,h,p])=>{const d=document.createElement('div');d.className='nwi';d.innerHTML=`<span><i class="fa-solid ${ic}"></i></span><div><b></b><small></small></div>`;d.querySelector('b').textContent=t(h);d.querySelector('small').textContent=t(p);L.appendChild(d)});$('#newV').textContent='PRO '+VERSION;show('#newM')}
