@@ -8,6 +8,8 @@ export const LANGS = [
 
 export const STR = {
 en: {
+  searchLabel: "Search", searchCars: "Search cars", driveYourWay: "Drive your way", topBrands: "Top brands", allBrands: "All brands", selectCar: "Select your car", model3dNote: "Representative 3D model · real photos show the actual car", price: "Price", savedOnly: "Saved", saveCar: "Save car", spin360: "360° spin",
+  credits: "3D models: Ferrari 458 Italia by vicent091036 (CC BY), Car Concept by Eric Chadwick / DGG (CC BY 4.0) · Logos: Simple Icons",
   navBrowse: "Cars", navTrips: "My trips", navAdmin: "Admin", navOwner: "Owner", language: "Language", currency: "Currency", theme: "Light / dark mode", tagline: "rent or buy your next car",
   heroEyebrow: "Live 3D previews · rent by the day or buy", heroTitle: "Find the car you *love*. Drive it today.",
   heroSub: "Spin every car in 3D, step inside, check real photos from our lot — then rent by the day or buy it outright.",
@@ -63,6 +65,7 @@ en: {
   footerNote: "Demo storefront — payments are simulated.", ownerLogin: "Owner & staff", install: "Install app",
 },
 th: {
+  searchLabel: "ค้นหา", searchCars: "ค้นหารถ", driveYourWay: "ขับในแบบคุณ", topBrands: "แบรนด์ยอดนิยม", allBrands: "ทุกแบรนด์", selectCar: "เลือกรถของคุณ", model3dNote: "โมเดล 3D ตัวอย่าง · รูปจริงคือรถคันจริง", price: "ราคา", savedOnly: "ที่บันทึกไว้", saveCar: "บันทึกรถ", spin360: "หมุน 360°",
   navBrowse: "รถยนต์", navTrips: "การจองของฉัน", navAdmin: "แอดมิน", navOwner: "เจ้าของ", language: "ภาษา", currency: "สกุลเงิน", theme: "โหมดสว่าง / มืด", tagline: "เช่าหรือซื้อรถคันต่อไปของคุณ",
   heroEyebrow: "ดูรถแบบ 3D สด · เช่ารายวันหรือซื้อเลย", heroTitle: "เจอรถที่ใช่ *ถูกใจ* ขับได้วันนี้",
   heroSub: "หมุนดูรถทุกคันแบบ 3D เข้าไปดูภายใน ดูรูปจริงจากลานรถของเรา แล้วเช่ารายวันหรือซื้อขาดได้ทันที",
@@ -118,6 +121,7 @@ th: {
   footerNote: "ร้านตัวอย่าง — การชำระเงินเป็นการจำลอง", ownerLogin: "เจ้าของและทีมงาน", install: "ติดตั้งแอป",
 },
 es: {
+  searchLabel: "Buscar", searchCars: "Buscar coches", driveYourWay: "Conduce a tu manera", topBrands: "Marcas destacadas", allBrands: "Todas las marcas", selectCar: "Elige tu coche", model3dNote: "Modelo 3D de referencia · las fotos reales muestran el coche", price: "Precio", savedOnly: "Guardados", saveCar: "Guardar coche", spin360: "Giro 360°",
   navBrowse: "Coches", navTrips: "Mis viajes", navAdmin: "Admin", navOwner: "Propietario", language: "Idioma", currency: "Moneda", theme: "Modo claro / oscuro", tagline: "alquila o compra tu próximo coche",
   heroEyebrow: "Vistas 3D en vivo · alquila por días o compra", heroTitle: "Encuentra el coche que te *enamora*. Condúcelo hoy.",
   heroSub: "Gira cada coche en 3D, entra en el habitáculo, mira fotos reales de nuestro concesionario y alquílalo por días o cómpralo.",
@@ -173,6 +177,7 @@ es: {
   footerNote: "Tienda de demostración: los pagos son simulados.", ownerLogin: "Propietario y personal", install: "Instalar app",
 },
 fr: {
+  searchLabel: "Rechercher", searchCars: "Rechercher des voitures", driveYourWay: "Roulez à votre façon", topBrands: "Marques populaires", allBrands: "Toutes les marques", selectCar: "Choisissez votre voiture", model3dNote: "Modèle 3D représentatif · les vraies photos montrent la voiture", price: "Prix", savedOnly: "Favoris", saveCar: "Enregistrer", spin360: "Rotation 360°",
   navBrowse: "Voitures", navTrips: "Mes trajets", navAdmin: "Admin", navOwner: "Propriétaire", language: "Langue", currency: "Devise", theme: "Mode clair / sombre", tagline: "louez ou achetez votre prochaine voiture",
   heroEyebrow: "Aperçus 3D en direct · location à la journée ou achat", heroTitle: "Trouvez la voiture que vous *adorez*. Roulez dès aujourd'hui.",
   heroSub: "Faites tourner chaque voiture en 3D, montez à bord, regardez de vraies photos de notre parc — puis louez à la journée ou achetez.",
@@ -228,6 +233,7 @@ fr: {
   footerNote: "Boutique de démonstration — les paiements sont simulés.", ownerLogin: "Propriétaire et équipe", install: "Installer l'app",
 },
 de: {
+  searchLabel: "Suche", searchCars: "Autos suchen", driveYourWay: "Fahr auf deine Art", topBrands: "Top-Marken", allBrands: "Alle Marken", selectCar: "Wähle dein Auto", model3dNote: "Beispielhaftes 3D-Modell · echte Fotos zeigen das Fahrzeug", price: "Preis", savedOnly: "Gemerkt", saveCar: "Auto merken", spin360: "360°-Drehung",
   navBrowse: "Autos", navTrips: "Meine Fahrten", navAdmin: "Admin", navOwner: "Inhaber", language: "Sprache", currency: "Währung", theme: "Hell / dunkel", tagline: "Mieten oder kaufen Sie Ihr nächstes Auto",
   heroEyebrow: "Live-3D-Vorschau · tageweise mieten oder kaufen", heroTitle: "Finde das Auto, das du *liebst*. Fahr es noch heute.",
   heroSub: "Dreh jedes Auto in 3D, steig ein, sieh dir echte Fotos von unserem Hof an — und miete es tageweise oder kauf es direkt.",
@@ -283,6 +289,7 @@ de: {
   footerNote: "Demo-Shop — Zahlungen sind simuliert.", ownerLogin: "Inhaber & Team", install: "App installieren",
 },
 it: {
+  searchLabel: "Cerca", searchCars: "Cerca auto", driveYourWay: "Guida a modo tuo", topBrands: "Marchi top", allBrands: "Tutti i marchi", selectCar: "Scegli la tua auto", model3dNote: "Modello 3D rappresentativo · le foto reali mostrano l'auto", price: "Prezzo", savedOnly: "Salvate", saveCar: "Salva auto", spin360: "Rotazione 360°",
   navBrowse: "Auto", navTrips: "I miei viaggi", navAdmin: "Admin", navOwner: "Proprietario", language: "Lingua", currency: "Valuta", theme: "Modalità chiara / scura", tagline: "noleggia o compra la tua prossima auto",
   heroEyebrow: "Anteprime 3D dal vivo · noleggio giornaliero o acquisto", heroTitle: "Trova l'auto che *ami*. Guidala oggi.",
   heroSub: "Ruota ogni auto in 3D, sali a bordo, guarda le foto reali del nostro parco — poi noleggiala a giornata o comprala.",
@@ -338,6 +345,7 @@ it: {
   footerNote: "Negozio dimostrativo — i pagamenti sono simulati.", ownerLogin: "Proprietario e staff", install: "Installa l'app",
 },
 pt: {
+  searchLabel: "Buscar", searchCars: "Buscar carros", driveYourWay: "Dirija do seu jeito", topBrands: "Principais marcas", allBrands: "Todas as marcas", selectCar: "Escolha seu carro", model3dNote: "Modelo 3D ilustrativo · as fotos reais mostram o carro", price: "Preço", savedOnly: "Salvos", saveCar: "Salvar carro", spin360: "Giro 360°",
   navBrowse: "Carros", navTrips: "Minhas viagens", navAdmin: "Admin", navOwner: "Proprietário", language: "Idioma", currency: "Moeda", theme: "Modo claro / escuro", tagline: "alugue ou compre seu próximo carro",
   heroEyebrow: "Prévias 3D ao vivo · alugue por dia ou compre", heroTitle: "Encontre o carro que você *ama*. Dirija hoje.",
   heroSub: "Gire cada carro em 3D, entre na cabine, veja fotos reais do nosso pátio — e alugue por dia ou compre à vista.",
@@ -393,6 +401,7 @@ pt: {
   footerNote: "Loja de demonstração — pagamentos simulados.", ownerLogin: "Proprietário e equipe", install: "Instalar app",
 },
 ru: {
+  searchLabel: "Поиск", searchCars: "Найти авто", driveYourWay: "Езжай по-своему", topBrands: "Топ марки", allBrands: "Все марки", selectCar: "Выберите авто", model3dNote: "Примерная 3D-модель · реальные фото показывают сам автомобиль", price: "Цена", savedOnly: "Избранное", saveCar: "В избранное", spin360: "Обзор 360°",
   navBrowse: "Авто", navTrips: "Мои поездки", navAdmin: "Админ", navOwner: "Владелец", language: "Язык", currency: "Валюта", theme: "Светлая / тёмная тема", tagline: "арендуйте или купите свой следующий автомобиль",
   heroEyebrow: "Живой 3D-просмотр · аренда посуточно или покупка", heroTitle: "Найдите машину, которую вы *полюбите*. Садитесь за руль сегодня.",
   heroSub: "Покрутите каждую машину в 3D, загляните в салон, посмотрите реальные фото с нашей площадки — и арендуйте посуточно или купите.",
@@ -448,6 +457,7 @@ ru: {
   footerNote: "Демо-витрина — оплата имитируется.", ownerLogin: "Владелец и сотрудники", install: "Установить приложение",
 },
 ja: {
+  searchLabel: "検索", searchCars: "クルマを探す", driveYourWay: "自分らしく走ろう", topBrands: "人気ブランド", allBrands: "すべてのブランド", selectCar: "クルマを選ぶ", model3dNote: "参考用の3Dモデル · 実車写真で実物を確認できます", price: "価格", savedOnly: "お気に入り", saveCar: "お気に入りに追加", spin360: "360°回転",
   navBrowse: "クルマ", navTrips: "予約一覧", navAdmin: "管理", navOwner: "オーナー", language: "言語", currency: "通貨", theme: "ライト / ダーク", tagline: "次のクルマをレンタル・購入",
   heroEyebrow: "リアルタイム3Dプレビュー · 1日単位のレンタルも購入も", heroTitle: "*惚れる*クルマを見つけて、今日から乗ろう。",
   heroSub: "すべてのクルマを3Dで回して、車内にも入って、実車写真もチェック。1日単位でレンタルするか、そのまま購入できます。",
@@ -503,6 +513,7 @@ ja: {
   footerNote: "デモストア — 決済はシミュレーションです。", ownerLogin: "オーナー・スタッフ", install: "アプリをインストール",
 },
 ko: {
+  searchLabel: "검색", searchCars: "차량 검색", driveYourWay: "나만의 드라이브", topBrands: "인기 브랜드", allBrands: "모든 브랜드", selectCar: "차량 선택", model3dNote: "참고용 3D 모델 · 실제 사진에서 실제 차량을 확인하세요", price: "가격", savedOnly: "찜한 차", saveCar: "찜하기", spin360: "360° 회전",
   navBrowse: "자동차", navTrips: "내 예약", navAdmin: "관리", navOwner: "소유자", language: "언어", currency: "통화", theme: "라이트 / 다크 모드", tagline: "다음 차를 렌트하거나 구매하세요",
   heroEyebrow: "실시간 3D 미리보기 · 일 단위 렌트 또는 구매", heroTitle: "*반할* 차를 찾고, 오늘 바로 운전하세요.",
   heroSub: "모든 차를 3D로 돌려 보고, 실내에 들어가 보고, 실제 사진도 확인한 뒤 일 단위로 렌트하거나 바로 구매하세요.",
@@ -558,6 +569,7 @@ ko: {
   footerNote: "데모 매장 — 결제는 시뮬레이션입니다.", ownerLogin: "소유자 및 직원", install: "앱 설치",
 },
 zh: {
+  searchLabel: "搜索", searchCars: "搜索车辆", driveYourWay: "随心驾驶", topBrands: "热门品牌", allBrands: "全部品牌", selectCar: "选择你的车", model3dNote: "示意 3D 模型 · 实拍照片为真实车辆", price: "价格", savedOnly: "已收藏", saveCar: "收藏", spin360: "360° 旋转",
   navBrowse: "车型", navTrips: "我的行程", navAdmin: "管理", navOwner: "车主", language: "语言", currency: "货币", theme: "浅色 / 深色模式", tagline: "租或买你的下一辆车",
   heroEyebrow: "实时 3D 预览 · 按天租或直接买", heroTitle: "找到你*心动*的车，今天就开走。",
   heroSub: "3D 旋转查看每一辆车，进入车内，查看我们车场的实拍照片——然后按天租用或直接购买。",
@@ -613,6 +625,7 @@ zh: {
   footerNote: "演示商店——支付为模拟。", ownerLogin: "所有者和员工", install: "安装应用",
 },
 ar: {
+  searchLabel: "بحث", searchCars: "ابحث عن سيارة", driveYourWay: "قُد على طريقتك", topBrands: "أشهر العلامات", allBrands: "كل العلامات", selectCar: "اختر سيارتك", model3dNote: "نموذج ثلاثي الأبعاد توضيحي · الصور الحقيقية تُظهر السيارة نفسها", price: "السعر", savedOnly: "المحفوظة", saveCar: "حفظ السيارة", spin360: "دوران 360°",
   navBrowse: "السيارات", navTrips: "رحلاتي", navAdmin: "الإدارة", navOwner: "المالك", language: "اللغة", currency: "العملة", theme: "الوضع الفاتح / الداكن", tagline: "استأجر أو اشترِ سيارتك القادمة",
   heroEyebrow: "معاينات ثلاثية الأبعاد مباشرة · استئجار باليوم أو شراء", heroTitle: "اعثر على السيارة التي *تحبها*. وقُدها اليوم.",
   heroSub: "أدِر كل سيارة بتقنية ثلاثية الأبعاد، وادخل إلى المقصورة، وشاهد صورًا حقيقية من معرضنا — ثم استأجرها باليوم أو اشترِها.",
@@ -668,6 +681,7 @@ ar: {
   footerNote: "متجر تجريبي — المدفوعات محاكاة.", ownerLogin: "المالك والموظفون", install: "تثبيت التطبيق",
 },
 hi: {
+  searchLabel: "खोजें", searchCars: "कारें खोजें", driveYourWay: "अपने अंदाज़ में चलाएँ", topBrands: "टॉप ब्रांड", allBrands: "सभी ब्रांड", selectCar: "अपनी कार चुनें", model3dNote: "सांकेतिक 3D मॉडल · असली फ़ोटो में असली कार दिखती है", price: "कीमत", savedOnly: "सहेजी गई", saveCar: "कार सहेजें", spin360: "360° घुमाएँ",
   navBrowse: "कारें", navTrips: "मेरी यात्राएँ", navAdmin: "एडमिन", navOwner: "मालिक", language: "भाषा", currency: "मुद्रा", theme: "लाइट / डार्क मोड", tagline: "अपनी अगली कार किराए पर लें या खरीदें",
   heroEyebrow: "लाइव 3D प्रीव्यू · रोज़ाना किराया या खरीदें", heroTitle: "वह कार खोजें जो आपको *पसंद* हो। आज ही चलाएँ।",
   heroSub: "हर कार को 3D में घुमाएँ, अंदर बैठकर देखें, हमारे लॉट की असली तस्वीरें देखें — फिर रोज़ाना किराए पर लें या सीधे खरीद लें।",
@@ -723,6 +737,7 @@ hi: {
   footerNote: "डेमो स्टोर — भुगतान सिम्युलेटेड हैं।", ownerLogin: "मालिक और स्टाफ़", install: "ऐप इंस्टॉल करें",
 },
 vi: {
+  searchLabel: "Tìm kiếm", searchCars: "Tìm xe", driveYourWay: "Lái theo cách của bạn", topBrands: "Thương hiệu nổi bật", allBrands: "Tất cả thương hiệu", selectCar: "Chọn xe của bạn", model3dNote: "Mô hình 3D minh họa · ảnh thật là xe thực tế", price: "Giá", savedOnly: "Đã lưu", saveCar: "Lưu xe", spin360: "Xoay 360°",
   navBrowse: "Xe", navTrips: "Chuyến của tôi", navAdmin: "Quản trị", navOwner: "Chủ sở hữu", language: "Ngôn ngữ", currency: "Tiền tệ", theme: "Chế độ sáng / tối", tagline: "thuê hoặc mua chiếc xe tiếp theo của bạn",
   heroEyebrow: "Xem trước 3D trực tiếp · thuê theo ngày hoặc mua", heroTitle: "Tìm chiếc xe bạn *mê*. Lái ngay hôm nay.",
   heroSub: "Xoay mọi chiếc xe bằng 3D, bước vào khoang lái, xem ảnh thật từ bãi xe — rồi thuê theo ngày hoặc mua đứt.",
@@ -778,6 +793,7 @@ vi: {
   footerNote: "Cửa hàng demo — thanh toán là mô phỏng.", ownerLogin: "Chủ sở hữu & nhân viên", install: "Cài ứng dụng",
 },
 id: {
+  searchLabel: "Cari", searchCars: "Cari mobil", driveYourWay: "Berkendara sesukamu", topBrands: "Merek teratas", allBrands: "Semua merek", selectCar: "Pilih mobilmu", model3dNote: "Model 3D ilustrasi · foto asli menunjukkan mobil sebenarnya", price: "Harga", savedOnly: "Tersimpan", saveCar: "Simpan mobil", spin360: "Putar 360°",
   navBrowse: "Mobil", navTrips: "Perjalanan saya", navAdmin: "Admin", navOwner: "Pemilik", language: "Bahasa", currency: "Mata uang", theme: "Mode terang / gelap", tagline: "sewa atau beli mobil berikutnya",
   heroEyebrow: "Pratinjau 3D langsung · sewa harian atau beli", heroTitle: "Temukan mobil yang kamu *suka*. Kendarai hari ini.",
   heroSub: "Putar setiap mobil dalam 3D, masuk ke kabin, lihat foto asli dari lot kami — lalu sewa harian atau beli langsung.",

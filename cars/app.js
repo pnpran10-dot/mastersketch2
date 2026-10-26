@@ -1,4 +1,5 @@
 import { STR, LANGS } from './i18n.js';
+import { BRAND_PATHS, brandKey } from './brands.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -67,6 +68,8 @@ const ICON = {
   chevL: '<path d="m15 18-6-6 6-6"/>',
   chevR: '<path d="m9 18 6-6-6-6"/>',
   eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>',
+  arrow: '<path d="M7 17 17 7M8 7h9v9"/>',
 };
 const icon = (n, extra = '') => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${ICON[n]}</svg>`;
 
@@ -84,7 +87,8 @@ const S = {
   lang: 'en', cur: 'USD', theme: 'dark',
   published: null, cat: { cars: [], staff: [] }, draft: false, stale: false, synced: false,
   trips: [], user: null, view: 'browse',
-  f: { q: '', mode: 'all', body: 'all', fuel: 'all', sort: 'popular' },
+  f: { q: '', mode: 'rent', body: 'all', fuel: 'all', sort: 'popular', brand: 'all', saved: false },
+  saved: new Set(), from: null, to: null, feat: 0, featCar: null,
   thumbs: new Map(),
 };
 let stage = null;
@@ -180,12 +184,14 @@ async function discardDraft() {
   renderAll();
 }
 
-/* ---------- Settings: language, currency, theme ---------- */
+/* ---------- Settings: language and currency ---------- */
 function initPrefs() {
   const nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
   S.lang = local.get('lang', STR[nav] ? nav : 'en');
   S.cur = local.get('cur', CUR_BY_LANG[S.lang] || 'USD');
-  S.theme = local.get('theme', matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  S.saved = new Set(local.get('saved', []));
+  S.from = isoDay(Date.now() + DAY);
+  S.to = isoDay(Date.now() + 4 * DAY);
   $('#sel-lang').innerHTML = LANGS.map(([c, n]) => `<option value="${c}">${esc(n)}</option>`).join('');
   $('#sel-cur').innerHTML = Object.keys(RATES).map(c => `<option value="${c}">${c}</option>`).join('');
   $('#sel-lang').onchange = e => {
@@ -195,13 +201,6 @@ function initPrefs() {
     renderAll();
   };
   $('#sel-cur').onchange = e => { S.cur = e.target.value; local.set('cur', S.cur); local.set('curPicked', true); renderAll(); };
-  $('#btn-theme').onclick = () => { S.theme = S.theme === 'dark' ? 'light' : 'dark'; local.set('theme', S.theme); applyTheme(); };
-  applyTheme();
-}
-function applyTheme() {
-  document.documentElement.dataset.theme = S.theme;
-  $('#btn-theme').innerHTML = icon(S.theme === 'dark' ? 'sun' : 'moon');
-  $('meta[name=theme-color]').content = S.theme === 'dark' ? '#07080c' : '#f5f6fa';
 }
 
 function applyI18n() {
@@ -213,8 +212,16 @@ function applyI18n() {
   $$('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); el.setAttribute('aria-label', el.title); });
   $('#sel-lang').value = S.lang;
   $('#sel-cur').value = S.cur;
-  $('#hero-title').innerHTML = t('heroTitle').replace(/\*(.+?)\*/, '<em>$1</em>');
+  $('#hero-title').innerHTML = esc(t('heroTitle')).replace(/\*(.+?)\*/, '<em>$1</em>');
   document.title = `MasterDrive – ${t('tagline')}`;
+}
+
+// Brand logo (Simple Icons) or a lettered badge for brands without one.
+function brandMark(make) {
+  const path = BRAND_PATHS[brandKey(make)];
+  if (path) return `<svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg>`;
+  const letters = String(make || '?').replace(/[^\p{L}\p{N}]/gu, '').slice(0, 3).toUpperCase();
+  return `<span class="monogram" aria-hidden="true"><span>${esc(letters)}</span></span>`;
 }
 
 /* ---------- Navigation ---------- */
@@ -222,7 +229,7 @@ function renderNav() {
   const active = S.trips.filter(x => x.status !== 'cancelled').length;
   const items = [['browse', 'car', t('navBrowse')], ['trips', 'trips', t('navTrips')], ['admin', S.user ? 'shield' : 'lock', S.user ? t('navAdmin') : t('navOwner')]];
   const html = items.map(([v, ic, label]) =>
-    `<a href="#/${v}" class="${S.view === v ? 'on' : ''}">${icon(ic)}<span>${esc(label)}</span>${v === 'trips' && active ? `<span class="count">${active}</span>` : ''}</a>`).join('');
+    `<a href="#/${v}" class="${S.view === v ? 'on' : ''}" aria-label="${esc(label)}">${icon(ic)}<span>${esc(label)}</span>${v === 'trips' && active ? `<span class="count">${active}</span>` : ''}</a>`).join('');
   $('#nav').innerHTML = html;
   $('#tabbar').innerHTML = html;
 }
@@ -243,15 +250,32 @@ function setView(v) {
   renderNav();
   if (v === 'trips') renderTrips();
   if (v === 'admin') renderAdmin();
+  mountHero();
   window.scrollTo({ top: 0 });
 }
 
 /* ---------- Browse ---------- */
+const modelKind = c => (c.body === 'sports' ? 'sports' : 'sedan');
+const thumbKey = c => `${modelKind(c)}|${(c.colors || [])[0]}`;
+const priceHtml = c => (S.f.mode === 'buy'
+  ? money(c.price)
+  : `${money(c.rentPerDay)}<span>${esc(t('perDay'))}</span>`);
+
 function renderFilters() {
-  $('#seg-mode').innerHTML = [['all', t('modeAll')], ['rent', t('modeRent')], ['buy', t('modeBuy')]]
-    .map(([k, l]) => `<button data-mode="${k}" class="${S.f.mode === k ? 'on' : ''}">${esc(l)}</button>`).join('');
+  $('#seg-mode').innerHTML = [['rent', 'trips', t('modeRent')], ['buy', 'check', t('modeBuy')]]
+    .map(([k, ic, l]) => `<button type="button" data-mode="${k}" class="${S.f.mode === k ? 'on' : ''}">${icon(ic)} ${esc(l)}</button>`).join('');
+  $$('[data-rent-only]').forEach(el => { el.hidden = S.f.mode !== 'rent'; });
+  const today = isoDay(Date.now());
+  Object.assign($('#f-from'), { min: today, value: S.from });
+  Object.assign($('#f-to'), { min: S.from, value: S.to });
+  const counts = {};
+  S.cat.cars.forEach(c => { counts[c.make] = (counts[c.make] || 0) + 1; });
+  const makes = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+  $('#brands').innerHTML = [`<button class="brand-chip ${S.f.brand === 'all' ? 'on' : ''}" data-brand="all">${icon('car')} ${esc(t('allBrands'))}</button>`,
+    ...makes.map(m => `<button class="brand-chip ${S.f.brand === m ? 'on' : ''}" data-brand="${esc(m)}">${brandMark(m)} ${esc(m)}</button>`)].join('');
   $('#chips-body').innerHTML = ['all', ...BODY_TYPES]
-    .map(k => `<button class="chip ${S.f.body === k ? 'on' : ''}" data-body="${k}">${esc(t(k === 'all' ? 'bodyAll' : 'body_' + k))}</button>`).join('');
+    .map(k => `<button class="chip ${S.f.body === k ? 'on' : ''}" data-body="${k}">${esc(t(k === 'all' ? 'bodyAll' : 'body_' + k))}</button>`).join('')
+    + `<button class="chip fav ${S.f.saved ? 'on' : ''}" data-saved>${icon('heart')} ${esc(t('savedOnly'))}</button>`;
   $('#sel-fuel').innerHTML = ['all', ...FUELS].map(k => `<option value="${k}">${esc(t(k === 'all' ? 'fuelAll' : 'fuel_' + k))}</option>`).join('');
   $('#sel-fuel').value = S.f.fuel;
   $('#sel-sort').innerHTML = ['popular', 'priceLow', 'priceHigh', 'newest'].map(k => `<option value="${k}">${esc(t('sort_' + k))}</option>`).join('');
@@ -259,14 +283,16 @@ function renderFilters() {
 }
 
 function filteredCars() {
-  const { q, mode, body, fuel, sort } = S.f;
+  const { q, mode, body, fuel, sort, brand, saved } = S.f;
   const words = q.toLowerCase().split(/\s+/).filter(Boolean);
   const list = S.cat.cars.filter(c =>
-    (mode === 'all' || (mode === 'rent' ? c.forRent : c.forSale)) &&
+    (mode === 'rent' ? c.forRent : c.forSale) &&
+    (brand === 'all' || c.make === brand) &&
     (body === 'all' || c.body === body) &&
     (fuel === 'all' || c.fuel === fuel) &&
+    (!saved || S.saved.has(c.id)) &&
     words.every(w => `${c.make} ${c.model} ${c.year} ${t('body_' + c.body)} ${t('fuel_' + c.fuel)}`.toLowerCase().includes(w)));
-  const price = c => (mode === 'buy' || !c.forRent ? c.price : c.rentPerDay * 400);
+  const price = c => (mode === 'buy' ? c.price : c.rentPerDay);
   const by = {
     popular: (a, b) => (b.available - a.available) || (b.trips || 0) - (a.trips || 0),
     priceLow: (a, b) => price(a) - price(b),
@@ -277,43 +303,48 @@ function filteredCars() {
 }
 
 function cardImage(c) {
-  if (c.photos && c.photos.length) return `<img src="${esc(c.photos[0])}" alt="${esc(carName(c))}" loading="lazy">`;
+  if (c.photos && c.photos.length) return `<img class="photo" src="${esc(c.photos[0])}" alt="${esc(carName(c))}" loading="lazy">`;
   const key = thumbKey(c);
-  if (S.thumbs.has(key)) return `<img class="render" src="${S.thumbs.get(key)}" alt="${esc(carName(c))}">`;
+  if (S.thumbs.get(key)) return `<img class="render" src="${S.thumbs.get(key)}" alt="${esc(carName(c))}">`;
   return `<img class="render" data-thumb="${esc(c.id)}" alt="${esc(carName(c))}" hidden><div class="shimmer"></div>`;
 }
-const thumbKey = c => `${c.body}|${c.fuel}|${(c.colors || [])[0]}`;
 
 function renderGrid() {
   const cars = filteredCars();
   $('#count').textContent = t('results', { n: num(cars.length), _c: cars.length });
   if (!cars.length) {
     $('#grid').innerHTML = `<div class="empty">${icon('search')}<p>${esc(t('noResults'))}</p></div>`;
+    renderShowcase();
     return;
   }
-  $('#grid').innerHTML = cars.map(c => `
+  $('#grid').innerHTML = cars.map(c => {
+    const badges = [
+      c.fuel === 'ev' && `<span class="badge ev">${icon('bolt')} ${esc(t('fuel_ev'))}</span>`,
+      c.photos?.length && `<span class="badge">${icon('camera')} ${esc(t('realPhotos'))} · ${num(c.photos.length)}</span>`,
+      !c.available && `<span class="badge off">${esc(t('unavailable'))}</span>`,
+    ].filter(Boolean).join('');
+    return `
     <article class="card" data-id="${esc(c.id)}" tabindex="0" role="button" aria-label="${esc(carName(c))}">
-      <div class="card-media">${cardImage(c)}
-        <div class="badges">
-          ${c.fuel === 'ev' ? `<span class="badge ev">${icon('bolt')} ${esc(t('fuel_ev'))}</span>` : ''}
-          ${c.photos?.length ? `<span class="badge">${icon('camera')} ${num(c.photos.length)}</span>` : `<span class="badge">${icon('cube')} 3D</span>`}
-          ${c.available ? '' : `<span class="badge off">${esc(t('unavailable'))}</span>`}
+      <div class="card-top"><span class="brand-line">${brandMark(c.make)}${esc(c.make)} · ${esc(c.year)}</span>
+        <span class="rating">${icon('star')}${(c.rating || 5).toFixed(1)}</span></div>
+      <h3>${esc(c.model)}</h3>
+      <div class="meta">
+        <span>${icon('seat')}${esc(t('seatsN', { n: c.seats }))}</span>
+        <span>${icon('gear')}${esc(t('trans_' + c.transmission))}</span>
+        <span>${icon(c.fuel === 'ev' ? 'bolt' : 'fuel')}${esc(t('fuel_' + c.fuel))}</span>
+      </div>
+      ${badges ? `<div class="badges">${badges}</div>` : ''}
+      <div class="card-media">${cardImage(c)}</div>
+      <div class="card-foot">
+        <div><small>${esc(t(S.f.mode === 'buy' ? 'buyFor' : 'rentFrom'))}</small><b>${priceHtml(c)}</b></div>
+        <div class="card-acts">
+          <button class="icon-btn heart ${S.saved.has(c.id) ? 'on' : ''}" data-save="${esc(c.id)}" aria-pressed="${S.saved.has(c.id)}" aria-label="${esc(t('saveCar'))}">${icon('heart')}</button>
+          <span class="go" aria-hidden="true">${icon('arrow')}</span>
         </div>
       </div>
-      <div class="card-body">
-        <div class="card-title"><h3>${esc(carName(c))}<small>${esc(c.year)} · ${esc(t('body_' + c.body))}</small></h3>
-          <span class="rating">${icon('star')}${(c.rating || 5).toFixed(1)}</span></div>
-        <div class="tags">
-          <span class="tag">${icon('seat')}${esc(t('seatsN', { n: c.seats }))}</span>
-          <span class="tag">${icon(c.fuel === 'ev' ? 'bolt' : 'fuel')}${esc(t('fuel_' + c.fuel))}</span>
-          <span class="tag">${icon('gear')}${esc(t('trans_' + c.transmission))}</span>
-        </div>
-        <div class="prices">
-          ${c.forRent ? `<div><small>${esc(t('rentFrom'))}</small><b>${money(c.rentPerDay)}<span>${esc(t('perDay'))}</span></b></div>` : '<div></div>'}
-          ${c.forSale ? `<div class="end"><small>${esc(t('buyFor'))}</small><b>${money(c.price)}</b></div>` : ''}
-        </div>
-      </div>
-    </article>`).join('');
+    </article>`;
+  }).join('');
+  renderShowcase();
   queueThumbs();
 }
 
@@ -324,18 +355,16 @@ async function queueThumbs() {
   const st = await stageReady;
   try {
     let el;
-    while (st && (el = $('img[data-thumb]'))) {
+    while ((el = $('img[data-thumb]'))) {
       const car = S.cat.cars.find(c => c.id === el.dataset.thumb);
       el.removeAttribute('data-thumb');
-      if (!car) continue;
+      if (!car || !st) { el.nextElementSibling?.classList.contains('shimmer') && el.nextElementSibling.remove(); continue; }
       const key = thumbKey(car);
       if (!S.thumbs.has(key)) {
-        S.thumbs.set(key, st.snapshot(car, car.colors?.[0]));
-        await new Promise(r => setTimeout(r, 0));
+        S.thumbs.set(key, await st.snapshot(car, car.colors?.[0]).catch(() => ''));
       }
-      $$(`.card[data-id="${CSS.escape(car.id)}"] img.render, .admin-car[data-id="${CSS.escape(car.id)}"] img.render`).forEach(img => {
-        img.src = S.thumbs.get(key);
-        img.hidden = false;
+      $$(`[data-id="${CSS.escape(car.id)}"] img.render`).forEach(img => {
+        if (S.thumbs.get(key)) { img.src = S.thumbs.get(key); img.hidden = false; }
         img.removeAttribute('data-thumb');
         img.nextElementSibling?.classList.contains('shimmer') && img.nextElementSibling.remove();
       });
@@ -343,13 +372,74 @@ async function queueThumbs() {
   } finally { thumbBusy = false; }
 }
 
+/* Hero showcase: a live 3D car on the lime card, cycling through the current results. */
+function showcaseCars() {
+  const list = filteredCars().filter(c => c.available);
+  return list.length ? list : S.cat.cars.filter(c => c.available);
+}
+function renderShowcase() {
+  const list = showcaseCars();
+  if (!list.length) return;
+  S.feat = ((S.feat || 0) % list.length + list.length) % list.length;
+  const c = list[S.feat];
+  S.featCar = c;
+  $('#show-ghost').textContent = c.model.split(/\s+/)[0];
+  $('#show-name').innerHTML = `<small>${brandMark(c.make)}${esc(c.make)}</small><b>${esc(c.model)}</b>`;
+  $('#show-price').innerHTML = `<small>${esc(t(S.f.mode === 'buy' ? 'buyFor' : 'rentFrom'))}</small>${priceHtml(c)}`;
+  $('#show-open').href = '#/car/' + encodeURIComponent(c.id);
+  mountHero();
+}
+async function mountHero() {
+  const host = $('#hero-host');
+  const st = await stageReady;
+  if (!st || !S.featCar || S.view !== 'browse' || $('#dlg-car').open) return;
+  const car = S.featCar;
+  await st.show(car, car.colors?.[0]).catch(() => null);
+  if (S.featCar !== car || $('#dlg-car').open || S.view !== 'browse') return;
+  st.setMode('ext');
+  st.autoRotate = true;
+  st.setTouch('pan-y');
+  st.setFraming(1.15);
+  if (st.host !== host) { st.unmount(); st.mount(host); }
+}
+
 function bindBrowse() {
   $('#q').addEventListener('input', e => { S.f.q = e.target.value; renderGrid(); });
   $('#seg-mode').addEventListener('click', e => { const b = e.target.closest('[data-mode]'); if (b) { S.f.mode = b.dataset.mode; renderFilters(); renderGrid(); } });
-  $('#chips-body').addEventListener('click', e => { const b = e.target.closest('[data-body]'); if (b) { S.f.body = b.dataset.body; renderFilters(); renderGrid(); } });
+  $('#brands').addEventListener('click', e => { const b = e.target.closest('[data-brand]'); if (b) { S.f.brand = b.dataset.brand; S.feat = 0; renderFilters(); renderGrid(); } });
+  $('#chips-body').addEventListener('click', e => {
+    const b = e.target.closest('[data-body]');
+    if (b) S.f.body = b.dataset.body;
+    else if (e.target.closest('[data-saved]')) S.f.saved = !S.f.saved;
+    else return;
+    S.feat = 0;
+    renderFilters();
+    renderGrid();
+  });
   $('#sel-fuel').onchange = e => { S.f.fuel = e.target.value; renderGrid(); };
   $('#sel-sort').onchange = e => { S.f.sort = e.target.value; renderGrid(); };
+  $('#f-from').onchange = e => {
+    S.from = e.target.value || S.from;
+    if (S.to <= S.from) S.to = isoDay(new Date(S.from).getTime() + 3 * DAY);
+    renderFilters();
+  };
+  $('#f-to').onchange = e => { if (e.target.value > S.from) S.to = e.target.value; renderFilters(); };
+  $('#finder').onsubmit = e => { e.preventDefault(); $('#brands').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+  $('#show-prev').onclick = () => { S.feat--; renderShowcase(); };
+  $('#show-next').onclick = () => { S.feat++; renderShowcase(); };
+  $('#show-open').onclick = e => { e.preventDefault(); if (S.featCar) { S.pushedCar = true; location.hash = '#/car/' + encodeURIComponent(S.featCar.id); } };
   const open = e => {
+    const save = e.target.closest('[data-save]');
+    if (save) {
+      e.stopPropagation();
+      const id = save.dataset.save;
+      S.saved.has(id) ? S.saved.delete(id) : S.saved.add(id);
+      local.set('saved', [...S.saved]);
+      save.classList.toggle('on', S.saved.has(id));
+      save.setAttribute('aria-pressed', S.saved.has(id));
+      if (S.f.saved) renderGrid();
+      return;
+    }
     const card = e.target.closest('.card');
     if (!card || (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ')) return;
     e.preventDefault();
@@ -361,53 +451,62 @@ function bindBrowse() {
 }
 
 /* ---------- Car detail ---------- */
-const C = { car: null, color: null, tab: '3d', mode: 'ext', photo: 0, deal: 'rent', from: null, to: null, ins: true, down: 20, term: 60, payFull: false };
+const C = { car: null, color: null, tab: '3d', mode: 'ext', photo: 0, deal: 'rent', from: null, to: null, ins: true, down: 20, term: 60, payFull: false, spin: true };
 
 function openCar(id) {
   const car = S.cat.cars.find(c => c.id === id);
   if (!car) { location.replace('#/browse'); return; }
+  // Open on the deal the shopper picked in the finder (Rent or Buy) when the car offers it.
+  const deal = (S.f.mode === 'buy' ? car.forSale : car.forRent) ? S.f.mode : (car.forRent ? 'rent' : 'buy');
   Object.assign(C, {
     car, color: car.colors?.[0] || '#c8ccd2', tab: car.photos?.length ? 'photos' : '3d', mode: 'ext', photo: 0,
-    deal: car.forRent ? 'rent' : 'buy', from: isoDay(Date.now() + DAY), to: isoDay(Date.now() + 4 * DAY), ins: true, down: 20, term: 60, payFull: false,
+    deal, from: S.from, to: S.to, ins: true, down: 20, term: 60, payFull: false, spin: true,
   });
   renderCar();
   const dlg = $('#dlg-car');
   if (!dlg.open) dlg.showModal();
+  syncStage();
 }
 
 function renderCar() {
   const c = C.car;
   const photos = c.photos || [];
+  const is3d = C.tab === '3d';
   $('#car-sheet').innerHTML = `
-    <div class="stage">
+    <div class="stage ${is3d ? (C.mode === 'int' ? 'inside' : '') : 'photos'}" id="car-stage">
+      <div class="ghost">${esc(c.model.split(/\s+/)[0])}</div>
       <div class="stage-top">
-        <div class="seg glass">
-          <button data-tab="3d" class="${C.tab === '3d' ? 'on' : ''}">${icon('cube')} ${esc(t('tab3d'))}</button>
-          <button data-tab="photos" class="${C.tab === 'photos' ? 'on' : ''}">${icon('camera')} ${esc(t('tabPhotos'))} (${num(photos.length)})</button>
+        <div class="seg">
+          <button data-tab="3d" class="${is3d ? 'on' : ''}">${icon('cube')} ${esc(t('tab3d'))}</button>
+          <button data-tab="photos" class="${is3d ? '' : 'on'}">${icon('camera')} ${esc(t('tabPhotos'))} (${num(photos.length)})</button>
         </div>
-        <div class="seg glass" id="ext-int" ${C.tab === '3d' ? '' : 'hidden'}>
+        ${is3d ? `<div class="seg">
           <button data-vmode="ext" class="${C.mode === 'ext' ? 'on' : ''}">${esc(t('exterior'))}</button>
           <button data-vmode="int" class="${C.mode === 'int' ? 'on' : ''}">${esc(t('interior'))}</button>
-        </div>
+        </div>` : ''}
       </div>
       <div class="stage-host" id="stage-host"></div>
-      <div class="gallery ${C.tab === 'photos' ? 'on' : ''}" id="gallery"></div>
-      <div class="stage-bottom" id="stage-bottom" ${C.tab === '3d' ? '' : 'hidden'}>
-        <div class="swatches glass" role="radiogroup" aria-label="${esc(t('color'))}">${(c.colors || []).map(col =>
+      <div class="gallery ${is3d ? '' : 'on'}" id="gallery"></div>
+      ${is3d ? `<div class="stage-note">${esc(t('model3dNote'))}</div>
+      <div class="stage-bottom">
+        <div class="swatches" role="radiogroup" aria-label="${esc(t('color'))}">${(c.colors || []).map(col =>
           `<button class="sw ${col === C.color ? 'on' : ''}" style="background:${esc(col)}" data-color="${esc(col)}" role="radio" aria-checked="${col === C.color}" aria-label="${esc(col)}"></button>`).join('')}</div>
-        <span class="hint glass">${icon('hand')} ${esc(t(C.mode === 'int' ? 'hintInterior' : 'hintExterior'))}</span>
-      </div>
+        <div class="round-acts">
+          ${C.mode === 'ext' ? `<button class="icon-btn ${C.spin ? 'on' : ''}" data-spin aria-pressed="${C.spin}" title="${esc(t('spin360'))}" aria-label="${esc(t('spin360'))}">${icon('rotate')}</button>` : ''}
+          <button class="icon-btn ${S.saved.has(c.id) ? 'on' : ''}" data-save-car aria-pressed="${S.saved.has(c.id)}" title="${esc(t('saveCar'))}" aria-label="${esc(t('saveCar'))}">${icon('heart')}</button>
+        </div>
+      </div>` : ''}
     </div>
     <div class="panel" id="car-panel"></div>
-    <button class="icon-btn sheet-close glass" data-close aria-label="${esc(t('close'))}">${icon('x')}</button>`;
+    <button class="icon-btn sheet-close" data-close aria-label="${esc(t('close'))}">${icon('x')}</button>`;
   renderGallery();
   renderCarPanel();
   const sheet = $('#car-sheet');
   sheet.onclick = e => {
     const tab = e.target.closest('[data-tab]');
-    if (tab) { C.tab = tab.dataset.tab; renderCar(); return; }
+    if (tab) { C.tab = tab.dataset.tab; renderCar(); syncStage(); return; }
     const vm = e.target.closest('[data-vmode]');
-    if (vm) { C.mode = vm.dataset.vmode; stage?.setMode(C.mode); renderCar(); return; }
+    if (vm) { C.mode = vm.dataset.vmode; renderCar(); syncStage(); return; }
     const sw = e.target.closest('[data-color]');
     if (sw) {
       C.color = sw.dataset.color;
@@ -415,19 +514,30 @@ function renderCar() {
       $$('.sw', sheet).forEach(b => { b.classList.toggle('on', b === sw); b.setAttribute('aria-checked', b === sw); });
       return;
     }
+    if (e.target.closest('[data-spin]')) { C.spin = !C.spin; if (stage) stage.autoRotate = C.spin; renderCar(); syncStage(); return; }
+    if (e.target.closest('[data-save-car]')) {
+      S.saved.has(c.id) ? S.saved.delete(c.id) : S.saved.add(c.id);
+      local.set('saved', [...S.saved]);
+      renderCar(); syncStage(); renderGrid();
+      return;
+    }
     if (e.target.closest('[data-close]')) closeCarDialog();
   };
-  syncStage();
 }
 
 async function syncStage() {
   const host = $('#stage-host');
-  if (C.tab !== '3d' || !host) { stage?.unmount(); return; }
   const st = await stageReady;
-  if (!st) { host.innerHTML = `<div class="empty" style="margin:80px 20px">${esc(t('no3d'))}</div>`; return; }
-  if (!$('#dlg-car').open || C.tab !== '3d') return;
-  st.show(C.car, C.color);
+  if (!$('#dlg-car').open) return;
+  if (C.tab !== '3d' || !host) { if (st?.host && !st.host.isConnected || st?.host?.closest('#dlg-car')) st.unmount(); return; }
+  if (!st) { host.innerHTML = `<div class="empty" style="margin:80px 20px;color:inherit">${esc(t('no3d'))}</div>`; return; }
+  const car = C.car;
+  await st.show(car, C.color).catch(() => null);
+  if (!$('#dlg-car').open || C.car !== car || C.tab !== '3d' || !host.isConnected) return;
   st.setMode(C.mode);
+  st.autoRotate = C.spin;
+  st.setTouch('none');
+  st.setFraming(0.55);
   if (st.host !== host) { st.unmount(); st.mount(host); }
 }
 
@@ -478,7 +588,7 @@ function renderCarPanel() {
   if (!c.available) deal = `<div class="notice">${esc(t('unavailableLong'))}</div>`;
   else if (C.deal === 'rent') {
     deal = `
-      <div class="big-price">${money(c.rentPerDay)}<span> ${esc(t('perDay'))}</span></div>
+      <div><small class="faint">${esc(t('price'))}</small><div class="big-price">${money(c.rentPerDay)}<span> ${esc(t('perDay'))}</span></div></div>
       <div class="row">
         <label class="field"><span>${esc(t('pickUp'))}</span><input type="date" id="d-from" min="${today}" value="${C.from}"></label>
         <label class="field"><span>${esc(t('return'))}</span><input type="date" id="d-to" min="${C.from}" value="${C.to}"></label>
@@ -492,7 +602,7 @@ function renderCarPanel() {
       <button class="btn primary block" data-checkout>${icon('trips')} ${esc(t('rentNow'))}</button>`;
   } else {
     deal = `
-      <div class="big-price">${money(c.price)}</div>
+      <div><small class="faint">${esc(t('price'))}</small><div class="big-price">${money(c.price)}</div></div>
       <div class="seg" style="width:100%">
         <button data-full="0" class="${C.payFull ? '' : 'on'}" style="flex:1">${esc(t('finance'))}</button>
         <button data-full="1" class="${C.payFull ? 'on' : ''}" style="flex:1">${esc(t('payFull'))}</button>
@@ -507,7 +617,8 @@ function renderCarPanel() {
       <button class="btn primary block" data-checkout>${icon('check')} ${esc(t('buyNow'))}</button>`;
   }
   $('#car-panel').innerHTML = `
-    <h2><small>${esc(c.year)} · ${esc(t('body_' + c.body))}</small>${esc(carName(c))}</h2>
+    <span class="brand-line">${brandMark(c.make)}${esc(c.make)} · ${esc(c.year)} · ${esc(t('body_' + c.body))}</span>
+    <h2>${esc(c.model)}</h2>
     <div class="tags"><span class="rating">${icon('star')} ${(c.rating || 5).toFixed(1)}</span><span class="tag">${esc(t('tripsN', { n: num(c.trips || 0) }))}</span>${c.photos?.length ? `<span class="tag">${icon('camera')} ${esc(t('realPhotos'))}</span>` : ''}</div>
     <div class="specs">${specs.map(([i, v, l]) => `<div class="spec">${icon(i)}<b>${esc(v)}</b><small>${esc(l)}</small></div>`).join('')}</div>
     ${c.description ? `<p class="muted" style="margin:0;white-space:pre-line">${esc(c.description)}</p>` : ''}
@@ -551,6 +662,7 @@ function closeCarDialog(fromRoute) {
     if (S.pushedCar) history.back(); else location.replace('#/browse');
   }
   S.pushedCar = false;
+  setTimeout(mountHero, 0);
 }
 
 /* ---------- Lightbox ---------- */
@@ -649,7 +761,7 @@ function renderTrips() {
     const car = S.cat.cars.find(c => c.id === x.carId);
     const img = x.photo || (car && S.thumbs.get(thumbKey(car))) || '';
     return `<div class="trip">
-      <img src="${esc(img)}" alt="">
+      <img class="${x.photo ? 'photo' : ''}" src="${esc(img)}" alt="">
       <div><h4>${esc(x.car)} <span class="status ${x.status}">${esc(t('status_' + x.status))}</span></h4>
         <div class="faint">${esc(t(x.kind === 'rent' ? 'rent' : 'buy'))} · ${esc(x.kind === 'rent' ? `${fmtDate(x.from)} → ${fmtDate(x.to)}` : x.summary)}</div>
         <div class="faint">${esc(t('bookingCode'))}: <b>${esc(x.code)}</b> · ${esc(t('paid'))}: ${money(x.dueUsd)}</div></div>
@@ -755,7 +867,7 @@ function renderAdmin() {
           </div>
           <div class="list">${S.cat.cars.map(c => `
             <div class="admin-car" data-id="${esc(c.id)}">
-              ${c.photos?.length ? `<img src="${esc(c.photos[0])}" alt="">` : `<img class="render" ${S.thumbs.has(thumbKey(c)) ? `src="${S.thumbs.get(thumbKey(c))}"` : `data-thumb="${esc(c.id)}"`} alt="">`}
+              ${c.photos?.length ? `<img class="photo" src="${esc(c.photos[0])}" alt="">` : `<img class="render" ${S.thumbs.has(thumbKey(c)) ? `src="${S.thumbs.get(thumbKey(c))}"` : `data-thumb="${esc(c.id)}"`} alt="">`}
               <div><b>${esc(carName(c))}</b> <span class="faint">${esc(c.year)}</span>
                 <div class="faint">${icon('camera')} ${num(c.photos?.length || 0)} · ${c.forRent ? money(c.rentPerDay) + t('perDay') : '—'} · ${c.forSale ? money(c.price) : '—'}${c.available ? '' : ' · ' + esc(t('unavailable'))}</div></div>
               <div class="acts">
@@ -1111,7 +1223,8 @@ async function boot() {
   bindBrowse();
   // A forced close (e.g. a repeated Esc that skips 'cancel') still has to leave the #/car/ route.
   $('#dlg-car').addEventListener('close', () => {
-    stage?.unmount();
+    if (stage?.host?.closest('#dlg-car')) stage.unmount();
+    setTimeout(mountHero, 0);
     if (!S.closing && location.hash.startsWith('#/car/')) location.replace('#/browse');
     S.closing = false;
   });

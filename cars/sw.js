@@ -1,6 +1,7 @@
 // MasterDrive offline support: pages and the catalog load fresh when online; everything else is served from cache and refreshed in the background.
-const CACHE = 'masterdrive-1';
-const FILES = ['./', 'index.html', 'app.js', 'i18n.js', 'viewer.js', 'catalog.json', 'vendor/three.module.min.js', 'vendor/RoomEnvironment.js',
+const CACHE = 'masterdrive-2';
+const FILES = ['./', 'index.html', 'app.js', 'i18n.js', 'viewer.js', 'catalog.json', 'brands.js', 'vendor/three.module.min.js', 'vendor/RoomEnvironment.js', 'vendor/jsm/loaders/GLTFLoader.js',
+  'vendor/jsm/utils/BufferGeometryUtils.js', 'vendor/jsm/libs/meshopt_decoder.module.js',
   'manifest.webmanifest', 'icon.svg', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {

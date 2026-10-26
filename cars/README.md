@@ -21,6 +21,8 @@ Do step 3 right away. Until you publish, the ownership exists only on your own d
 
 ## Good to know
 
+- **3D models** are representative: sports cars use a Ferrari 458 Italia model (by vicent091036, CC BY) and every other car uses the Khronos Car Concept model (Eric Chadwick / DGG, CC BY 4.0). Upload real photos to show the actual car. Brand logos come from Simple Icons (CC0); the brands themselves are trademarks of their owners.
+
 - **Payments are a demo.** Checkout records the booking on the customer's device and collects no card details. To take real money, connect a provider such as Stripe or Omise behind a small server.
 - **Customer bookings stay on the customer's device.** There is no server yet, so the owner doesn't see orders. That needs a backend, which can be added later.
 - The owner check runs in the browser. What really protects the store is that **publishing needs your GitHub token**: nobody can change the live catalog without write access to this repository.
